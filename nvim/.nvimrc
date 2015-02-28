@@ -72,7 +72,7 @@ set fileformats=unix,dos,mac " try recognizing line endings in this order
 " for X11:
 "   + is the clipboard register (Ctrl-{c,v})
 "   * is the selection register (middle click, Shift-Insert)
-set clipboard=unnamed,autoselect
+set clipboard=unnamed
 
 " use clipboard register when supported (X11 only)
 if has("unnamedplus")
