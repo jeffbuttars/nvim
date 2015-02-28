@@ -94,3 +94,5 @@ function! AdjustQFWindowHeight()
     " so it's always full length.
     exe "normal \<C-W>\<S-J>" 
 endfunction
+
+syntax on

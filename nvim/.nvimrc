@@ -2,7 +2,6 @@ runtime! plugin/python_setup.vim
 
 " Needed by neobundle, so enable early
 filetype plugin indent on
-syntax on
 
 " Load our bundles early
 " runtime nvimrc/nerdcomment.vim
