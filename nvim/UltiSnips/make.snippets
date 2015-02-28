@@ -1,0 +1,35 @@
+priority 1
+
+
+snippet ifeq "ifeq" !b
+ifeq (${1},${2})
+    ${0}
+endif
+endsnippet
+
+snippet ifneq "ifneq" !b
+ifneq (${1},${2})
+    ${0}
+endif
+endsnippet
+
+snippet else "else" !b
+else
+    ${1}
+endsnippet
+
+snippet ( "Make $(VAR)" !
+$(${1})${0}
+endsnippet
+
+snippet mk "$(MAKE)" !b
+$(MAKE) ${0}
+endsnippet
+
+snippet : "vname := value" !b
+${1} := ${2}${0}
+endsnippet
+
+snippet = "vname = value" !b
+${1} = ${2}${0}
+endsnippet

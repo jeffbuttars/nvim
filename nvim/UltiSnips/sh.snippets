@@ -1,0 +1,32 @@
+snippet fun "function() "
+${1}()
+{
+	$0
+} #$1
+endsnippet
+
+snippet go "getopts "
+while getopts ":${1:h${2}}" ${3:opts} 
+do 
+    case $$3 in
+    h)
+        echo "A help message for this script.";;
+    \?)
+        echo "Invalid Option: -$OPTARG" >&2;;
+    esac
+done
+endsnippet
+
+snippet fori
+for ${1:needle} in ${2:haystack} ; do
+    ${3:#statements}
+done
+endsnippet
+
+snippet tdir "THIS_DIR"
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+endsnippet
+
+snippet #! "#!/bin/bash" !b
+#!/bin/bash
+endsnippet

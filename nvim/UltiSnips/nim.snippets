@@ -1,0 +1,82 @@
+
+snippet var "var name = <value>. Type infered" b!
+var ${1:name} = ${0}
+endsnippet
+
+snippet var "var name: type = <value>. type declared" b!
+vat ${1:name}: ${2:type} = ${0}
+endsnippet
+
+snippet vas "var name: string = <value>" b!
+vas ${1:name}: string = ${0}
+endsnippet
+
+snippet let "let name = <value>" b!
+let ${1:name} = ${0}
+endsnippet
+
+snippet if "if <condition>" b!
+if ${1}:
+    ${0}
+endsnippet
+
+snippet when "when <condition>" b!
+when ${1}:
+    ${0}
+endsnippet
+
+snippet elif "elif <condition>" b!
+elif ${1}:
+    ${0}
+endsnippet
+
+snippet else "else" b!
+else:
+    ${0}
+endsnippet
+
+snippet case "case block" b!
+case ${1:varable}
+${0}
+else:
+endsnippet
+
+snippet of "of" b!
+of ${1}:
+    ${0}
+endsnippet
+
+snippet fim "from <package> import <stuff>" b!
+from ${1} import ${0}
+endsnippet
+
+snippet ec "echo()" b!
+echo(${1})${0}
+endsnippet
+
+snippet while "while <condition>:" b!
+while ${1} :
+    ${0}
+endsnippet
+
+snippet for "for <item> in <collection>:" b!
+for ${1} in ${2}:
+    ${0}
+endsnippet
+
+snippet cu "countup(1, ..)" b!
+countup(${1:0}, ${2})
+endsnippet
+
+snippet cd "countdown(.., 0)" b!
+countup(${1}, ${2:0})
+endsnippet
+
+snippet inc "inc(<i>)" b!
+inc(${1:i})${0}
+endsnippet
+
+snippet blk "block <blockname>:" b!
+block ${1:name}:
+    ${0}
+endsnippet
