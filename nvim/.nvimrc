@@ -6,7 +6,6 @@ endif
 " runtime nvimrc/nerdcomment.vim
 " runtime nvimrc/bundles.vim
 
-filetype on
 
 set lazyredraw      " Don't redraw screen when executing macros
 set history=1000 " keep 1000 lines of command line history
@@ -42,8 +41,8 @@ set incsearch    " Enable incremental searching
 
 " ## Autocommands
 "
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+syntax on
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
