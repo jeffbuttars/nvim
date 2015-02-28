@@ -21,7 +21,7 @@ fi
 
 pr_info "Creating the new ~/.nvimrc"
 export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
-echo "set runtimepath=$PKGS_NVIM_DIR,\$NVIMRUNTIME" > ~/.nvimrc
+echo "set runtimepath+=$PKGS_NVIM_DIR" > ~/.nvimrc
 echo "source $PKGS_NVIM_DIR/.nvimrc" >> ~/.nvimrc
 
 # pr_info "Updating bundles..."
