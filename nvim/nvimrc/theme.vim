@@ -12,8 +12,6 @@ let g:html_diff_one_file = 1
 " Setup solarized colorscheme
 let g:solarized_termcolors = 16
 colorscheme solarized
-" Set the lightline theme too
-let g:lightline.colorscheme = 'solarized'
 
 " We like italics in the terminal, so add some sauce to make sure we get it.
 set t_ZH=[3m
