@@ -2,9 +2,13 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 
+" Needed by neobundle, so enable early
+filetype plugin indent on
+syntax on
+
 " Load our bundles early
 " runtime nvimrc/nerdcomment.vim
-" runtime nvimrc/bundles.vim
+runtime nvimrc/bundles.vim
 
 
 set lazyredraw      " Don't redraw screen when executing macros
@@ -41,16 +45,10 @@ set incsearch    " Enable incremental searching
 
 " ## Autocommands
 "
-filetype plugin indent on
-syntax on
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
 au!
-
-" For all text files set 'textwidth' to 98 characters.
-" XXX Move this to the theme.vim file when we add it.
-autocmd FileType text,txt setlocal textwidth=98
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -81,14 +79,6 @@ endif
 
 " I like to have my files automatically reloaded if they change on disk
 set autoread
-
-" XXX Move this to the theme.vim file when we add it.
-" More normal Vim tweaks.
-" vertical: make a diff split vertical by default
-" iwhite: ignore whitespace
-" context: show 15 lines of context
-set diffopt=filler,vertical,context:15
-let g:html_diff_one_file = 1
 
 " Default tab config, use spaces
 set tabstop=4

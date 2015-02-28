@@ -5,11 +5,11 @@ source pkgs.sh
 # Make sure we have an undos directory
 mkdir -p ~/.nvim/undos
 
-# mkdir -p ~/.nvim/bundle
-# if [[ ! -d  ~/.vim/bundle/neobundle.vim ]]; then
-#     pr_info "Installing neobundle."
-#     git clone git://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim
-# fi
+mkdir -p ~/.nvim/bundle
+if [[ ! -d  ~/.nvim/bundle/neobundle.vim ]]; then
+    pr_info "Installing neobundle."
+    git clone git://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim
+fi
 
 export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -24,10 +24,15 @@ export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
 echo "set runtimepath+=$PKGS_NVIM_DIR" > ~/.nvimrc
 echo "source $PKGS_NVIM_DIR/.nvimrc" >> ~/.nvimrc
 
-# pr_info "Updating bundles..."
-# echo "y\ny\ny\n" | nvim +'NeoBundleInstall!<\CR>' +'q'
-# wait
+pr_info "Updating bundles..."
+echo "y\ny\ny\n" | nvim +'NeoBundleInstall!<\CR>' +'q'
+wait
 
-# source buildycm.sh
+source buildycm.sh
+
+pr_info "Building vimproc .so..."
+cd ~/.nvim/bundle/vimproc
+make
+cd -
 
 pr_pass "Install complete"
