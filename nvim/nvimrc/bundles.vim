@@ -56,7 +56,7 @@ NeoBundle 'DirDiff.vim'
 NeoBundle 'vim-indent-object'
 NeoBundle 'nginx.vim'
 NeoBundle 'patchreview.vim'
-NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
+" NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
 " Load Ultisnips last to make sure it has the <tab> map
 NeoBundle 'https://github.com/SirVer/ultisnips.git'
 NeoBundle 'https://github.com/honza/vim-snippets'

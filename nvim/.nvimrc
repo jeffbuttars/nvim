@@ -1,6 +1,4 @@
-if has('nvim')
-    runtime! plugin/python_setup.vim
-endif
+runtime! plugin/python_setup.vim
 
 " Needed by neobundle, so enable early
 filetype plugin indent on
