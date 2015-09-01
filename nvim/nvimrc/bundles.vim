@@ -74,6 +74,7 @@ NeoBundle 'https://github.com/zah/nimrod.vim'
 
 " Tornado template syntax
 NeoBundle 'https://github.com/vim-scripts/tornadotmpl.vim.git'
+NeoBundle 'https://github.com/Shougo/vimfiler.vim'
 
 " Colorschemes
 "
