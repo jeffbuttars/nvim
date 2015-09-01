@@ -26,7 +26,7 @@ call neobundle#begin(expand('~/.nvim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Use neobundle standard recipes.
-NeoBundle 'Shougo/neobundle-vim-recipes'
+" NeoBundle 'Shougo/neobundle-vim-recipes'
 
 " Recommended to install
 " After install, turn shell ~/.nvim/bundle/vimproc, (n,g)make -f your_machines_makefile
@@ -42,12 +42,14 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " Place your bundles here!
 
+NeoBundle 'https://github.com/Shougo/unite.vim'
+
 NeoBundle 'https://github.com/tpope/vim-fugitive.git'
-NeoBundle 'https://github.com/kien/ctrlp.vim'
+NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 NeoBundle 'https://github.com/nvie/vim-flake8'
 NeoBundle 'https://github.com/bling/vim-airline.git'
 NeoBundle 'https://github.com/bling/vim-bufferline.git'
-NeoBundle 'https://github.com/kien/rainbow_parentheses.vim'
+NeoBundle 'https://github.com/junegunn/rainbow_parentheses.vim'
 NeoBundle 'https://github.com/scrooloose/nerdcommenter.git'
 NeoBundle 'git://github.com/lrvick/Conque-Shell.git'
 NeoBundle 'https://github.com/tpope/vim-eunuch.git'
@@ -59,22 +61,27 @@ NeoBundle 'https://github.com/vim-ruby/vim-ruby'
 NeoBundle 'https://github.com/vim-scripts/ldif.vim.git'
 NeoBundle 'https://github.com/tpope/vim-dispatch.git'
 NeoBundle 'Gundo'
-NeoBundle 'The-NERD-tree'
+NeoBundle 'https://github.com/Shougo/vimfiler.vim'
 NeoBundle 'DirDiff.vim'
 NeoBundle 'vim-indent-object'
 NeoBundle 'nginx.vim'
 NeoBundle 'patchreview.vim'
-" NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
+NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
 " Load Ultisnips last to make sure it has the <tab> map
-NeoBundle 'https://github.com/SirVer/ultisnips.git'
+NeoBundle 'https://github.com/sirver/ultisnips'
 NeoBundle 'https://github.com/honza/vim-snippets'
 NeoBundle 'https://github.com/vim-scripts/stata.vim'
 NeoBundle 'https://github.com/jacquesbh/vim-showmarks.git'
 NeoBundle 'https://github.com/zah/nimrod.vim'
+NeoBundle 'chrisbra/vim-diff-enhanced'
+NeoBundle 'https://github.com/mhinz/vim-rfc'
+NeoBundle 'https://github.com/vim-scripts/rfc-syntax'
+NeoBundle 'https://github.com/mustache/vim-mustache-handlebars'
+NeoBundle 'ryanoasis/vim-webdevicons'
+NeoBundle 'hsanson/vim-android'
 
 " Tornado template syntax
 NeoBundle 'https://github.com/vim-scripts/tornadotmpl.vim.git'
-NeoBundle 'https://github.com/Shougo/vimfiler.vim'
 
 " Colorschemes
 "
@@ -89,5 +96,8 @@ NeoBundle 'Solarized'
 
 call neobundle#end()
 
+filetype plugin indent on     " Required!
+
  " Installation check.
 NeoBundleCheck
+
