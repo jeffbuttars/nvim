@@ -6,8 +6,9 @@ build_ycm()
     if [[ -d ~/.nvim/bundle/YouCompleteMe ]]; then
         pr_info "Building YouCompleteMe"
         cd ~/.nvim/bundle/YouCompleteMe
+        git submodule update --init --recursive
         echo $(git rev-parse HEAD) > $THIS_DIR/last_ycm
-        ./install.sh --clang-completer --system-libclang
+        ./install.sh --clang-completer
 
         cd -
     fi
@@ -23,4 +24,3 @@ else
         build_ycm
     fi
 fi
-

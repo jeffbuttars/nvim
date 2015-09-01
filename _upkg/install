@@ -4,8 +4,25 @@ source pkgs.sh
 
 # Make sure we have an undos directory
 mkdir -p ~/.nvim/undos
-
 mkdir -p ~/.nvim/bundle
+
+if [[ ! -d  ~/.nvim/bundle/YouCompleteMe ]]; then
+    git clone https://github.com/Valloric/YouCompleteMe ~/.nvim/bundle/YouCompleteMe
+    source buildycm.sh
+fi
+
+
+# Link our UltiSnips up
+ln -nsf ${THIS_DIR}/../nvim/UltiSnips ~/.nvim/
+
+if [[ ! -d  ~/.nvim/bundle/vimproc ]]; then
+    pr_info "Installing vimproc"
+    git clone https://github.com/Shougo/vimproc.vim ~/.nvim/bundle/vimproc
+    cd ~/.nvim/bundle/vimproc
+    make
+    cd -
+fi
+
 if [[ ! -d  ~/.nvim/bundle/neobundle.vim ]]; then
     pr_info "Installing neobundle."
     git clone git://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim
@@ -28,7 +45,7 @@ pr_info "Updating bundles..."
 echo "y\ny\ny\n" | nvim +'NeoBundleInstall!<\CR>' +'q'
 wait
 
-# source buildycm.sh
+source buildycm.sh
 
 # pr_info "Building vimproc .so..."
 # cd ~/.nvim/bundle/vimproc
