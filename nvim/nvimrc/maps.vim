@@ -29,6 +29,9 @@ vnoremap ``  <ESC>`>a`<ESC>`<i`<ESC>
 vnoremap [[  <ESC>`>a]<ESC>`<i[<ESC>
 vnoremap ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
 
+" vnoremap < <gv " better indentation control
+" vnoremap > >gv " better indentation control
+
 " This allows us to save a file as root with the :w!! command,
 " if we have sudo privileges, " when we're not currently useing vim as root
 cmap w!! %!sudo tee > /dev/null %
