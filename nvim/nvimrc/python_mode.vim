@@ -15,10 +15,16 @@ let g:pymode_options_max_line_length = 99
 " Enable colorcolumn display at max_line_length   *'g:pymode_options_colorcolumn'*
 let g:pymode_options_colorcolumn = 0
 
-Setup pymode |quickfix| window
+" Setup pymode |quickfix| window
 " *'g:pymode_quickfix_maxheight'* *'g:pymode_quickfix_minheight'*
 " let g:pymode_quickfix_minheight = 3
 " let g:pymode_quickfix_maxheight = 6
 "
 let g:pymode_folding = 0
-let g:pymode_doc = 0
+let g:pymode_doc = 1
+
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+
+" Probably redundant
+let g:pymode_rope_lookup_project' = 0
