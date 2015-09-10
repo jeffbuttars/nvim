@@ -27,4 +27,4 @@ let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 
 " Probably redundant
-let g:pymode_rope_lookup_project' = 0
+let g:pymode_rope_lookup_project = 0
