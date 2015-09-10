@@ -44,6 +44,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'https://github.com/Shougo/unite.vim'
 
+NeoBundle 'https://github.com/klen/python-mode.git'
 NeoBundle 'https://github.com/tpope/vim-fugitive.git'
 NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 NeoBundle 'https://github.com/nvie/vim-flake8'
