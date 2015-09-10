@@ -1,19 +1,7 @@
 #!/bin/bash
 
 source pkgs.sh
-
-# Make sure we have an undos directory
-mkdir -p ~/.nvim/undos
-mkdir -p ~/.nvim/bundle
-
-if [[ ! -d  ~/.nvim/bundle/YouCompleteMe ]]; then
-    git clone https://github.com/Valloric/YouCompleteMe ~/.nvim/bundle/YouCompleteMe
-    source buildycm.sh
-fi
-
-
-# Link our UltiSnips up
-ln -nsf ${THIS_DIR}/../nvim/UltiSnips ~/.nvim/
+source in_up.sh
 
 if [[ ! -d  ~/.nvim/bundle/vimproc ]]; then
     pr_info "Installing vimproc"
@@ -42,7 +30,7 @@ echo "set runtimepath+=$PKGS_NVIM_DIR" > ~/.nvimrc
 echo "source $PKGS_NVIM_DIR/.nvimrc" >> ~/.nvimrc
 
 pr_info "Updating bundles..."
-echo "y\ny\ny\n" | nvim +'NeoBundleInstall!<\CR>' +'q'
+echo "y\ny\ny\n" | nvim -c 'NeoBundleInstall!<\CR>' -c 'q'
 wait
 
 source buildycm.sh
