@@ -26,7 +26,6 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 	hi clear CursorLine 
 
     set background=dark
-    let g:lucius_style = "dark"
 
     if $TERM_META =~ 'white'
         set background=light
