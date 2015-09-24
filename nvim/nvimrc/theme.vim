@@ -36,6 +36,18 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         let g:solarized_style = 'dark'
     endif
 
+    " Weird fix for Terminology. Need to swap the 
+    " light/dark versions
+    if $TERMINOLOGY = '1'
+        if $TERM_META =~ 'white'
+            let g:solarized_style = 'dark'
+        else
+            let g:solarized_style = 'light'
+        endif
+
+        set background=light
+    endif
+
 	set cursorline
 	set cursorcolumn
 endif
