@@ -39,6 +39,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
     " Weird fix for Terminology. Need to swap the 
     " light/dark versions
     if $TERMINOLOGY = '1'
+        echo "Terminology!!!!"
         if $TERM_META =~ 'white'
             let g:solarized_style = 'dark'
         else
