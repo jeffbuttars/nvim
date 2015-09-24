@@ -24,12 +24,9 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 	" use 256 colors if we think the console can handle it.
 	" set t_Co=256
 	hi clear CursorLine 
-
-    set background=dark
+    let g:solarized_style = 'light'
 
     if $TERM_META =~ 'white'
-        set background=light
-        let g:solarized_style = 'light'
         set nocursorline
     else
         let g:solarized_style = 'dark'
@@ -38,15 +35,16 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
     " Weird fix for Terminology. Need to swap the 
     " light/dark versions
     if $TERMINOLOGY == '1'
-        echo "Terminology!!!!"
         if $TERM_META =~ 'white'
             let g:solarized_style = 'dark'
         else
             let g:solarized_style = 'light'
         endif
 
-        set background=light
     endif
+
+    " set background="" . g:solarized_style
+    colorscheme solarized
 
 	set cursorline
 	set cursorcolumn
