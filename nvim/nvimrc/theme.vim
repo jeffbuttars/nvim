@@ -51,8 +51,15 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 endif
 
 " set linenumbers on by default
+" When in insert mode, show linear numbers
+" When not in insert mode, show current line number with relative numbers
 set number 
 set relativenumber 
+
+au InsertLeave * :set number
+au InsertLeave * :set relativenumber
+
+au InsertEnter * :set norelativenumber
 
 " A cleaner vertical split
 set fillchars=vert:\:
