@@ -26,7 +26,7 @@ function! Autosave()
 	endif
 endfunction
 
-autocmd CursorHold,BufLeave * :call Autosave()
+autocmd CursorHold,BufLeave,FocusLost,WinLeave * :call Autosave()
 
 " A more verbose pastetoggle
 function! TogglePaste()
