@@ -29,7 +29,7 @@ pr_info "Using Nvim branch/tag $vtag"
 sleep 1
 
 git checkout "$vtag"
-git merge
+git merge "$vtag"
 
 make -j8 CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=${NEOVIM_DST_DIR}"
 sudo make install
