@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source pkgs.sh
+source nvimenv.sh
 source in_up.sh
 
 source buildycm.sh
@@ -8,4 +9,8 @@ source buildycm.sh
 
 pr_info "Updating bundles..."
 echo "y\ny\ny\n" | nvim -c 'NeoBundleInstall!<\CR>' -c 'q'
+wait
+
+pr_info "Updating Remote Plugins..."
+nvim -c 'UpdateRemotePlugins<\CR>' -c "qa"
 wait

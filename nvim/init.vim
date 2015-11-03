@@ -21,7 +21,7 @@ set showcmd		         " display incomplete commands
 " Enable persistent undo
 " and tell vim were to store the undo files. 
 set undofile
-set undodir=~/.nvim/undos
+set undodir=~/.config/nvim/undos
 set undolevels=1000
 set undoreload=10000
 

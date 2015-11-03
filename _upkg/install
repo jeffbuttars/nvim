@@ -39,7 +39,7 @@ echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 source buildycm.sh
 
 pr_info "Updating Remote Plugins..."
-nvim -c "UpdateRemotePlugins" -c "qa"
+nvim -c 'UpdateRemotePlugins<\CR>' -c "qa"
 wait
 
 
