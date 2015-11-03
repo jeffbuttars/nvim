@@ -14,13 +14,14 @@ if [[ -z $XDG_CONFIG_HOME ]]; then
 fi
 
 export NVIM_HOME="$XDG_CONFIG_HOME/nvim"
+export NVIM_INIT="$XDG_CONFIG_HOME/nvim/init.vim"
 
 
 ./install_nvim.sh
 
 # Make sure we have the needed directories
 mkdir -p "$NVIM_HOME/undos"
-mkdir -p "$NVIM_HOME/undos"
+mkdir -p "$NVIM_HOME/bundle"
 mkdir -p "$XDG_DATA_HOME/shada"
 
 if [[ ! -d  "$NVIM_HOME/bundle/YouCompleteMe" ]]; then
