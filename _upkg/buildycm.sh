@@ -1,11 +1,15 @@
 #!/bin/bash
 
+source nvimenv.sh
+
+YCM_DIR="$NVIM_HOME/bundle/YouCompleteMe"
+
 build_ycm()
 {
     # Build YouCompleteMe
-    if [[ -d "$NVIM_HOME/bundle/YouCompleteMe" ]]; then
+    if [[ -d "$YCM_DIR" ]]; then
         pr_info "Building YouCompleteMe"
-        cd "$NVIM_HOME/bundle/YouCompleteMe"
+        cd "$YCM_DIR"
         git submodule update --init --recursive
         echo $(git rev-parse HEAD) > $THIS_DIR/last_ycm
         ./install.sh --clang-completer
@@ -13,6 +17,10 @@ build_ycm()
         cd -
     fi
 }
+
+if [[ ! -d  "$YCM_DIR" ]]; then
+    git clone https://github.com/Valloric/YouCompleteMe "$YCM_DIR"
+fi
 
 if [[ ! -f  $THIS_DIR/last_ycm ]]; then
     build_ycm
