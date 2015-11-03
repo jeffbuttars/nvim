@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source pkgs.sh
+
 GIT_DST_DIR="${PWD}/neovim"
 NEOVIM_DST_DIR='/opt/neovim'
 GIT_REPO='https://github.com/neovim/neovim.git'
