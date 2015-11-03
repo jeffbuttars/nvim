@@ -1,8 +1,10 @@
 #!/bin/bash
 
 source pkgs.sh
+source nvimenv.sh
 source in_up.sh
 
+pr_info "Vimproc?"
 if [[ ! -d  "$NVIM_HOME/bundle/vimproc" ]]; then
     pr_info "Installing vimproc"
     git clone https://github.com/Shougo/vimproc.vim "$NVIM_HOME/bundle/vimproc"
@@ -11,37 +13,34 @@ if [[ ! -d  "$NVIM_HOME/bundle/vimproc" ]]; then
     cd -
 fi
 
+pr_info "NeoBundle?"
 if [[ ! -d  "$NVIM_HOME/bundle/neobundle.vim" ]]; then
     pr_info "Installing neobundle."
-    git clone git://github.com/Shougo/neobundle.vim "$NVIM_HOME/bundle/neobundle.vim" 
+    git clone git://github.com/Shougo/neobundle.vim "$NVIM_HOME/bundle/neobundle.vim"
 fi
 
 export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ -f "$NVIM_INIT" ]]; then
-    pr_info "Backuping up the existing $NVIM_INIT"
-    mv --backup=numbered "$NVIM_INIT" "${NVIM_INIT}.bak"
-    pr_info "$NVIM_INIT backups: \n$(ls ${NVIM_INIT}.bak*)"
-fi
+#if [[ -f "$NVIM_INIT" ]]; then
+    #$pr_info "Backuping up the existing $NVIM_INIT"
+    #mv --backup=numbered "$NVIM_INIT" "${NVIM_INIT}.bak"
+    #pr_info "$NVIM_INIT backups: \n$(ls ${NVIM_INIT}.bak*)"
+#fi
 
 pr_info "Creating the new ${NVIM_INIT}"
 export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
-echo "set runtimepath+=$PKGS_NVIM_DIR" > ${NVIM_INIT}
-echo "source $PKGS_NVIM_DIR/init.vim" >> ${NVIM_INIT}
+echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
+echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 
-pr_info "Updating bundles..."
-echo "y\ny\ny\n" | nvim -c 'NeoBundleInstall!<\CR>' -c 'q'
-wait
-
-pr_info "Updating Remote Plugins..."
-nvim -c "UpdateRemotePlugins" -c "qa"
-wait
+#pr_info "Updating bundles..."
+#echo "y\ny\ny\n" | nvim -c 'Silent NeoBundleInstall!<\CR>' -c 'q'
+#wait
 
 source buildycm.sh
 
-# pr_info "Building vimproc .so..."
-# cd "$NVIM_HOME/bundle/vimproc"
-# make
-# cd -
+pr_info "Updating Remote Plugins..."
+nvim -c 'UpdateRemotePlugins<\CR>' -c "qa"
+wait
+
 
 pr_pass "Install complete"

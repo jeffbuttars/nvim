@@ -17,10 +17,10 @@
 " More or less 'borrowed' straight from the repo readme.
 
 if has('vim_starting')
-    set runtimepath+=~/.nvim/bundle/neobundle.vim/
+    set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.nvim/bundle'))
+call neobundle#begin(expand('~/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -29,7 +29,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'Shougo/neobundle-vim-recipes'
 
 " Recommended to install
-" After install, turn shell ~/.nvim/bundle/vimproc, (n,g)make -f your_machines_makefile
+" After install, turn shell ~/.config/nvim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
