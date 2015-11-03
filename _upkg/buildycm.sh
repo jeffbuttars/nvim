@@ -3,16 +3,16 @@
 build_ycm()
 {
     # Build YouCompleteMe
-    if [[ -d ~/.nvim/bundle/YouCompleteMe ]]; then
+    if [[ -d "$NVIM_HOME/bundle/YouCompleteMe" ]]; then
         pr_info "Building YouCompleteMe"
-        cd ~/.nvim/bundle/YouCompleteMe
+        cd "$NVIM_HOME/bundle/YouCompleteMe"
         git submodule update --init --recursive
         echo $(git rev-parse HEAD) > $THIS_DIR/last_ycm
         ./install.sh --clang-completer
 
         cd -
     fi
-} #build_ycm
+}
 
 if [[ ! -f  $THIS_DIR/last_ycm ]]; then
     build_ycm

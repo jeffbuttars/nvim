@@ -3,31 +3,31 @@
 source pkgs.sh
 source in_up.sh
 
-if [[ ! -d  ~/.nvim/bundle/vimproc ]]; then
+if [[ ! -d  "$NVIM_HOME/bundle/vimproc" ]]; then
     pr_info "Installing vimproc"
-    git clone https://github.com/Shougo/vimproc.vim ~/.nvim/bundle/vimproc
-    cd ~/.nvim/bundle/vimproc
+    git clone https://github.com/Shougo/vimproc.vim "$NVIM_HOME/bundle/vimproc"
+    cd "$NVIM_HOME/bundle/vimproc"
     make
     cd -
 fi
 
-if [[ ! -d  ~/.nvim/bundle/neobundle.vim ]]; then
+if [[ ! -d  "$NVIM_HOME/bundle/neobundle.vim" ]]; then
     pr_info "Installing neobundle."
-    git clone git://github.com/Shougo/neobundle.vim ~/.nvim/bundle/neobundle.vim
+    git clone git://github.com/Shougo/neobundle.vim "$NVIM_HOME/bundle/neobundle.vim" 
 fi
 
 export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ -f ~/.nvimrc ]]; then
-    pr_info "Backuping up the existing ~/.nvimrc"
-    mv --backup=numbered ~/.nvimrc ~/.nvimrc.bak
-    pr_info "~/.nvimrc backups: \n$(ls ~/.nvimrc.bak*)"
+if [[ -f "$NVIM_INIT" ]]; then
+    pr_info "Backuping up the existing $NVIM_INIT"
+    mv --backup=numbered "$NVIM_INIT" "${NVIM_INIT}.bak"
+    pr_info "$NVIM_INIT backups: \n$(ls ${NVIM_INIT}.bak*)"
 fi
 
-pr_info "Creating the new ~/.nvimrc"
+pr_info "Creating the new ${NVIM_INIT}"
 export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
-echo "set runtimepath+=$PKGS_NVIM_DIR" > ~/.nvimrc
-echo "source $PKGS_NVIM_DIR/.nvimrc" >> ~/.nvimrc
+echo "set runtimepath+=$PKGS_NVIM_DIR" > ${NVIM_INIT}
+echo "source $PKGS_NVIM_DIR/init.vim" >> ${NVIM_INIT}
 
 pr_info "Updating bundles..."
 echo "y\ny\ny\n" | nvim -c 'NeoBundleInstall!<\CR>' -c 'q'
@@ -40,7 +40,7 @@ wait
 source buildycm.sh
 
 # pr_info "Building vimproc .so..."
-# cd ~/.nvim/bundle/vimproc
+# cd "$NVIM_HOME/bundle/vimproc"
 # make
 # cd -
 
