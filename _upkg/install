@@ -33,6 +33,10 @@ pr_info "Updating bundles..."
 echo "y\ny\ny\n" | nvim -c 'NeoBundleInstall!<\CR>' -c 'q'
 wait
 
+pr_info "Updating Remote Plugins..."
+nvim -c "UpdateRemotePlugins" -c "qa"
+wait
+
 source buildycm.sh
 
 # pr_info "Building vimproc .so..."
