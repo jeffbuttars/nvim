@@ -181,11 +181,11 @@ set tags=tags,./tags;/
 
 set grepprg=grep\ -n\ -Ir\ --exclude-dir='.git'\ --exclude-dir='.hg'\ --exclude-dir='.svn'\ --exclude-dir='.venv'\ --exclude-dir='.cvs'\ --exclude='*.pyo'\ --exclude='*.pyc'\ --exclude='*~'\ --exclude=TAGS\ --exclude=tags\ $*\ /dev/null
 
-" Source the rest of the config, which is broken out into many files
-runtime! nvimrc/*.vim
-
 " If there is a local init, source it to
+" Also, need to prevent a source loop.
 let current_init = "" . getcwd() . "/init.vim"
-if filereadable(current_init)
+if filereadable(current_init) && exists('g:nvim_init_has_been_sourced') == 0
+    let g:nvim_init_has_been_sourced = 1
     exec "source " . current_init
 endif
+
