@@ -26,7 +26,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 	hi clear CursorLine 
     let g:solarized_style = 'light'
 
-    if $TERM_META =~ 'white'
+    if $TERM_META =~ 'light'
         set nocursorline
     else
         let g:solarized_style = 'dark'
@@ -35,7 +35,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
     " Weird fix for Terminology. Need to swap the 
     " light/dark versions
     if $TERMINOLOGY == '1'
-        if $TERM_META =~ 'white'
+        if $TERM_META =~ 'light'
             let g:solarized_style = 'dark'
         else
             let g:solarized_style = 'light'
@@ -46,8 +46,8 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
     " set background="" . g:solarized_style
     colorscheme solarized
 
-	set cursorline
-	set cursorcolumn
+    set cursorline
+    set cursorcolumn
 endif
 
 " set linenumbers on by default
