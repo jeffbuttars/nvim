@@ -44,7 +44,8 @@ Plug 'DirDiff.vim'
 Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" We handle YCM ourselves
+" Plug 'Valloric/YouCompleteMe'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
