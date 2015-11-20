@@ -1,0 +1,70 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Plugs
+"
+" We deal with our plugs first thing because later sections
+" rely on them being available.
+"
+" #### [Pathogen](https://github.com/tpope/vim-pathogen)
+" [Pathogen](https://github.com/tpope/vim-pathogen) is a
+" nice package format for Vim _'packages'_.  
+" [Vim Plug](https://github.com/junegunn/vim-plug)
+" is our current package manager for Pathogen bundles.
+"
+"
+" # Vim Plug initialization
+
+" More or less 'borrowed' straight from the repo readme.
+
+call plug#begin('~/.config/nvim/plugged')
+
+" Place your Plugs here!
+
+Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'https://github.com/Shougo/unite.vim'
+Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/nvie/vim-flake8', { 'for': 'python' }
+Plug 'https://github.com/bling/vim-airline.git'
+Plug 'https://github.com/bling/vim-bufferline.git'
+Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
+Plug 'https://github.com/scrooloose/nerdcommenter.git'
+Plug 'git://github.com/lrvick/Conque-Shell.git'
+Plug 'https://github.com/tpope/vim-eunuch.git'
+Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'git://github.com/junegunn/vim-easy-align.git'
+Plug 'git://github.com/scrooloose/syntastic.git'
+Plug 'https://github.com/vim-ruby/vim-ruby'
+Plug 'https://github.com/vim-scripts/ldif.vim.git'
+Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'Gundo'
+Plug 'https://github.com/Shougo/vimfiler.vim'
+Plug 'DirDiff.vim'
+Plug 'vim-indent-object'
+Plug 'nginx.vim'
+Plug 'patchreview.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Load Ultisnips last to make sure it has the <tab> map
+Plug 'https://github.com/sirver/ultisnips'
+Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/vim-scripts/stata.vim'
+Plug 'https://github.com/jacquesbh/vim-showmarks.git'
+Plug 'https://github.com/zah/nimrod.vim'
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'https://github.com/mhinz/vim-rfc'
+Plug 'https://github.com/vim-scripts/rfc-syntax'
+Plug 'https://github.com/mustache/vim-mustache-handlebars'
+Plug 'ryanoasis/vim-webdevicons'
+Plug 'hsanson/vim-android'
+Plug 'derekwyatt/vim-fswitch'
+
+" Tornado template syntax
+Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
+
+" Colorschemes
+"
+" Solarized has been good to me. I plan to keep it a while
+Plug 'Solarized'
+
+call plug#end()

@@ -1,11 +1,10 @@
 runtime! plugin/python_setup.vim
 
-" Needed by neobundle, so enable early
+" enable early
 filetype plugin indent on
 
-" Load our bundles early
-" runtime nvimrc/nerdcomment.vim
-runtime nvimrc/bundles.vim
+" Load our 'plugs' early
+runtime nvimrc/vimplug.vim
 
 
 set lazyredraw      " Don't redraw screen when executing macros
