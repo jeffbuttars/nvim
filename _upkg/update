@@ -8,7 +8,7 @@ source buildycm.sh
 
 pr_info "Updating plugs..."
 nvim -c 'PlugUpgrade' -c '<\CR>' -c 'qa'
-nvim -c 'PlugClean' -c '<\CR>' -c 'qa'
+# nvim -c 'PlugClean' -c '<\CR>' -c 'qa'
 nvim -c 'PlugUpdate' -c '<\CR>' -c 'qa'
 wait
 
