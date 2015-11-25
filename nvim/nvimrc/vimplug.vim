@@ -59,6 +59,12 @@ Plug 'https://github.com/mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'hsanson/vim-android'
 Plug 'derekwyatt/vim-fswitch'
+" JSON syntax
+Plug 'helino/vim-json'
+" JS autocomplete for YCM
+Plug 'ternjs/tern_for_vim'
+" JS syntax
+Plug 'pangloss/vim-javascript'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
