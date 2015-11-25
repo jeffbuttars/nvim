@@ -6,7 +6,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_python_checkers=['prospector', 'flake8', 'pylint']
 let g:syntastic_python_flake8_args="--max-line-length=99"
-let g:syntastic_javascript_checkers=['jslint']
+let g:syntastic_javascript_checkers=['jshint', 'jslint']
 " let g:syntastic_javascript_jslint_args=['']
 " let g:syntastic_python_checkers_args=['flake8']
 "
