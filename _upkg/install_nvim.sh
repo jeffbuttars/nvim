@@ -37,7 +37,3 @@ git merge "$vtag"
 make -j8 CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX:PATH=${NEOVIM_DST_DIR}"
 sudo make install
 cd -
-
-pr_info "Updating Remote Plugins..."
-nvim -c "UpdateRemotePlugins" -c "qa"
-wait

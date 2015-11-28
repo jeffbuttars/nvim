@@ -9,9 +9,6 @@ autocmd FileType text,txt setlocal textwidth=98
 set diffopt=filler,vertical,context:15
 let g:html_diff_one_file = 1
 
-" Setup solarized colorscheme
-let g:solarized_termcolors = 16
-colorscheme solarized
 
 " We like italics in the terminal, so add some sauce to make sure we get it.
 set t_ZH=[3m
@@ -20,34 +17,39 @@ highlight Comment cterm=italic
 
 " Setup color style, light or dark and cursorlines
 if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TERM =~ 'xterm'
-	" Use a console friendly theme and force Vim to
-	" use 256 colors if we think the console can handle it.
-	" set t_Co=256
-	hi clear CursorLine 
-    let g:solarized_style = 'light'
+    try
+        " Use a console friendly theme and force Vim to
+        " use 256 colors if we think the console can handle it.
+        " set t_Co=256
+        hi clear CursorLine 
+        let g:solarized_style = 'light'
+        let g:solarized_termcolors = 16
 
-    if $TERM_META =~ 'light'
-        set nocursorline
-    else
-        let g:solarized_style = 'dark'
-    endif
-
-    " Weird fix for Terminology. Need to swap the 
-    " light/dark versions
-    if $TERMINOLOGY == '1'
         if $TERM_META =~ 'light'
-            let g:solarized_style = 'dark'
+            set nocursorline
         else
-            let g:solarized_style = 'light'
+            let g:solarized_style = 'dark'
         endif
 
-    endif
+        " Weird fix for Terminology. Need to swap the 
+        " light/dark versions
+        if $TERMINOLOGY == '1'
+            if $TERM_META =~ 'light'
+                let g:solarized_style = 'dark'
+            else
+                let g:solarized_style = 'light'
+            endif
 
-    " set background="" . g:solarized_style
-    colorscheme solarized
+        endif
 
-    set cursorline
-    set cursorcolumn
+        " set background="" . g:solarized_style
+        colorscheme solarized
+
+        set cursorline
+        set cursorcolumn
+    catch /^Vim\%((\a\+)\)\=:E185/
+        colorscheme elflord
+    endtry
 endif
 
 " set linenumbers on by default

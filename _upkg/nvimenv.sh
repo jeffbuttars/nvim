@@ -13,10 +13,10 @@ if [[ -z $XDG_CONFIG_HOME ]]; then
     export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
+export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export NVIM_HOME="$XDG_CONFIG_HOME/nvim"
 export NVIM_INIT="$XDG_CONFIG_HOME/nvim/init.vim"
 
 # Make sure we have the needed directories
 mkdir -p "$NVIM_HOME/undos"
-mkdir -p "$NVIM_HOME/bundle"
 mkdir -p "$XDG_DATA_HOME/shada"
