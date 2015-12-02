@@ -4,7 +4,7 @@ source pkgs.sh
 source nvimenv.sh
 source in_up.sh
 
-source buildycm.sh
+# source buildycm.sh
 
 pr_info "Updating plugs..."
 nvim -c 'PlugUpgrade' -c '<\CR>' -c 'qa'

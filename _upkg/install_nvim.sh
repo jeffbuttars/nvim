@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Relying on distro packages now!
+exit 0
+
 source pkgs.sh
 
 GIT_DST_DIR="${PWD}/neovim"
