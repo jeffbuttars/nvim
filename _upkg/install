@@ -23,8 +23,8 @@ export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
 echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 
-source buildycm.sh
-wait
+# source buildycm.sh
+# wait
 
 pr_info "Updating plugs..."
 nvim -c 'PlugUpdate' -c '<\CR>' -c 'qa'
