@@ -38,7 +38,7 @@ endsnippet
 snippet (af) "Anonymous Function"
 var ${1} = (function(${2:args}) {
 ${3}
-})();//$1 ${0}
+})();
 endsnippet
 
 snippet naf "Named Anonymous Function"
@@ -52,13 +52,13 @@ endsnippet
 snippet vf "Var function"
 var ${1:func_name} = function(${2:args}) {
     ${3:console.log('$1()');}
-};//$1()$0
+};
 endsnippet
 
 snippet vnf "Var named function"
 var ${1:func_name} = function $1(${2:args}) {
     ${3:console.log( ${4: "$1()"} );}$5
-};//$1()$0
+};
 endsnippet
 
 snippet v "simple var = someting expression"
@@ -121,4 +121,8 @@ snippet else "else" !b
 else (${1}) {
     ${2}
 } ${0}
+endsnippet
+
+snippet imf "import { something } from [module]" b
+import { ${1:something}${2:, nexthing } } from '${3:mod}'${0};
 endsnippet
