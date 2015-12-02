@@ -45,7 +45,7 @@ Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
-" Plug 'Valloric/YouCompleteMe'
+Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
