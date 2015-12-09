@@ -12,5 +12,5 @@ let g:syntastic_javascript_checkers=['jshint', 'standard', 'jslint' ]
 " let g:syntastic_python_checkers_args=['flake8']
 "
 let g:syntastic_mode_map = { 'mode': 'active',
-                               \ 'active_filetypes': ['c', 'python', 'ruby', 'php', 'javascript', 'java''],
+                               \ 'active_filetypes': ['c', 'python', 'ruby', 'php', 'javascript', 'java'],
                                \ 'passive_filetypes': [''] }
