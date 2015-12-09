@@ -65,6 +65,7 @@ Plug 'helino/vim-json'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " JS syntax
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx.git'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
