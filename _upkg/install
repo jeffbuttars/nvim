@@ -36,6 +36,6 @@ wait
 
 pr_info "Installing instant markdown via npm..."
 sudo npm -g install instant-markdown-d
-waite
+wait
 
 pr_pass "Install complete"
