@@ -185,7 +185,7 @@ runtime! nvimrc/*.vim
 
 " If there is a local init, source it to
 " Also, need to prevent a source loop.
-let current_init = "" . getcwd() . "/init.vim"
+let current_init = "" . getcwd() . "/.init.vim"
 if filereadable(current_init) && exists('g:nvim_init_has_been_sourced') == 0
     let g:nvim_init_has_been_sourced = 1
     exec "source " . current_init
