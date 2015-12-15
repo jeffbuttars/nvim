@@ -4,25 +4,25 @@ snippet fns "Function namespace"
 var ${1:new_namespace} = (function $1 (){
 
     // Private vars
-    ${2: var ${3:name} = "private";}
+    ${2: var ${3:name} = 'private'}
     
 
     // Private functions
     ${4: ${5:var pfunc = function pfunc() {
-        return "";
-    };} }
+        return ''
+    }} }
 
     // Return the public interface
     return {
-        $6:$0;
-    };
-})();
+        $6:$0
+    }
+})()
 endsnippet
 
 snippet ons "object namespace"
 if (! window.${1:nsname} ) {
-    var $1 = {};
-    window.$1 = $1;
+    var $1 = {}
+    window.$1 = $1
 }$0
 endsnippet
 
@@ -38,7 +38,7 @@ endsnippet
 snippet (af) "Anonymous Function"
 var ${1} = (function(${2:args}) {
 ${3}
-})();
+})()
 endsnippet
 
 snippet naf "Named Anonymous Function"
@@ -51,26 +51,26 @@ endsnippet
 
 snippet vf "Var function"
 var ${1:func_name} = function(${2:args}) {
-    ${3:console.log('$1()');}
-};
+    ${3:console.log('$1()')}
+}
 endsnippet
 
 snippet vnf "Var named function"
 var ${1:func_name} = function $1(${2:args}) {
-    ${3:console.log( ${4: "$1()"} );}$5
-};
+    ${3:console.log( ${4: '$1()'} )}$5
+}
 endsnippet
 
 snippet v "simple var = someting expression"
-var ${1} = ${2};
+var ${1} = ${2}
 endsnippet
 
 snippet c "simple const = SOMETING"
-const ${1} = ${2};
+const ${1} = ${2}
 endsnippet
 
-snippet clog "console.log()"
-console.log($1);$0
+snippet clg "console.log()"
+console.log($1)$0
 endsnippet
 
 snippet cl "class"
@@ -85,17 +85,17 @@ var ${1} = class ${2:$1} {
 }${0}
 endsnippet
 
-snippet req "require('');"
-require("${1}");$0
+snippet req "require('')"
+require("${1}")$0
 endsnippet
 
-snippet vreq "var name = require('');"
-var ${1} = require('${2:$1}');$0
+snippet vreq "var name = require('')"
+var ${1} = require('${2:$1}')$0
 endsnippet
 
 snippet fori "for key in"
 for (var ${1:key} in ${2:obj}) { if ($2.hasOwnProperty(key)) {
-    ${3:$2[key]};$0
+    ${3:$2[key]}$0
 }}
 endsnippet
 
@@ -130,7 +130,7 @@ else (${1}) {
 endsnippet
 
 snippet imf "import { something } from [module]" b
-import { ${1:something}${2:, nexthing } } from '${3:mod}'${0};
+import { ${1:something}${2:, nexthing } } from '${3:mod}'${0}
 endsnippet
 
 
