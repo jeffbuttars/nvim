@@ -151,6 +151,12 @@ _.forEach(${1:collection}, function (${2:obj}) {
 })
 endsnippet
 
+snippet >c "Arrow component (${1:params}) => ${2}" i
+(props) => {
+  return (${1})
+}${0}
+endsnippet
+
 snippet rcomp "React Component Class" b
 var ${1} = React.CreateClass({
   propTypes: {
