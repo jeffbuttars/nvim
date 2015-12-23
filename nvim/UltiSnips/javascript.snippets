@@ -86,7 +86,7 @@ var ${1} = class ${2:$1} {
 endsnippet
 
 snippet req "require('')"
-require("${1}")$0
+require('${1}')$0
 endsnippet
 
 snippet vreq "var name = require('')"
@@ -133,6 +133,9 @@ snippet imf "import { something } from [module]" b
 import { ${1:something}${2:, nexthing } } from '${3:mod}'${0}
 endsnippet
 
+snippet im "import [something] from [module]" b
+import ${1:something} from '${2:mod}'${0}
+endsnippet
 
 snippet . "...spread" i
 ...${1}${0}
@@ -145,5 +148,22 @@ endsnippet
 snippet _each "lodash each" b
 _.forEach(${1:collection}, function (${2:obj}) {
   ${3:$2}${0}
+})
+endsnippet
+
+snippet >c "Arrow component (${1:params}) => ${2}" i
+(props) => {
+  return (${1})
+}${0}
+endsnippet
+
+snippet rcomp "React Component Class" b
+var ${1} = React.CreateClass({
+  propTypes: {
+  }
+
+  render: function() {
+    return (${0})
+  }
 })
 endsnippet
