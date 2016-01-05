@@ -50,9 +50,14 @@ else
     cd -
 fi
 
+mkdir -p "${NVIM_HOME}/autoload"
+mkdir -p "${NVIM_HOME}/doc"
+mkdir -p "${NVIM_HOME}/plugin"
+mkdir -p "${NVIM_HOME}/rplugin"
+
 cd 'deoplete.nvim'
-/usr/bin/cp -fr ./autoload/* "${NVIM_HOME}/autoload"
-/usr/bin/cp -fr ./doc/* "${NVIM_HOME}/doc"
-/usr/bin/cp -fr ./plugin/* "${NVIM_HOME}/plugin"
-/usr/bin/cp -fr ./rplugin/* "${NVIM_HOME}/rplugin"
+/usr/bin/cp -fvr ./autoload/* "${NVIM_HOME}/autoload"
+/usr/bin/cp -fvr ./doc/* "${NVIM_HOME}/doc"
+/usr/bin/cp -fvr ./plugin/* "${NVIM_HOME}/plugin"
+/usr/bin/cp -fvr ./rplugin/* "${NVIM_HOME}/rplugin"
 cd -
