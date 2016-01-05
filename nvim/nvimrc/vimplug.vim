@@ -19,11 +19,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Place your Plugs here!
 
-Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'https://github.com/Shougo/unite.vim'
+" Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+" Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/nvie/vim-flake8', { 'for': 'python' }
 Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
@@ -46,7 +48,7 @@ Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
-Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
+" Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
