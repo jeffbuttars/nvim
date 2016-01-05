@@ -41,3 +41,18 @@ source nvimenv.sh
 #         build_ycm
 #     fi
 # fi
+
+if [[ ! -d 'deoplete.nvim.git' ]]; then
+    git clone https://github.com/Shougo/deoplete.nvim.git
+else
+    cd 'deoplete.nvim.git' 
+    git pull
+    cd -
+fi
+
+cd 'deoplete.nvim.git' 
+/usr/bin/cp -fr ./autoload/* "${NVIM_HOME}/autoload"
+/usr/bin/cp -fr ./doc/* "${NVIM_HOME}/doc"
+/usr/bin/cp -fr ./plugin/* "${NVIM_HOME}/plugin"
+/usr/bin/cp -fr ./rplugin/* "${NVIM_HOME}/rplugin"
+cd -
