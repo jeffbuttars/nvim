@@ -42,22 +42,22 @@ source nvimenv.sh
 #     fi
 # fi
 
-if [[ ! -d 'deoplete.nvim' ]]; then
-    git clone https://github.com/Shougo/deoplete.nvim.git
-else
-    cd 'deoplete.nvim'
-    git pull
-    cd -
-fi
+# if [[ ! -d 'deoplete.nvim' ]]; then
+#     git clone https://github.com/Shougo/deoplete.nvim.git
+# else
+#     cd 'deoplete.nvim'
+#     git pull
+#     cd -
+# fi
 
-mkdir -p "${NVIM_HOME}/autoload"
-mkdir -p "${NVIM_HOME}/doc"
-mkdir -p "${NVIM_HOME}/plugin"
-mkdir -p "${NVIM_HOME}/rplugin"
+# mkdir -p "${NVIM_HOME}/autoload"
+# mkdir -p "${NVIM_HOME}/doc"
+# mkdir -p "${NVIM_HOME}/plugin"
+# mkdir -p "${NVIM_HOME}/rplugin"
 
-cd 'deoplete.nvim'
-/usr/bin/cp -fvr ./autoload/* "${NVIM_HOME}/autoload"
-/usr/bin/cp -fvr ./doc/* "${NVIM_HOME}/doc"
-/usr/bin/cp -fvr ./plugin/* "${NVIM_HOME}/plugin"
-/usr/bin/cp -fvr ./rplugin/* "${NVIM_HOME}/rplugin"
-cd -
+# cd 'deoplete.nvim'
+# /usr/bin/cp -fvr ./autoload/* "${NVIM_HOME}/autoload"
+# /usr/bin/cp -fvr ./doc/* "${NVIM_HOME}/doc"
+# /usr/bin/cp -fvr ./plugin/* "${NVIM_HOME}/plugin"
+# /usr/bin/cp -fvr ./rplugin/* "${NVIM_HOME}/rplugin"
+# cd -
