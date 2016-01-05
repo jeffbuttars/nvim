@@ -42,15 +42,15 @@ source nvimenv.sh
 #     fi
 # fi
 
-if [[ ! -d 'deoplete.nvim.git' ]]; then
+if [[ ! -d 'deoplete.nvim' ]]; then
     git clone https://github.com/Shougo/deoplete.nvim.git
 else
-    cd 'deoplete.nvim.git' 
+    cd 'deoplete.nvim'
     git pull
     cd -
 fi
 
-cd 'deoplete.nvim.git' 
+cd 'deoplete.nvim'
 /usr/bin/cp -fr ./autoload/* "${NVIM_HOME}/autoload"
 /usr/bin/cp -fr ./doc/* "${NVIM_HOME}/doc"
 /usr/bin/cp -fr ./plugin/* "${NVIM_HOME}/plugin"
