@@ -3,10 +3,10 @@ nvim
 
 My Neovim setup
 
-
-## Re-Building from Vim to NeoVim
-
-For now, this README will track how I setup my Neovim(nvim) setup.
+## Major Diffs
+The biggest difference between this repo and other Vim/NeoVim config repos
+is the init.vim is broken out into many files. In general, each plugin has it's
+own corresponding config dot vim file in the `nvimrc` directory.
 
 ## upkg
 
