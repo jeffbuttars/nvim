@@ -1,5 +1,5 @@
 
-let g:syntastic_always_populate_loc_list=0
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 " let g:syntastic_loc_list_height=10
 let g:syntastic_check_on_open = 0
@@ -14,7 +14,7 @@ let g:syntastic_python_flake8_args="--max-line-length=99"
 " let g:syntastic_python_checkers_args=['flake8']
 "
 " let g:syntastic_javascript_checkers=['jshint', 'standard', 'jslint' ]
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint', 'standard']
 
 "
 let g:syntastic_mode_map = { 'mode': 'active',
