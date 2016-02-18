@@ -27,6 +27,7 @@ Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --al
 Plug 'https://github.com/junegunn/fzf.vim'
 " Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/nvie/vim-flake8', { 'for': 'python' }
+Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
 Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
