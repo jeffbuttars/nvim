@@ -157,6 +157,19 @@ snippet >c "Arrow component (${1:params}) => ${2}" i
 }${0}
 endsnippet
 
+snippet rrcomp "import React, build Component Class" b
+import React from 'react'
+
+var ${1} = React.createClass({
+  propTypes: {
+  },
+
+  render: function () {
+    return (${0})
+  }
+})
+endsnippet
+
 snippet rcomp "React Component Class" b
 var ${1} = React.createClass({
   propTypes: {

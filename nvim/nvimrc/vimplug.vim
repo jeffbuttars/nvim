@@ -66,7 +66,7 @@ Plug 'derekwyatt/vim-fswitch'
 " JSON syntax
 Plug 'helino/vim-json'
 " JS autocomplete for YCM
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'rm -fr node_modules; npm install' }
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
