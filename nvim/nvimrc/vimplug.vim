@@ -49,7 +49,8 @@ Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
-Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
+" Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
+Plug 'https://github.com/Shougo/deoplete.nvim'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
@@ -66,7 +67,8 @@ Plug 'derekwyatt/vim-fswitch'
 " JSON syntax
 Plug 'helino/vim-json'
 " JS autocomplete for YCM
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'carlitux/deoplete-ternjs'
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
