@@ -95,10 +95,10 @@ function! SetColorColumn(ccol)
 
 endfunction
 if ! exists("g:maxLineLength")
-	let g:maxLineLength=80
+	let g:maxLineLength=100
 endif
 
-au FileType python.sh :call SetColorColumn(g:maxLineLength)
+au FileType python.sh.javascript :call SetColorColumn(g:maxLineLength)
 
 " helper function to toggle hex mode
 function! ToggleHex()
@@ -138,27 +138,6 @@ function! ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
-" let g:tab_cwd_map = {}
-" fun! TabDirSave(save)
-" 
-" 	let l:tnum = tabpagenr()
-" 	if a:save == 1
-" 		let g:tab_cwd_map[l:tnum] = getcwd()
-" 		" echo "saving " l:tnum g:tab_cwd_map[l:tnum]
-" 	else	
-" 		if has_key(g:tab_cwd_map, l:tnum)
-" 			" echo "changing to " l:tnum g:tab_cwd_map[l:tnum]
-" 			exec "cd ".g:tab_cwd_map[l:tnum]
-" 			" exec "set guitablabel=".getcwd()
-" 		endif
-" 	endif
-" 
-" 	exec "set tabline=%!MyTabLine()"
-" endf
-" 
-" au TabEnter * call TabDirSave(0)
-" au TabLeave * call TabDirSave(1)
-
 " Open a shell command in a new window, the command supports shell completion
 command! -complete=shellcmd -nargs=* R rightbelow vnew | r ! <args>
 
@@ -168,80 +147,6 @@ nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " Open the quickfix after running grep
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
-
-
-" " HAcks from http://is.gd/IBV2013
-
-"=====[ Highlight matches when jumping to next ]=============
-
-    " Change the highlight groups used below to use one that
-    " exists with your theme.
-
-
-    " " EITHER blink the line containing the match...
-    " function! HLNext (blinktime)
-    "     set invcursorline
-    "     redraw
-    "     exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    "     set invcursorline
-    "     redraw
-    " endfunction
-
-    " " OR ELSE ring the match in red...
-    " function! HLNext (blinktime)
-    "     highlight RedOnRed ctermfg=red ctermbg=red
-    "     let [bufnum, lnum, col, off] = getpos('.')
-    "     let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    "     echo matchlen
-    "     let ring_pat = (lnum > 1 ? '\%'.(lnum-1).'l\%>'.max([col-4,1]) .'v\%<'.(col+matchlen+3).'v.\|' : '')
-    "             \ . '\%'.lnum.'l\%>'.max([col-4,1]) .'v\%<'.col.'v.'
-    "             \ . '\|'
-    "             \ . '\%'.lnum.'l\%>'.max([col+matchlen-1,1]) .'v\%<'.(col+matchlen+3).'v.'
-    "             \ . '\|'
-    "             \ . '\%'.(lnum+1).'l\%>'.max([col-4,1]) .'v\%<'.(col+matchlen+3).'v.'
-    "     let ring = matchadd('RedOnRed', ring_pat, 101)
-    "     redraw
-    "     exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    "     call matchdelete(ring)
-    "     redraw
-    " endfunction
-
-    " " OR ELSE briefly hide everything except the match...
-    " function! HLNext (blinktime)
-    "     highlight BlackOnBlack ctermfg=black ctermbg=black
-    "     let [bufnum, lnum, col, off] = getpos('.')
-    "     let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    "     let hide_pat = '\%<'.lnum.'l.'
-    "             \ . '\|'
-    "             \ . '\%'.lnum.'l\%<'.col.'v.'
-    "             \ . '\|'
-    "             \ . '\%'.lnum.'l\%>'.(col+matchlen-1).'v.'
-    "             \ . '\|'
-    "             \ . '\%>'.lnum.'l.'
-    "     let ring = matchadd('BlackOnBlack', hide_pat, 101)
-    "     redraw
-    "     exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    "     call matchdelete(ring)
-    "     redraw
-    " endfunction
-
-    " OR ELSE just highlight the match in red...
-    " function! HLNext (blinktime)
-    "     let [bufnum, lnum, col, off] = getpos('.')
-    "     let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    "     let target_pat = '\c\%#'.@/
-    "     let ring = matchadd('hsImport', target_pat, 101)
-    "     redraw
-    "     exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    "     call matchdelete(ring)
-    "     redraw
-    " endfunction
-    " "
-    " " This rewires n and N to do the highlighing...
-    " nnoremap <silent> n   n:call HLNext(0.4)<cr>
-    " nnoremap <silent> N   N:call HLNext(0.4)<cr>
-
-
 
 " "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 
@@ -256,12 +161,6 @@ autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
     " nnoremap  :  ;
 
 " " runtime plugin/dragvisuals.vim
-
-vmap  <expr>  <LEFT>   DVB_Drag('left')
-vmap  <expr>  <RIGHT>  DVB_Drag('right')
-vmap  <expr>  <DOWN>   DVB_Drag('down')
-vmap  <expr>  <UP>     DVB_Drag('up')
-vmap  <expr>  D        DVB_Duplicate()
 
 " Add the virtualenv's site-packages to vim path
 python << EOF
@@ -287,11 +186,3 @@ if 'VIRTUAL_ENV' in os.environ:
         vim.command('set tags+=' + tpath)
         # vim.command('echo "Set tag path ' + tpath + '"')
 EOF
-
-" If a virtualenv is active, see if we have tags file in
-" the virtualenv root dir. If so, add it to our tags list.
-" if $VIRTUAL_ENV != ''
-"     let b:vtag_dir = system('echo "$(dirname $VIRTUAL_ENV)/tags"')
-"     " echo b:vtag_dir
-"     execute 'set' 'tags+=' . b:vtag_dir
-" endif
