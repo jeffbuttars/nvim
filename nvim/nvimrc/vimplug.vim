@@ -75,6 +75,7 @@ Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
 " Colorschemes
 "
 " Solarized has been good to me. I plan to keep it a while
-Plug 'Solarized'
+" Plug 'Solarized'
+Plug 'https://github.com/frankier/neovim-colors-solarized-truecolor-only.git'
 
 call plug#end()
