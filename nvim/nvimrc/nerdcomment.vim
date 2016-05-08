@@ -9,9 +9,7 @@ exec 'noremap <C-N> :call NERDComment("n", "Uncomment")<cr>'
 let g:NERDSpaceDelims = 1
 
 " Custom comment delimiters for NERDCommenter 
-if exists("loaded_nerd_comments")
-    let g:NERDCustomDelimiters = {
-        \ 'ecl': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
-        \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-    \ }
-endif
+let g:NERDCustomDelimiters = {
+    \ 'ecl': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
+    \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+\ }
