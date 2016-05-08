@@ -3,6 +3,9 @@ runtime! plugin/python_setup.vim
 " enable early
 filetype plugin indent on
 
+" Need to load the nerdcommenter settings before the plugin
+runtime nvimrc/nerdcomment.vim
+
 " Load our 'plugs' early
 runtime nvimrc/vimplug.vim
 
