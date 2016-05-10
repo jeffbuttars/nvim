@@ -3,9 +3,11 @@ runtime! plugin/python_setup.vim
 " enable early
 filetype plugin indent on
 
+" Need to load the nerdcommenter settings before the plugin
+runtime nvimrc/nerdcomment.vim
+
 " Load our 'plugs' early
 runtime nvimrc/vimplug.vim
-
 
 set lazyredraw      " Don't redraw screen when executing macros
 set history=1000 " keep 1000 lines of command line history
@@ -179,7 +181,6 @@ set nocscopetag
 set tags=tags,./tags;/
 
 set grepprg=grep\ -n\ -Ir\ --exclude-dir='.git'\ --exclude-dir='.hg'\ --exclude-dir='.svn'\ --exclude-dir='.venv'\ --exclude-dir='.cvs'\ --exclude='*.pyo'\ --exclude='*.pyc'\ --exclude='*~'\ --exclude=TAGS\ --exclude=tags\ $*\ /dev/null
-
 " Source the rest of the config, which is broken out into many files
 runtime! nvimrc/*.vim
 
