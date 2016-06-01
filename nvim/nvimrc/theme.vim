@@ -33,14 +33,14 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 
         " Weird fix for Terminology. Need to swap the 
         " light/dark versions
-        if $TERMINOLOGY == '1'
-            if $TERM_META =~ 'light'
-                let g:solarized_style = 'dark'
-            else
-                let g:solarized_style = 'light'
-            endif
+        " if $TERMINOLOGY == '1'
+        "     if $TERM_META =~ 'light'
+        "         let g:solarized_style = 'dark'
+        "     else
+        "         let g:solarized_style = 'light'
+        "     endif
 
-        endif
+        " endif
 
         " set background="" . g:solarized_style
         if has('nvim') == '1'
