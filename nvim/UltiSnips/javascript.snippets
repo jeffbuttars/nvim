@@ -160,23 +160,23 @@ endsnippet
 snippet rrcomp "import React, build Component Class" b
 import React from 'react'
 
-let ${1} = React.createClass({
+const ${1} = React.createClass({
   propTypes: {
   },
 
   render: function () {
-    return (${0})
+    return (<div>${0}</div>)
   }
 })
 endsnippet
 
 snippet rcomp "React Component Class" b
-let ${1} = React.createClass({
+const ${1} = React.createClass({
   propTypes: {
   },
 
   render: function () {
-    return (${0})
+    return (<div>${0}</div>)
   }
 })
 endsnippet
