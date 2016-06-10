@@ -4,7 +4,7 @@
 function! Autosave()
 
 	" close the preview window if it's visible
-	" and the pop up menu is not visible, but not if 
+	" and the pop up menu is not visible, but not if
     " we're in a preview window.
 	if pumvisible() == 0 && &buftype == ''
 		pclose
@@ -22,7 +22,7 @@ function! Autosave()
         " if exists(':Syntastic') == 1
             " execute "SyntasticCheck\<CR>"
         " endif
-        execute "SyntasticCheck\<CR>"
+        " execute "Neomake\<CR>"
 	endif
 endfunction
 

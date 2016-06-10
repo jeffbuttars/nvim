@@ -1,0 +1,6 @@
+let g:neomake_javascript_enabled_makers = ['eslint', 'standard']
+" let g:neomake_error_sign='✗'
+" let g:neomake_warning_sign='⚠'
+
+" autocmd! CursorMovedI,BufWritePost,BufEnter,BufReadPost,TextChanged, * Neomake
+autocmd InsertEnter,InsertLeave,BufWritePost,BufEnter,BufReadPost * Neomake
