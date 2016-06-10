@@ -17,6 +17,10 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 " Place your Plugs here!
 
 Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
@@ -49,7 +53,9 @@ Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
-Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': 'git submodule update --init --recursive; python2 ./install.py --clang-completer --tern-completer' }
+" Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': 'git submodule update --init --recursive; python2 ./install.py --clang-completer --tern-completer' }
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'carlitux/deoplete-ternjs'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
