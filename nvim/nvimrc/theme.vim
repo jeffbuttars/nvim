@@ -95,6 +95,14 @@ function! AdjustQFWindowHeight()
     let thiswindow = winnr()
     let thiswindow_h = winheight(0)
     let qnr = winnr('$')
+    " let qf_min_height = 5
+    let list_len = len(getqflist())
+
+    " Apply to both quickfix and location list windows. So if we
+    " don't see much in the quickfix, look for a loclist.
+    if list_len == 0
+        let list_len = len(getloclist(qnr))
+    endif
 
     " go the last open window and get it's size
     " and add it to the qf window size and account for the
@@ -107,15 +115,16 @@ function! AdjustQFWindowHeight()
     " closest relative.
     let qf_height = max([3, wh/3])
 
-    " If the QF list isn't big enough to fill the 
+    " If the QF list isn't big enough to fill the
     " new window size, shrink the window to the list.
-    let qf_height = min([qf_height, len(getqflist())])
-    
+    let qf_height = min([qf_height, list_len])
+    " echoerr "window H: " . wh . ", qf_height " . qf_height . " qfl:" . list_len
 
-    " echo "window H: " . wh . ", qf_height " . qf_height
+    " let qf_height = max([qf_height, qf_min_height])
+    " echoerr "window H: " . wh . ", qf_height " . qf_height
+
     exe "normal ". qnr . "\<C-W>w" 
     exe qf_height . "wincmd _"
-
 
     " Move the quickfix window to the bottom right
     " so it's always full length.
