@@ -70,7 +70,15 @@ const ${1} = ${2}
 endsnippet
 
 snippet clg "console.log()"
-console.log($1)$0
+console.log(${1:'$2'})$0
+endsnippet
+
+snippet cle "console.error()"
+console.error(${1:'$2'})$0
+endsnippet
+
+snippet clw "console.warn()"
+console.warn(${1:'$2'})$0
 endsnippet
 
 snippet cl "class"
