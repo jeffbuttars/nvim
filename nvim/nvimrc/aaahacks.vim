@@ -27,6 +27,7 @@ function! Autosave()
 endfunction
 
 autocmd CursorHold,BufLeave,FocusLost,WinLeave * :call Autosave()
+autocmd VimResized * :wincmd =
 
 " A more verbose pastetoggle
 function! TogglePaste()
