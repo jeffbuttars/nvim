@@ -71,7 +71,7 @@ Plug 'ryanoasis/vim-webdevicons'
 Plug 'hsanson/vim-android'
 Plug 'derekwyatt/vim-fswitch'
 " JSON syntax
-Plug 'helino/vim-json'
+Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'

@@ -5,4 +5,5 @@ let g:neomake_verbose = 0
 
 " autocmd! CursorMovedI,BufWritePost,BufEnter,BufReadPost,TextChanged, * Neomake
 " autocmd InsertLeave,BufWritePost,BufRead,CursorHold * Neomake
-autocmd BufWritePost,BufRead,CursorHold * Neomake
+" autocmd BufWritePost,BufRead,CursorHold * Neomake
+autocmd BufWritePost * Neomake
