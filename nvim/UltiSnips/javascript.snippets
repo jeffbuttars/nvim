@@ -81,6 +81,21 @@ snippet clw "console.warn()"
 console.warn(${1:'$2'})$0
 endsnippet
 
+snippet clt "console.table()"
+console.log(${1:'$2'})
+console.table($3)$0
+endsnippet
+
+snippet cld "console.dir()"
+console.log(${1:'$2'})
+console.dir($3)$0
+endsnippet
+
+snippet cltime "console.time()"
+console.time('${1}')
+console.timeEnd('$1')$0
+endsnippet
+
 snippet cl "class"
 class ${1} {
 	${2}

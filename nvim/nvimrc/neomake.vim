@@ -15,6 +15,6 @@ let g:neomake_verbose = 0
 autocmd BufWritePost,BufEnter * Neomake
 
 " Lint as you type
-autocmd InsertChange,TextChanged,CursorHold,BufWritePost * silent update | Neomake
+" autocmd InsertChange,TextChanged,CursorHold,BufWritePost * silent update | Neomake
 " Lint as you type, less agressive
 " autocmd InsertChange,CursorHold * silent update | Neomake
