@@ -28,7 +28,11 @@ let g:neomake_serialize_abort_on_error = 1
 augroup MyNeomake
   autocmd!
   " autocmd BufEnter,WinEnter,InsertChange,CursorHold,TextChanged,InsertLeave * silent update | Neomake
-  " autocmd BufEnter,WinEnter,InsertChange,CursorHold,TextChanged,InsertLeave * silent update | Neomake
-  autocmd BufEnter,WinEnter,BufWritePost,CursorHold,InsertLeave * Neomake
-  " autocmd BufWritePost,CursorHold * Neomake
+
+  " Recommended
+  autocmd BufWritePost,CursorHold * Neomake
+
+  " Experimental, often buggy
+  autocmd BufEnter,WinEnter * Neomake
+  autocmd InsertChange,TextChanged,InsertLeave * silent update | Neomake
 augroup END
