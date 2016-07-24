@@ -34,5 +34,9 @@ augroup MyNeomake
 
   " Experimental, often buggy
   autocmd BufEnter,WinEnter * Neomake
-  autocmd InsertChange,TextChanged,InsertLeave * silent update | Neomake
+
+  " Lint as you type
+  autocmd TextChanged,InsertLeave * silent update | Neomake
+  " More agressive lint as you type
+  " autocmd InsertChange,TextChanged,InsertLeave * silent update | Neomake
 augroup END
