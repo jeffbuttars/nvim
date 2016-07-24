@@ -75,6 +75,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'mhinz/vim-startify'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
