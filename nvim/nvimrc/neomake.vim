@@ -1,5 +1,7 @@
-let g:neomake_javascript_enabled_makers = ['eslint', 'standard']
+let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_verbose = 0
+let g:neomake_echo_current_error = 0
+let g:neomake_airline = 1
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 
@@ -32,11 +34,11 @@ augroup MyNeomake
   " Recommended
   autocmd BufWritePost,CursorHold * Neomake
 
-  " Experimental, often buggy
-  autocmd BufEnter,WinEnter * Neomake
+  " Remaining is Experimental, often buggy
+  " autocmd BufEnter,WinEnter * Neomake
 
   " Lint as you type
-  autocmd TextChanged,InsertLeave * silent update | Neomake
+  " autocmd TextChanged,InsertLeave * silent update | Neomake
   " More agressive lint as you type
   " autocmd InsertChange,TextChanged,InsertLeave * silent update | Neomake
 augroup END

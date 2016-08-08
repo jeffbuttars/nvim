@@ -164,9 +164,13 @@ snippet . "...spread" i
 ...${1}${0}
 endsnippet
 
-snippet > "(${1:params}) => ${2}" i
+snippet > "Arrow/Pure func" i
 (${1:params}) => ${2:{${3}}}${0}
 endsnippet
+
+# snippet (> "Arrow/Pure as param" i
+# ((${1:params}) => ${2:{${3}}}${0})
+# endsnippet
 
 snippet _each "lodash each" b
 _.forEach(${1:collection}, function (${2:obj}) {
