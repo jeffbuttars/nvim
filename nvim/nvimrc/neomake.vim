@@ -19,7 +19,7 @@ let g:neomake_airline = 1
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 
-let g:neomake_python_flake8_args="--max-line-length=99"
+let g:neomake_python_flake8_args = ["--max-line-length=99"]
 " let g:neomake_error_sign='✗'
 " let g:neomake_warning_sign='⚠'
 
