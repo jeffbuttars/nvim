@@ -56,6 +56,7 @@ Plug 'patchreview.vim'
 " We handle YCM ourselves
 " Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': 'git submodule update --init --recursive; python2 ./install.py --clang-completer --tern-completer' }
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
@@ -77,6 +78,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mhinz/vim-startify'
 Plug 'mtth/scratch.vim'
+Plug 'https://github.com/grassdog/tagman.vim'
+Plug 'metakirby5/codi.vim'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'

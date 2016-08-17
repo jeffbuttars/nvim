@@ -1,5 +1,10 @@
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_profile = 1
+
+" deoplete#enable_logging("DEBUG", "/tmp/deoplete.log")
+
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " Time is ms
 let g:deoplete#auto_complete_delay = 100
@@ -7,6 +12,7 @@ let g:deoplete#auto_complete_delay = 100
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+
 " let g:deoplete#disable_auto_complete = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -19,6 +25,8 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+" autocmd FileType python setlocal omnifunc=jedi#completions
+"
 " tern
 if exists('g:plugs["tern_for_vim"]')
   let g:tern_show_argument_hints = 'on_hold'
