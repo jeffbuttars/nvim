@@ -43,9 +43,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         " endif
 
         " set background="" . g:solarized_style
-        if has('nvim') == '1'
-            let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-        endif
+        set termguicolors
         colorscheme solarized
 
         set cursorline
