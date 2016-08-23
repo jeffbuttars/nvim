@@ -43,11 +43,12 @@ let g:neomake_python_flake8_args = ["--max-line-length=99"]
 
 " au! WinEnter,BufWritePost * Neomake
 augroup MyNeomake
-  autocmd!
+"   autocmd!
   " autocmd BufEnter,WinEnter,InsertChange,CursorHold,TextChanged,InsertLeave * silent update | Neomake
 
   " Recommended
-  autocmd BufWritePost,CursorHold * Neomake
+  " autocmd BufWritePost,CursorHold * Neomake
+  autocmd BufWritePost * Neomake
 
   " Remaining is Experimental, often buggy
   " autocmd BufEnter,WinEnter * Neomake
