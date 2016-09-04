@@ -27,7 +27,7 @@ let g:neomake_python_flake8_args = ["--max-line-length=99"]
 " This setting will open the |loclist| or |quickfix| list (depending on whether
 " it is operating on a file) when adding entries. A value of 2 will preserve the
 " cursor position when the |loclist| or |quickfix| window is opened. Defaults to 0.
-" let g:neomake_open_list = 2
+let g:neomake_open_list = 0
 
 " autocmd! VimLeave * let g:neomake_verbose = 0
 
@@ -48,7 +48,7 @@ augroup MyNeomake
 
   " Recommended
   " autocmd BufWritePost,CursorHold * Neomake
-  autocmd BufWritePost * Neomake
+  autocmd BufEnter,WinEnter,BufReadPost,BufWritePost * Neomake
 
   " Remaining is Experimental, often buggy
   " autocmd BufEnter,WinEnter * Neomake
