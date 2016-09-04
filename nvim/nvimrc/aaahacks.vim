@@ -16,13 +16,6 @@ function! Autosave()
 
 	if expand('%') != ""
 		write
-        " call syntastic#util#redrawHandler()
-        " call syntastic#util#redraw(1)
-        " If syntastic is available, run it.
-        " if exists(':Syntastic') == 1
-            " execute "SyntasticCheck\<CR>"
-        " endif
-        " execute "Neomake\<CR>"
 	endif
 endfunction
 
