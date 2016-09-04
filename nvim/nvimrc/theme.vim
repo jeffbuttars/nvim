@@ -15,14 +15,37 @@ set t_ZH=[3m
 set t_ZR=[23m
 highlight Comment cterm=italic
 
+function SolarizedLight()
+    let g:solarized_style = 'light'
+
+    let g:terminal_color_0  = '#eee8d5'
+    let g:terminal_color_1  = '#dc322f'
+    let g:terminal_color_2  = '#859900'
+    let g:terminal_color_3  = '#b58900'
+    let g:terminal_color_4  = '#268bd2'
+    let g:terminal_color_5  = '#d33682'
+    let g:terminal_color_6  = '#2aa198'
+    let g:terminal_color_7  = '#073642'
+    let g:terminal_color_8  = '#fdf6e3'
+    let g:terminal_color_9  = '#cb4b16'
+    let g:terminal_color_10 = '#93a1a1'
+    let g:terminal_color_11 = '#839496'
+    let g:terminal_color_12 = '#657b83'
+    let g:terminal_color_13 = '#6c71c4'
+    let g:terminal_color_14 = '#586e75'
+    let g:terminal_color_15 = '#002b36'
+endfunction
+
+
 " Setup color style, light or dark and cursorlines
 if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TERM =~ 'xterm'
     try
         " Use a console friendly theme and force Vim to
         " use 256 colors if we think the console can handle it.
         " set t_Co=256
-        hi clear CursorLine 
-        let g:solarized_style = 'light'
+        hi clear CursorLine
+        call SolarizedLight()
+        " let g:solarized_style = 'light'
         let g:solarized_termcolors = 16
 
         if $TERM_META =~ 'light'
@@ -31,7 +54,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
             let g:solarized_style = 'dark'
         endif
 
-        " Weird fix for Terminology. Need to swap the 
+        " Weird fix for Terminology. Need to swap the
         " light/dark versions
         " if $TERMINOLOGY == '1'
         "     if $TERM_META =~ 'light'
