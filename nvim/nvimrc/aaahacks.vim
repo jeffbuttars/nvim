@@ -19,9 +19,6 @@ function! Autosave()
 	endif
 endfunction
 
-autocmd CursorHold,BufLeave,FocusLost,WinLeave * :call Autosave()
-autocmd VimResized * :wincmd =
-
 " A more verbose pastetoggle
 function! TogglePaste()
 	if	&paste == 0
@@ -92,10 +89,6 @@ if ! exists("g:maxLineLength")
 	let g:maxLineLength=100
 endif
 
-au FileType python :call SetColorColumn(g:maxLineLength)
-au FileType sh :call SetColorColumn(g:maxLineLength)
-au FileType javascript :call SetColorColumn(g:maxLineLength)
-
 " helper function to toggle hex mode
 function! ToggleHex()
   " hex mode should be considered a read-only operation
@@ -140,9 +133,9 @@ command! -complete=shellcmd -nargs=* R rightbelow vnew | r ! <args>
 " Open a Quickfix window for the last search.
 nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
-" Open the quickfix after running grep
-autocmd QuickFixCmdPost *grep* cwindow
-autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
+" Allow paste of visually selected without overwriting the copy register
+" vnoremap <leader>p "_dP
+vnoremap p "_dP
 
 " "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 
@@ -182,3 +175,15 @@ if 'VIRTUAL_ENV' in os.environ:
         vim.command('set tags+=' + tpath)
         # vim.command('echo "Set tag path ' + tpath + '"')
 EOF
+
+augroup MyAAAHacks
+    autocmd CursorHold,BufLeave,FocusLost,WinLeave * :call Autosave()
+    " Need to make this _not_ change the quickfix size.
+    autocmd VimResized * :wincmd =
+    " Open the quickfix after running grep
+    autocmd QuickFixCmdPost *grep* cwindow
+    autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
+    autocmd FileType python :call SetColorColumn(g:maxLineLength)
+    autocmd FileType sh :call SetColorColumn(g:maxLineLength)
+    autocmd FileType javascript :call SetColorColumn(g:maxLineLength)
+augroup END

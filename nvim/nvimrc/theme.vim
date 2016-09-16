@@ -15,7 +15,7 @@ set t_ZH=[3m
 set t_ZR=[23m
 highlight Comment cterm=italic
 
-function SolarizedLight()
+function! s:SolarizedLight()
     let g:solarized_style = 'light'
 
     let g:terminal_color_0  = '#eee8d5'
@@ -44,7 +44,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         " use 256 colors if we think the console can handle it.
         " set t_Co=256
         hi clear CursorLine
-        call SolarizedLight()
+        call s:SolarizedLight()
         " let g:solarized_style = 'light'
         let g:solarized_termcolors = 16
 

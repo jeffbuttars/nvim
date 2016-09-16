@@ -70,7 +70,7 @@ const ${1} = ${2}
 endsnippet
 
 snippet clg "console.log()"
-console.log(${1:'$2'})$0
+console.log(${1:'$2'}${3})$0
 endsnippet
 
 snippet cle "console.error()"
@@ -179,9 +179,10 @@ _.forEach(${1:collection}, function (${2:obj}) {
 endsnippet
 
 snippet >c "Arrow component (${1:params}) => ${2}" i
-(props) => {
-  return (${1})
-}${0}
+${1}${2: }(props) => {
+  return (${3})
+}
+${0}
 endsnippet
 
 snippet di "Object/Dicitonary item" i
