@@ -54,10 +54,9 @@ Plug 'vim-indent-object'
 Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
-" Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': 'git submodule update --init --recursive; python2 ./install.py --clang-completer --tern-completer' }
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
@@ -80,6 +79,7 @@ Plug 'mhinz/vim-startify'
 Plug 'mtth/scratch.vim'
 Plug 'https://github.com/grassdog/tagman.vim'
 Plug 'metakirby5/codi.vim'
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
