@@ -4,11 +4,6 @@ source pkgs.sh
 source nvimenv.sh
 source in_up.sh
 
-# Remove old bundles if they exists
-if [[ -d "$NVIM_HOME/bundle" ]]; then
-    rm -fr "$NVIM_HOME/bundle" 
-fi
-
 pr_info "Vim Plug?"
 if [[ ! -f "$NVIM_HOME/autoload/plug.vim" ]]; then
     pr_info "Installing Vim Plug."
