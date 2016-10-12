@@ -36,7 +36,8 @@ let g:deoplete#omni#functions.javascript = [
 
 " set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer', ]
+let g:deoplete#sources['javascript'] = ['file', 'ternjs', 'ultisnips', 'buffer', ]
+let g:deoplete#sources['jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer', ]
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
@@ -50,8 +51,8 @@ let g:tern#arguments = ['--persistent']
 " endif
 
 " deoplete tab-complete
-" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " tern
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+autocmd FileType javascript,jsx nnoremap <silent> <buffer> gb :TernDef<CR>

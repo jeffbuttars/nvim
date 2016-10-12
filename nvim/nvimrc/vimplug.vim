@@ -38,8 +38,6 @@ Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'git://github.com/lrvick/Conque-Shell.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
-Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'git://github.com/junegunn/vim-easy-align.git'
 " Plug 'git://github.com/scrooloose/syntastic.git'
@@ -81,6 +79,8 @@ Plug 'mtth/scratch.vim'
 Plug 'https://github.com/grassdog/tagman.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/suan/vim-instant-markdown.git'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
