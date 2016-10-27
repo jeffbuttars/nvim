@@ -220,9 +220,13 @@ ${1}new Promise((resolve, reject) => {
 endsnippet
 
 snippet .red "reduce" i
-.reduce((p, ${1:v}) => ${2:{${0}}}, ${3:[]})
+.reduce((p, ${1:v}) => ${3:{
+  ${4}
+}}, ${2:[]})
 endsnippet
 
 snippet .map "map" i
-.map((${1:v}) => ${2:{${0}}})
+.map((${1:v}) => ${2:{
+  ${3}
+}})
 endsnippet
