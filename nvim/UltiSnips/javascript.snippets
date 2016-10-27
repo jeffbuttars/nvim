@@ -70,7 +70,7 @@ const ${1} = ${2}
 endsnippet
 
 snippet clg "console.log()"
-console.log(${1:'$2'}${3})$0
+console.log('${1}'${2:,}${3})$0
 endsnippet
 
 snippet cle "console.error()"
@@ -116,25 +116,25 @@ snippet lreq "let name = require('')"
 let ${1} = require('${2:$1}')$0
 endsnippet
 
-snippet fori "for key in"
+snippet fori "for key in" b
 for (let ${1:key} in ${2:obj}) { if ($2.hasOwnProperty(key)) {
     ${3:$2[key]}$0
 }}
 endsnippet
 
-snippet forl "for (let x of )"
+snippet forl "for (let x of )" b
 for (let ${1} of ${2}) {
 	${0}
 }
 endsnippet
 
-snippet for "for (...) {...} (faster)" !
+snippet for "for (...) {...} (faster)" b
 for (let ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--){
 	${3:$1[$2]}$0
 }
 endsnippet
 
-snippet for "for (...) {...}" !
+snippet for "for (...) {...}" b
 for (let ${2:i}=0; $2 < ${1:Things}.length; $2++) {
 	${3:$1[$2]}$0
 }
@@ -219,10 +219,10 @@ ${1}new Promise((resolve, reject) => {
 })
 endsnippet
 
-snippet red "reduce" i
-reduce((p, ${1:v}) => ${2:{${0}}}, ${3:[]})
+snippet .red "reduce" i
+.reduce((p, ${1:v}) => ${2:{${0}}}, ${3:[]})
 endsnippet
 
-snippet map "map" i
-reduce((${1:v}) => ${2:{${0}}})
+snippet .map "map" i
+.map((${1:v}) => ${2:{${0}}})
 endsnippet
