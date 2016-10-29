@@ -70,15 +70,15 @@ const ${1} = ${2}
 endsnippet
 
 snippet clg "console.log()"
-console.log('${1}'${2:,}${3})$0
+console.log('${1}'${2:, ${3}})$0
 endsnippet
 
 snippet cle "console.error()"
-console.error(${1:'$2'})$0
+console.error('${1}'${2:, ${3}})$0
 endsnippet
 
 snippet clw "console.warn()"
-console.warn(${1:'$2'})$0
+console.warn('${1}'${2:, ${3}})$0
 endsnippet
 
 snippet clt "console.table()"
@@ -229,4 +229,8 @@ snippet .map "map" i
 .map((${1:v}) => ${2:{
   ${3}
 }})
+endsnippet
+
+snippet .g "get" i
+.get('${1}'${2:, ${3:default}})${0}
 endsnippet
