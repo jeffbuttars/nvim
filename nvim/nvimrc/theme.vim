@@ -17,6 +17,7 @@ highlight Comment cterm=italic
 
 function! s:SolarizedLight()
     let g:solarized_style = 'light'
+    set background=light
 
     let g:terminal_color_0  = '#eee8d5'
     let g:terminal_color_1  = '#dc322f'
@@ -52,6 +53,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
             set nocursorline
         else
             let g:solarized_style = 'dark'
+            set background=dark
         endif
 
         " Weird fix for Terminology. Need to swap the
