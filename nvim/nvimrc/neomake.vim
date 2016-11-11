@@ -1,9 +1,13 @@
-let g:neomake_javascript_enabled_makers = ['eslint']
-
 " load local eslint in the project root
 " modified from https://github.com/mtscout6/syntastic-local-eslint.vim
+
+let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+
+" let g:neomake_jsx_eslint_exe =g:neomake_javascript_eslint_exe
+" let g:neomake_jsx_enabled_makers =g:neomake_javascript_enabled_makers
+" let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint')
 
 " let g:neomake_python_prospector_maker = {
 "             \ 'args': ['-o', 'pylint', '-M', '--absolute-paths', '%:p', '-W', 'pylint'],
@@ -54,7 +58,7 @@ augroup MyNeomake
 
   " Recommended
   " autocmd BufWritePost,CursorHold * Neomake
-  autocmd BufEnter,WinEnter,BufReadPost,BufWritePost * Neomake
+  autocmd BufEnter,WinEnter,BufWritePost * Neomake
 
   " Remaining is Experimental, often buggy
   " autocmd BufEnter,WinEnter * Neomake

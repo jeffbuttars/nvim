@@ -179,7 +179,7 @@ EOF
 augroup MyAAAHacks
     autocmd CursorHold,BufLeave,FocusLost,WinLeave * :call Autosave()
     " Need to make this _not_ change the quickfix size.
-    autocmd VimResized * :wincmd =
+    "autocmd VimResized * :wincmd =
     " Open the quickfix after running grep
     autocmd QuickFixCmdPost *grep* cwindow
     autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
