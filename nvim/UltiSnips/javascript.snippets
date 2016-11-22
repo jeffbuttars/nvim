@@ -179,9 +179,10 @@ _.forEach(${1:collection}, function (${2:obj}) {
 endsnippet
 
 snippet >c "Arrow component (${1:params}) => ${2}" i
-${1}${2: }(props) => {
-  return (${3})
+${1}${2: }(${3:props}) => {
+  return (${4})
 }
+$1.propTypes = {${5}}
 ${0}
 endsnippet
 
