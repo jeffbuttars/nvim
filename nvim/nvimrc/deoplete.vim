@@ -60,8 +60,8 @@ let g:tern#arguments = ['--persistent']
 " endif
 
 " deoplete tab-complete
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
+" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " tern
 autocmd FileType javascript,jsx nnoremap <silent> <buffer> gb :TernDef<CR>
