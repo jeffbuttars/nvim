@@ -1,4 +1,3 @@
-runtime! plugin/python_setup.vim
 
 " enable early
 filetype plugin indent on

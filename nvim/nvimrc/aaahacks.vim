@@ -139,15 +139,15 @@ vnoremap p "_dP
 
 " "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 
-    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-    set list
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 
 "====[ Swap : and ; to make colon commands easier to type ]======
 
-    nnoremap  ;  :
-    " If you swap the other way, it's break my NERDTree
-    " nnoremap  :  ;
+nnoremap  ;  :
+" If you swap the other way, it breaks my NERDTree
+" nnoremap  :  ;
 
 " " runtime plugin/dragvisuals.vim
 
