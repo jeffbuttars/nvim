@@ -21,8 +21,21 @@ let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\
 "             \ '%C%\s%\+%m,' .
 "             \ '%-G%.%#'
 "             \ }
+let g:neomake_python_prospector_maker = {
+            \ 'args': ['-o', 'pylint', '--absolute-paths', '%:p'],
+            \ 'errorformat':
+            \ '%-G%.%#module named%.%#,' .
+            \ '%f:%l:%c [%t%n%.%#] %m,' .
+            \ '%E%f:%l%\%.%c %trror: %m,' .
+            \ '%E%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %trror: %m,' .
+            \ '%W%f:%l%\%.%c %tarning: %m,' .
+            \ '%W%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %tarning: %m,' .
+            \ '%C%\s%\+%m,' .
+            \ '%-G%.%#'
+            \ }
 " let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint']
-let g:neomake_python_enabled_makers = ['flake8', 'pylint', 'pylama']
+" let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint', 'pylama']
+let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_verbose = 0
 let g:neomake_echo_current_error = 1
 let g:neomake_airline = 1
