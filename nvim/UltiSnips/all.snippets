@@ -19,25 +19,20 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 endsnippet
 
-
-snippet atc "A10 Copyright" b
-Copyright(C) 2007-`!v strftime("%Y")`, A10 Networks Inc. All rights reserved.
-Software for all A10 products contain trade secrets and confidential
-information of A10 Networks and its subsidiaries and may not be
-disclosed, copied, reproduced or distributed to anyone outside of
-A10 Networks without prior written consent of A10 Networks, Inc.
-endsnippet
-
-snippet date "Current Date"
+snippet date "Current Date" b
 `!v strftime("%m/%d/%Y")`
 endsnippet
 
-snippet datetime "Current Date and time"
+snippet datetime "Current Date and time" b
 `!v strftime("%c")`
 endsnippet
 
-snippet uuid "UUID" !
+snippet uuid "UUID" b
 `!p import uuid
 if not snip.c:
 	snip.rv = uuid.uuid4().hex`
+endsnippet
+
+snippet modeline "Vim modeline" b
+vim: set softtabstop=`!v &softtabstop` tabstop=`!v &tabstop` shiftwidth=`!v &shiftwidth`:
 endsnippet
