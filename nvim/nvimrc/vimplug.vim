@@ -78,6 +78,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+" Plug 'chemzqm/vim-jsx-improve'
 Plug 'mhinz/vim-startify'
 Plug 'mtth/scratch.vim'
 Plug 'https://github.com/grassdog/tagman.vim'
