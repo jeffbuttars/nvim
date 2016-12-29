@@ -1,6 +1,7 @@
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
+let g:deoplete#max_menu_width = 15
 
 let g:tern_request_timeout = 1
 let g:tern#command = ["tern"]

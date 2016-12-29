@@ -56,6 +56,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'zchee/deoplete-jedi'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
+" ES2015 code snippets (Optional)
+Plug 'epilande/vim-es2015-snippets'
+" React code snippets
+Plug 'epilande/vim-react-snippets'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
@@ -75,13 +79,15 @@ Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+" Plug 'chemzqm/vim-jsx-improve'
 Plug 'mhinz/vim-startify'
 Plug 'mtth/scratch.vim'
 Plug 'https://github.com/grassdog/tagman.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown.git'
+Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+Plug 'jungomi/vim-mdnquery', { 'do': 'gem install --user-install mdn_query' }
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
