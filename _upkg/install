@@ -17,6 +17,7 @@ pr_info "Creating the new ${NVIM_INIT}"
 export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
 echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
+echo "source $PKGS_NVIM_DIR/ginit.vim" >> "g${NVIM_INIT}"
 
 source buildycm.sh
 wait
