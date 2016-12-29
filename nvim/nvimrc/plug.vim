@@ -69,6 +69,7 @@ Plug 'https://github.com/mustache/vim-mustache-handlebars'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'hsanson/vim-android'
 Plug 'derekwyatt/vim-fswitch'
+Plug 'yuttie/comfortable-motion.vim'
 " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
