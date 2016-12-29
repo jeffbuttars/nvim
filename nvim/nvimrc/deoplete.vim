@@ -7,8 +7,8 @@ let g:tern_request_timeout = 1
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 
-call deoplete#custom#set('javascript', 'min_pattern_length', 1)
-call deoplete#custom#set('jsx', 'min_pattern_length', 1)
+" call deoplete#custom#set('javascript', 'min_pattern_length', 1)
+" call deoplete#custom#set('jsx', 'min_pattern_length', 1)
 
 let g:deoplete#sources#jedi#show_docstring = 1
 
