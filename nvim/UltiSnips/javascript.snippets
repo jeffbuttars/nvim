@@ -73,12 +73,24 @@ snippet clg "console.log()"
 console.log('${1}'${2:, ${3}})$0
 endsnippet
 
+snippet ldbg "logger.debug"
+logger.debug('${1}'${2:, ${3}})$0
+endsnippet
+
 snippet cle "console.error()"
 console.error('${1}'${2:, ${3}})$0
 endsnippet
 
+snippet lerr "logger.error"
+logger.error('${1}'${2:, ${3}})$0
+endsnippet
+
 snippet clw "console.warn()"
 console.warn('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet linf "logger.info"
+logger.info('${1}'${2:, ${3}})$0
 endsnippet
 
 snippet clt "console.table()"
