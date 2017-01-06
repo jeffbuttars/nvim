@@ -66,3 +66,6 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " tern
 autocmd FileType javascript,jsx nnoremap <silent> <buffer> gb :TernDef<CR>
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
