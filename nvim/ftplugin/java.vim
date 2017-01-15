@@ -13,3 +13,6 @@ imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 " Remove all missing imports with F7:
 nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+set errorformat=\[ERROR]\ %f:[%l\\,%v]\ %m
+set makeprg=make
