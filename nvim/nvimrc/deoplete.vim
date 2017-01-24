@@ -69,3 +69,10 @@ autocmd FileType javascript,jsx nnoremap <silent> <buffer> gb :TernDef<CR>
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#omni_patterns = {}
+" let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+" let g:deoplete#auto_completion_start_length = 1
+" let g:deoplete#sources = {}
+" let g:deoplete#sources._ = []
+" let g:deoplete#file#enable_buffer_path = 1

@@ -2,6 +2,7 @@
 " modified from https://github.com/mtscout6/syntastic-local-eslint.vim
 
 let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
+let g:neomake_jsx_enabled_makers = ['eslint', 'jscs']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 

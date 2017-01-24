@@ -91,7 +91,6 @@ Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
 Plug 'jungomi/vim-mdnquery', { 'do': 'gem install --user-install mdn_query' }
 Plug 'artur-shaik/vim-javacomplete2'
-Plug 'mikelue/vim-maven-plugin'
 
 " Tornado template syntax
 Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'

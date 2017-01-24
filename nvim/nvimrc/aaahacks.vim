@@ -185,5 +185,19 @@ augroup MyAAAHacks
     autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
     autocmd FileType python :call SetColorColumn(g:maxLineLength)
     autocmd FileType sh :call SetColorColumn(g:maxLineLength)
+
     autocmd FileType javascript :call SetColorColumn(g:maxLineLength)
+
+    " Usage: prettier [opts] [filename ...]
+    " 
+    " Available options:
+    "   --write              Edit the file in-place (beware!)
+    "   --stdin              Read input from stdin
+    "   --print-width <int>  Specify the length of line that the printer will wrap on. Defaults to 80.
+    "   --tab-width <int>    Specify the number of spaces per indentation-level. Defaults to 2.
+    "   --flow-parser        Use the flow parser instead of babylon
+    "   --single-quote       Use single quotes instead of double
+    "   --trailing-comma     Print trailing commas wherever possible
+    "   --bracket-spacing    Put spaces between brackets. Defaults to true, set false to turn off
+    " autocmd FileType javascript set formatprg=prettier\ --stdin\ --print-width=100\ --flow-parser\ --single-quote
 augroup END

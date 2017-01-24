@@ -15,4 +15,4 @@ nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 set errorformat=\[ERROR]\ %f:[%l\\,%v]\ %m
-set makeprg=make
+" set makeprg=make
