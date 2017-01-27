@@ -27,7 +27,7 @@ snippet datetime "Current Date and time" b
 `!v strftime("%c")`
 endsnippet
 
-snippet uuid "UUID" b
+snippet uuid "UUID" i
 `!p import uuid
 if not snip.c:
 	snip.rv = uuid.uuid4().hex`

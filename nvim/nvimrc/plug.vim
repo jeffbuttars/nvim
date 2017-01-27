@@ -54,7 +54,8 @@ Plug 'nginx.vim'
 Plug 'patchreview.vim'
 " We handle YCM ourselves
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
+" Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
+Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'zchee/deoplete-jedi'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
