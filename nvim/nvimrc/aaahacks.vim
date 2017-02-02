@@ -135,7 +135,7 @@ nnoremap <silent> ,/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 " Allow paste of visually selected without overwriting the copy register
 " vnoremap <leader>p "_dP
-vnoremap p "_dP
+vnoremap <s-p> "_dP
 
 " "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 
