@@ -22,16 +22,21 @@ import vim
 def find_def_name(ident):
 
     cp = vim.eval('getpos(".")')
+    line_idx = int(cp[1])
+    buf = vim.current.buffer
 
-    # Find the nearest def
-    vim.eval("searchpos('" + ident + "', 'b')")
+    # Find the nearest class def
+    lines = reversed(buf[:line_idx])
+    ident_name = ''
+    for line in lines:
+        if line.lstrip().startswith(ident):
+            try:
+                ident_name = line.lstrip().split()[1].split('(')[0]
+                break
+            except e:
+                break
 
-    # Get the name of the def/method/etc.  
-    vim.command('execute "normal W"')
-    dname = vim.eval("expand('<cword>')")
-    vim.command("call setpos('.', " + str(cp) + ")")
-
-    return dname
+    return ident_name
 
 def get_nearest_def_args(ident='def', strip_self=False):
     cp = vim.eval('getpos(".")')
