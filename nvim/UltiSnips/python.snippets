@@ -32,7 +32,8 @@ def find_def_name(ident):
         if line.lstrip().startswith(ident):
             try:
                 ident_name = line.lstrip().split()[1].split('(')[0]
-                break
+                if ident_name.rstrip(' :') != 'Meta':
+                    break
             except e:
                 break
 
@@ -356,7 +357,7 @@ endsnippet
 
 # Find the class name and method name and
 # create a nice super call
-snippet sup "super(Class, self)." b!
+snippet sup "super(Class, self)." i!
 super(${1:`!p snip.rv += find_def_name("class ")`}, self).${2:`!p snip.rv += find_def_name("def ")`}(${3:`!p snip.rv += get_nearest_def_args(strip_self=True)`})${0}
 endsnippet
 
