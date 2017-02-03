@@ -66,19 +66,6 @@ let g:neomake_open_list = 0
 " autocmd InsertChange,CursorHold * silent update | Neomake
 
 " au! WinEnter,BufWritePost * Neomake
-augroup MyNeomake
-"   autocmd!
-  " autocmd BufEnter,WinEnter,InsertChange,CursorHold,TextChanged,InsertLeave * silent update | Neomake
-
-  " Recommended
-  " autocmd BufWritePost,CursorHold * Neomake
-  autocmd BufEnter,WinEnter,BufWritePost * Neomake
-
-  " Remaining is Experimental, often buggy
-  " autocmd BufEnter,WinEnter * Neomake
-
-  " Lint as you type
-  " autocmd TextChanged,InsertLeave * silent update | Neomake
-  " More agressive lint as you type
-  " autocmd InsertChange,TextChanged,InsertLeave * silent update | Neomake
-augroup END
+" augroup MyNeomake
+"   autocmd BufEnter,WinEnter,BufWritePost * Neomake
+" augroup END
