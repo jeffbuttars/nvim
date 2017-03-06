@@ -12,5 +12,5 @@
 " com! FSBelow      :call FSwitch('%', 'wincmd j')
 " com! FSSplitBelow :call FSwitch('%', 'let cursb=&sb | set nosb | split | wincmd j | if cursb | set sb | endif')
 
- nmap <c-s> <ESC>:FSHere<CR>
- imap <c-s> <ESC>:FSHere<CR>
+ " nmap <c-s> <ESC>:FSHere<CR>
+ " imap <c-s> <ESC>:FSHere<CR>
