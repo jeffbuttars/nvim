@@ -159,7 +159,7 @@ elif ${1:condition}:
 endsnippet
 
 snippet pr "print()" b!
-print($0)
+print('${1}'${2:,${3}})${0}
 endsnippet
 
 snippet pra "print() with args"

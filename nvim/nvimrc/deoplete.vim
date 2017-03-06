@@ -3,9 +3,10 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_profile = 1
 let g:deoplete#max_menu_width = 15
 
-let g:tern_request_timeout = 1
+let g:tern_request_timeout = 500
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
+
 
 " call deoplete#custom#set('javascript', 'min_pattern_length', 1)
 " call deoplete#custom#set('jsx', 'min_pattern_length', 1)
@@ -17,11 +18,11 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " let g:deoplete#sources#ternjs#tern_bin = get(g:, 'deoplete#sources#ternjs#tern_bin', 'tern') 
 
 " Time is ms
-let g:deoplete#auto_complete_delay = 100
+let g:deoplete#auto_complete_delay = 400
 
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
 
 " let g:deoplete#disable_auto_complete = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

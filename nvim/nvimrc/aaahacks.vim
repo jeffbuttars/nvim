@@ -44,14 +44,14 @@ imap <F2> <ESC>:call TogglePaste()<CR>i
 " nasty hacks for this section.  
 " When c-y is used to select a completion, enter normal mode after it's inserted.
 " imap <c-y> <c-y><esc>
-function! CmplChooseNorm()
-	if pumvisible()
-        return "\<ESC>"
-	endif
+" function! CmplChooseNorm()
+"     if pumvisible()
+"         return "\<ESC>"
+"     endif
 
-    return "\<C-Y>"
-endfunction
-imap <c-y> <c-r>=CmplChooseNorm()<cr>
+"     return "\<C-Y>"
+" endfunction
+" imap <c-y> <c-r>=CmplChooseNorm()<cr>
 
 "highlight OverColLimit term=inverse,bold cterm=bold ctermbg=red ctermfg=black gui=bold guibg=red guifg=black 
 function! SetColorColumn(ccol)
@@ -145,7 +145,7 @@ set list
 
 "====[ Swap : and ; to make colon commands easier to type ]======
 
-nnoremap  ;  :
+" nnoremap  ;  :
 " If you swap the other way, it breaks my NERDTree
 " nnoremap  :  ;
 
@@ -185,8 +185,9 @@ augroup MyAAAHacks
     autocmd QuickFixCmdPost *grep* exe "normal \<cr>\<c-w>p"
     autocmd FileType python :call SetColorColumn(g:maxLineLength)
     autocmd FileType sh :call SetColorColumn(g:maxLineLength)
-
     autocmd FileType javascript :call SetColorColumn(g:maxLineLength)
+    autocmd FileType java :call SetColorColumn(g:maxLineLength)
+    autocmd FileType c :call SetColorColumn(g:maxLineLength)
 
     " Usage: prettier [opts] [filename ...]
     " 

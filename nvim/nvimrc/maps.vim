@@ -41,6 +41,9 @@ cmap w!! %!sudo tee > /dev/null %
 " works only in non-gui mode for now
 map #sp :w<CR>:!ispell %<CR>:e %<CR> 
 
+" nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+" imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " From an idea by Michael Naumann
 "You press * or # to search for the current visual selection !! Really useful
