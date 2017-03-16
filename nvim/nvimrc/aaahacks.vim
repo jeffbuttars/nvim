@@ -167,6 +167,7 @@ if 'VIRTUAL_ENV' in os.environ:
 
     sys.path.insert(0, project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    vim.command("let g:python3_host_prog = '" + os.path.join(project_base_dir, 'bin/python') + "'")
     execfile(activate_this, dict(__file__=activate_this))
 
     # Add tags if they are at the virtualenv dir
