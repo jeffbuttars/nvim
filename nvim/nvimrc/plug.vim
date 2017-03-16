@@ -38,21 +38,21 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 " Plug 'git://github.com/junegunn/vim-easy-align.git'
 " Plug 'https://github.com/neomake/neomake.git'
-Plug 'w0rp/ale'
 " Plug 'https://github.com/vim-ruby/vim-ruby'
 " Plug 'https://github.com/tpope/vim-dispatch.git'
 " Plug 'https://github.com/sjl/gundo.vim'
 Plug 'https://github.com/Shougo/vimfiler.vim'
 Plug 'https://github.com/will133/vim-dirdiff.git'
+Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'vim-indent-object'
 " Plug 'nginx.vim'
 " Plug 'patchreview.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
-Plug 'https://github.com/Raimondi/delimitMate'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'zchee/deoplete-jedi'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'https://github.com/w0rp/ale'
 " ES2015 code snippets (Optional)
 " Plug 'epilande/vim-es2015-snippets'
 " React code snippets
@@ -67,12 +67,14 @@ Plug 'ryanoasis/vim-webdevicons'
 " Plug 'hsanson/vim-android'
 " Plug 'derekwyatt/vim-fswitch'
 Plug 'yuttie/comfortable-motion.vim'
+
 " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
+
 " JS syntax
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mhinz/vim-startify'
 " Plug 'mtth/scratch.vim'
 " Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -82,13 +84,11 @@ Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mpyatishev/vim-sqlformat'
 
-" Tornado template syntax
-" Plug 'https://github.com/vim-scripts/tornadotmpl.vim.git'
-
 " Colorschemes
 "
 " Solarized has been good to me. I plan to keep it a while
 " Plug 'Solarized'
-Plug 'https://github.com/frankier/neovim-colors-solarized-truecolor-only.git'
+" Plug 'https://github.com/frankier/neovim-colors-solarized-truecolor-only.git'
+Plug 'https://github.com/lifepillar/vim-solarized8'
 
 call plug#end()

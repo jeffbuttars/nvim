@@ -44,32 +44,25 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         " Use a console friendly theme and force Vim to
         " use 256 colors if we think the console can handle it.
         " set t_Co=256
+        set termguicolors
         hi clear CursorLine
-        call s:SolarizedLight()
+        " call s:SolarizedLight()
         " let g:solarized_style = 'light'
-        let g:solarized_termcolors = 16
+        " let g:solarized_termcolors = 16
 
+        " colorscheme solarized_dark
         if $TERM_META =~ 'light'
-            set nocursorline
+            " set nocursorline
+            colorscheme solarized8_light
         else
-            let g:solarized_style = 'dark'
+            " let g:solarized_style = 'dark'
             set background=dark
+            colorscheme solarized8_dark
         endif
 
-        " Weird fix for Terminology. Need to swap the
-        " light/dark versions
-        " if $TERMINOLOGY == '1'
-        "     if $TERM_META =~ 'light'
-        "         let g:solarized_style = 'dark'
-        "     else
-        "         let g:solarized_style = 'light'
-        "     endif
-
-        " endif
-
         " set background="" . g:solarized_style
-        set termguicolors
-        colorscheme solarized
+        " colorscheme solarized
+        " colorscheme solarized_light
 
         set cursorline
         set cursorcolumn
