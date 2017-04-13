@@ -48,3 +48,38 @@ let g:fzf_layout = { 'down': '~100%' }
 imap <expr> <c-x><c-f> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
 
 " command! -bang -nargs=* Ack call fzf#vim#ag(<q-args>, {'down': '40%', 'options': --no-color'})
+
+" let g:fuzzyfunc = &omnifunc
+
+" function! FuzzyCompleteFunc(findstart, base)
+"   let Func = function(get(g:, 'fuzzyfunc', &omnifunc))
+"   let results = Func(a:findstart, a:base)
+
+"   if a:findstart
+"     return results
+"   endif
+
+"   if type(results) == type({}) && has_key(results, 'words')
+"     let l:words = []
+"     for result in results.words
+"       call add(words, result.word . ' ' . result.menu)
+"     endfor
+"   elseif len(results)
+"     let l:words = results
+"   endif
+
+"   if len(l:words)
+"     let result = fzf#run({ 'source': l:words, 'down': '~40%', 'options': printf('--query "%s" +s', a:base) })
+
+"     if empty(result)
+"       return [ a:base ]
+"     endif
+
+"     return [ split(result[0])[0] ]
+"   else
+"     return [ a:base ]
+"   endif
+" endfunction
+
+" set completefunc=FuzzyCompleteFunc
+" set completeopt=menu

@@ -15,9 +15,9 @@ let g:ale_set_highlights = 1
 let g:ale_use_ch_sendraw = 1
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['flow', 'eslint'],
 \   'jsx': ['eslint'],
-\   'python': ['flake8', 'pylint'],
+\   'python': ['flake8'],
 \}
 
 let g:ale_python_flake8_executable = 'python3'

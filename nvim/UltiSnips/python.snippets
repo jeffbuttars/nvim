@@ -357,8 +357,12 @@ endsnippet
 
 # Find the class name and method name and
 # create a nice super call
-snippet sup "super(Class, self)." i!
+snippet supc "super(Class, self)." i!
 super(${1:`!p snip.rv += find_def_name("class ")`}, self).${2:`!p snip.rv += find_def_name("def ")`}(${3:`!p snip.rv += get_nearest_def_args(strip_self=True)`})${0}
+endsnippet
+
+snippet sup "super()." i!
+super().${1:`!p snip.rv += find_def_name("def ")`}(${2:`!p snip.rv += get_nearest_def_args(strip_self=True)`})${0}
 endsnippet
 
 snippet optpar "option parser" b!

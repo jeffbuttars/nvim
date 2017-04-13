@@ -49,6 +49,7 @@ Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'patchreview.vim'
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'wokalski/autocomplete-flow'
 Plug 'zchee/deoplete-jedi'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }

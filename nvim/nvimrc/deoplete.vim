@@ -52,6 +52,10 @@ let g:deoplete#sources['jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer', ]
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+
 " autocmd FileType python setlocal omnifunc=jedi#completions
 "
 " tern
