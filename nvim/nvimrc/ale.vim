@@ -20,5 +20,4 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 
-let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_args = '--max-line-length=99'
