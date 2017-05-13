@@ -48,12 +48,31 @@ Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'nginx.vim'
 " Plug 'patchreview.vim'
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'wokalski/autocomplete-flow'
-Plug 'zchee/deoplete-jedi'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
+
+" Deoplete
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'wokalski/autocomplete-flow'
+" Plug 'zchee/deoplete-jedi'
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
+
+" nvim-completion-manager
+Plug 'roxma/nvim-completion-manager'
+
 Plug 'https://github.com/w0rp/ale'
+
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+
+" (optional) javascript completion
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" (optional) language server protocol framework
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" " (optional) php completion via LanguageClient-neovim
+" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" autocmd FileType php LanguageClientStart
+
+" Keep builtin CSS completions up to date
+Plug 'othree/csscomplete.vim'
+
 " ES2015 code snippets (Optional)
 " Plug 'epilande/vim-es2015-snippets'
 " React code snippets
