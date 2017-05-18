@@ -83,9 +83,9 @@ set shiftround	" use multiple of shiftwidth when indenting with '<' and '>'
 set expandtab
 
 " Show matching braces
-set showmatch 
+set showmatch
 " Quick blink when a match is made
-set mat=5
+" set mat=5
 
 set noswapfile
 set nobackup " do not keep a backup file, use persistent versions instead
