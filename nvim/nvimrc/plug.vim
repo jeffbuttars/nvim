@@ -60,15 +60,15 @@ Plug 'roxma/nvim-completion-manager'
 
 Plug 'https://github.com/w0rp/ale'
 
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
 
 " (optional) javascript completion
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 " (optional) language server protocol framework
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " " (optional) php completion via LanguageClient-neovim
-" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-" autocmd FileType php LanguageClientStart
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+autocmd FileType php LanguageClientStart
 
 " Keep builtin CSS completions up to date
 Plug 'othree/csscomplete.vim'
