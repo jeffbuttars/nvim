@@ -104,6 +104,9 @@ Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mpyatishev/vim-sqlformat'
 
+" Solidity
+Plug 'tomlion/vim-solidity'
+
 " Colorschemes
 "
 " Solarized has been good to me. I plan to keep it a while
