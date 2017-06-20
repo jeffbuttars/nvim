@@ -55,20 +55,35 @@ Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'zchee/deoplete-jedi'
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
 
+
+" Java gets it's own completion plugin
+Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
+
+" (optional) javascript completion
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'roxma/ncm-flow',  {'do': 'npm install'}
+Plug 'shougo/neco-vim'
+Plug 'shougo/neco-syntax'
+Plug 'shougo/neoinclude.vim'
+Plug 'jsfaint/gen_tags.vim'
+
+" (optional) language server protocol framework
+Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
+" " (optional) php completion via LanguageClient-neovim
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+autocmd FileType php LanguageClientStart
+
+Plug 'roxma/clang_complete'
+
 " nvim-completion-manager
-Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
 
 Plug 'https://github.com/w0rp/ale'
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
-
-" (optional) javascript completion
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-" (optional) language server protocol framework
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-" " (optional) php completion via LanguageClient-neovim
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-autocmd FileType php LanguageClientStart
 
 " Keep builtin CSS completions up to date
 Plug 'othree/csscomplete.vim'
@@ -101,7 +116,6 @@ Plug 'mhinz/vim-startify'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
 " Plug 'jungomi/vim-mdnquery', { 'do': 'gem install --user-install mdn_query' }
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mpyatishev/vim-sqlformat'
 
 " Solidity

@@ -1,3 +1,5 @@
+setlocal omnifunc=javacomplete#Complete
+
 " Enable smart (trying to guess import option) inserting class imports with F4, add:
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
