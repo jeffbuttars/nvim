@@ -294,19 +294,19 @@ class Test${1:TestClass}(unittest.TestCase):
 endsnippet
 
 snippet dbg "logger.debug()" b
-logger.debug("${1}"${2:, ${3}})${0}
+logger.debug(f"${1}")${0}
 endsnippet
 
 snippet err "logger.error()" b
-logger.error("${1}"${2:, ${3}})${0}
+logger.erro(f"${1}")${0}
 endsnippet
 
 snippet wrn "logger.warning()" b
-logger.warning("${1}"${2:, ${3}})${0}
+logger.warnin(f"${1}")${0}
 endsnippet
 
 snippet inf "logger.info()" b
-logger.info("${1}"${2:, ${3}})${0}
+logger.inf(f"${1}")${0}
 endsnippet
 
 snippet prv "<self.>_varname = <value>" b
@@ -468,6 +468,14 @@ endsnippet
 
 snippet raise "raise Excption()" b
 raise ${1:Exception}(${2:"${3:Error}"${4}})${0}
+endsnippet
+
+#Fstrings
+snippet f' "f'fstring'" i
+f'${1}'${0}
+endsnippet
+snippet f" "f string" i
+f"${1}"${0}
 endsnippet
 
 # vim:ft=snippets:
