@@ -109,6 +109,12 @@ Plug 'https://github.com/elzr/vim-json.git'
 " JS syntax
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'mitermayer/vim-prettier', {
+	\ 'do': 'yarn install', 
+	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
+
 " Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mhinz/vim-startify'
 " Plug 'mtth/scratch.vim'

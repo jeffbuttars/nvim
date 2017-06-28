@@ -27,10 +27,16 @@ snippet datetime "Current Date and time" b
 `!v strftime("%c")`
 endsnippet
 
-snippet uuid "UUID" i
+snippet uuid "UUID V4 Simple Format" i
 `!p import uuid
 if not snip.c:
 	snip.rv = uuid.uuid4().hex`
+endsnippet
+
+snippet uuid4 "UUID V4 Default Format" i
+`!p import uuid
+if not snip.c:
+	snip.rv = uuid.uuid4()`
 endsnippet
 
 snippet modeline "Vim modeline" b
