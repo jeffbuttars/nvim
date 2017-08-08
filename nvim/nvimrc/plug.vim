@@ -120,7 +120,7 @@ Plug 'mhinz/vim-startify'
 " Plug 'mtth/scratch.vim'
 " Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'echo Run: npm install -g instant-markdown-d' }
 " Plug 'jungomi/vim-mdnquery', { 'do': 'gem install --user-install mdn_query' }
 Plug 'mpyatishev/vim-sqlformat'
 

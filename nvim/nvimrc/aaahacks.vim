@@ -203,3 +203,14 @@ augroup MyAAAHacks
     "   --bracket-spacing    Put spaces between brackets. Defaults to true, set false to turn off
     " autocmd FileType javascript set formatprg=prettier\ --stdin\ --print-width=100\ --flow-parser\ --single-quote
 augroup END
+
+
+" https://bluz71.github.io/2017/06/28/current-treats-future-wants-of-neovim.html
+" Make escape work in the Neovim terminal.
+" tnoremap <Esc> <C-\><C-n>
+
+" Make navigation into and out of Neovim terminal splits nicer.
+" tnoremap <C-h> <C-\><C-N><C-w>h
+" tnoremap <C-j> <C-\><C-N><C-w>j
+" tnoremap <C-k> <C-\><C-N><C-w>k
+" tnoremap <C-l> <C-\><C-N><C-w>l
