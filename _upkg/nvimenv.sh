@@ -16,6 +16,7 @@ fi
 export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export NVIM_HOME="$XDG_CONFIG_HOME/nvim"
 export NVIM_INIT="$XDG_CONFIG_HOME/nvim/init.vim"
+export NVIM_GINIT="$XDG_CONFIG_HOME/nvim/ginit.vim"
 
 # Make sure we have the needed directories
 mkdir -p "$NVIM_HOME/undos"
