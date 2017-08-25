@@ -6,7 +6,7 @@ filetype plugin indent on
 runtime nvimrc/nerdcomment.vim
 
 " Load our 'plugs' early
-runtime nvimrc/vimplug.vim
+runtime nvimrc/plug.vim
 
 set lazyredraw      " Don't redraw screen when executing macros
 set history=1000 " keep 1000 lines of command line history

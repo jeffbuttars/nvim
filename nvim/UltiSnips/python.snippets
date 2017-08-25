@@ -294,19 +294,19 @@ class Test${1:TestClass}(unittest.TestCase):
 endsnippet
 
 snippet dbg "logger.debug()" b
-logger.debug(f"${1}")${0}
+logger.debug("${1}"${2:, }${3})${0}
 endsnippet
 
 snippet err "logger.error()" b
-logger.erro(f"${1}")${0}
+logger.error("${1}"${2:, }${3})${0}
 endsnippet
 
 snippet wrn "logger.warning()" b
-logger.warnin(f"${1}")${0}
+logger.warning("${1}"${2:, }${3})${0}
 endsnippet
 
 snippet inf "logger.info()" b
-logger.inf(f"${1}")${0}
+logger.info("${1}"${2:, }${3})${0}
 endsnippet
 
 snippet prv "<self.>_varname = <value>" b
