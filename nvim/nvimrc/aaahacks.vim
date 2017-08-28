@@ -31,7 +31,7 @@ function! TogglePaste()
 endfunction
 
 " Map the <End> key to <Esc>
-" This is do to my X1 kbd layout
+" This is do to my X1 gen 2 kbd layout
 nmap <End> <ESC>
 imap <End> <ESC>
 
