@@ -32,7 +32,10 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
+
 Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
+Plug 'https://github.com/djdt/pyparens.nvim', { 'do': function('DoRemote') }
+
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -133,5 +136,9 @@ Plug 'tomlion/vim-solidity'
 " Plug 'Solarized'
 " Plug 'https://github.com/frankier/neovim-colors-solarized-truecolor-only.git'
 Plug 'https://github.com/lifepillar/vim-solarized8'
+
+" NyaoVim Plugs
+"Plug 'https://github.com/rhysd/nyaovim-markdown-preview'
+"Plug 'https://github.com/rhysd/nyaovim-popup-tooltip'
 
 call plug#end()

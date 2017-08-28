@@ -19,15 +19,26 @@ vnoremap ((  <ESC>`>a)<ESC>`<i(<ESC>
 vnoremap ))  <ESC>`<i(<ESC>`><right>a)<ESC>
 vnoremap {{  <ESC>`>a}<ESC>`<i{<ESC>
 vnoremap }}  <ESC>`<i{<ESC>`><right>a}<ESC>
+vnoremap [[  <ESC>`>a]<ESC>`<i[<ESC>
+vnoremap ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
 " If allow " here, it messes up register selection
 " So we use "" instead, and it works.
-" Move this into doubleTap?
 "vnoremap "  <ESC>`>a"<ESC>`<i"<ESC>
 vnoremap ""  <ESC>`>a"<ESC>`<i"<ESC>
 vnoremap ''  <ESC>`>a'<ESC>`<i'<ESC>
 vnoremap ``  <ESC>`>a`<ESC>`<i`<ESC>
-vnoremap [[  <ESC>`>a]<ESC>`<i[<ESC>
-vnoremap ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
+
+" A helper to override the buffer level mappings that kick in
+" via plugins.
+function! WrapMaps ()
+    vnoremap <buffer> [[  <ESC>`>a]<ESC>`<i[<ESC>
+    vnoremap <buffer> ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
+endfunction
+
+augroup wrap_maps_group
+    autocmd!
+    autocmd filetype netrw call WrapMaps()
+augroup END
 
 " vnoremap < <gv " better indentation control
 " vnoremap > >gv " better indentation control
