@@ -1,8 +1,8 @@
 " load local eslint in the project root
 " modified from https://github.com/mtscout6/syntastic-local-eslint.vim
 
-let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
-let g:neomake_jsx_enabled_makers = ['eslint', 'jscs']
+" let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
+" let g:neomake_jsx_enabled_makers = ['eslint', 'jscs', 'flow']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
@@ -22,18 +22,18 @@ let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\
 "             \ '%C%\s%\+%m,' .
 "             \ '%-G%.%#'
 "             \ }
-let g:neomake_python_prospector_maker = {
-            \ 'args': ['-o', 'pylint', '--absolute-paths', '%:p'],
-            \ 'errorformat':
-            \ '%-G%.%#module named%.%#,' .
-            \ '%f:%l:%c [%t%n%.%#] %m,' .
-            \ '%E%f:%l%\%.%c %trror: %m,' .
-            \ '%E%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %trror: %m,' .
-            \ '%W%f:%l%\%.%c %tarning: %m,' .
-            \ '%W%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %tarning: %m,' .
-            \ '%C%\s%\+%m,' .
-            \ '%-G%.%#'
-            \ }
+" let g:neomake_python_prospector_maker = {
+"             \ 'args': ['-o', 'pylint', '--absolute-paths', '%:p'],
+"             \ 'errorformat':
+"             \ '%-G%.%#module named%.%#,' .
+"             \ '%f:%l:%c [%t%n%.%#] %m,' .
+"             \ '%E%f:%l%\%.%c %trror: %m,' .
+"             \ '%E%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %trror: %m,' .
+"             \ '%W%f:%l%\%.%c %tarning: %m,' .
+"             \ '%W%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %tarning: %m,' .
+"             \ '%C%\s%\+%m,' .
+"             \ '%-G%.%#'
+"             \ }
 " let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint']
 " let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint', 'pylama']
 let g:neomake_python_enabled_makers = ['flake8']
@@ -53,19 +53,15 @@ let g:neomake_python_flake8_args = ["--max-line-length=99"]
 " cursor position when the |loclist| or |quickfix| window is opened. Defaults to 0.
 let g:neomake_open_list = 0
 
-" autocmd! VimLeave * let g:neomake_verbose = 0
-
-" autocmd! CursorMovedI,BufWritePost,BufEnter,BufReadPost,TextChanged, * Neomake
-" autocmd InsertLeave,BufWritePost,BufRead,CursorHold * Neomake
-" autocmd BufWritePost,BufRead,CursorHold * Neomake
-" autocmd BufWritePost,BufEnter * Neomake
-
-" Lint as you type
-" autocmd InsertChange,TextChanged,CursorHold,BufWritePost * silent update | Neomake
-" Lint as you type, less agressive
-" autocmd InsertChange,CursorHold * silent update | Neomake
-
-" au! WinEnter,BufWritePost * Neomake
-" augroup MyNeomake
-"   autocmd BufEnter,WinEnter,BufWritePost * Neomake
-" augroup END
+" When writing a buffer.
+" call neomake#configure#automake('w')
+" When writing a buffer, and on normal mode changes (after 750ms).
+call neomake#configure#automake({
+\ 'TextChanged': {},
+\ 'TextChangedI': {'delay': 500},
+\ 'InsertLeave': {},
+\ 'BufWritePost': {},
+\ 'BufWinEnter': {},
+\}, 100)
+" When reading a buffer (after 1s), and when writing.
+" call neomake#configure#automake('rw', 1000)

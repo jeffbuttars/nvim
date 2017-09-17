@@ -40,7 +40,6 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 " Plug 'git://github.com/junegunn/vim-easy-align.git'
-" Plug 'https://github.com/neomake/neomake.git'
 " Plug 'https://github.com/vim-ruby/vim-ruby'
 " Plug 'https://github.com/tpope/vim-dispatch.git'
 " Plug 'https://github.com/sjl/gundo.vim'
@@ -84,7 +83,8 @@ Plug 'roxma/clang_complete'
 " nvim-completion-manager
 Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
 
-Plug 'https://github.com/w0rp/ale'
+" Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/neomake/neomake.git'
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
 
