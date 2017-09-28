@@ -55,6 +55,7 @@ Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Plug 'wokalski/autocomplete-flow'
 " Plug 'zchee/deoplete-jedi'
+Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
 
 
@@ -125,7 +126,6 @@ Plug 'mhinz/vim-startify'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'echo Run: npm install -g instant-markdown-d' }
 " Plug 'jungomi/vim-mdnquery', { 'do': 'gem install --user-install mdn_query' }
-Plug 'mpyatishev/vim-sqlformat'
 
 " Solidity
 Plug 'tomlion/vim-solidity'

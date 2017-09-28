@@ -1,15 +1,9 @@
 imap <C-l> <ESC>:Buffers<CR>
-
 map  <C-l> <ESC>:Buffers<CR>
 imap <C-p> <ESC>:Files<CR>
 map  <C-p> <ESC>:Files<CR>
-" imap <C-g> <ESC>:GitFiles<CR>
+imap <C-g> <ESC>:GitFiles<CR>
 " map  <C-g> <ESC>:GitFiles<CR>
-
-" [Files] Extra options for fzf
-"         e.g. File preview using coderay (http://coderay.rubychan.de/)
-" let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-let g:fzf_files_options = '--preview "(coderay {} || cat {}) 2> /dev/null"'
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 0
@@ -22,64 +16,36 @@ let g:fzf_tags_command = 'ctags -R'
 
 " [Commands] --expect expression for directly executing the command
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-
 let g:fzf_layout = { 'down': '~100%' }
 
-
-" Mapping selecting mappings
-" nmap <leader><tab> <plug>(fzf-maps-n)
-" xmap <leader><tab> <plug>(fzf-maps-x)
-" omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-" imap <c-x><c-l> <plug>(fzf-complete-line)
-
-
-" Advanced customization using autoload functions
-" inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-" inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-" inoremap <expr> <c-x><c-l> fzf#vim#complete#line()
-" inoremap <expr> <c-x><c-f> fzf#vim#complete#path({'left': '15%'})
-"
 " Use fuzzy completion relative filepaths across directory
 imap <expr> <c-x><c-f> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
 
-" command! -bang -nargs=* Ack call fzf#vim#ag(<q-args>, {'down': '40%', 'options': --no-color'})
-
-" let g:fuzzyfunc = &omnifunc
-
-" function! FuzzyCompleteFunc(findstart, base)
-"   let Func = function(get(g:, 'fuzzyfunc', &omnifunc))
-"   let results = Func(a:findstart, a:base)
-
-"   if a:findstart
-"     return results
-"   endif
-
-"   if type(results) == type({}) && has_key(results, 'words')
-"     let l:words = []
-"     for result in results.words
-"       call add(words, result.word . ' ' . result.menu)
-"     endfor
-"   elseif len(results)
-"     let l:words = results
-"   endif
-
-"   if len(l:words)
-"     let result = fzf#run({ 'source': l:words, 'down': '~40%', 'options': printf('--query "%s" +s', a:base) })
-
-"     if empty(result)
-"       return [ a:base ]
-"     endif
-
-"     return [ split(result[0])[0] ]
-"   else
-"     return [ a:base ]
-"   endif
-" endfunction
-
 " set completefunc=FuzzyCompleteFunc
 " set completeopt=menu
+
+" [Files] Extra options for fzf
+"         e.g. File preview using coderay (http://coderay.rubychan.de/)
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? -complete=dir GitFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" command! -bang -nargs=? -complete=dir Commits
+"   \ call fzf#vim#commits(fzf#vim#with_preview(), <bang>0)
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
