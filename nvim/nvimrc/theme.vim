@@ -15,28 +15,27 @@ set t_ZH=[3m
 set t_ZR=[23m
 highlight Comment cterm=italic
 
-function! s:SolarizedLight()
-    let g:solarized_style = 'light'
-    set background=light
+" NeoSolarized config
+" default value is "normal", Setting this option to "high" or "low" does use the
+" same Solarized palette but simply shifts some values up or down in order to
+" expand or compress the tonal range displayed.
+let g:neosolarized_contrast = "normal"
 
-    let g:terminal_color_0  = '#eee8d5'
-    let g:terminal_color_1  = '#dc322f'
-    let g:terminal_color_2  = '#859900'
-    let g:terminal_color_3  = '#b58900'
-    let g:terminal_color_4  = '#268bd2'
-    let g:terminal_color_5  = '#d33682'
-    let g:terminal_color_6  = '#2aa198'
-    let g:terminal_color_7  = '#073642'
-    let g:terminal_color_8  = '#fdf6e3'
-    let g:terminal_color_9  = '#cb4b16'
-    let g:terminal_color_10 = '#93a1a1'
-    let g:terminal_color_11 = '#839496'
-    let g:terminal_color_12 = '#657b83'
-    let g:terminal_color_13 = '#6c71c4'
-    let g:terminal_color_14 = '#586e75'
-    let g:terminal_color_15 = '#002b36'
-endfunction
+" Special characters such as trailing whitespace, tabs, newlines, when displayed
+" using ":set list" can be set to one of three levels depending on your needs.
+" Default value is "normal". Provide "high" and "low" options.
+let g:neosolarized_visibility = "normal"
 
+" I make vertSplitBar a transparent background color. If you like the origin solarized vertSplitBar
+" style more, set this value to 0.
+let g:neosolarized_vertSplitBgTrans = 1
+
+" If you wish to enable/disable NeoSolarized from displaying bold, underlined or italicized
+" typefaces, simply assign 1 or 0 to the appropriate variable. Default values:
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
+" END NeoSolarized config
 
 " Setup color style, light or dark and cursorlines
 if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TERM =~ 'xterm'
@@ -46,23 +45,12 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         " set t_Co=256
         set termguicolors
         hi clear CursorLine
-        " call s:SolarizedLight()
-        " let g:solarized_style = 'light'
-        " let g:solarized_termcolors = 16
 
-        " colorscheme solarized_dark
-        if $TERM_META =~ 'light'
-            " set nocursorline
-            colorscheme solarized8_light
-        else
-            " let g:solarized_style = 'dark'
+        if $TERM_META =~ 'dark'
             set background=dark
-            colorscheme solarized8_dark
         endif
 
-        " set background="" . g:solarized_style
-        " colorscheme solarized
-        " colorscheme solarized_light
+        colorscheme NeoSolarized
 
         set cursorline
         set cursorcolumn

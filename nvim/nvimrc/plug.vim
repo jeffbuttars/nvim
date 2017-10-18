@@ -135,7 +135,9 @@ Plug 'tomlion/vim-solidity'
 " Solarized has been good to me. I plan to keep it a while
 " Plug 'Solarized'
 " Plug 'https://github.com/frankier/neovim-colors-solarized-truecolor-only.git'
-Plug 'https://github.com/lifepillar/vim-solarized8'
+" Plug 'https://github.com/lifepillar/vim-solarized8'
+Plug 'iCyMind/NeoSolarized'
+Plug 'https://github.com/MaxSt/FlatColor'
 
 " NyaoVim Plugs
 "Plug 'https://github.com/rhysd/nyaovim-markdown-preview'

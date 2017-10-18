@@ -56,9 +56,9 @@ let g:neomake_open_list = 0
 " When writing a buffer.
 " call neomake#configure#automake('w')
 " When writing a buffer, and on normal mode changes (after 750ms).
+" "\ 'TextChanged': {},
+" "\ 'TextChangedI': {'delay': 500},
 call neomake#configure#automake({
-\ 'TextChanged': {},
-\ 'TextChangedI': {'delay': 500},
 \ 'InsertLeave': {},
 \ 'BufWritePost': {},
 \ 'BufWinEnter': {},
