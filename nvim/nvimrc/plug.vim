@@ -65,15 +65,15 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 " (optional) javascript completion
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/ncm-flow',  {'do': 'npm install'}
-Plug 'shougo/neco-vim'
-Plug 'shougo/neco-syntax'
-Plug 'shougo/neoinclude.vim'
+" Plug 'shougo/neco-vim'
+" Plug 'shougo/neco-syntax'
+" Plug 'shougo/neoinclude.vim'
 Plug 'jsfaint/gen_tags.vim'
 
 " (optional) language server protocol framework
 Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
 " " (optional) php completion via LanguageClient-neovim
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
@@ -92,10 +92,6 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'j
 " Keep builtin CSS completions up to date
 Plug 'othree/csscomplete.vim'
 
-" ES2015 code snippets (Optional)
-" Plug 'epilande/vim-es2015-snippets'
-" React code snippets
-" Plug 'epilande/vim-react-snippets'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'https://github.com/sirver/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
@@ -111,7 +107,12 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'https://github.com/elzr/vim-json.git'
 
 " JS syntax
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+" #### The pangloss plugin has a bug that is freezing Neovim, trying out the othree plugins for now
+" #### the othree plugins may be to slow!!!!
+"
+" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
@@ -120,8 +121,7 @@ Plug 'mitermayer/vim-prettier', {
 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 
 " Plug 'chemzqm/vim-jsx-improve', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mhinz/vim-startify'
-" Plug 'mtth/scratch.vim'
+" Plug 'mhinz/vim-startify'
 " Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'echo Run: npm install -g instant-markdown-d' }

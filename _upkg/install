@@ -31,7 +31,7 @@ nvim -c "UpdateRemotePlugins<\CR>" -c "qa!"
 wait
 
 pr_info "Installing instant markdown via npm..."
-sudo npm -g install instant-markdown-d
+npm -g install instant-markdown-d
 wait
 
 pr_pass "Install complete"

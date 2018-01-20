@@ -1,4 +1,3 @@
-
 " enable early
 filetype plugin indent on
 
