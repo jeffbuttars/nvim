@@ -41,3 +41,7 @@ for (${1}; ${2}; ${3}) {
 	$0
 }
 endsnippet
+
+snippet ovc "Overflow Check"
+require(${1:balance}${2:[msg.sender]} + ${3:msg.value} >= $1$2)
+endsnippet
