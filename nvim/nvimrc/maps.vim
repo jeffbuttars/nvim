@@ -78,8 +78,9 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " Terminal mode
 " To map <Esc> to exit terminal-mode: >
-tnoremap <Esc> <C-\><C-n>
+" NOTE: messes with fzf windows
+" tnoremap <Esc> <C-\><C-n>
 
 "To simulate |i_CTRL-R| in terminal-mode: >
-tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
