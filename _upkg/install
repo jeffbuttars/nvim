@@ -23,15 +23,15 @@ source buildycm.sh
 wait
 
 pr_info "Updating plugs..."
-nvim -c 'PlugUpdate' -c '<\CR>' -c 'qa'
+nvim +PlugInstall +UpdateRemotePlugins +qa
 wait
 
-pr_info "Updating Remote Plugins..."
-nvim -c "UpdateRemotePlugins<\CR>" -c "qa!"
-wait
+# pr_info "Updating Remote Plugins..."
+# nvim -c "UpdateRemotePlugins<\CR>" -c "qa!"
+# wait
 
 pr_info "Installing instant markdown via npm..."
-npm -g install instant-markdown-d
+npm install instant-markdown-d
 wait
 
 pr_pass "Install complete"

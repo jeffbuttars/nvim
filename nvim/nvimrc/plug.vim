@@ -87,7 +87,7 @@ Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
 " Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/neomake/neomake.git'
 
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
 
 " Keep builtin CSS completions up to date
 Plug 'othree/csscomplete.vim'
