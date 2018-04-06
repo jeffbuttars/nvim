@@ -1,7 +1,7 @@
 " Uncomment to enable debug to a file
-let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
-let $NVIM_NCM_LOG_LEVEL="DEBUG"
-let $NVIM_NCM_MULTI_THREAD=0
+" let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+" let $NVIM_NCM_LOG_LEVEL="DEBUG"
+" let $NVIM_NCM_MULTI_THREAD=0
 
 " enable early
 filetype plugin indent on

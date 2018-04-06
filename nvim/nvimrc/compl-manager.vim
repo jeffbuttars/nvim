@@ -1,12 +1,10 @@
 " https://github.com/roxma/nvim-completion-manager
 
 
-" Most relevant matches start after 1 character, less relevant are included after 3 chars types
-" let g:cm_refresh_default_min_word_len = [[1,3],[7,1]]
-let g:cm_refresh_length = [[1,1],[7,1]]
+" [source_priority, trigger_char_num]
+let g:cm_refresh_length = [[1,2],[7,1]]
 
-
-let g:cm_matcher = {'module': "cm_matchers.fuzzy_matcher", 'case': "smartcase"}
+" let g:cm_matcher = {'module': "cm_matchers.fuzzy_matcher", 'case': "smartcase"}
 
 " let g:flow#flowpath
 
@@ -18,3 +16,14 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 " Use tab to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+au User CmSetup call cm#register_source({'name' : 'cm-javascript-omni',
+        \ 'priority': 8,
+        \ 'abbreviation': 'omni',
+        \ 'scopes': ['javascript','jsx'],
+        \ 'word_pattern': '[\w$\-]+',
+        \ 'cm_refresh_patterns':['\.'],
+        \ 'cm_refresh': {'omnifunc': 'javascriptcomplete#CompleteJS'},
+        \ })
+
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
