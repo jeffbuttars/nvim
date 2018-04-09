@@ -178,6 +178,11 @@ command! -bar Hexmode call ToggleHex()
 set viewoptions=cursor
 set sessionoptions=winpos,localoptions
 
+set guicursor=
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+    \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+    \,sm:block-blinkwait175-blinkoff150-blinkon175     
+
 " Make sure I get the expected behavior from ctrl-]
 " if cscopetag is set, ctrl-] will try to be too smart
 set nocscopetag
