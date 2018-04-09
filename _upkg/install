@@ -31,7 +31,7 @@ wait
 # wait
 
 pr_info "Installing instant markdown via npm..."
-npm install instant-markdown-d
+npm install -g instant-markdown-d
 wait
 
 pr_pass "Install complete"
