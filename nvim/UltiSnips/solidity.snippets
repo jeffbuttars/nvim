@@ -1,7 +1,7 @@
 
 
 snippet prag "pragma solidity"
-pragma solidity ${1:^`solc --version | grep -i Version | awk -F'[ +]' '{print $2}'`};${0}
+pragma solidity ${1:`solc --version | grep -i Version | awk -F'[ +]' '{print $2}'`};${0}
 endsnippet
 
 snippet map "mapping"
@@ -40,6 +40,11 @@ snippet for "for loop"
 for (${1}; ${2}; ${3}) {
 	$0
 }
+endsnippet
+
+snippet req "require();"
+require(${1});
+$0
 endsnippet
 
 snippet ofc "Overflow Check"

@@ -152,7 +152,7 @@ set list
 " " runtime plugin/dragvisuals.vim
 
 " Add the virtualenv's site-packages to vim path
-python << EOF
+python3 << EOF
 import os.path
 import sys
 import vim

@@ -17,9 +17,9 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+" function! DoRemote()
+"   UpdateRemotePlugins
+" endfunction
 
 " Place your Plugs here!
 
@@ -34,7 +34,8 @@ Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
 
 Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
-Plug 'https://github.com/djdt/pyparens.nvim', { 'do': function('DoRemote') }
+" Plug 'https://github.com/djdt/pyparens.nvim', { 'do': function('DoRemote') }
+Plug 'https://github.com/djdt/pyparens.nvim'
 
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
@@ -46,15 +47,10 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/Shougo/vimfiler.vim'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 Plug 'https://github.com/Raimondi/delimitMate'
-" Plug 'vim-indent-object'
 " Plug 'nginx.vim'
 " Plug 'patchreview.vim'
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 
-" Deoplete
-" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" Plug 'wokalski/autocomplete-flow'
-" Plug 'zchee/deoplete-jedi'
 Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
 
@@ -63,15 +59,17 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 
 " (optional) javascript completion
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'roxma/ncm-flow',  {'do': 'npm install'}
-" Plug 'shougo/neco-vim'
-" Plug 'shougo/neco-syntax'
-" Plug 'shougo/neoinclude.vim'
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'mhartington/nvim-typescript'
 Plug 'jsfaint/gen_tags.vim'
 
 " (optional) language server protocol framework
-Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
+" Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " " (optional) php completion via LanguageClient-neovim
 " Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 
@@ -80,9 +78,9 @@ let g:LanguageClient_autoStart = 1
 autocmd FileType php LanguageClientStart
 
 Plug 'roxma/clang_complete'
-
 " nvim-completion-manager
-Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
+" Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
+Plug 'roxma/nvim-completion-manager'
 
 " Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/neomake/neomake.git'
@@ -140,7 +138,7 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'https://github.com/MaxSt/FlatColor'
 
 " NyaoVim Plugs
-"Plug 'https://github.com/rhysd/nyaovim-markdown-preview'
-"Plug 'https://github.com/rhysd/nyaovim-popup-tooltip'
+" Plug 'https://github.com/rhysd/nyaovim-markdown-preview'
+" Plug 'https://github.com/rhysd/nyaovim-popup-tooltip'
 
 call plug#end()
