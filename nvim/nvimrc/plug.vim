@@ -52,7 +52,6 @@ Plug 'https://github.com/Raimondi/delimitMate'
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 
 Plug 'https://github.com/davidhalter/jedi-vim'
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install tern', 'for': ['javascript', 'javascript.jsx'] }
 
 
 " Java gets it's own completion plugin
@@ -62,6 +61,7 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 Plug 'roxma/ncm-flow',  {'do': 'npm i -g install'}
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm i -g install'}
 Plug 'mhartington/nvim-typescript'
+Plug 'ludovicchabant/vim-gutentags'
 
 " (optional) language server protocol framework
 " Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
