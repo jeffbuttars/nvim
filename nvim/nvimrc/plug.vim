@@ -59,10 +59,9 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 
 " (optional) javascript completion
-Plug 'roxma/ncm-flow',  {'do': 'npm install'}
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'roxma/ncm-flow',  {'do': 'npm i -g install'}
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm i -g install'}
 Plug 'mhartington/nvim-typescript'
-Plug 'jsfaint/gen_tags.vim'
 
 " (optional) language server protocol framework
 " Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
