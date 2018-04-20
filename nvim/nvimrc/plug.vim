@@ -34,7 +34,6 @@ Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
 
 Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
-" Plug 'https://github.com/djdt/pyparens.nvim', { 'do': function('DoRemote') }
 Plug 'https://github.com/djdt/pyparens.nvim'
 
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
@@ -55,36 +54,17 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 
 
 " Java gets it's own completion plugin
-Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
+" Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 
-" (optional) javascript completion
-Plug 'roxma/ncm-flow',  {'do': 'npm install'}
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'mhartington/nvim-typescript'
 Plug 'ludovicchabant/vim-gutentags'
 
-" (optional) language server protocol framework
-" Plug 'autozimu/LanguageClient-neovim', { 'do': function('DoRemote') }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-" " (optional) php completion via LanguageClient-neovim
-" Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" Deoplete setup
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-autocmd FileType php LanguageClientStart
-
-Plug 'roxma/clang_complete'
-" nvim-completion-manager
-" Plug 'roxma/nvim-completion-manager', { 'do': function('DoRemote') }
-Plug 'roxma/nvim-completion-manager'
-
-" Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/neomake/neomake.git'
-
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm install tern', 'for': ['javascript', 'jsx', 'javascript.jsx'] }
 
 " Keep builtin CSS completions up to date
 Plug 'othree/csscomplete.vim'

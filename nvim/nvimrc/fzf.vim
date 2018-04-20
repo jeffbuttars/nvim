@@ -2,7 +2,8 @@ imap <C-l> <ESC>:Buffers<CR>
 map  <C-l> <ESC>:Buffers<CR>
 imap <C-p> <ESC>:Files<CR>
 map  <C-p> <ESC>:Files<CR>
-imap <C-g> <ESC>:GitFiles<CR>
+imap <C-G> <ESC>:GitFiles<CR>
+map <C-G> <ESC>:GitFiles<CR>
 " map  <C-g> <ESC>:GitFiles<CR>
 
 " [Buffers] Jump to the existing window if possible
@@ -79,7 +80,7 @@ function! s:update_fzf_colors()
         \ empty(cols) ? '' : (' --color='.join(cols, ','))
 endfunction
 
-augroup _fzf
-  autocmd!
-  autocmd ColorScheme * call <sid>update_fzf_colors()
-augroup END
+" augroup _fzf
+"   autocmd!
+"   autocmd ColorScheme * call <sid>update_fzf_colors()
+" augroup END

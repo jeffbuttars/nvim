@@ -1,5 +1,19 @@
 " " Use deoplete.
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+
+
+" When a capital letter is matched with the uppercase, but a
+" lower letter is matched with the upper- and lowercase.
+" Ex: "foB" is matched with "FooBar" not "foobar".
+" Note: This feature is only available in
+" |deoplete-filter-matcher_fuzzy| or
+" |deoplete-filter-matcher_full_fuzzy|.
+let g:deoplete#camel_case = 1
+
+" Use tab for menu navigation
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " let g:deoplete#enable_profile = 1
 " let g:deoplete#max_menu_width = 15
 " 
