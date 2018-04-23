@@ -78,7 +78,9 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ryanoasis/vim-webdevicons'
 " Plug 'hsanson/vim-android'
 " Plug 'derekwyatt/vim-fswitch'
-Plug 'yuttie/comfortable-motion.vim'
+
+" This is slow
+" Plug 'yuttie/comfortable-motion.vim'
 
 " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
@@ -91,6 +93,8 @@ Plug 'https://github.com/elzr/vim-json.git'
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'digitaltoad/vim-pug'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'mitermayer/vim-prettier', {
