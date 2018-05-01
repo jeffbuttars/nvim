@@ -2,8 +2,8 @@ imap <C-l> <ESC>:Buffers<CR>
 map  <C-l> <ESC>:Buffers<CR>
 imap <C-p> <ESC>:Files<CR>
 map  <C-p> <ESC>:Files<CR>
-imap <C-G> <ESC>:GitFiles<CR>
-map <C-G> <ESC>:GitFiles<CR>
+" imap <C-S-G> <ESC>:GitFiles<CR>
+" map <C-S-G> <ESC>:GitFiles<CR>
 " map  <C-g> <ESC>:GitFiles<CR>
 
 " [Buffers] Jump to the existing window if possible
