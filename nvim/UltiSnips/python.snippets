@@ -120,15 +120,14 @@ def write_docstring_args(args, snip):
 def write_init_body(args, snip):
     #parents = [p.strip() for p in parents.split(",")]
     #parents = [p for p in parents if p != 'object']
-
     cname = find_def_name('class')
     parents = get_nearest_def_args(ident='class')
     if parents and parents != 'object':
         arglist = ', '.join(args)
-        snip += "super(" + cname + ", self).__init__(" + arglist + ")"
+        snip += snip.indent + "(" + cname + ", self).__init__(" + arglist + ")"
 
     for arg in args:
-        snip += "    self._%s = %s" % (arg, arg)
+        snip += snip.indent + "self._%s = %s" % (arg, arg)
 
 
 def write_slots_args(args, snip):
@@ -261,12 +260,11 @@ endsnippet
 
 
 snippet init "Class __init__" !bs
-def __init__(self${1}):
-`!p
+def __init__(self${1}):`!p
 args = get_args(t[1])
 write_init_body(args, snip)
 `
-${2}
+	${2}
 endsnippet
 
 snippet cl "class with docstrings" !bs
