@@ -165,11 +165,20 @@ snippet pra "print() with args"
 print("${1}%s" % (${2},${3}))$0
 endsnippet
 
-snippet def "simple def"  !b
-def ${1:function}(`!p
-if snip.indent:
-   snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
-    ${5:pass}
+# snippet def "simple def"  !b
+# def ${1:function}(`!p
+# if snip.indent:
+#    snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+#     ${5:pass}
+# endsnippet
+
+snippet adef
+async def ${1:fname}(`!p snip.rv = vim.eval('indent(".") ? "self" : ""')`$2):
+	$0
+endsnippet
+
+snippet aw "await something"
+await ${0}
 endsnippet
 
 snippet clm "@classmethod" b

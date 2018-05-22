@@ -50,13 +50,22 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
             set background=dark
         endif
 
-        colorscheme NeoSolarized
+        " If it's a real tty, use elflord
+        if $IS_REAL_TTY == 'true'
+            colorscheme elflord
+        else
+            colorscheme NeoSolarized
+        endif
 
         set cursorline
         set cursorcolumn
     catch /^Vim\%((\a\+)\)\=:E185/
+        set notermguicolors
+        set guicursor=
         colorscheme elflord
     endtry
+else
+    colorscheme elflord
 endif
 
 " set linenumbers on by default

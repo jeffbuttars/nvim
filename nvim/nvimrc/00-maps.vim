@@ -38,6 +38,7 @@ endfunction
 augroup wrap_maps_group
     autocmd!
     autocmd filetype netrw call WrapMaps()
+    autocmd filetype python call WrapMaps()
 augroup END
 
 " vnoremap < <gv " better indentation control
