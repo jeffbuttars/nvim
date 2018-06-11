@@ -1,9 +1,14 @@
 imap <C-l> <ESC>:Buffers<CR>
 map  <C-l> <ESC>:Buffers<CR>
-imap <C-p> <ESC>:GitFiles<CR>
-map  <C-p> <ESC>:GitFiles<CR>
-" imap <C-S-p> <ESC>:Files<CR>
-" map  <C-S-p> <ESC>:Files<CR>
+imap <C-p> <ESC>:Files<CR>
+map  <C-p> <ESC>:Files<CR>
+<<<<<<< HEAD
+"imap <C-G> <ESC>:GitFiles<CR>
+"map <C-G> <ESC>:GitFiles<CR>
+=======
+" imap <C-S-G> <ESC>:GitFiles<CR>
+" map <C-S-G> <ESC>:GitFiles<CR>
+>>>>>>> faa4b3cd24698d0cd21a054876bd3193a38db8f6
 " map  <C-g> <ESC>:GitFiles<CR>
 
 " [Buffers] Jump to the existing window if possible
