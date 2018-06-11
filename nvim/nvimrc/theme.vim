@@ -43,7 +43,10 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         " Use a console friendly theme and force Vim to
         " use 256 colors if we think the console can handle it.
         " set t_Co=256
-        set termguicolors
+        if (has("termguicolors"))
+            set termguicolors
+        endif
+
         hi clear CursorLine
 
         if $TERM_META =~ 'dark'
