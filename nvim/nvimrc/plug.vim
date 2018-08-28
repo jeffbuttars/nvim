@@ -27,6 +27,8 @@ Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
+Plug 'ambv/black'
+
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
@@ -99,6 +101,8 @@ Plug 'tomlion/vim-solidity'
 
 " Git
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
+
+Plug 'RRethy/vim-illuminate'
 
 " Colorschemes
 "

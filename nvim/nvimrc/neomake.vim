@@ -35,7 +35,7 @@ let g:neomake_jsx_enabled_makers = ['eslint', 'jscs', 'flow']
 "             \ '%-G%.%#'
 "             \ }
 " let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint']
-" let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_verbose = 0
 let g:neomake_echo_current_error = 1
 let g:neomake_airline = 1
