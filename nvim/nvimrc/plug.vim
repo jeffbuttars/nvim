@@ -66,6 +66,31 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wokalski/autocomplete-flow'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
+" NCM2
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
+" 
+"  " enable ncm2 for all buffers
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" 
+" " IMPORTANTE: :help Ncm2PopupOpen for more information
+" set completeopt=noinsert,menuone,noselect
+" 
+" " NOTE: you need to install completion sources to get completions. Check
+" " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-tagprefix'
+" Plug 'ncm2/ncm2-cssomni'
+" Plug 'ncm2/ncm2-tern'
+" Plug 'mhartington/nvim-typescript'
+" Plug 'ncm2/ncm2-jedi'
+" " Plug 'ncm2/ncm2-racer'
+" Plug 'ncm2/ncm2-clang'
+" Plug 'ncm2/ncm2-pyclang'
+" Plug 'ncm2/ncm2-vim'
+" Plug 'ncm2/ncm2-go'
+
 Plug 'https://github.com/neomake/neomake.git'
 
 " Keep builtin CSS completions up to date
