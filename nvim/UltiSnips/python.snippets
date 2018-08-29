@@ -211,7 +211,7 @@ def test_${1:function}(self):
 	${3:pass}
 endsnippet
 
-snippet logger "Add a named logging logger" !bs
+snippet nlogger "Add and configure a named logger" !bs
 import logging
 
 # Set up the logger
@@ -219,11 +219,19 @@ logger = logging.getLogger(${1:__name__})
 # Use a console handler, set it to debug by default
 logger_ch = logging.StreamHandler()
 logger.setLevel(logging.DEBUG)
-log_formatter = logging.Formatter(('%(levelname)s: %(asctime)s %(processName)s:%(process)d'
-                                   ' %(filename)s:%(lineno)s %(module)s::%(funcName)s()'
-                                   ' -- %(message)s'))
-logger_ch.setFormatter(log_formatter)
+#log_formatter = logging.Formatter(('%(levelname)s: %(asctime)s %(processName)s:%(process)d'
+#                                   ' %(filename)s:%(lineno)s %(module)s::%(funcName)s()'
+#                                   ' -- %(message)s'))
+#logger_ch.setFormatter(log_formatter)
 logger.addHandler(logger_ch)${0}
+endsnippet
+
+snippet logger "Add and configure root logger" !bs
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(${1:__name__})
 endsnippet
 
 
