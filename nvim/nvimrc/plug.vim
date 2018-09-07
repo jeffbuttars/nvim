@@ -59,7 +59,7 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 
 Plug 'mhartington/nvim-typescript'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'c0r73x/neotags.nvim', {'do': 'make'}
 
 " Deoplete setup
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
