@@ -28,6 +28,7 @@ Plug 'https://github.com/Shougo/unite.vim'
 Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'ambv/black'
+Plug 'sbdchd/neoformat'
 
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
