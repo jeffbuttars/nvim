@@ -38,7 +38,7 @@ Plug 'https://github.com/bling/vim-airline.git'
 Plug 'https://github.com/bling/vim-bufferline.git'
 
 Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
-Plug 'https://github.com/djdt/pyparens.nvim'
+" Plug 'https://github.com/djdt/pyparens.nvim'
 
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree'
@@ -61,7 +61,7 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 
 Plug 'mhartington/nvim-typescript'
 " Plug 'c0r73x/neotags.nvim', {'do': 'make'}
-Plug 'jsfaint/gen_tags.vim'
+" Plug 'jsfaint/gen_tags.vim'
 
 " Deoplete setup
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -117,7 +117,7 @@ Plug 'digitaltoad/vim-pug'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'mitermayer/vim-prettier', {
-	\ 'do': 'yarn install', 
+	\ 'do': 'yarn install; npm i -g prettier',
 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 
 Plug 'https://github.com/plasticboy/vim-markdown.git'
@@ -128,8 +128,11 @@ Plug 'tomlion/vim-solidity'
 
 " Git
 Plug 'gregsexton/gitv', {'on': ['Gitv']}
-
 Plug 'RRethy/vim-illuminate'
+
+" Autoclosers
+Plug 'jiangmiao/auto-pairs'
+
 
 " Colorschemes
 "
