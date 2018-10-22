@@ -53,7 +53,8 @@ Plug 'https://github.com/mhinz/vim-nginx'
 " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 
-Plug 'https://github.com/davidhalter/jedi-vim'
+" Plug 'https://github.com/davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
 
 
 " Java gets it's own completion plugin, but only on those days I actually need it.

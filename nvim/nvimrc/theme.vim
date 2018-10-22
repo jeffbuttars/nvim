@@ -10,10 +10,10 @@ set diffopt=filler,vertical,context:15
 let g:html_diff_one_file = 1
 
 
-" We like italics in the terminal, so add some sauce to make sure we get it.
-set t_ZH=[3m
-set t_ZR=[23m
-highlight Comment cterm=italic
+" " We like italics in the terminal, so add some sauce to make sure we get it.
+" set t_ZH=[3m
+" set t_ZR=[23m
+" highlight Comment cterm=italic
 
 " NeoSolarized config
 " default value is "normal", Setting this option to "high" or "low" does use the
@@ -34,7 +34,8 @@ let g:neosolarized_vertSplitBgTrans = 1
 " typefaces, simply assign 1 or 0 to the appropriate variable. Default values:
 let g:neosolarized_bold = 1
 let g:neosolarized_underline = 1
-let g:neosolarized_italic = 1
+
+" let g:neosolarized_italic = 1
 " END NeoSolarized config
 
 " Setup color style, light or dark and cursorlines
