@@ -60,7 +60,14 @@ Plug 'zchee/deoplete-jedi'
 " Java gets it's own completion plugin, but only on those days I actually need it.
 " Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java']}
 
-Plug 'mhartington/nvim-typescript'
+" REQUIRED: Add a syntax file. YATS is the best
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+" For Denite features
+" Plug 'Shougo/denite.nvim'
+
+" Ctags stuff, never seems to work right
 " Plug 'c0r73x/neotags.nvim', {'do': 'make'}
 " Plug 'jsfaint/gen_tags.vim'
 

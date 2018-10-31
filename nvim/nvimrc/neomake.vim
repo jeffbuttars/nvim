@@ -10,31 +10,8 @@ let g:neomake_jsx_enabled_makers = ['eslint', 'jscs', 'flow']
 " let g:neomake_jsx_enabled_makers =g:neomake_javascript_enabled_makers
 " let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint')
 
-" let g:neomake_python_prospector_maker = {
-"             \ 'args': ['-o', 'pylint', '-M', '--absolute-paths', '%:p', '-W', 'pylint'],
-"             \ 'errorformat':
-"             \ '%-G%.%#module named%.%#,' .
-"             \ '%f:%l:%c [%t%n%.%#] %m,' .
-"             \ '%E%f:%l%\%.%c %trror: %m,' .
-"             \ '%E%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %trror: %m,' .
-"             \ '%W%f:%l%\%.%c %tarning: %m,' .
-"             \ '%W%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %tarning: %m,' .
-"             \ '%C%\s%\+%m,' .
-"             \ '%-G%.%#'
-"             \ }
-" let g:neomake_python_prospector_maker = {
-"             \ 'args': ['-o', 'pylint', '--absolute-paths', '%:p'],
-"             \ 'errorformat':
-"             \ '%-G%.%#module named%.%#,' .
-"             \ '%f:%l:%c [%t%n%.%#] %m,' .
-"             \ '%E%f:%l%\%.%c %trror: %m,' .
-"             \ '%E%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %trror: %m,' .
-"             \ '%W%f:%l%\%.%c %tarning: %m,' .
-"             \ '%W%f:%l%\%.%c-%\d%\+%\%.%\d%\+ %tarning: %m,' .
-"             \ '%C%\s%\+%m,' .
-"             \ '%-G%.%#'
-"             \ }
 " let g:neomake_python_enabled_makers = ['prospector', 'flake8', 'pylint']
+"
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_verbose = 0
 let g:neomake_echo_current_error = 1
@@ -54,4 +31,13 @@ let g:neomake_open_list = 0
 
 " Full config: when writing or reading a buffer, and on changes in insert and
 " normal mode (after 1s; no delay when writing).
-call neomake#configure#automake('nrwi', 500)
+" call neomake#configure#automake('nrwi', 1000)
+
+" When writing a buffer (no delay), and on normal mode changes (after 750ms).
+" call neomake#configure#automake('nw', 750)
+ call neomake#configure#automake({
+  \ 'TextChanged': {},
+  \ 'InsertLeave': {'delay': 0},
+  \ 'BufWritePost': {'delay': 0},
+  \ 'BufWinEnter': {},
+  \ }, 500)
