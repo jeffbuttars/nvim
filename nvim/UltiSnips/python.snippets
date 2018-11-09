@@ -124,7 +124,7 @@ def write_init_body(args, snip):
     parents = get_nearest_def_args(ident='class')
     if parents and parents != 'object':
         arglist = ', '.join(args)
-        snip += snip.indent + "(" + cname + ", self).__init__(" + arglist + ")"
+        snip += snip.indent + "super().__init__(" + arglist + ")"
 
     for arg in args:
         snip += snip.indent + "self._%s = %s" % (arg, arg)
@@ -230,7 +230,12 @@ snippet logger "Add and configure root logger" !bs
 import logging
 
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(
+	level=logging.DEBUG,
+	format=('%(levelname)s: %(asctime)s %(processName)s:%(process)d'
+			' %(filename)s:%(lineno)s %(funcName)s'
+			' -- %(message)s')
+)
 logger = logging.getLogger(${1:__name__})
 endsnippet
 
@@ -377,7 +382,7 @@ endsnippet
 # Find the class name and method name and
 # create a nice super call
 snippet supc "super(Class, self)." i!
-super(${1:`!p snip.rv += find_def_name("class ")`}, self).${2:`!p snip.rv += find_def_name("def ")`}(${3:`!p snip.rv += get_nearest_def_args(strip_self=True)`})${0}
+super(${1}).${2:`!p snip.rv += find_def_name("def ")`}(${3:`!p snip.rv += get_nearest_def_args(strip_self=True)`})${0}
 endsnippet
 
 snippet sup "super()." i!

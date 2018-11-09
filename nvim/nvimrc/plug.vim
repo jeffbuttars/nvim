@@ -141,7 +141,6 @@ Plug 'RRethy/vim-illuminate'
 " Autoclosers
 Plug 'jiangmiao/auto-pairs'
 
-
 " Colorschemes
 "
 " Solarized has been good to me. I plan to keep it a while
