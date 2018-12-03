@@ -1,9 +1,0 @@
-let g:vim_isort_python_version = 'python3'
-
-command! -range=% Isort :<line1>,<line2>! isort -
-
-<<<<<<< HEAD
-" autocmd BufWrite *.py silent Isort
-=======
-" autocmd BufWrite *.py Isort
->>>>>>> 2b475355f681910019416c45fc6dc532df5d7ea2

@@ -1,1 +1,1 @@
-setlocal omnifunc=csscomplete#CompleteCSS noci
+"setlocal omnifunc=csscomplete#CompleteCSS noci

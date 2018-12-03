@@ -6,21 +6,21 @@
 " enable early
 filetype plugin indent on
 
-" Need to load the nerdcommenter settings before the plugin
-runtime nvimrc/nerdcomment.vim
+" " Need to load the nerdcommenter settings before the plugin
+" runtime nvimrc/nerdcomment.vim
 
-" Load our 'plugs' early
-runtime nvimrc/plug.vim
+" " Load our 'plugs' early
+" runtime nvimrc/plug.vim
 
-set lazyredraw      " Don't redraw screen when executing macros
+" set lazyredraw      " Don't redraw screen when executing macros
 set history=1000 " keep 1000 lines of command line history
 
 " Set our encoding to UTF-8
-set encoding=utf-8
+" set encoding=utf-8
 
-set switchbuf=useopen
-set laststatus=2          " last window will always have a status line
-set showcmd		         " display incomplete commands
+" set switchbuf=useopen
+" set laststatus=2          " last window will always have a status line
+" set showcmd		         " display incomplete commands
 
 " Enable persistent undo
 " and tell vim were to store the undo files. 
@@ -41,27 +41,25 @@ endif
 
 " We'll take for granted that we are connected to a fast terminal most of the time
 set ttyfast
-set laststatus=2 " keep the status line showing
 set incsearch    " Enable incremental searching
 
 " ## Autocommands
 "
+" " Put these in an autocmd group, so that we can delete them easily.
+" augroup vimrcEx
+" au!
 
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
+" " When editing a file, always jump to the last known cursor position.
+" " Don't do it when the position is invalid or when inside an event handler
+" " (happens when dropping a file on gvim).
+" " Also don't do it when the mark is in the first line, that is the default
+" " position when opening a file.
+" autocmd BufReadPost *
+" \ if line("'\"") > 1 && line("'\"") <= line("$") |
+" \   exe "normal! g`\"" |
+" \ endif
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-" Also don't do it when the mark is in the first line, that is the default
-" position when opening a file.
-autocmd BufReadPost *
-\ if line("'\"") > 1 && line("'\"") <= line("$") |
-\   exe "normal! g`\"" |
-\ endif
-
-augroup END
+" augroup END
 
 
 set fileformats=unix,dos,mac " try recognizing line endings in this order
@@ -87,7 +85,7 @@ set shiftround	" use multiple of shiftwidth when indenting with '<' and '>'
 set expandtab
 
 " Show matching braces
-set showmatch
+" set showmatch
 " Quick blink when a match is made
 " set mat=5
 
@@ -145,13 +143,13 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,*.so,*.obj,*.lib
 
-" If a letters are lower case in a pattern, ignore case.
+" If first letter is lower case in a pattern, ignore case.
 " Otherwise be case sensitive.
 set ignorecase
 set smartcase
 
 " set key timeout, good for remaps
-set timeoutlen=300
+" set timeoutlen=300
 
 " autowrite: "on" saves a lot of trouble
 " set autowrite
@@ -175,8 +173,8 @@ command! -bar Hexmode call ToggleHex()
 " I don't want variables and options saved in my views
 " so remove the 'options' option from the default viewoptions setting.
 " set viewoptions-=options
-set viewoptions=cursor
-set sessionoptions=winpos,localoptions
+" set viewoptions=cursor
+" set sessionoptions=winpos,localoptions
 
 set guicursor=
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
@@ -193,11 +191,11 @@ set grepprg=grep\ -n\ -Ir\ --exclude-dir='.git'\ --exclude-dir='.hg'\ --exclude-
 set inccommand=nosplit
 " Split vertical to the right by default
 set splitright
-" Split horizontal to the right by default
+" Split horizontal below by default
 set splitbelow
 
 " Source the rest of the config, which is broken out into many files
-runtime! nvimrc/*.vim
+" runtime! nvimrc/*.vim
 
 " If there is a local init, source it to
 " Also, need to prevent a source loop.
@@ -206,4 +204,3 @@ if filereadable(current_init) && exists('g:nvim_init_has_been_sourced') == 0
     let g:nvim_init_has_been_sourced = 1
     exec "source " . current_init
 endif
-
