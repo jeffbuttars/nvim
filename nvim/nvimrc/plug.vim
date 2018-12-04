@@ -38,14 +38,14 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
-" 
+
 " Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 " " Plug 'https://github.com/djdt/pyparens.nvim'
 " 
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-" Plug 'https://github.com/tpope/vim-eunuch.git'
+Plug 'https://github.com/tpope/vim-eunuch.git'
 " Plug 'https://github.com/airblade/vim-gitgutter.git'
 " Plug 'https://github.com/Shougo/vimfiler.vim'
 " Plug 'https://github.com/will133/vim-dirdiff.git'
