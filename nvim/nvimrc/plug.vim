@@ -32,7 +32,6 @@ Plug 'https://github.com/Shougo/unite.vim'
 " Plug 'ambv/black'
 " Plug 'sbdchd/neoformat'
 " 
-Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
@@ -46,7 +45,6 @@ Plug 'https://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/tpope/vim-eunuch.git'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 " Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/mhinz/vim-nginx'
@@ -142,11 +140,12 @@ Plug 'https://github.com/elzr/vim-json.git'
 " Plug 'tomlion/vim-solidity'
 " 
 " " Git
-" Plug 'gregsexton/gitv', {'on': ['Gitv']}
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
 " Plug 'RRethy/vim-illuminate'
 " 
 " " Autoclosers
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 " 
 " " Colorschemes
 " "

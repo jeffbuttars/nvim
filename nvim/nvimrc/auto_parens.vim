@@ -1,1 +1,1 @@
-" let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 0
