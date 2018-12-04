@@ -119,6 +119,7 @@ Plug 'ncm2/ncm2-rst-subscope'
 " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
 " 
 " Plug 'https://github.com/neomake/neomake.git'
+Plug 'w0rp/ale'
 " 
 " " Keep builtin CSS completions up to date
 " Plug 'othree/csscomplete.vim'
@@ -159,6 +160,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " "
 " Solarized has been good to me. I plan to keep it a while
 Plug 'iCyMind/NeoSolarized'
+
 " Plug 'https://github.com/MaxSt/FlatColor'
 "
 " Load Ultisnips last to make sure it has the <tab> map
