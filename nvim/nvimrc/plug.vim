@@ -31,13 +31,12 @@ Plug 'https://github.com/Shougo/unite.vim'
 " Plug 'fisadev/vim-isort', { 'for': 'python' }
 " Plug 'ambv/black'
 " Plug 'sbdchd/neoformat'
-" " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
-" Plug 'https://github.com/vim-airline/vim-airline-themes'
-" Plug 'https://github.com/bling/vim-airline.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
 " 
 " Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
