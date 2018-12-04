@@ -49,7 +49,7 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 " Plug 'https://github.com/Raimondi/delimitMate'
-" Plug 'https://github.com/mhinz/vim-nginx'
+Plug 'https://github.com/mhinz/vim-nginx'
 " 
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
@@ -81,12 +81,6 @@ Plug 'https://github.com/will133/vim-dirdiff.git'
 "NCM2
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
-
-" "  " enable ncm2 for all buffers
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-" 
-" " IMPORTANTE: :help Ncm2PopupOpen for more information
-" set completeopt=noinsert,menuone,noselect
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
@@ -122,8 +116,8 @@ Plug 'w0rp/ale'
 " " Keep builtin CSS completions up to date
 " Plug 'othree/csscomplete.vim'
 " 
-" Plug 'chrisbra/vim-diff-enhanced'
-" Plug 'ryanoasis/vim-webdevicons'
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'ryanoasis/vim-webdevicons'
 " 
 " " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
