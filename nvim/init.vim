@@ -10,7 +10,7 @@ filetype plugin indent on
 " runtime nvimrc/nerdcomment.vim
 
 " " Load our 'plugs' early
-" runtime nvimrc/plug.vim
+runtime nvimrc/plug.vim
 
 " set lazyredraw      " Don't redraw screen when executing macros
 set history=1000 " keep 1000 lines of command line history
@@ -195,7 +195,7 @@ set splitright
 set splitbelow
 
 " Source the rest of the config, which is broken out into many files
-" runtime! nvimrc/*.vim
+runtime! nvimrc/*.vim
 
 " If there is a local init, source it to
 " Also, need to prevent a source loop.

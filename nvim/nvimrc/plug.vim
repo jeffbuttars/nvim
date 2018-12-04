@@ -1,21 +1,21 @@
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " ## Plugs
-" "
-" " We deal with our plugs first thing because later sections
-" " rely on them being available.
-" "
-" " #### [Pathogen](https://github.com/tpope/vim-pathogen)
-" " [Pathogen](https://github.com/tpope/vim-pathogen) is a
-" " nice package format for Vim _'packages'_.  
-" " [Vim Plug](https://github.com/junegunn/vim-plug)
-" " is our current package manager for Pathogen bundles.
-" "
-" "
-" " # Vim Plug initialization
-" 
-" " More or less 'borrowed' straight from the repo readme.
-" 
-" call plug#begin('~/.config/nvim/plugged')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Plugs
+"
+" We deal with our plugs first thing because later sections
+" rely on them being available.
+"
+" #### [Pathogen](https://github.com/tpope/vim-pathogen)
+" [Pathogen](https://github.com/tpope/vim-pathogen) is a
+" nice package format for Vim _'packages'_.  
+" [Vim Plug](https://github.com/junegunn/vim-plug)
+" is our current package manager for Pathogen bundles.
+"
+"
+" # Vim Plug initialization
+
+" More or less 'borrowed' straight from the repo readme.
+
+call plug#begin('~/.config/nvim/plugged')
 " 
 " " function! DoRemote()
 " "   UpdateRemotePlugins
@@ -23,8 +23,8 @@
 " 
 " " Place your Plugs here!
 " 
-" Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'https://github.com/Shougo/unite.vim'
+Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
@@ -34,8 +34,8 @@
 " " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 
 " Plug 'https://github.com/tpope/vim-fugitive.git'
-" Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
 " Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
@@ -78,45 +78,43 @@
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'wokalski/autocomplete-flow'
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-" 
-" " NCM2
-" " Plug 'ncm2/ncm2'
-" " Plug 'roxma/nvim-yarp'
-" " 
+
+
+"NCM2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
 " "  " enable ncm2 for all buffers
-" " autocmd BufEnter * call ncm2#enable_for_buffer()
-" " 
-" " " IMPORTANTE: :help Ncm2PopupOpen for more information
-" " set completeopt=noinsert,menuone,noselect
-" " 
-" " " NOTE: you need to install completion sources to get completions. Check
-" " " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-" " Plug 'ncm2/ncm2-bufword'
-" " Plug 'ncm2/ncm2-path'
-" " Plug 'ncm2/ncm2-tagprefix'
-" " Plug 'ncm2/ncm2-cssomni'
-" " Plug 'ncm2/ncm2-tern'
-" " Plug 'mhartington/nvim-typescript'
-" " Plug 'ncm2/ncm2-jedi'
-" " " Plug 'ncm2/ncm2-racer'
-" " Plug 'ncm2/ncm2-clang'
-" " Plug 'ncm2/ncm2-pyclang'
-" " Plug 'ncm2/ncm2-vim'
-" " Plug 'ncm2/ncm2-go'
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" 
+" " IMPORTANTE: :help Ncm2PopupOpen for more information
+" set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-tagprefix'
+Plug 'ncm2/ncm2-cssomni'
+Plug 'ncm2/ncm2-tern'
+" Plug 'mhartington/nvim-typescript'
+Plug 'ncm2/ncm2-jedi'
+" Plug 'ncm2/ncm2-racer'
+Plug 'ncm2/ncm2-clang'
+Plug 'ncm2/ncm2-pyclang'
+Plug 'ncm2/ncm2-vim'
+Plug 'ncm2/ncm2-go'
 " 
 " Plug 'https://github.com/neomake/neomake.git'
 " 
 " " Keep builtin CSS completions up to date
 " Plug 'othree/csscomplete.vim'
 " 
-" " Load Ultisnips last to make sure it has the <tab> map
-" Plug 'https://github.com/sirver/ultisnips'
-" Plug 'https://github.com/honza/vim-snippets'
 " Plug 'chrisbra/vim-diff-enhanced'
 " Plug 'ryanoasis/vim-webdevicons'
 " 
 " " JSON syntax
-" Plug 'https://github.com/elzr/vim-json.git'
+Plug 'https://github.com/elzr/vim-json.git'
 " 
 " " JS syntax
 " Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -146,8 +144,12 @@
 " 
 " " Colorschemes
 " "
-" " Solarized has been good to me. I plan to keep it a while
-" Plug 'iCyMind/NeoSolarized'
+" Solarized has been good to me. I plan to keep it a while
+Plug 'iCyMind/NeoSolarized'
 " Plug 'https://github.com/MaxSt/FlatColor'
-" 
-" call plug#end()
+"
+" Load Ultisnips last to make sure it has the <tab> map
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'https://github.com/honza/vim-snippets'
+
+call plug#end()
