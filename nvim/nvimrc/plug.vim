@@ -33,7 +33,7 @@ Plug 'https://github.com/Shougo/unite.vim'
 " Plug 'sbdchd/neoformat'
 " " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 
-" Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
 " Plug 'https://github.com/vim-airline/vim-airline-themes'
