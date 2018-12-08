@@ -24,5 +24,8 @@ let g:ale_set_highlights = 1
 let g:ale_python_flake8_args = '--max-line-length=99'
 
 let g:ale_fixers = {
-            \    'python': ['black'],
+            \    'python': ['black', 'isort'],
             \}
+
+# Fun fixers with F5
+map <F5> :ALEFix<CR>

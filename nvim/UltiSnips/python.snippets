@@ -290,8 +290,8 @@ write_init_body(args, snip)
 endsnippet
 
 snippet cl "class with docstrings" !bs
-class ${1:MyClass}(${2:object}):
-    """${3:Docstring for $1 }"""
+class ${1:MyClass}${2:(${3:object})}:
+    """${4:Docstring for $1 }"""
     $0
 endsnippet
 
