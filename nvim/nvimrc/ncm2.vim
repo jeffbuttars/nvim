@@ -4,6 +4,8 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 " IMPORTANTE: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
+
+let g:ncm2#complete_delay = 300
 " " suppress the annoying 'match x of y', 'The only match' and 'Pattern not
 " " found' messages
 " set shortmess+=c

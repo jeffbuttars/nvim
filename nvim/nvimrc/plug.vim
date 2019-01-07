@@ -151,6 +151,8 @@ Plug 'jiangmiao/auto-pairs'
 " "
 " Solarized has been good to me. I plan to keep it a while
 Plug 'iCyMind/NeoSolarized'
+Plug 'altercation/vim-colors-solarized'
+Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 
 " Plug 'https://github.com/MaxSt/FlatColor'
 "

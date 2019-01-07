@@ -140,14 +140,14 @@ for (let ${1} of ${2}) {
 }
 endsnippet
 
-snippet for "for (...) {...} (faster)" b
-for (let ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--){
-	${3:$1[$2]}$0
-}
-endsnippet
+# snippet for "for (...) {...} (faster)" b
+# for (let ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--){
+#     ${3:$1[$2]}$0
+# }
+# endsnippet
 
 snippet for "for (...) {...}" b
-for (let ${2:i}=0; $2 < ${1:Things}.length; $2++) {
+for (let ${2:i} = 0, len = ${1:Things}.length; $2 < len; $2++) {
 	${3:$1[$2]}$0
 }
 endsnippet
