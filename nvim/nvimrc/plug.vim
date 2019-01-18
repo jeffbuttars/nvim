@@ -38,6 +38,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
 
+Plug 'junegunn/vim-emoji'
 " Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 " " Plug 'https://github.com/djdt/pyparens.nvim'
 " 
