@@ -15,11 +15,12 @@ let g:ale_set_highlights = 1
 " https://github.com/w0rp/ale/issues/283
 " let g:ale_use_ch_sendraw = 1
 
-" let g:ale_linters = {
-" \   'javascript': ['flow', 'eslint'],
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow'],
+\}
+
 " \   'jsx': ['eslint'],
 " \   'python': ['flake8'],
-" \}
 
 let g:ale_python_flake8_args = '--max-line-length=99'
 

@@ -49,14 +49,17 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
 
         hi clear CursorLine
 
-        if $TERM_META =~ 'dark'
-            set background=dark
-        endif
-
         " If it's a real tty, use elflord
         if $IS_REAL_TTY == 'true'
             colorscheme elflord
         else
+            " Use TERM_META to select the light or dark theme
+            if $TERM_META =~ 'dark'
+                set background=dark
+            else
+                set background=light
+            endif
+
             colorscheme NeoSolarized
         endif
 
