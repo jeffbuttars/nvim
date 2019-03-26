@@ -48,6 +48,9 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 " Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/mhinz/vim-nginx'
+
+Plug 'sheerun/vim-polyglot'
+
 " 
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
@@ -134,16 +137,16 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
 " Plug 'https://github.com/plasticboy/vim-markdown.git'
-" Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'echo Run: npm install -g instant-markdown-d' }
-" 
+Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+
 " " Solidity
 " Plug 'tomlion/vim-solidity'
-" 
+
 " " Git
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-" Plug 'RRethy/vim-illuminate'
-" 
+Plug 'rbong/vim-flog'
+
 " " Autoclosers
 Plug 'jiangmiao/auto-pairs'
 " 
