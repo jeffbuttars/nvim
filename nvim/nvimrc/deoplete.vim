@@ -1,6 +1,8 @@
 " " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
+" let g:deoplete#num_processes = 1
+
 
 " When a capital letter is matched with the uppercase, but a
 " lower letter is matched with the upper- and lowercase.
