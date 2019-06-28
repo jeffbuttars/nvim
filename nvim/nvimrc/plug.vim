@@ -28,8 +28,9 @@ Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
-" Plug 'fisadev/vim-isort', { 'for': 'python' }
-" Plug 'ambv/black'
+" Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'python/black'
+" Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -107,7 +108,8 @@ Plug 'ncm2/ncm2-html-subscope'
 Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-rst-subscope'
 " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
-" 
+Plug 'andymass/vim-matchup'
+
 " Plug 'https://github.com/neomake/neomake.git'
 Plug 'w0rp/ale'
 " 
