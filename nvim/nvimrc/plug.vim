@@ -28,8 +28,9 @@ Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
-" Plug 'fisadev/vim-isort', { 'for': 'python' }
-" Plug 'ambv/black'
+" Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'python/black'
+" Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -49,6 +50,9 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 " Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/mhinz/vim-nginx'
+
+Plug 'sheerun/vim-polyglot'
+
 " 
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
@@ -78,37 +82,44 @@ Plug 'https://github.com/mhinz/vim-nginx'
 
 
 "NCM2
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
-Plug 'ncm2/ncm2-tagprefix'
-Plug 'filipekiss/ncm2-look.vim'
-" Plug 'ncm2/ncm2-gtags'
-Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
-Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-Plug 'ncm2/ncm2-cssomni'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-" Plug 'mhartington/nvim-typescript'
-Plug 'ncm2/ncm2-jedi'
-" Plug 'ncm2/ncm2-racer'
-Plug 'ncm2/ncm2-clang'
-Plug 'ncm2/ncm2-pyclang'
-Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
-Plug 'ncm2/ncm2-go'
-Plug 'phpactor/ncm2-phpactor'
-Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-html-subscope'
-Plug 'ncm2/ncm2-markdown-subscope'
-Plug 'ncm2/ncm2-rst-subscope'
-" Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
-" 
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-github'
+" Plug 'ncm2/ncm2-tagprefix'
+" Plug 'filipekiss/ncm2-look.vim'
+" " Plug 'ncm2/ncm2-gtags'
+" Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+" Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+" Plug 'ncm2/ncm2-cssomni'
+" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+" " Plug 'mhartington/nvim-typescript'
+" Plug 'ncm2/ncm2-jedi'
+" " Plug 'ncm2/ncm2-racer'
+" Plug 'ncm2/ncm2-clang'
+" Plug 'ncm2/ncm2-pyclang'
+" Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+" Plug 'ncm2/ncm2-go'
+" Plug 'phpactor/ncm2-phpactor'
+" Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
+" Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
+" Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2-html-subscope'
+" Plug 'ncm2/ncm2-markdown-subscope'
+" Plug 'ncm2/ncm2-rst-subscope'
+" " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
+
+" COC
+Plug 'Shougo/neoinclude.vim'
+Plug 'jsfaint/coc-neoinclude'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+
+Plug 'andymass/vim-matchup'
+
 " Plug 'https://github.com/neomake/neomake.git'
 Plug 'w0rp/ale'
 " 
@@ -117,6 +128,7 @@ Plug 'w0rp/ale'
 " 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ryanoasis/vim-webdevicons'
+
 " 
 " " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
@@ -135,18 +147,18 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
 " Plug 'https://github.com/plasticboy/vim-markdown.git'
-" Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'echo Run: npm install -g instant-markdown-d' }
-" 
+Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+
 " " Solidity
 " Plug 'tomlion/vim-solidity'
-" 
+
 " " Git
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-" Plug 'RRethy/vim-illuminate'
-" 
+Plug 'rbong/vim-flog'
+
 " " Autoclosers
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " 
 " " Colorschemes
 " "
