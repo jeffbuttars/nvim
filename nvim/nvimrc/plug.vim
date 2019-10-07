@@ -81,36 +81,42 @@ Plug 'sheerun/vim-polyglot'
 
 
 "NCM2
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2'
+" Plug 'roxma/nvim-yarp'
 
 " NOTE: you need to install completion sources to get completions. Check
 " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
-Plug 'ncm2/ncm2-tagprefix'
-Plug 'filipekiss/ncm2-look.vim'
-" Plug 'ncm2/ncm2-gtags'
-Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
-Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-Plug 'ncm2/ncm2-cssomni'
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-" Plug 'mhartington/nvim-typescript'
-Plug 'ncm2/ncm2-jedi'
-" Plug 'ncm2/ncm2-racer'
-Plug 'ncm2/ncm2-clang'
-Plug 'ncm2/ncm2-pyclang'
-Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
-Plug 'ncm2/ncm2-go'
-Plug 'phpactor/ncm2-phpactor'
-Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
-Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-html-subscope'
-Plug 'ncm2/ncm2-markdown-subscope'
-Plug 'ncm2/ncm2-rst-subscope'
-" Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
+" Plug 'ncm2/ncm2-bufword'
+" Plug 'ncm2/ncm2-path'
+" Plug 'ncm2/ncm2-github'
+" Plug 'ncm2/ncm2-tagprefix'
+" Plug 'filipekiss/ncm2-look.vim'
+" " Plug 'ncm2/ncm2-gtags'
+" Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+" Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+" Plug 'ncm2/ncm2-cssomni'
+" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
+" " Plug 'mhartington/nvim-typescript'
+" Plug 'ncm2/ncm2-jedi'
+" " Plug 'ncm2/ncm2-racer'
+" Plug 'ncm2/ncm2-clang'
+" Plug 'ncm2/ncm2-pyclang'
+" Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+" Plug 'ncm2/ncm2-go'
+" Plug 'phpactor/ncm2-phpactor'
+" Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
+" Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
+" Plug 'ncm2/ncm2-ultisnips'
+" Plug 'ncm2/ncm2-html-subscope'
+" Plug 'ncm2/ncm2-markdown-subscope'
+" Plug 'ncm2/ncm2-rst-subscope'
+" " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
+
+" COC
+Plug 'Shougo/neoinclude.vim'
+Plug 'jsfaint/coc-neoinclude'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+
 Plug 'andymass/vim-matchup'
 
 " Plug 'https://github.com/neomake/neomake.git'
@@ -121,6 +127,7 @@ Plug 'w0rp/ale'
 " 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ryanoasis/vim-webdevicons'
+
 " 
 " " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
@@ -150,7 +157,7 @@ Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'rbong/vim-flog'
 
 " " Autoclosers
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 " 
 " " Colorschemes
 " "

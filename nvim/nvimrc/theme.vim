@@ -150,4 +150,39 @@ function! AdjustQFWindowHeight()
     exe "normal \<C-W>\<S-J>" 
 endfunction
 
+" Color options for coc-yank
+hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+
 syntax on
+
+" Customize fzf colors to match your color scheme
+" let g:fzf_colors =
+" \ { 'fg':      ['fg', 'Normal'],
+"   \ 'bg':      ['bg', 'Normal'],
+"   \ 'hl':      ['fg', 'Comment'],
+"   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"   \ 'hl+':     ['fg', 'Statement'],
+"   \ 'info':    ['fg', 'PreProc'],
+"   \ 'border':  ['fg', 'Ignore'],
+"   \ 'prompt':  ['fg', 'Conditional'],
+"   \ 'pointer': ['fg', 'Exception'],
+"   \ 'marker':  ['fg', 'Keyword'],
+"   \ 'spinner': ['fg', 'Label'],
+"   \ 'header':  ['fg', 'Comment'] }
+
+" let g:fzf_colors = {
+"   \  'fg':      ['fg', 'fzfNormal'],
+"   \  'bg':      ['bg', 'Normal'],
+"   \  'hl':      ['fg', 'Number'],
+"   \  'fg+':     ['fg', 'fzfFgPlus'],
+"   \  'bg+':     ['bg', 'CursorLine'],
+"   \  'hl+':     ['fg', 'Number'],
+"   \  'info':    ['fg', 'String'],
+"   \  'border':  ['fg', 'Quickfixline'],
+"   \  'prompt':  ['fg', 'fzf2'],
+"   \  'pointer': ['fg', 'MatchParen'],
+"   \  'marker':  ['fg', 'StorageClass'],
+"   \  'spinner': ['fg', 'Type'],
+"   \  'header':  ['fg', 'CursorLineNr']
+"   \}
