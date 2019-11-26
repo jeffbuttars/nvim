@@ -290,14 +290,9 @@ write_init_body(args, snip)
 endsnippet
 
 snippet cl "class with docstrings" !bs
-class ${1:MyClass}${2:(${3:object})}:
-    """${4:Docstring for $1 }"""
+class ${1:MyClass}${2:(${3:Parent})}:
+    ${4:"""${5:Docstring for $1 }"""}
     $0
-endsnippet
-
-snippet cln "class with nothing, it's naked" bs
-class ${1:MyClass}(${2:object}):
-    ${3:pass}$0
 endsnippet
 
 snippet clt "unittest test case class with docstrings" bs

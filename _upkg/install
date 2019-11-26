@@ -30,8 +30,15 @@ wait
 # nvim -c "UpdateRemotePlugins<\CR>" -c "qa!"
 # wait
 
-pr_info "Installing instant markdown via npm..."
-npm install -g instant-markdown-d
+# pr_info "Installing instant markdown via npm..."
+# npm install -g instant-markdown-d
+# wait
+
+pr_info "Installing COC plugins..."
+nvim -c 'CocInstall coc-ultisnips coc-python coc-json \
+    coc-javascript coc-tslint coc-eslint coc-css coc-sources \
+    coc-neco coc-tsserver coc-git coc-yank coc-svg coc-vimlsp \
+    coc-xml coc-tabnine coc-highlight coc-java coc-neoinclude'
 wait
 
 pr_pass "Install complete"
