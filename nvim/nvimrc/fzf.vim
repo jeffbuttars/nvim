@@ -17,7 +17,36 @@
  
  " [Commands] --expect expression for directly executing the command
  let g:fzf_commands_expect = 'alt-enter,ctrl-x'
- let g:fzf_layout = { 'down': '~100%' }
+
+" Use the whole existing window for layout
+" let g:fzf_layout = { 'down': '~100%' }
+
+" Use a floating window for layout
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+
+let $FZF_PREVIEW_COMMAND = 'highlight --style=breeze -O ansi -l {}'
+
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 1,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
  
  " Use fuzzy completion relative filepaths across directory
  imap <expr> <c-x><c-f> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
@@ -51,34 +80,35 @@
    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
    \                 <bang>0)
  
- function! s:update_fzf_colors()
-   let rules =
-   \ { 'fg':      [['Normal',       'fg']],
-     \ 'bg':      [['Normal',       'bg']],
-     \ 'hl':      [['Comment',      'fg']],
-     \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
-     \ 'bg+':     [['CursorColumn', 'bg']],
-     \ 'hl+':     [['Statement',    'fg']],
-     \ 'info':    [['PreProc',      'fg']],
-     \ 'prompt':  [['Conditional',  'fg']],
-     \ 'pointer': [['Exception',    'fg']],
-     \ 'marker':  [['Keyword',      'fg']],
-     \ 'spinner': [['Label',        'fg']],
-     \ 'header':  [['Comment',      'fg']] }
-   let cols = []
-   for [name, pairs] in items(rules)
-     for pair in pairs
-       let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
-       if !empty(name) && code > 0
-         call add(cols, name.':'.code)
-         break
-       endif
-     endfor
-   endfor
-   let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
-   let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
-         \ empty(cols) ? '' : (' --color='.join(cols, ','))
- endfunction
+
+" function! s:update_fzf_colors()
+"   let rules =
+"   \ { 'fg':      [['Normal',       'fg']],
+"     \ 'bg':      [['Normal',       'bg']],
+"     \ 'hl':      [['Comment',      'fg']],
+"     \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
+"     \ 'bg+':     [['CursorColumn', 'bg']],
+"     \ 'hl+':     [['Statement',    'fg']],
+"     \ 'info':    [['PreProc',      'fg']],
+"     \ 'prompt':  [['Conditional',  'fg']],
+"     \ 'pointer': [['Exception',    'fg']],
+"     \ 'marker':  [['Keyword',      'fg']],
+"     \ 'spinner': [['Label',        'fg']],
+"     \ 'header':  [['Comment',      'fg']] }
+"   let cols = []
+"   for [name, pairs] in items(rules)
+"     for pair in pairs
+"       let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
+"       if !empty(name) && code > 0
+"         call add(cols, name.':'.code)
+"         break
+"       endif
+"     endfor
+"   endfor
+"   let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
+"   let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
+"         \ empty(cols) ? '' : (' --color='.join(cols, ','))
+" endfunction
  
  " augroup _fzf
  "   autocmd!
