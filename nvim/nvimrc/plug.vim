@@ -116,6 +116,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/neoinclude.vim'
 Plug 'jsfaint/coc-neoinclude'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'Shougo/echodoc.vim'
 
 Plug 'andymass/vim-matchup'
 
