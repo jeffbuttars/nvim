@@ -2,6 +2,7 @@
 " Look at the _upkg/install script for handling the CocInstall
 " :CocInstall 
 " coc-ultisnips coc-python coc-json coc-javascript coc-tslint coc-eslint coc-css coc-sources
+" coc-defenition
 " coc-neco coc-tsserver coc-git coc-yank coc-svg coc-vimlsp coc-xml coc-tabnine coc-highlight coc-java coc-neoinclude
 
 set hidden
@@ -18,12 +19,16 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    if (!CocAction('doHover'))
+        execute ':Man'
+    endif
   endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -50,6 +55,13 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+
+" Remap keys for gotos
+" nnoremap <silent> CTRL-] <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
