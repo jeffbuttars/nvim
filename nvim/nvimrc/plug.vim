@@ -56,7 +56,7 @@ Plug 'sheerun/vim-polyglot'
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 " 
-" " Plug 'https://github.com/davidhalter/jedi-vim'
+Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 " 
 " 
