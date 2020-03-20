@@ -7,15 +7,17 @@ source in_up.sh
 source buildycm.sh
 
 pr_info "Updating plugs..."
-nvim -c 'PlugUpgrade' -c '<\CR>' -c 'qa'
+# nvim -c ':PlugUpgrade' -c '<\CR>' -c ':qa'
 # nvim -c 'PlugClean' -c '<\CR>' -c 'qa'
-nvim -c 'PlugUpdate' -c '<\CR>' -c 'qa'
+nvim -c ':PlugUpdate' -c '<\CR>' -c ':qa'
 wait
 
 pr_info "Updating Remote Plugins..."
-nvim -c 'UpdateRemotePlugins<\CR>' -c "qa"
+nvim --headless +UpdateRemotePlugins +qa
 wait
 
 pr_info "Installing instant markdown via npm..."
 npm -g update instant-markdown-d
 wait
+
+nvim --headless +CocUpdate +qa
