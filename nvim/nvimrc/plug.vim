@@ -58,7 +58,7 @@ Plug 'sheerun/vim-polyglot'
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 " 
-" " Plug 'https://github.com/davidhalter/jedi-vim'
+Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 " 
 " 
@@ -118,6 +118,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/neoinclude.vim'
 Plug 'jsfaint/coc-neoinclude'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'Shougo/echodoc.vim'
 
 Plug 'andymass/vim-matchup'
 
@@ -171,7 +172,7 @@ Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 " Plug 'https://github.com/MaxSt/FlatColor'
 "
 " Load Ultisnips last to make sure it has the <tab> map
-Plug 'https://github.com/SirVer/ultisnips'
-Plug 'https://github.com/honza/vim-snippets'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()

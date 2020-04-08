@@ -11,3 +11,5 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 " g:UltiSnipsListSnippets                <c-tab>
 " g:UltiSnipsJumpForwardTrigger          <c-j>
 " g:UltiSnipsJumpBackwardTrigger         <c-k>
+
+let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/UltiSnips"]

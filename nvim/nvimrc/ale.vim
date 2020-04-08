@@ -34,6 +34,7 @@ let g:ale_fixers = {
             \    'jsx': ['prettier_standard', 'remove_trailing_lines', 'trim_whitespace'],
             \    'css': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
             \    'vim': ['remove_trailing_lines', 'trim_whitespace'],
+            \    'json': ['jq', 'prettier'],
             \}
 
 " Run fixers with F5
