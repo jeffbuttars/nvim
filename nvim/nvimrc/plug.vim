@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
 " " endfunction
 " 
 " " Place your Plugs here!
+Plug 'junegunn/goyo.vim'
 " 
 Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'https://github.com/Shougo/unite.vim'
