@@ -30,7 +30,8 @@ Plug 'https://github.com/Shougo/unite.vim'
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
 " Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'python/black'
+Plug 'psf/black', { 'tag': '19.10b0' }
+" Plug 'psf/black'
 " Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
@@ -149,7 +150,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
 " Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " " Solidity
 " Plug 'tomlion/vim-solidity'
@@ -172,7 +173,7 @@ Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 " Plug 'https://github.com/MaxSt/FlatColor'
 "
 " Load Ultisnips last to make sure it has the <tab> map
-Plug 'sirver/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 call plug#end()
