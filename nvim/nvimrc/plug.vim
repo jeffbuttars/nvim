@@ -170,7 +170,7 @@ Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 " Plug 'https://github.com/MaxSt/FlatColor'
 "
 " Load Ultisnips last to make sure it has the <tab> map
-Plug 'sirver/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 call plug#end()
