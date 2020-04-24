@@ -59,7 +59,7 @@ Plug 'sheerun/vim-polyglot'
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 " 
-Plug 'https://github.com/davidhalter/jedi-vim'
+" Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 " 
 " 
@@ -118,7 +118,8 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 " COC
 Plug 'Shougo/neoinclude.vim'
 Plug 'jsfaint/coc-neoinclude'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
 
 Plug 'andymass/vim-matchup'
