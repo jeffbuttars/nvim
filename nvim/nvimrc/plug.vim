@@ -177,4 +177,7 @@ Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" VimWiki
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
