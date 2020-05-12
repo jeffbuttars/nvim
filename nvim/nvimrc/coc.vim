@@ -12,6 +12,8 @@ set hidden
 set nobackup
 set nowritebackup
 
+" set completeopt=popup
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 

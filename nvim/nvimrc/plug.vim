@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
 " " endfunction
 " 
 " " Place your Plugs here!
+Plug 'junegunn/goyo.vim'
 " 
 Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'https://github.com/Shougo/unite.vim'
@@ -29,7 +30,8 @@ Plug 'https://github.com/Shougo/unite.vim'
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
 " Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'python/black'
+Plug 'psf/black', { 'tag': '19.10b0' }
+" Plug 'psf/black'
 " Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
@@ -39,6 +41,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
 
+Plug 'junegunn/vim-emoji'
 " Plug 'https://github.com/junegunn/rainbow_parentheses.vim'
 " " Plug 'https://github.com/djdt/pyparens.nvim'
 " 
@@ -56,7 +59,7 @@ Plug 'sheerun/vim-polyglot'
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
 " 
-Plug 'https://github.com/davidhalter/jedi-vim'
+" Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 " 
 " 
@@ -115,7 +118,8 @@ Plug 'https://github.com/davidhalter/jedi-vim'
 " COC
 Plug 'Shougo/neoinclude.vim'
 Plug 'jsfaint/coc-neoinclude'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/echodoc.vim'
 
 Plug 'andymass/vim-matchup'
@@ -147,7 +151,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
 " Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown.git', { 'do': 'npm install -g instant-markdown-d' }
+Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " " Solidity
 " Plug 'tomlion/vim-solidity'
@@ -172,5 +176,8 @@ Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 " Load Ultisnips last to make sure it has the <tab> map
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" VimWiki
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
