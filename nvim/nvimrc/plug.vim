@@ -151,7 +151,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
 " Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
+" Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
 
 " " Solidity
 " Plug 'tomlion/vim-solidity'
