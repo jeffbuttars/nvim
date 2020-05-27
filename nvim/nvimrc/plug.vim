@@ -111,7 +111,6 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
 " Plug 'ncm2/ncm2-ultisnips'
 " Plug 'ncm2/ncm2-html-subscope'
-" Plug 'ncm2/ncm2-markdown-subscope'
 " Plug 'ncm2/ncm2-rst-subscope'
 " " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
 
@@ -150,14 +149,15 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 	\ 'do': 'yarn install; npm i -g prettier',
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 " 
-" Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
+" Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
+" ####### JUST USE grip !!! ###############
 
 " " Solidity
 " Plug 'tomlion/vim-solidity'
 
 " " Git
 Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-rhubarb.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'rbong/vim-flog'
 
