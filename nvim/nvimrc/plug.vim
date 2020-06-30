@@ -55,6 +55,8 @@ Plug 'https://github.com/mhinz/vim-nginx'
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'metakirby5/codi.vim'
+
 " 
 " " One day, I shall resurrect this trap
 " " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
@@ -178,6 +180,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " VimWiki
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 
 call plug#end()

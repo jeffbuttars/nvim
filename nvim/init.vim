@@ -6,6 +6,9 @@
 " enable early
 filetype plugin indent on
 
+" Explicitly set the python3 executable
+let g:python3_host_prog = '/usr/bin/python3'
+
 " " Need to load the nerdcommenter settings before the plugin
 " runtime nvimrc/nerdcomment.vim
 
