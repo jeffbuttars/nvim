@@ -46,8 +46,11 @@ Plug 'junegunn/vim-emoji'
 " " Plug 'https://github.com/djdt/pyparens.nvim'
 " 
 Plug 'https://github.com/scrooloose/nerdcommenter.git'
-Plug 'https://github.com/scrooloose/nerdtree'
-Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+
+" Plug 'https://github.com/scrooloose/nerdtree'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 " Plug 'https://github.com/Raimondi/delimitMate'
@@ -59,7 +62,7 @@ Plug 'metakirby5/codi.vim'
 
 " 
 " " One day, I shall resurrect this trap
-" " Plug 'jeffbuttars/neovim-doubletap', { 'do': function('DoRemote') }
+Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 " 
 " Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
@@ -181,5 +184,7 @@ Plug 'honza/vim-snippets'
 
 " VimWiki
 "Plug 'vimwiki/vimwiki'
+
+Plug 'ajorgensen/vim-markdown-toc'
 
 call plug#end()
