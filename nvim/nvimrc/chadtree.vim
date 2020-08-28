@@ -1,2 +1,2 @@
 map <C-d> :CHADopen<CR>
-let chadtree_width = 64
+let chadtree_width = 96
