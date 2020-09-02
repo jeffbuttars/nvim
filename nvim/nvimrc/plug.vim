@@ -156,6 +156,7 @@ Plug 'https://github.com/elzr/vim-json.git'
 " 
 " Plug 'https://github.com/suan/vim-instant-markdown', { 'for': 'markdown' }
 " ####### JUST USE grip !!! ###############
+Plug 'PratikBhusal/vim-grip'
 
 " " Solidity
 " Plug 'tomlion/vim-solidity'
