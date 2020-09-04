@@ -1,3 +1,6 @@
 {
-  "coc.source.jedi.priority": 0
+  "coc.source.jedi.priority": 0,
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length 99"],
+  "python.workspaceSymbols.exclusionPatterns": ["**/site-packages/**", "**/.git/**"]
 }
