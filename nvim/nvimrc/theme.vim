@@ -53,14 +53,20 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         if $IS_REAL_TTY == 'true'
             colorscheme elflord
         else
+            let g:gruvbox_contrast_dark = 'hard'
+
             " Use TERM_META to select the light or dark theme
             if $TERM_META =~ 'dark'
-                set background=dark
+                " set background=dark
+                " colorscheme tender
+                colorscheme gruvbox
             else
                 set background=light
+                " colorscheme NeoSolarized
+                colorscheme gruvbox
             endif
 
-            colorscheme NeoSolarized
+            " colorscheme NeoSolarized
         endif
 
         set cursorline

@@ -35,8 +35,13 @@ Plug 'psf/black', { 'tag': '19.10b0' }
 " Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim'
+" Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'https://github.com/junegunn/fzf.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+
+"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/bling/vim-airline.git'
 " Plug 'https://github.com/bling/vim-bufferline.git'
@@ -79,7 +84,9 @@ Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 " " Plug 'Shougo/denite.nvim'
 " 
 " " Ctags stuff, never seems to work right
+"
 " " Plug 'c0r73x/neotags.nvim', {'do': 'make'}
+Plug 'danielsiepmann/neotags', { 'do': ':UpdateRemotePlugins' }
 " " Plug 'jsfaint/gen_tags.vim'
 " 
 " " Deoplete setup
@@ -137,6 +144,8 @@ Plug 'w0rp/ale'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ryanoasis/vim-webdevicons'
 
+" Tags / Symbol navigator
+Plug 'liuchengxu/vista.vim'
 " 
 " " JSON syntax
 Plug 'https://github.com/elzr/vim-json.git'
@@ -162,6 +171,8 @@ Plug 'PratikBhusal/vim-grip'
 " Plug 'tomlion/vim-solidity'
 
 " " Git
+"
+Plug 'https://github.com/lambdalisue/gina.vim'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-rhubarb.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -177,6 +188,8 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'altercation/vim-colors-solarized'
 Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 
+Plug 'jacoborus/tender.vim'
+
 " Plug 'https://github.com/MaxSt/FlatColor'
 "
 " Load Ultisnips last to make sure it has the <tab> map
@@ -187,5 +200,7 @@ Plug 'honza/vim-snippets'
 "Plug 'vimwiki/vimwiki'
 
 Plug 'ajorgensen/vim-markdown-toc'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
