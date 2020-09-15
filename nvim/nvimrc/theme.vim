@@ -73,6 +73,7 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
                     \ }
 
                 colorscheme PaperColor
+                let g:airline_theme='papercolor'
             endif
 
             " colorscheme NeoSolarized
