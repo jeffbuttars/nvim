@@ -53,17 +53,26 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         if $IS_REAL_TTY == 'true'
             colorscheme elflord
         else
-            let g:gruvbox_contrast_dark = 'hard'
-
             " Use TERM_META to select the light or dark theme
             if $TERM_META =~ 'dark'
                 " set background=dark
                 " colorscheme tender
+                let g:gruvbox_contrast_dark = 'hard'
                 colorscheme gruvbox
             else
+                let g:gruvbox_contrast_dark = 'soft'
                 set background=light
                 " colorscheme NeoSolarized
-                colorscheme gruvbox
+                " colorscheme gruvbox
+                let g:PaperColor_Theme_Options = {
+                    \   'theme': {
+                    \     'transparent_background': 1,
+                    \     'allow_bold': 1,
+                    \     'allow_italic': 1
+                    \   }
+                    \ }
+
+                colorscheme PaperColor
             endif
 
             " colorscheme NeoSolarized
