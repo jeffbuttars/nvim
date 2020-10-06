@@ -71,7 +71,7 @@ Plug 'metakirby5/codi.vim'
 
 " 
 " " One day, I shall resurrect this trap
-Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
+" Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 " 
 " Plug 'https://github.com/davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
