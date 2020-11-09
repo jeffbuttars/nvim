@@ -29,17 +29,17 @@ Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
 " Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
-" Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'psf/black'
 " Plug 'psf/black'
 " Plug 'https://github.com/paradoxxxzero/pyls-isort'
 " Plug 'sbdchd/neoformat'
 " 
-" Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'https://github.com/junegunn/fzf.vim'
 
+" FZF setup
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf.vim'
+" Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 
 "
 Plug 'https://github.com/vim-airline/vim-airline-themes'

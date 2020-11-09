@@ -55,24 +55,28 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
         else
             " Use TERM_META to select the light or dark theme
             if $TERM_META =~ 'dark'
-                set background=dark
-                let g:gruvbox_contrast_dark = 'medium'
-                colorscheme gruvbox
-            else
-                let g:gruvbox_contrast_dark = 'soft'
-                set background=light
-                " colorscheme NeoSolarized
+                " set background=dark
+                " let g:gruvbox_contrast_dark = 'medium'
                 " colorscheme gruvbox
-                let g:PaperColor_Theme_Options = {
-                    \   'theme': {
-                    \     'transparent_background': 1,
-                    \     'allow_bold': 1,
-                    \     'allow_italic': 1
-                    \   }
-                    \ }
 
-                colorscheme PaperColor
-                let g:airline_theme='papercolor'
+                colorscheme NeoSolarized
+            else
+                set background=light
+                colorscheme NeoSolarized
+
+                " let g:gruvbox_contrast_dark = 'soft'
+                " colorscheme gruvbox
+                "
+                " let g:PaperColor_Theme_Options = {
+                "     \   'theme': {
+                "     \     'transparent_background': 1,
+                "     \     'allow_bold': 1,
+                "     \     'allow_italic': 1
+                "     \   }
+                "     \ }
+
+                " colorscheme PaperColor
+                " let g:airline_theme='papercolor'
             endif
 
             " colorscheme NeoSolarized
