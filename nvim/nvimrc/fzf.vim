@@ -20,4 +20,6 @@ map  <M-p> <ESC>:GFiles?<CR>
 " nnoremap <silent> gs    :<C-u>FzfPreviewGitStatus<CR>
 " nnoremap <silent> rg    :<C-u>FzfPreviewProjectGrep --resume<Space>
 
-let g:fzf_preview_use_dev_icons = 1
+" let g:fzf_preview_use_dev_icons = 1
+
+let g:fzf_tags_command = 'ctags --options=~/.ctags'
