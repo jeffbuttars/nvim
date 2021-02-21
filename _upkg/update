@@ -16,8 +16,8 @@ pr_info "Updating Remote Plugins..."
 nvim --headless +UpdateRemotePlugins +qa
 wait
 
-pr_info "Installing instant markdown via npm..."
-npm -g update instant-markdown-d
-wait
+# pr_info "Installing instant markdown via npm..."
+# npm -g update instant-markdown-d
+# wait
 
 nvim --headless +CocUpdate +qa
