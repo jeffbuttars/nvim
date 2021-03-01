@@ -214,3 +214,10 @@ augroup END
 " " tnoremap <C-j> <C-\><C-N><C-w>j
 " " tnoremap <C-k> <C-\><C-N><C-w>k
 " " tnoremap <C-l> <C-\><C-N><C-w>l
+
+" https://github.com/nickjj/dotfiles/blob/769402bc839e11f7b0a8a37664391a899b03021b/.vimrc#L328-L332
+" Move 1 more lines up or down in normal and visual selection modes.
+" nnoremap K :m .-2<CR>==
+" nnoremap J :m .+1<CR>==
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv

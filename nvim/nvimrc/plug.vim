@@ -28,13 +28,8 @@ Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
-" Plug 'https://github.com/klen/python-mode.git', { 'for': 'python' }
-Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'psf/black'
-" Plug 'psf/black'
-" Plug 'https://github.com/paradoxxxzero/pyls-isort'
-" Plug 'sbdchd/neoformat'
-" 
+
 
 " FZF setup
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -58,11 +53,9 @@ Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
 Plug 'ryanoasis/vim-devicons'
 
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
-" Plug 'https://github.com/Raimondi/delimitMate'
 Plug 'https://github.com/mhinz/vim-nginx'
 
 Plug 'sheerun/vim-polyglot'
@@ -74,7 +67,6 @@ Plug 'metakirby5/codi.vim'
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 " 
 " Plug 'https://github.com/davidhalter/jedi-vim'
-" Plug 'zchee/deoplete-jedi'
 " 
 " 
 " " Java gets it's own completion plugin, but only on those days I actually need it.
@@ -88,54 +80,27 @@ Plug 'metakirby5/codi.vim'
 " " Plug 'Shougo/denite.nvim'
 " 
 " " Ctags stuff, never seems to work right
-"
-" " Plug 'c0r73x/neotags.nvim', {'do': 'make'}
-Plug 'danielsiepmann/neotags', { 'do': ':UpdateRemotePlugins' }
-" " Plug 'jsfaint/gen_tags.vim'
-" 
-" " Deoplete setup
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'wokalski/autocomplete-flow'
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-
-"NCM2
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-path'
-" Plug 'ncm2/ncm2-github'
-" Plug 'ncm2/ncm2-tagprefix'
-" Plug 'filipekiss/ncm2-look.vim'
-" " Plug 'ncm2/ncm2-gtags'
-" Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
-" Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
-" Plug 'ncm2/ncm2-cssomni'
-" Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-" " Plug 'mhartington/nvim-typescript'
-" Plug 'ncm2/ncm2-jedi'
-" " Plug 'ncm2/ncm2-racer'
-" Plug 'ncm2/ncm2-clang'
-" Plug 'ncm2/ncm2-pyclang'
-" Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
-" Plug 'ncm2/ncm2-go'
-" Plug 'phpactor/ncm2-phpactor'
-" Plug 'ObserverOfTime/ncm2-jc2', {'for': ['java', 'jsp']}
-" Plug 'artur-shaik/vim-javacomplete2', {'for': ['java', 'jsp']}
-" Plug 'ncm2/ncm2-ultisnips'
-" Plug 'ncm2/ncm2-html-subscope'
-" Plug 'ncm2/ncm2-rst-subscope'
-" " Plug 'ncm2/ncm2-match-highlight'  " Kinda weird
 
 " COC
-Plug 'Shougo/neoinclude.vim'
-Plug 'jsfaint/coc-neoinclude'
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'jsfaint/coc-neoinclude'
+" " Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'Shougo/echodoc.vim'
+
+" Native LSP
+Plug 'neovim/nvim-lspconfig'
+" Plug 'aca/pylance.nvim', { 'do': './install.sh' }
+
+" Completion stuff
+Plug 'nvim-lua/completion-nvim'
+Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+Plug 'steelsojka/completion-buffers'
+
+" Plug 'haorenW1025/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'nathunsmitty/nvim-ale-diagnostic'
 
 Plug 'andymass/vim-matchup'
 

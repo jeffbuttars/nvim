@@ -1,9 +1,11 @@
+let g:ale_enabled = 1
+
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_delay = 500
+let g:ale_lint_delay = 100
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-let g:ale_set_loclist = 1
+" let g:ale_set_loclist = 1
 " let g:ale_set_quickfix = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -14,23 +16,27 @@ let g:ale_set_highlights = 1
 
 " The way ale choose the venv is not compatible with my dev env.
 " So I essentially disable it
-let g:ale_virtualenv_dir_names = ['badvenv']
+" let g:ale_virtualenv_dir_names = ['badvenv']
 
 " https://github.com/w0rp/ale/issues/283
 " let g:ale_use_ch_sendraw = 1
 
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \}
 
 " \   'jsx': ['eslint'],
 " \   'python': ['flake8'],
 
-let g:ale_python_flake8_args = '--max-line-length=99'
+" https://flake8.pycqa.org/en/latest/user/error-codes.html
+" E203
+" W503
+let g:ale_python_flake8_args = '--max-line-length=99 --extend-ignore=E203,W503'
 
 let g:ale_fixers = {
-            \    'python': ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace'],
-            \    'javascript': ['prettier_standard', 'remove_trailing_lines', 'trim_whitespace'],
+            \    'python': ['black', 'isort'],
             \    'jsx': ['prettier_standard', 'remove_trailing_lines', 'trim_whitespace'],
             \    'css': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
             \    'vim': ['remove_trailing_lines', 'trim_whitespace'],
