@@ -7,6 +7,8 @@ require'lspconfig'.pyls.setup{
 }
 require'lspconfig'.pyright.setup{}
 require("nvim-ale-diagnostic")
+
+require("local_mods/treesitter")
 EOF
 
 " Example config from lsp docs
@@ -71,6 +73,7 @@ augroup lsp
     autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
     autocmd BufEnter * lua require'completion'.on_attach()
 augroup END
+" autocmd BufWritePost * lua vim.lsp.buf.formatting()
 
 " require'lspconfig'.pylance.setup{
 "   settings = {

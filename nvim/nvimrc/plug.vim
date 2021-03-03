@@ -29,6 +29,7 @@ Plug 'https://github.com/Shougo/unite.vim'
 " 
 " " Python
 Plug 'psf/black'
+Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " FZF setup
@@ -98,7 +99,7 @@ Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 Plug 'steelsojka/completion-buffers'
 
 " Plug 'haorenW1025/completion-nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'nathunsmitty/nvim-ale-diagnostic'
 
