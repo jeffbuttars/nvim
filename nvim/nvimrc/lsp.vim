@@ -4,6 +4,11 @@
 lua << EOF
 require'lspconfig'.pyls.setup{
   configurationSources = { "flake8", "black", "mypy" };
+  plugins = {
+    flake8 = { enabled = true };
+    pyflakes = { enabled = false };
+    pycodestyle = { enabled = false };
+  }
 }
 require'lspconfig'.pyright.setup{}
 require("nvim-ale-diagnostic")
