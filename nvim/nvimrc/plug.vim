@@ -100,7 +100,9 @@ Plug 'steelsojka/completion-buffers'
 
 " Plug 'haorenW1025/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/completion-treesitter'
+Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/completion-treesitter', {'do': ':TSInstall query'}
+
 Plug 'nathunsmitty/nvim-ale-diagnostic'
 
 Plug 'andymass/vim-matchup'
@@ -154,8 +156,15 @@ Plug 'rbong/vim-flog'
 " " Colorschemes
 " "
 " Solarized has been good to me. I plan to keep it a while
-Plug 'iCyMind/NeoSolarized'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'iCyMind/NeoSolarized'
+
+" https://github.com/lifepillar/vim-gruvbox8
+Plug 'lifepillar/vim-gruvbox8'
+
+" https://github.com/lifepillar/vim-solarized8
+Plug 'lifepillar/vim-solarized8'
+
+" Plug 'altercation/vim-colors-solarized'
 Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 
 Plug 'jacoborus/tender.vim'
@@ -172,5 +181,8 @@ Plug 'honza/vim-snippets'
 Plug 'ajorgensen/vim-markdown-toc'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
+
+" treesitter aware
+Plug 'sainnhe/sonokai'
 
 call plug#end()

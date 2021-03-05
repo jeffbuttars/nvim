@@ -59,12 +59,14 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
                 " let g:gruvbox_contrast_dark = 'medium'
                 " colorscheme gruvbox
 
-                colorscheme NeoSolarized
-                let g:airline_theme='solarized'
+                set background=dark
+                colorscheme solarized8
+                " colorscheme NeoSolarized
+                " let g:airline_theme='solarized'
             else
                 set background=light
-                colorscheme NeoSolarized
-                let g:airline_theme='solarized'
+                colorscheme solarized8
+                " let g:airline_theme='solarized'
 
                 " let g:gruvbox_contrast_dark = 'soft'
                 " colorscheme gruvbox

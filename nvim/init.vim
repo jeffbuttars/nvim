@@ -112,9 +112,14 @@ set scrolloff=3
 set title
 
 " Conservative fold settings, I don't use folds often
-set foldmethod=manual
+" set foldmethod=manual
+" set nofoldenable
+" set foldcolumn=1
+
+" Treesitter folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
-set foldcolumn=1
 
 " Big nasty viminfo setup. If you you have a smaller/slower system use the
 " commented viminfo below, it's tuned down.
