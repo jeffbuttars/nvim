@@ -4,7 +4,6 @@ source pkgs.sh
 source nvimenv.sh
 source vim_plug.sh
 
-
 # Link our UltiSnips up
 ln -nsf ${THIS_DIR}/../nvim/UltiSnips "$NVIM_HOME/"
 

@@ -190,6 +190,11 @@ set splitright
 " Split horizontal below by default
 set splitbelow
 
+" "====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
-
+runtime nvimrc/0010-maps.vim
+runtime nvimrc/0020-custom-configs.vim
