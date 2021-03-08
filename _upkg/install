@@ -2,14 +2,11 @@
 
 source pkgs.sh
 source nvimenv.sh
-source in_up.sh
+source vim_plug.sh
 
-pr_info "Vim Plug?"
-if [[ ! -f "$NVIM_HOME/autoload/plug.vim" ]]; then
-    pr_info "Installing Vim Plug."
-    curl -fLo "$NVIM_HOME/autoload/plug.vim" --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+
+# Link our UltiSnips up
+ln -nsf ${THIS_DIR}/../nvim/UltiSnips "$NVIM_HOME/"
 
 export THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -19,33 +16,8 @@ echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
 
-source buildycm.sh
-wait
-
-pr_info "Updating plugs..."
+pr_info "Install/Updating plugs..."
 nvim --headless +PlugInstall +UpdateRemotePlugins +qa
 wait
-
-# pr_info "Updating Remote Plugins..."
-# nvim -c "UpdateRemotePlugins<\CR>" -c "qa!"
-# wait
-
-# pr_info "Installing instant markdown via npm..."
-# npm install -g instant-markdown-d
-# wait
-
-# pr_info "Installing Coc plugins ..."
-# CocPlugins="coc-ultisnips coc-python coc-json coc-javascript \
-#     coc-tslint coc-eslint coc-css coc-sources coc-neco \
-#     coc-tsserver coc-git coc-yank coc-svg coc-vimlsp coc-xml \
-#     coc-highlight coc-java coc-neoinclude coc-status"
-
-# for coc in $CocPlugins ; do
-#     pr_info "\tInstalling Coc plugin $coc"
-#     nvim --headless +"CocInstall $coc" +qa
-# done
-
-pr_info "Updating Black ..."
-nvim --headless +BlackUpgrade +qa
 
 pr_pass "Install complete"
