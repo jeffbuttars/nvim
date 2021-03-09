@@ -198,3 +198,6 @@ set list
 " runtime! nvimrc/*.vim
 runtime nvimrc/0010-maps.vim
 runtime nvimrc/0020-custom-configs.vim
+" " Load our 'plugs' early
+runtime nvimrc/0030-plug.vim
+runtime nvimrc/0040-nerd.vim
