@@ -5,7 +5,6 @@ let g:UltiSnipsDontReverseSearchPath="1"
 " let g:UltiSnipsSnippetsDir = '~/.upkg/Viming-With-Buttars.git/vim/UltiSnips'
 
 let g:UltiSnipsListSnippets = '<c-q>'
-" let g:UltiSnipsListSnippets = "<c-tab>"
 
 let g:UltiSnipsExpandTrigger = "<c-j>"
 " g:UltiSnipsListSnippets                <c-tab>

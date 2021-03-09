@@ -114,6 +114,7 @@ set title
 " set foldmethod=manual
 " set nofoldenable
 " set foldcolumn=1
+set signcolumn=yes
 
 " Treesitter folding
 set foldmethod=expr
@@ -207,12 +208,16 @@ set diffopt=filler,vertical,context:15,algorithm:patience
 
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
-runtime nvimrc/0010-maps.vim
-runtime nvimrc/0020-custom-configs.vim
 " " Load our 'plugs' early
 runtime nvimrc/0030-plug.vim
 runtime nvimrc/0040-nerd.vim
 runtime nvimrc/0050-theme.vim
 runtime nvimrc/0055-airline.vim
 runtime nvimrc/0060-fzf.vim
+runtime nvimrc/0070-dirdiff.vim
+runtime nvimrc/0080-git_gutter.vim
+runtime nvimrc/0090-doubletap.vim
+runtime nvimrc/0100-ultisnips.vim
+" runtime nvimrc/0800-lsp.vim
 runtime nvimrc/0900-post-config.vim
+

@@ -1,9 +1,0 @@
-{
-  "coc.source.jedi.priority": 0,
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--line-length 99"],
-  "python.workspaceSymbols.exclusionPatterns": ["**/site-packages/**", "**/.git/**"],
-  "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true,
-  "python.linting.banditEnabled": false
-}
