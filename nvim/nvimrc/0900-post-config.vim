@@ -1,11 +1,8 @@
-" Save file and Run fixers with F5
-map <F5> :w<CR>:Black<CR>:Isort<CR>
-
 " "[concisionandconcinnity.blogspot.com](http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html)
-" " The above URL also has good stuff for autoclosing matching pairs, like (). 
-" "One of the nicer minor features of TextMate is its treatment of highlighted text. 
-" "If you have something highlighted and type a, it replaces the text, like other editors. 
-" "If you type (, however, it wraps the selected text in parentheses. 
+" " The above URL also has good stuff for autoclosing matching pairs, like ().
+" "One of the nicer minor features of TextMate is its treatment of highlighted text.
+" "If you have something highlighted and type a, it replaces the text, like other editors.
+" "If you type (, however, it wraps the selected text in parentheses.
 " "This is enormously useful. Luckily, it's very easy to recreate in Vim:
 vnoremap ((  <ESC>`>a)<ESC>`<i(<ESC>
 vnoremap ))  <ESC>`<i(<ESC>`><right>a)<ESC>
@@ -41,7 +38,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " " ## Hacks
-" " Little something from http://www.ibm.com/developerworks/linux/library/l-vim-script-5/index.html 
+" " Little something from http://www.ibm.com/developerworks/linux/library/l-vim-script-5/index.html
 " " Agressive auto saving
 function! Autosave()
 	" close the preview window if it's visible
@@ -65,7 +62,7 @@ endfunction
 nmap <End> <ESC>
 imap <End> <ESC>
 
-highlight OverColLimit term=inverse,bold cterm=bold ctermbg=red ctermfg=black gui=bold guibg=red guifg=black 
+highlight OverColLimit term=inverse,bold cterm=bold ctermbg=red ctermfg=black gui=bold guibg=red guifg=black
 function! SetColorColumn(ccol)
 
 	if ! exists("b:longLineMatchID")
@@ -118,12 +115,12 @@ augroup MyCustomConfigs
     autocmd FileType java :call SetColorColumn(g:maxLineLength)
     autocmd FileType c :call SetColorColumn(g:maxLineLength)
 augroup END
-" 
-" 
+"
+"
 " " https://bluz71.github.io/2017/06/28/current-treats-future-wants-of-neovim.html
 " " Make escape work in the Neovim terminal.
 " " tnoremap <Esc> <C-\><C-n>
-" 
+"
 " " Make navigation into and out of Neovim terminal splits nicer.
 " " tnoremap <C-h> <C-\><C-N><C-w>h
 " " tnoremap <C-j> <C-\><C-N><C-w>j

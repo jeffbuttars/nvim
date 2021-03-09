@@ -55,6 +55,9 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 " Big language pack!
 Plug 'sheerun/vim-polyglot'
 
+" https://github.com/axelf4/vim-strip-trailing-whitespace
+Plug 'axelf4/vim-strip-trailing-whitespace'
+
 " 
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
