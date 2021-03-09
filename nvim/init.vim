@@ -194,6 +194,17 @@ set splitbelow
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
+" algorithm:{text} Use the specified diff algorithm with the
+" internal diff engine. Currently supported
+" algorithms are:
+" myers      the default algorithm
+" minimal    spend extra time to generate the
+"         smallest possible diff
+" patience   patience diff algorithm
+" histogram  histogram diff algorithm
+" context: show 15 lines of context
+set diffopt=filler,vertical,context:15,algorithm:patience
+
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
 runtime nvimrc/0010-maps.vim
@@ -201,3 +212,7 @@ runtime nvimrc/0020-custom-configs.vim
 " " Load our 'plugs' early
 runtime nvimrc/0030-plug.vim
 runtime nvimrc/0040-nerd.vim
+runtime nvimrc/0050-theme.vim
+runtime nvimrc/0055-airline.vim
+runtime nvimrc/0060-fzf.vim
+runtime nvimrc/0900-post-config.vim

@@ -95,3 +95,6 @@ augroup END
 " nnoremap J :m .+1<CR>==
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
+
+" For all text files set 'textwidth' to 98 characters.
+autocmd FileType text,txt setlocal textwidth=98
