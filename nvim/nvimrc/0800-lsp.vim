@@ -61,7 +61,7 @@ augroup END
 
 " Configure the completion chains
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'tabnine', 'buffers', 'ts']},
+    \{'complete_items': ['lsp', 'snippet', 'tabnine', 'ts', 'buffers']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
