@@ -137,9 +137,12 @@ set nofoldenable
 " set formatoptions+=l
 " set lbr
  
-set shortmess=atI
+set shortmess=atIc
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,*.so,*.obj,*.lib
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect,preview
 
 " If first letter is lower case in a pattern, ignore case.
 " Otherwise be case sensitive.
