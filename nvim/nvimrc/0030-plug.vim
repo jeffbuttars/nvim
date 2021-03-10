@@ -62,18 +62,19 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 
-" Native LSP
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'aca/pylance.nvim', { 'do': './install.sh' }
+Plug 'dense-analysis/ale'
+Plug 'nathunsmitty/nvim-ale-diagnostic'
 
-" " Completion stuff
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'aca/completion-tabnine', { 'do': './install.sh' }
-" Plug 'steelsojka/completion-buffers'
+" Native LSP
+Plug 'neovim/nvim-lspconfig'
+
+" LSP Completion stuff
+Plug 'nvim-lua/completion-nvim'
+Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+Plug 'steelsojka/completion-buffers'
 " 
-" " Plug 'haorenW1025/completion-nvim'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/completion-treesitter', {'do': ':TSInstall query'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/completion-treesitter'
 
 " Plug 'andymass/vim-matchup'
 
@@ -104,8 +105,8 @@ Plug 'ajorgensen/vim-markdown-toc'
 
 
 " Load Ultisnips later to make sure it has the <tab> map
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Color Schemes
 " Solarized has been good to me. I plan to keep it a while
