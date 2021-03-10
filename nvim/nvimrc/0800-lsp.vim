@@ -70,7 +70,7 @@ let g:completion_chain_complete_list = [
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 " "
-set completeopt-=preview
+" set completeopt-=preview
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " "
 " Use <Tab> and <S-Tab> to navigate through popup menu
