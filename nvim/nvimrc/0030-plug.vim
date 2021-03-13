@@ -42,9 +42,13 @@ Plug 'ryanoasis/vim-devicons'
 
 " Nerd comments and tree explorer
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+
+" Vim Tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 
 " Unixy commands for vim
@@ -72,8 +76,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 Plug 'steelsojka/completion-buffers'
-" 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/completion-treesitter'
 
 " Plug 'andymass/vim-matchup'

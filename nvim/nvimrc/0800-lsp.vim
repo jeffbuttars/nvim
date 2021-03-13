@@ -61,11 +61,10 @@ augroup END
 
 " Configure the completion chains
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'tabnine', 'ts', 'buffers']},
+    \{'complete_items': ['lsp', 'ts', 'snippet', 'tabnine', 'buffers']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
-
 
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
@@ -87,4 +86,4 @@ let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_sorting = "length"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_keyword_length = 2 " default = 1
-let g:completion_timer_cycle = 500 "default value is 80
+let g:completion_timer_cycle = 1000 "default value is 80

@@ -20,6 +20,9 @@ filetype plugin indent on
 " " set lazyredraw      " Don't redraw screen when executing macros
 set history=10000 " keep 10000 lines of command line history
 
+" CursorHold updatime time to 2 seconds
+set updatetime=2000
+
 " 
 " " Set our encoding to UTF-8
 " " set encoding=utf-8
@@ -142,7 +145,8 @@ set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,*.so,*.obj,*.lib
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect,preview
 
 " If first letter is lower case in a pattern, ignore case.
 " Otherwise be case sensitive.
