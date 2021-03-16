@@ -84,7 +84,6 @@ let g:completion_enable_auto_signature = 1
 let g:completion_enable_auto_hover = 1
 let g:completion_enable_auto_popup = 1
 
-
 "
 " possible value: "length", "alphabet", "none"
 let g:completion_sorting = "length"
