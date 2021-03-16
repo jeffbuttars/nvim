@@ -66,8 +66,8 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'dense-analysis/ale'
-Plug 'nathunsmitty/nvim-ale-diagnostic'
+" Plug 'dense-analysis/ale'
+" Plug 'nathunsmitty/nvim-ale-diagnostic'
 
 " Native LSP
 Plug 'neovim/nvim-lspconfig'

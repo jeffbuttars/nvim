@@ -4,7 +4,7 @@
 lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.pyls.setup{
-  configurationSources = { "flake8", "black", "mypy" };
+  configurationSources = { "flake8", "black", "mypy", "isort"};
   plugins = {
     flake8 = { enabled = true };
     pyflakes = { enabled = false };
@@ -12,7 +12,7 @@ require'lspconfig'.pyls.setup{
   }
 }
 
-require("nvim-ale-diagnostic")
+-- require("nvim-ale-diagnostic")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
