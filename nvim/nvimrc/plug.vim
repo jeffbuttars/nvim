@@ -32,8 +32,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 
-" Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/bling/vim-airline.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/vim-airline/vim-airline.git'
 
 " Iconogrophy
 Plug 'junegunn/vim-emoji'
