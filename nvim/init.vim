@@ -226,5 +226,9 @@ runtime nvimrc/dirdiff.vim
 runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
-runtime nvimrc/lsp.vim
+runtime nvimrc/lsp-completion.vim
 runtime nvimrc/post-config.vim
+
+lua << EOF
+require("local")
+EOF

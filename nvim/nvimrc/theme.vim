@@ -39,10 +39,10 @@ try
         if $TERM_META =~ 'dark'
             set background=dark
             " let g:gruvbox_contrast_dark = 'medium'
-            " let g:airline_theme='solarized'
+            let g:airline_theme='solarized_flood'
         else
             set background=light
-            " let g:airline_theme='solarized'
+            let g:airline_theme='solarized'
             " let g:gruvbox_contrast_dark = 'soft'
         endif
 

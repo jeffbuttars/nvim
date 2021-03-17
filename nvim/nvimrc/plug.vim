@@ -76,8 +76,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 Plug 'steelsojka/completion-buffers'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/completion-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/completion-treesitter'
 Plug 'onsails/lspkind-nvim'
 
 " Plug 'andymass/vim-matchup'
@@ -124,13 +124,5 @@ Plug 'iCyMind/NeoSolarized'
 " 
 " " https://github.com/lifepillar/vim-solarized8
 " " Plug 'lifepillar/vim-solarized8'
-" 
-" " Plug 'altercation/vim-colors-solarized'
-" Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
-" 
-" Plug 'jacoborus/tender.vim'
-
-" " treesitter aware
-" Plug 'sainnhe/sonokai'
 
 call plug#end()
