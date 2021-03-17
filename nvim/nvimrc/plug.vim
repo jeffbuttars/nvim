@@ -78,10 +78,12 @@ Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 Plug 'steelsojka/completion-buffers'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/completion-treesitter'
+Plug 'onsails/lspkind-nvim'
 
 " Plug 'andymass/vim-matchup'
 
-Plug 'ryanoasis/vim-webdevicons'
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'ryanoasis/vim-webdevicons'
 
 " " JS syntax
 " Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
