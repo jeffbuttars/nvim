@@ -20,8 +20,8 @@ filetype plugin indent on
 " " set lazyredraw      " Don't redraw screen when executing macros
 set history=10000 " keep 10000 lines of command line history
 
-" CursorHold updatime time to 2 seconds
-set updatetime=2000
+" CursorHold updatime time to 1 seconds
+set updatetime=750
 
 " 
 " " Set our encoding to UTF-8

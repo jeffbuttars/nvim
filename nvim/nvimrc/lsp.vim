@@ -147,5 +147,5 @@ let g:completion_enable_auto_popup = 1
 let g:completion_sorting = "length"
 let g:completion_matching_strategy_list = ['exact', 'fuzzy', 'substring', 'all']
 let g:completion_trigger_keyword_length = 1 " default = 1
-let g:completion_timer_cycle = 1000 "default value is 80
+let g:completion_timer_cycle = 80 "default value is 80
 let g:completion_matching_smart_case = 1
