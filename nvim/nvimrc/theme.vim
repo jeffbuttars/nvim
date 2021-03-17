@@ -58,3 +58,4 @@ catch /^Vim\%((\a\+)\)\=:E185/
     set guicursor=
     colorscheme elflord
 endtry
+

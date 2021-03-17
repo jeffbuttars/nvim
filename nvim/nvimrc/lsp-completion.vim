@@ -55,3 +55,29 @@ let g:completion_matching_strategy_list = ['exact', 'fuzzy', 'substring', 'all']
 let g:completion_trigger_keyword_length = 1 " default = 1
 let g:completion_timer_cycle = 80 "default value is 80
 let g:completion_matching_smart_case = 1
+
+let g:completion_customize_lsp_label = {
+            \ 'Buffers': '﬘ Buf',
+            \ 'Class': ' Class',
+            \ 'Color': ' Color',
+            \ 'Constant': ' Const',
+            \ 'Constructor': ' Constructor',
+            \ 'Enum': '了 Enum',
+            \ 'EnumMember': ' EnumMember',
+            \ 'File': ' File',
+            \ 'Folder': ' Folder',
+            \ 'Function': ' Func',
+            \ 'Interface': 'ﰮ Interface',
+            \ 'Keyword': ' Keyword',
+            \ 'Method': 'ƒ Method',
+            \ 'Module': ' Module',
+            \ 'Property': ' Prop',
+            \ 'Snippet': ' Snip',
+            \ 'UltiSnips': ' Snip',
+            \ 'Struct': ' Struct',
+            \ 'Text': ' Text',
+            \ 'tabnine': ' ',
+            \ 'Unit': ' Unit',
+            \ 'Value': ' Val',
+            \ 'Variable': ' Var',
+            \}

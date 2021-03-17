@@ -66,9 +66,6 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'dense-analysis/ale'
-Plug 'nathunsmitty/nvim-ale-diagnostic'
-
 " Native LSP
 Plug 'neovim/nvim-lspconfig'
 
@@ -78,12 +75,10 @@ Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 Plug 'steelsojka/completion-buffers'
 " Plug 'nvim-treesitter/nvim-treesitter'
 " Plug 'nvim-treesitter/completion-treesitter'
-Plug 'onsails/lspkind-nvim'
 
 " Plug 'andymass/vim-matchup'
 
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'ryanoasis/vim-webdevicons'
 
 " " JS syntax
 " Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
