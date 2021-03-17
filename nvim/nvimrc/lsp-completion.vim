@@ -49,7 +49,7 @@ let g:completion_enable_auto_popup = 1
 
 "
 " possible value: "length", "alphabet", "none"
-let g:completion_sorting = "none"
+let g:completion_sorting = "alphabet"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_keyword_length = 1 " default = 1
 let g:completion_timer_cycle = 200 "default value is 80
