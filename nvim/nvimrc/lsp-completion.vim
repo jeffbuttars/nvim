@@ -24,13 +24,6 @@ augroup END
 " When TreeSitter is solid, add it as the 'ts' item
 " \{'complete_items': ['lsp', 'ts', 'tabnine', 'snippet', 'buffers']},
 
-" Configure the completion chains
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'tabnine', 'snippet', 'buffers']},
-    \{'mode': '<c-p>'},
-    \{'mode': '<c-n>'}
-\]
-
 " Use completion-nvim in every buffer
 autocmd BufEnter * lua require'completion'.on_attach()
 " "
@@ -40,8 +33,14 @@ autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "
-
 "
+" Configure the completion chains
+let g:completion_chain_complete_list = [
+    \{'complete_items': ['lsp', 'tabnine', 'snippet', 'buffers']},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'}
+\]
+
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_enable_auto_signature = 1
@@ -50,11 +49,16 @@ let g:completion_enable_auto_popup = 1
 
 "
 " possible value: "length", "alphabet", "none"
-let g:completion_sorting = "length"
-let g:completion_matching_strategy_list = ['exact', 'fuzzy', 'substring', 'all']
+let g:completion_sorting = "none"
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_keyword_length = 1 " default = 1
-let g:completion_timer_cycle = 80 "default value is 80
-let g:completion_matching_smart_case = 1
+let g:completion_timer_cycle = 200 "default value is 80
+let g:completion_trigger_on_delete = 1
+" if you want to change sources whenever this completion source has no complete item, you can turn on auto changing sources by
+let g:completion_auto_change_source = 1
+
+" let g:completion_matching_ignore_case = 1
+" let g:completion_matching_smart_case = 1
 
 let g:completion_customize_lsp_label = {
             \ 'Buffers': '﬘ Buf',
@@ -77,6 +81,7 @@ let g:completion_customize_lsp_label = {
             \ 'Struct': ' Struct',
             \ 'Text': ' Text',
             \ 'tabnine': ' ',
+            \ 'TabNine': ' ',
             \ 'Unit': ' Unit',
             \ 'Value': ' Val',
             \ 'Variable': ' Var',
