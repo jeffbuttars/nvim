@@ -145,8 +145,9 @@ set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,*.so,*.obj,*.lib
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect
 " set completeopt=menuone,noinsert,noselect,preview
+" See the config for the current completion engine in use
 
 " If first letter is lower case in a pattern, ignore case.
 " Otherwise be case sensitive.
@@ -227,7 +228,9 @@ runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
-runtime nvimrc/lsp-completion.vim
+"runtime nvimrc/completion-nvim.vim
+runtime nvimrc/nvim-compe.vim
+runtime nvimrc/lspkind.vim
 runtime nvimrc/post-config.vim
 
 lua << EOF

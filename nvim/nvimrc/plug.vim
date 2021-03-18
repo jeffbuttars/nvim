@@ -70,12 +70,21 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'neovim/nvim-lspconfig'
 
 " LSP Completion stuff
-Plug 'nvim-lua/completion-nvim'
-Plug 'aca/completion-tabnine', { 'do': './install.sh' }
-Plug 'steelsojka/completion-buffers'
-" Plug 'nvim-treesitter/nvim-treesitter'
-" Plug 'nvim-treesitter/completion-treesitter'
+"
+" ### nvim-lua/completion-nvim works OK
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+" Plug 'steelsojka/completion-buffers'
 
+" ### hrsh7th/nvim-compe Another completion manager
+Plug 'hrsh7th/nvim-compe'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'tamago324/compe-zsh'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'onsails/lspkind-nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/completion-treesitter'
 " Plug 'andymass/vim-matchup'
 
 Plug 'kyazdani42/nvim-web-devicons'
