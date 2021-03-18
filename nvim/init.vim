@@ -226,6 +226,7 @@ runtime nvimrc/dirdiff.vim
 runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
+runtime nvimrc/tabnine.vim
 runtime nvimrc/lsp-completion.vim
 runtime nvimrc/post-config.vim
 
