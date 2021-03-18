@@ -83,7 +83,7 @@ Plug 'tamago324/compe-zsh'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 " Plug 'nvim-treesitter/completion-treesitter'
 " Plug 'andymass/vim-matchup'
 
