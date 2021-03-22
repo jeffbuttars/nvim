@@ -7,7 +7,8 @@
 " let g:neovide_cursor_vfx_mode = "ripple"
 " let g:neovide_cursor_vfx_mode = "wireframe"
 let g:neovide_cursor_vfx_mode = "pixiedust"
-let g:neovide_transparency=0.8
+
+let g:neovide_transparency=0.9
 let g:neovide_refresh_rate=120
 
 set guifont=FiraCode\ Nerd\ Font\ Mono:h24
