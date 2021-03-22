@@ -66,13 +66,17 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 
+" Lua utils / lib
+Plug 'nvim-lua/plenary.nvim'
+
 " Native LSP
 Plug 'neovim/nvim-lspconfig'
+
 
 " LSP Completion stuff
 "
 " ### nvim-lua/completion-nvim works OK
-" Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/completion-nvim'
 " Plug 'aca/completion-tabnine', { 'do': './install.sh' }
 " Plug 'steelsojka/completion-buffers'
 
@@ -80,7 +84,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'tamago324/compe-zsh'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'onsails/lspkind-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }

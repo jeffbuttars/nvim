@@ -19,13 +19,28 @@ let g:compe.documentation = v:true
 
 let g:compe.source = {}
 let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
 let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.ultisnips = v:true
-let g:compe.source.nvim_treesitter = v:true
 let g:compe.source.zsh = v:true
+
+let g:compe.source.buffer = {}
+let g:compe.source.buffer.priority = 4000
+
+" TabNine source
+" Enable
+let g:compe.source.tabnine = {}
+let g:compe.source.tabnine.priority = 5000
+
+let g:compe.source.nvim_treesitter = {}
+let g:compe.source.nvim_treesitter.priority = 5500
+
+let g:compe.source.nvim_lsp = {}
+let g:compe.source.nvim_lsp.priority = 7000
+
+let g:compe.source.nvim_lua = v:true
+
+let g:compe.source.ultisnips = {}
+let g:compe.source.ultisnips.priority = 6000
+
 
 " Mappings
 inoremap <silent><expr> <C-Space> compe#complete()
@@ -38,9 +53,6 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " You can change documentation window's highlight group via following.
 highlight link CompeDocumentation NormalFloat
 
-" TabNine source
-" Enable
-let g:compe.source.tabnine = v:true
 
 " Or, to set some options:
 " let g:compe.source.tabnine = {}
@@ -76,8 +88,8 @@ end
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)"
+  -- elseif vim.fn.call("snip#available", {1}) == 1 then
+  --   return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
@@ -87,8 +99,8 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-    return t "<Plug>(vsnip-jump-prev)"
+  -- elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+  --   return t "<Plug>(vsnip-jump-prev)"
   else
     return t "<S-Tab>"
   end
