@@ -231,10 +231,13 @@ runtime nvimrc/tabnine.vim
 "runtime nvimrc/completion-nvim.vim
 runtime nvimrc/nvim-compe.vim
 runtime nvimrc/lspkind.vim
-runtime nvimrc/neovide.vim
-runtime nvimrc/post-config.vim
 
+if executable('neovide')
+  runtime nvimrc/neovide.vim
+endif
 
 lua << EOF
 require("local")
 EOF
+
+runtime nvimrc/post-config.vim
