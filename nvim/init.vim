@@ -231,7 +231,9 @@ runtime nvimrc/tabnine.vim
 "runtime nvimrc/completion-nvim.vim
 runtime nvimrc/nvim-compe.vim
 runtime nvimrc/lspkind.vim
+runtime nvimrc/neovide.vim
 runtime nvimrc/post-config.vim
+
 
 lua << EOF
 require("local")
