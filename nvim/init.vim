@@ -228,8 +228,8 @@ runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
-"runtime nvimrc/completion-nvim.vim
-runtime nvimrc/nvim-compe.vim
+runtime nvimrc/completion-nvim.vim
+" runtime nvimrc/nvim-compe.vim
 runtime nvimrc/lspkind.vim
 
 if executable('neovide')

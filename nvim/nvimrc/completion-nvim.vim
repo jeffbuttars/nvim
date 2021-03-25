@@ -11,6 +11,8 @@
 " " nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 " " nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
+set completeopt=menuone,noinsert,noselect
+
 " " Show lsp virtual text on cursor hold
 augroup nvimcompletion
     autocmd!
@@ -36,7 +38,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "
 " Configure the completion chains
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'tabnine', 'snippet', 'buffers']},
+    \{'complete_items': ['snippet', 'lsp', 'tabnine', 'buffers']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
@@ -49,7 +51,7 @@ let g:completion_enable_auto_popup = 1
 
 "
 " possible value: "length", "alphabet", "none"
-let g:completion_sorting = "alphabet"
+let g:completion_sorting = "length"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_keyword_length = 1 " default = 1
 let g:completion_timer_cycle = 200 "default value is 80
