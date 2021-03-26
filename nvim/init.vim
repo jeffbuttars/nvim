@@ -224,7 +224,7 @@ runtime nvimrc/theme.vim
 runtime nvimrc/airline.vim
 runtime nvimrc/fzf.vim
 runtime nvimrc/dirdiff.vim
-runtime nvimrc/git_gutter.vim
+" runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim

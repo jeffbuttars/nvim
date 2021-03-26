@@ -109,7 +109,9 @@ Plug 'PratikBhusal/vim-grip'
 " " Git
 "
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
+" Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'lewis6991/gitsigns.nvim'
+
 Plug 'rbong/vim-flog'
 
 
