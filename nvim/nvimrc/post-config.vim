@@ -227,6 +227,7 @@ au BufEnter,FocusGained,WinEnter * set relativenumber
 
 " A cleaner vertical split
 set fillchars=vert:\:
+set fillchars=vert:\│
 
 " Only use cursorline/cursorcolun in normal mode
 autocmd InsertLeave * :set cursorline
