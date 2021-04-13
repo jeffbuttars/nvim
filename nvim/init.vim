@@ -7,16 +7,10 @@
 " https://neovim.io/doc/user/filetype.html
 " Turn on filetype based plugin loading as well as filetype specific indent
 filetype plugin indent on
-" 
+
 " " Explicitly set the python3 executable
 " let g:python3_host_prog = '/usr/bin/python3'
-" 
-" " " Need to load the nerdcommenter settings before the plugin
-" " runtime nvimrc/nerdcomment.vim
-" 
-" " " Load our 'plugs' early
-" runtime nvimrc/plug.vim
-" 
+
 " " set lazyredraw      " Don't redraw screen when executing macros
 set history=10000 " keep 10000 lines of command line history
 
@@ -224,7 +218,6 @@ runtime nvimrc/theme.vim
 runtime nvimrc/airline.vim
 runtime nvimrc/fzf.vim
 runtime nvimrc/dirdiff.vim
-" runtime nvimrc/git_gutter.vim
 runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
