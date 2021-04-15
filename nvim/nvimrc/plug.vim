@@ -59,7 +59,7 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 " `vim-polyglot`: Big language pack!
 " Plug 'sheerun/vim-polyglot'
 
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " https://github.com/axelf4/vim-strip-trailing-whitespace
 Plug 'axelf4/vim-strip-trailing-whitespace'
