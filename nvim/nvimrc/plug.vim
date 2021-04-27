@@ -127,7 +127,13 @@ Plug 'honza/vim-snippets'
 " Color Schemes
 " Solarized has been good to me. I plan to keep it a while
 Plug 'iCyMind/NeoSolarized'
-"
+Plug 'mhartington/oceanic-next'
+Plug 'PHSix/nvim-hybrid'
+Plug 'RRethy/nvim-base16'
+
+" Treesitter compatible
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+
 " Plug 'morhetz/gruvbox'
 " 
 " " https://github.com/lifepillar/vim-gruvbox8

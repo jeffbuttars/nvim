@@ -134,7 +134,7 @@ set nofoldenable
 " set formatoptions+=l
 " set lbr
  
-set shortmess=atIc
+set shortmess=aotIc
 set wildmode=list:longest
 set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,*.so,*.obj,*.lib
 

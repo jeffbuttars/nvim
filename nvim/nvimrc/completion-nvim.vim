@@ -34,6 +34,9 @@ autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"map <c-p> to manually trigger completion
+imap <silent> <c-p> <Plug>(completion_trigger)
 "
 "
 " Configure the completion chains
@@ -60,7 +63,7 @@ let g:completion_trigger_on_delete = 1
 let g:completion_auto_change_source = 1
 
 " let g:completion_matching_ignore_case = 1
-" let g:completion_matching_smart_case = 1
+let g:completion_matching_smart_case = 1
 
 let g:completion_customize_lsp_label = {
             \ 'Buffers': '﬘ Buf',
