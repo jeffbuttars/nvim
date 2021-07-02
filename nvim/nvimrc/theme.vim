@@ -46,7 +46,8 @@ try
             " let g:gruvbox_contrast_dark = 'soft'
         endif
 
-        colorscheme NeoSolarized
+        colorscheme solarized
+        " colorscheme NeoSolarized
         " colorscheme solarized8
         " colorscheme gruvbox
     endif

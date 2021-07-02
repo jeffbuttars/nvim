@@ -1,3 +1,4 @@
+require("local/lspkind");
 require("local/lsp");
 require("local/pyls");
 require("local/pyright");

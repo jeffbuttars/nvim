@@ -6,6 +6,11 @@ source vim_plug.sh
 
 pr_info "Updating plugs..."
 nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
+wait
+
 nvim -c ':PlugUpdate' -c '<\CR>' -c ':qa'
+wait
+
+pr_info "Updating Remote Plugins..."
 nvim --headless +UpdateRemotePlugins +qa
 wait
