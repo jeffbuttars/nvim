@@ -8,7 +8,6 @@ autocmd FileType text,txt setlocal textwidth=98
 set diffopt=filler,vertical,context:15
 let g:html_diff_one_file = 1
 
-
 " " " We like italics in the terminal, so add some sauce to make sure we get it.
 " " set t_ZH=[3m
 " " set t_ZR=[23m
@@ -60,12 +59,12 @@ if $TERM =~ '256' || $COLORTERM =~ 'gnome-terminal' || $TERM =~ 'screen'  || $TE
                 " colorscheme gruvbox
 
                 set background=dark
-                colorscheme solarized8
+                colorscheme solarized
                 " colorscheme NeoSolarized
                 " let g:airline_theme='solarized'
             else
                 set background=light
-                colorscheme solarized8
+                colorscheme solarized
                 " let g:airline_theme='solarized'
 
                 " let g:gruvbox_contrast_dark = 'soft'

@@ -57,7 +57,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/will133/vim-dirdiff.git'
-Plug 'https://github.com/mhinz/vim-nginx'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -162,10 +161,13 @@ Plug 'rbong/vim-flog'
 Plug 'lifepillar/vim-gruvbox8'
 
 " https://github.com/lifepillar/vim-solarized8
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
+
+" Treesitter compatible solarized
+Plug 'ishan9299/nvim-solarized-lua'
 
 " Plug 'altercation/vim-colors-solarized'
-Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
+" Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 
 Plug 'jacoborus/tender.vim'
 
