@@ -8,6 +8,7 @@ let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree 
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
 let g:nvim_tree_hijack_netrw = 0 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
 
 "map <C-d> :NvimTreeFind<CR>
 map <C-d> :NvimTreeToggle<CR>

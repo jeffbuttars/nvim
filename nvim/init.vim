@@ -213,7 +213,7 @@ set diffopt=filler,vertical,context:15,algorithm:patience
 " " Load our 'plugs' early
 runtime nvimrc/plug.vim
 "runtime nvimrc/ale.vim
-" runtime nvimrc/nerd-nvimtree.vim
+runtime nvimrc/nerd-nvimtree.vim
 runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
 runtime nvimrc/airline.vim
