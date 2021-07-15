@@ -50,11 +50,14 @@ Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+Plug 'folke/lsp-trouble.nvim'
 
 " Unixy commands for vim
 Plug 'https://github.com/tpope/vim-eunuch.git'
 
 " Plug 'https://github.com/will133/vim-dirdiff.git'
+
+Plug 'sindrets/diffview.nvim'
 
 " `vim-polyglot`: Big language pack!
 " Plug 'sheerun/vim-polyglot'
