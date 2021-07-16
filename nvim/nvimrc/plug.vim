@@ -54,7 +54,6 @@ Plug 'folke/lsp-trouble.nvim'
 
 " Unixy commands for vim
 Plug 'https://github.com/tpope/vim-eunuch.git'
-Plug 'https://github.com/will133/vim-dirdiff.git'
 
 " Plug 'https://github.com/will133/vim-dirdiff.git'
 
