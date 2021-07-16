@@ -18,7 +18,8 @@ echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
 
 pr_info "Install/Updating plugs..."
-nvim --headless +PlugInstall +UpdateRemotePlugins +qa
+nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
+nvim --headless +UpdateRemotePlugins +qa
 wait
 
 pr_pass "Install complete"
