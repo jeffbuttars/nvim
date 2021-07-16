@@ -1,17 +1,5 @@
 
-" More normal Vim tweaks.
-" vertical: make a diff split vertical by default
-" iwhite: ignore whitespace
-" context: show 15 lines of context
-set diffopt=filler,vertical,context:15
-let g:html_diff_one_file = 1
-
-" " " We like italics in the terminal, so add some sauce to make sure we get it.
-" " set t_ZH=[3m
-" " set t_ZR=[23m
-" " highlight Comment cterm=italic
-" 
-" NeoSolarized config
+" #### NeoSolarized config
 " default value is "normal", Setting this option to "high" or "low" does use the
 " same Solarized palette but simply shifts some values up or down in order to
 " expand or compress the tonal range displayed.
@@ -53,37 +41,9 @@ try
             " let g:gruvbox_contrast_dark = 'medium'
             let g:airline_theme='solarized_flood'
         else
-            " Use TERM_META to select the light or dark theme
-            if $TERM_META =~ 'dark'
-                " set background=dark
-                " let g:gruvbox_contrast_dark = 'medium'
-                " colorscheme gruvbox
-
-                set background=dark
-                colorscheme solarized
-                " colorscheme NeoSolarized
-                " let g:airline_theme='solarized'
-            else
-                set background=light
-                colorscheme solarized
-                " let g:airline_theme='solarized'
-
-                " let g:gruvbox_contrast_dark = 'soft'
-                " colorscheme gruvbox
-                "
-                " let g:PaperColor_Theme_Options = {
-                "     \   'theme': {
-                "     \     'transparent_background': 1,
-                "     \     'allow_bold': 1,
-                "     \     'allow_italic': 1
-                "     \   }
-                "     \ }
-
-                " colorscheme PaperColor
-                " let g:airline_theme='papercolor'
-            endif
-
-            " colorscheme NeoSolarized
+            set background=light
+            let g:airline_theme='solarized'
+            " let g:gruvbox_contrast_dark = 'soft'
         endif
 
         colorscheme solarized

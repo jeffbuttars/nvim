@@ -27,4 +27,3 @@ pr_info "NVIM_GINIT=$NVIM_GINIT"
 # Make sure we have the needed directories
 mkdir -p "$NVIM_HOME/undos"
 mkdir -p "$XDG_DATA_HOME/shada"
-
