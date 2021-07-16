@@ -8,3 +8,4 @@ require("local/gitsigns");
 require("local/diffview");
 require("local/lsp-trouble");
 require("local/nvim-compe");
+require("local/lsp_colors");

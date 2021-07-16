@@ -128,7 +128,7 @@ Plug 'ishan9299/nvim-solarized-lua'
 
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
-
+Plug 'folke/lsp-colors.nvim'
 
 " Load Ultisnips later to make sure it has the <tab> map
 Plug 'SirVer/ultisnips'

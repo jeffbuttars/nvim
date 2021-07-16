@@ -25,7 +25,7 @@ require("trouble").setup {
         next = "j" -- next item
     },
     indent_lines = true, -- add an indent guide below the fold icons
-    auto_open = true, -- automatically open the list when you have diagnostics
+    auto_open = false, -- automatically open the list when you have diagnostics
     auto_close = true, -- automatically close the list when you have no diagnostics
     auto_preview = true, -- automatyically preview the location of the diagnostic. <esc> to close preview and go back to last window
     auto_fold = false, -- automatically fold a file trouble list at creation
@@ -39,3 +39,22 @@ require("trouble").setup {
     },
     use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
+
+-- vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>LspTroubleToggle lsp_workspace_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>LspTroubleToggle lsp_document_diagnostics<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>LspTroubleToggle loclist<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>LspTroubleToggle quickfix<cr>",
+--   {silent = true, noremap = true}
+-- )
+-- vim.api.nvim_set_keymap("n", "gR", "<cmd>LspTrouble lsp_references<cr>",
+--   {silent = true, noremap = true}
+-- )

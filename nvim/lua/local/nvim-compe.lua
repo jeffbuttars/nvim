@@ -28,7 +28,8 @@ require'compe'.setup {
   };
 
   source = {
-    buffer = {
+
+    nvim_lsp = {
         priority = 4000,
     };
 
@@ -40,14 +41,13 @@ require'compe'.setup {
         priority = 6000,
     };
 
-    nvim_lsp = {
+    buffer = {
         priority = 7000,
     };
 
     buffer = true;
     tabnine = true;
     ultisnips = true;
-    nvim_lsp = true;
     calc = true;
     nvim_lua = true;
     path = true;
