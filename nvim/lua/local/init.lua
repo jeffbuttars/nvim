@@ -9,3 +9,5 @@ require("local/diffview");
 require("local/lsp-trouble");
 require("local/nvim-compe");
 require("local/lsp_colors");
+-- require("local/flow");
+require("local/tsserver");
