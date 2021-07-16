@@ -223,7 +223,7 @@ runtime nvimrc/dirdiff.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
 " runtime nvimrc/completion-nvim.vim
-runtime nvimrc/nvim-compe.vim
+" runtime nvimrc/nvim-compe.vim
 
 if executable('neovide')
   runtime nvimrc/neovide.vim
