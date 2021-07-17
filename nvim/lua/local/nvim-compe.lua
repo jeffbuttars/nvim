@@ -29,25 +29,25 @@ require'compe'.setup {
 
   source = {
 
-    nvim_lsp = {
-        priority = 4000,
-        menu = '| LSP',
-    };
-
-    tabnine = {
-        priority = 5000,
-        menu = '| TN',
-        -- menu = '|   TN',
-    };
-
     ultisnips = {
-        priority = 6000,
+        priority = 9000,
         kind = '',
         menu = '| Snip',
     };
 
-    buffer = {
+    nvim_lsp = {
+        priority = 8000,
+        menu = '| LSP',
+    };
+
+    tabnine = {
         priority = 7000,
+        menu = '| TN',
+        -- menu = '|   TN',
+    };
+
+    buffer = {
+        priority = 6000,
         menu = '| Buffer',
         kind = '﬘',
     };
