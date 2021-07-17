@@ -212,7 +212,6 @@ set diffopt=filler,vertical,context:15,algorithm:patience
 " runtime! nvimrc/*.vim
 " " Load our 'plugs' early
 runtime nvimrc/plug.vim
-"runtime nvimrc/ale.vim
 runtime nvimrc/nerd-nvimtree.vim
 runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
@@ -222,8 +221,6 @@ runtime nvimrc/dirdiff.vim
 "runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
-" runtime nvimrc/completion-nvim.vim
-" runtime nvimrc/nvim-compe.vim
 
 if executable('neovide')
   runtime nvimrc/neovide.vim

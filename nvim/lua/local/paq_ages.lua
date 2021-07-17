@@ -16,27 +16,28 @@ paq {'stsewd/isort.nvim',  run=vim.fn['remote#host#UpdateRemotePlugins'] }
 
 
 -- FZF setup
-paq {'junegunn/fzf', run=vim.fn['fzf#install'] }
-paq 'junegunn/fzf.vim'
+-- paq {'junegunn/fzf', run=vim.fn['fzf#install'] }
+-- paq 'junegunn/fzf.vim'
 
-
-paq 'https://github.com/vim-airline/vim-airline-themes'
-paq 'https://github.com/vim-airline/vim-airline.git'
 
 -- Iconogrophy
 paq 'junegunn/vim-emoji'
 paq 'ryanoasis/vim-devicons'
-
+paq 'kyazdani42/nvim-web-devicons' -- for file icons
 
 -- Nerd comments and tree explorer
 paq 'preservim/nerdcommenter'
-paq 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-paq 'vwxyutarooo/nerdtree-devicons-syntax'
+-- paq 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+-- paq 'vwxyutarooo/nerdtree-devicons-syntax'
 
 -- Vim Tree
-paq 'kyazdani42/nvim-web-devicons' " for file icons
 paq 'kyazdani42/nvim-tree.lua'
 
+-- Telescope
+use {
+  'nvim-telescope/telescope.nvim',
+  requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+}
 
 -- Unixy commands for vim
 paq 'https://github.com/tpope/vim-eunuch.git'
@@ -88,8 +89,18 @@ paq 'honza/vim-snippets'
 
 -- Color Schemes
 -- Solarized has been good to me. I plan to keep it a while
-paq 'iCyMind/NeoSolarized'
---
+-- paq 'iCyMind/NeoSolarized'
+paq 'ishan9299/nvim-solarized-lua'
+paq 'mhartington/oceanic-next'
+paq 'PHSix/nvim-hybrid'
+paq 'RRethy/nvim-base16'
+
+-- Treesitter compatible
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+
+paq 'https://github.com/vim-airline/vim-airline-themes'
+paq 'https://github.com/vim-airline/vim-airline.git'
+
 -- paq 'morhetz/gruvbox'
 -- 
 -- " https://github.com/lifepillar/vim-gruvbox8

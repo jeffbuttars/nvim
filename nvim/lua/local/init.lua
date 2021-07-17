@@ -11,3 +11,4 @@ require("local/nvim-compe");
 require("local/lsp_colors");
 -- require("local/flow");
 require("local/tsserver");
+require("local/telescope");

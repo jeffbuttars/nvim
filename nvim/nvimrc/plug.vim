@@ -19,6 +19,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Place your Plugs here!
 
+" Lua utils / lib
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+
 " For writing prose
 Plug 'junegunn/goyo.vim'
 
@@ -28,9 +32,11 @@ Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " FZF setup
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-airline/vim-airline.git'
@@ -38,13 +44,15 @@ Plug 'https://github.com/vim-airline/vim-airline.git'
 " Iconogrophy
 Plug 'junegunn/vim-emoji'
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'mortepau/codicons.nvim'
 
 " Nerd comments and tree explorer
 Plug 'preservim/nerdcommenter'
 " Plug 'preservim/nerdtree'
-Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+" Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+
 
 " Vim Tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -59,9 +67,6 @@ Plug 'https://github.com/tpope/vim-eunuch.git'
 
 Plug 'sindrets/diffview.nvim'
 
-" `vim-polyglot`: Big language pack!
-" Plug 'sheerun/vim-polyglot'
-
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " https://github.com/axelf4/vim-strip-trailing-whitespace
@@ -71,19 +76,11 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
 
-" Lua utils / lib
-Plug 'nvim-lua/plenary.nvim'
 
-" Native LSP
+" LSP and Completion stuff
+
+" Default LSP configs
 Plug 'neovim/nvim-lspconfig'
-
-
-" LSP Completion stuff
-"
-" ### nvim-lua/completion-nvim works OK
-Plug 'nvim-lua/completion-nvim'
-" Plug 'aca/completion-tabnine', { 'do': './install.sh' }
-" Plug 'steelsojka/completion-buffers'
 
 " ### hrsh7th/nvim-compe Another completion manager
 Plug 'hrsh7th/nvim-compe'
@@ -94,8 +91,6 @@ Plug 'onsails/lspkind-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 " Plug 'nvim-treesitter/completion-treesitter'
 " Plug 'andymass/vim-matchup'
-
-Plug 'kyazdani42/nvim-web-devicons'
 
 " " JS syntax
 " Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -108,17 +103,17 @@ Plug 'kyazdani42/nvim-web-devicons'
 " 	\ 'do': 'yarn install; npm i -g prettier',
 " 	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 
-
+" Markdown stuff
 Plug 'PratikBhusal/vim-grip'
+Plug 'ajorgensen/vim-markdown-toc'
 
 " " Git
 "
 Plug 'https://github.com/tpope/vim-fugitive.git'
 " Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'lewis6991/gitsigns.nvim'
-
 Plug 'rbong/vim-flog'
-Plug 'ajorgensen/vim-markdown-toc'
+
 
 " https://github.com/lifepillar/vim-solarized8
 " Plug 'lifepillar/vim-solarized8'

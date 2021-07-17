@@ -31,24 +31,33 @@ require'compe'.setup {
 
     nvim_lsp = {
         priority = 4000,
+        menu = '| LSP',
     };
 
     tabnine = {
         priority = 5000,
+        menu = '| TN',
+        -- menu = '|   TN',
     };
 
     ultisnips = {
         priority = 6000,
+        kind = '',
+        menu = '| Snip',
     };
 
     buffer = {
         priority = 7000,
+        menu = '| Buffer',
+        kind = '﬘',
     };
 
     buffer = true;
     tabnine = true;
     ultisnips = true;
-    calc = true;
+    calc = {
+        menu = '| Calc',
+    };
     nvim_lua = true;
     path = true;
     spell = true;
