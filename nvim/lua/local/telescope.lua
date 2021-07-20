@@ -62,8 +62,8 @@ require('telescope').setup{
 }
 
 -- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-vim.api.nvim_set_keymap('i', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers()<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers()<CR>', { silent = true })
+vim.api.nvim_set_keymap('i', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers({sort_mru = true, sort_lastused = true})<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers({sort_mru = true, sort_lastused = true})<CR>', { silent = true })
 
 vim.api.nvim_set_keymap('i', '<C-p>', '<CMD>lua require\'telescope.builtin\'.git_files()<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', '<CMD>lua require\'telescope.builtin\'.git_files()<CR>', { silent = true })

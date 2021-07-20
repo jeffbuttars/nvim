@@ -182,7 +182,7 @@ nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 " Show lsp virtual text on cursor hold
 augroup lsp
     autocmd!
-    autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+    autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
     " autocmd CursorHold * lua vim.lsp.buf.document_highlight()
 augroup END
 
