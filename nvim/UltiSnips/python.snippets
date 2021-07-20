@@ -316,6 +316,10 @@ snippet dbg "logger.debug()" b
 logger.debug("${1} ${2:%s}"${3:, }${4})${0}
 endsnippet
 
+snippet dbgc "logger.debug(self.__class__.__name__)" b
+logger.debug("%s: ${1} ${2:%s}", self.__class__.__name__, ${3:})${0}
+endsnippet
+
 snippet err "logger.error()" b
 logger.error("${1} ${2:%s}"${3:, }${4})${0}
 endsnippet
@@ -326,6 +330,13 @@ endsnippet
 
 snippet inf "logger.info()" b
 logger.info("${1} ${2:%s}"${3:, }${4})${0}
+endsnippet
+
+snippet __repr "__repr__" b
+def __repr__(self):
+    return (
+        f'{super().__repr__()} {self.__class__.__name__}(${0})'
+        )
 endsnippet
 
 snippet prv "<self.>_varname = <value>" b
