@@ -5,18 +5,18 @@
 vim.o.completeopt = "menuone,noselect"
 
 require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
+  enabled = true,
+  autocomplete = true,
+  debug = false,
+  min_length = 1,
+  preselect = 'enable',
+  throttle_time = 80,
+  source_timeout = 200,
+  resolve_timeout = 800,
+  incomplete_delay = 400,
+  max_abbr_width = 100,
+  max_kind_width = 100,
+  max_menu_width = 100,
 
   documentation = {
     border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
@@ -25,7 +25,7 @@ require'compe'.setup {
     min_width = 60,
     max_height = math.floor(vim.o.lines * 0.3),
     min_height = 1,
-  };
+  },
 
   source = {
 
@@ -33,40 +33,40 @@ require'compe'.setup {
         priority = 9000,
         kind = '',
         menu = '| Snip',
-    };
+    },
 
     nvim_lsp = {
         priority = 8000,
         menu = '| LSP',
-    };
+    },
 
     tabnine = {
         priority = 7000,
         menu = '| TN',
         -- menu = '|   TN',
-    };
+    },
 
     buffer = {
         priority = 6000,
         menu = '| Buffer',
         kind = '﬘',
-    };
+    },
 
-    buffer = true;
-    tabnine = true;
-    ultisnips = true;
+    buffer = true,
+    tabnine = true,
+    ultisnips = true,
     calc = {
         menu = '| Calc',
-    };
-    nvim_lua = true;
-    path = true;
-    spell = true;
-    tags = true;
-    vsnip = false;
-    luasnip = false;
-    zsh = true;
-    treesitter = true;
-  };
+    },
+    nvim_lua = true,
+    path = true,
+    spell = true,
+    tags = true,
+    vsnip = false,
+    luasnip = false,
+    zsh = true,
+    treesitter = true,
+  },
 }
 
 -- Set snippetSupport=true for LSP capabilities.
