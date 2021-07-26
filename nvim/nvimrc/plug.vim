@@ -32,8 +32,8 @@ Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " FZF setup
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'

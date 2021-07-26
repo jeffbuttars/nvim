@@ -324,6 +324,10 @@ snippet err "logger.error()" b
 logger.error("${1} ${2:%s}"${3:, }${4})${0}
 endsnippet
 
+snippet errc "logger.error(self.__class__.__name__)" b
+logger.error("%s: ${1} ${2:%s}", self.__class__.__name__, ${3:})${0}
+endsnippet
+
 snippet wrn "logger.warning()" b
 logger.warning("${1} ${2:%s}"${3:, }${4})${0}
 endsnippet

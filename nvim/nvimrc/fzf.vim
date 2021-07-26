@@ -9,5 +9,5 @@
 " " imap <M-p> <ESC>:GFiles?<CR>
 " map  <M-p> <ESC>:GFiles?<CR>
 
-" let g:fzf_preview_use_dev_icons = 1
+let g:fzf_preview_use_dev_icons = 1
 " let g:fzf_tags_command = 'ctags --options=~/.ctags'
