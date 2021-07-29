@@ -9,7 +9,7 @@
 filetype plugin indent on
 
 " " Explicitly set the python3 executable
-" let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = $HOME . '/.venv/bin/python'
 
 " " set lazyredraw      " Don't redraw screen when executing macros
 set history=10000 " keep 10000 lines of command line history

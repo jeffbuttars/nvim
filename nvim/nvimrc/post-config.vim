@@ -37,6 +37,9 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 " End From an idea by Michael Naumann
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Open Quickfix selections in existing buffer
+set switchbuf=uselast,useopen
+
 " " ## Hacks
 
 " Automatically adjust the quickfix size
