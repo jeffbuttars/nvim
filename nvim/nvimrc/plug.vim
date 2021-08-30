@@ -75,7 +75,7 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " 
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
-Plug 'cohama/lexima.vim'
+" Plug 'cohama/lexima.vim'
 
 
 " LSP and Completion stuff

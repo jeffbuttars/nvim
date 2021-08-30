@@ -127,7 +127,7 @@ vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
 -- For use with cohama/lexima.vim
 -- vim.api.nvim_set_keymap('i', '<C-CR>', 'compe#confirm(lexima#expand("<LT><cr>", "i"))', { expr = true })
 -- vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm(lexima#expand("<LT><cr>", "i"))', { expr = true })
-vim.api.nvim_set_keymap('i', '<cr>', 'compe#close("<C-e>")', { expr = true })
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#close("<cr>")', { expr = true })
 -- vim.api.nvim_set_keymap('i', '<cr>', 'compe#v:lua.s_compe_menu_close_and_return()', { expr = true })
 vim.api.nvim_set_keymap('i', '<C-f>', 'compe#scroll({ "delta": +4 })', { expr = true })
 vim.api.nvim_set_keymap('i', '<C-d>', 'compe#scroll({ "delta": +4 })', { expr = true })
