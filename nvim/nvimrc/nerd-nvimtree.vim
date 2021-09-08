@@ -9,6 +9,7 @@ let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git att
 let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
 let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
+let g:nvim_tree_ignore = [ '.py.orig', '.py,cover', '__pycache__' ]
 
 "map <C-d> :NvimTreeFind<CR>
 map <C-d> :NvimTreeToggle<CR>
