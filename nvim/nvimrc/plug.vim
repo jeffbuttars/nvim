@@ -38,6 +38,9 @@ Plug 'junegunn/fzf.vim'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'tami5/sqlite.lua'
+Plug 'nvim-telescope/telescope-frecency.nvim'
+
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-airline/vim-airline.git'
 

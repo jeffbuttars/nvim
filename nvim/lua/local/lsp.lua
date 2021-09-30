@@ -12,3 +12,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     severity_sort = true,
   }
 )
+
+require'lspconfig'.pyright.setup{}
