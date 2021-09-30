@@ -1,10 +1,19 @@
+-- https://github.com/sindrets/diffview.nvim
 local cb = require'diffview.config'.diffview_callback
 
 require'diffview'.setup {
+  use_icons = true,        -- Requires nvim-web-devicons
+  icons = {                 -- Only applies when use_icons is true.
+      folder_closed = "",
+      folder_open = "",
+  },
+  signs = {
+    fold_closed = "",
+    fold_open = "",
+  },
   diff_binaries = false,    -- Show diffs for binaries
   file_panel = {
     width = 50,
-    use_icons = true        -- Requires nvim-web-devicons
   },
   key_bindings = {
     -- The `view` bindings are active in the diff buffers, only when the current
