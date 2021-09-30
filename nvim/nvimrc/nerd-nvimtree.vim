@@ -13,6 +13,10 @@ let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window
 "map <C-d> :NvimTreeFind<CR>
 map <C-d> :NvimTreeToggle<CR>
 
+lua << EOF
+require'nvim-tree'.setup()
+EOF
+
 " Default actions
 " move around like in any vim buffer
 " <CR> or o on .. will cd in the above directory
