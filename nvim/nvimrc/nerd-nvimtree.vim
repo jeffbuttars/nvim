@@ -1,22 +1,16 @@
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
-let g:nvim_tree_width = 64 "30 by default
-let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+" let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
 let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+" let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
-let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
-let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
-let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
-let g:nvim_tree_ignore = [ '.py.orig', '.py,cover', '__pycache__' ]
+" let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
+" let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+" let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
+" let g:nvim_tree_ignore = [ '.py.orig', '.py,cover', '__pycache__' ]
 
-"map <C-d> :NvimTreeFind<CR>
 map <C-d> :NvimTreeToggle<CR>
-
-lua << EOF
-require'nvim-tree'.setup()
-EOF
 
 " Default actions
 " move around like in any vim buffer
