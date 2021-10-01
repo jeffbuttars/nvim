@@ -215,16 +215,21 @@ runtime nvimrc/plug.vim
 runtime nvimrc/nerd-nvimtree.vim
 runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
-runtime nvimrc/airline.vim
+" runtime nvimrc/airline.vim
 runtime nvimrc/fzf.vim
 runtime nvimrc/dirdiff.vim
 "runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/tabnine.vim
+runtime nvimrc/gui.vim
 
-if executable('neovide')
-  runtime nvimrc/neovide.vim
+if executable('nvui')
+    runtime nvimrc/nvui.vim
 endif
+
+" if executable('neovide')
+"   runtime nvimrc/neovide.vim
+" endif
 
 lua << EOF
 require("local")

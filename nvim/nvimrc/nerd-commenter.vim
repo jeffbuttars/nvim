@@ -1,7 +1,7 @@
  let b:leader = exists('g:mapleader') ? g:mapleader : '\'
  " I like to use CTRL-C to toggle comments
- exec 'noremap <C-C> :call NERDComment("n", "AlignLeft")<cr>'
- exec 'noremap <C-N> :call NERDComment("n", "Uncomment")<cr>'
+ exec 'noremap <C-C> :call nerdcommenter#Comment("n", "AlignLeft")<cr>'
+ exec 'noremap <C-N> :call nerdcommenter#Comment("n", "Uncomment")<cr>'
 
  " I like space around comments
  let g:NERDSpaceDelims = 1
@@ -11,3 +11,4 @@
      \ 'ecl': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
      \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
  \ }
+
