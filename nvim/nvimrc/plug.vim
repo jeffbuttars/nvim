@@ -32,14 +32,14 @@ Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " FZF setup
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'tami5/sqlite.lua'
-Plug 'nvim-telescope/telescope-frecency.nvim'
+" Plug 'tami5/sqlite.lua'
+" Plug 'nvim-telescope/telescope-frecency.nvim'
 
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/vim-airline/vim-airline.git'
@@ -93,12 +93,25 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " Default LSP configs
 Plug 'neovim/nvim-lspconfig'
 
-" ### hrsh7th/nvim-compe Another completion manager
-Plug 'hrsh7th/nvim-compe'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-Plug 'tamago324/compe-zsh'
+" ### hrsh7th/nvim-cmp Another completion manager
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-tags'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'ray-x/cmp-treesitter'
+Plug 'hrsh7th/cmp-calc'
+Plug 'f3fora/cmp-spell'
+" Plug 'f3fora/cmp-nuspell'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-look'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+" Plug 'tamago324/cmp-zsh'
 Plug 'Shougo/deol.nvim'
 Plug 'onsails/lspkind-nvim'
+
+" Plug 'nvim-lua/popup.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 " Plug 'nvim-treesitter/completion-treesitter'

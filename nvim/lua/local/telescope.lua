@@ -59,12 +59,12 @@ require('telescope').setup{
         }
     }
   },
-  extensions = {
-      frecency = {},
-  }
+  -- extensions = {
+  --     frecency = {},
+  -- }
 }
 
-require"telescope".load_extension("frecency")
+-- require"telescope".load_extension("frecency")
 
 -- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 vim.api.nvim_set_keymap('i', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers({sort_mru = true, sort_lastused = true})<CR>', { silent = true })
