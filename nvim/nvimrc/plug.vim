@@ -38,14 +38,18 @@ Plug 'junegunn/fzf.vim'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-
 " Iconogrophy
 Plug 'junegunn/vim-emoji'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mortepau/codicons.nvim'
+
+" Status lines
+" Plug 'https://github.com/vim-airline/vim-airline-themes'
+" Plug 'https://github.com/vim-airline/vim-airline.git'
+
+Plug 'famiu/feline.nvim'
+" Plug 'famiu/feline.nvim', { 'branch': 'v0.2.1'}
 
 " Nerd comments and tree explorer
 Plug 'preservim/nerdcommenter'
@@ -55,10 +59,10 @@ Plug 'preservim/nerdcommenter'
 
 
 " Vim Tree
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
+" Install 'kyazdani42/nvim-web-devicons' for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
-Plug 'folke/lsp-trouble.nvim'
+" Plug 'folke/lsp-trouble.nvim'
 
 " Unixy commands for vim
 Plug 'https://github.com/tpope/vim-eunuch.git'
@@ -69,7 +73,7 @@ Plug 'sindrets/diffview.nvim'
 
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" https://github.com/axelf4/vim-strip-trailing-whitespace
+" htplugrip-trailing-whitespace
 Plug 'axelf4/vim-strip-trailing-whitespace'
 
 " 
