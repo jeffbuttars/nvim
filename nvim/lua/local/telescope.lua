@@ -20,9 +20,9 @@ require('telescope').setup{
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
+    -- selection_strategy = "reset",
+    -- sorting_strategy = "descending",
+    -- layout_strategy = "horizontal",
     layout_config = {
       horizontal = {
         mirror = false,
@@ -58,8 +58,13 @@ require('telescope').setup{
             ["<C-k>"] = actions.move_selection_previous
         }
     }
+  },
+  extensions = {
+      frecency = {},
   }
 }
+
+require"telescope".load_extension("frecency")
 
 -- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 vim.api.nvim_set_keymap('i', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buffers({sort_mru = true, sort_lastused = true})<CR>', { silent = true })
