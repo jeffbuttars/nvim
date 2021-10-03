@@ -21,10 +21,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Lua utils / lib
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/popup.nvim'
 
 " For writing prose
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 
 " Python
 Plug 'psf/black'
@@ -41,12 +41,12 @@ Plug 'nvim-telescope/telescope.nvim'
 " Plug 'tami5/sqlite.lua'
 " Plug 'nvim-telescope/telescope-frecency.nvim'
 
-Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/vim-airline/vim-airline.git'
+" Plug 'https://github.com/vim-airline/vim-airline-themes'
+" Plug 'https://github.com/vim-airline/vim-airline.git'
 
 " Iconogrophy
 Plug 'junegunn/vim-emoji'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mortepau/codicons.nvim'
 
@@ -55,14 +55,14 @@ Plug 'mortepau/codicons.nvim'
 " Plug 'https://github.com/vim-airline/vim-airline.git'
 
 Plug 'famiu/feline.nvim'
-" Plug 'famiu/feline.nvim', { 'branch': 'v0.2.1'}
+Plug 'hoob3rt/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+" *  'kyazdani42/nvim-web-devicons'
+" *  'ryanoasis/vim-devicons'
 
-" Nerd comments and tree explorer
+
+" Nerd comments
 Plug 'preservim/nerdcommenter'
-" Plug 'preservim/nerdtree'
-" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-" Plug 'vwxyutarooo/nerdtree-devicons-syntax'
-
 
 " Vim Tree
 " Install 'kyazdani42/nvim-web-devicons' for file icons
@@ -85,8 +85,6 @@ Plug 'axelf4/vim-strip-trailing-whitespace'
 " 
 " " One day, I shall resurrect this trap
 " Plug 'jeffbuttars/neovim-doubletap', { 'do': ':UpdateRemotePlugins' }
-" Plug 'cohama/lexima.vim'
-
 
 " LSP and Completion stuff
 
@@ -135,7 +133,6 @@ Plug 'ajorgensen/vim-markdown-toc'
 " " Git
 "
 Plug 'https://github.com/tpope/vim-fugitive.git'
-" Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'rbong/vim-flog'
 
@@ -144,10 +141,9 @@ Plug 'rbong/vim-flog'
 " Plug 'lifepillar/vim-solarized8'
 
 " Treesitter compatible solarized
+" https://github.com/ishan9299/nvim-solarized-lua
 Plug 'ishan9299/nvim-solarized-lua'
 
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
 Plug 'folke/lsp-colors.nvim'
 
 " Load Ultisnips later to make sure it has the <tab> map
@@ -156,21 +152,6 @@ Plug 'honza/vim-snippets'
 
 " Color Schemes
 " Solarized has been good to me. I plan to keep it a while
-" Plug 'iCyMind/NeoSolarized'
 Plug 'ishan9299/nvim-solarized-lua'
-Plug 'mhartington/oceanic-next'
-Plug 'PHSix/nvim-hybrid'
-Plug 'RRethy/nvim-base16'
-
-" Treesitter compatible
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
-
-" Plug 'morhetz/gruvbox'
-" 
-" " https://github.com/lifepillar/vim-gruvbox8
-" Plug 'lifepillar/vim-gruvbox8'
-" 
-" " https://github.com/lifepillar/vim-solarized8
-" " Plug 'lifepillar/vim-solarized8'
 
 call plug#end()

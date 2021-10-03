@@ -208,10 +208,15 @@ set list
 " context: show 15 lines of context
 set diffopt=filler,vertical,context:15,algorithm:patience
 
+runtime nvimrc/plug.vim
+
+lua << EOF
+require("local")
+EOF
+
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
 " " Load our 'plugs' early
-runtime nvimrc/plug.vim
 runtime nvimrc/nerd-nvimtree.vim
 runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
@@ -230,9 +235,5 @@ endif
 " if executable('neovide')
 "   runtime nvimrc/neovide.vim
 " endif
-
-lua << EOF
-require("local")
-EOF
 
 runtime nvimrc/post-config.vim

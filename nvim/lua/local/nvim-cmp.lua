@@ -3,7 +3,9 @@
 -- https://github.com/hrsh7th/nvim-cmp
 
 vim.o.completeopt = "menu,menuone,noselect"
+local cik = require('vim.lsp.protocol').CompletionItemKind
 
+local lspkind = require('lspkind')
 local cmp = require'cmp'
 
 cmp.setup({
@@ -27,6 +29,12 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
       ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    },
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.kind = lspkind.presets.default[vim_item.kind]
+            return vim_item
+        end
     },
     sources = {
       -- For ultisnips user.

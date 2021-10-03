@@ -3,11 +3,11 @@
 -- require'lspkind'.init({
 -- })
 
--- require'lspkind'.init({
+require'lspkind'.init({
 --     -- enables text annotations
 --     --
 --     -- default: true
---     with_text = false,
+    with_text = true,
 
 --     -- default symbol map
 --     -- can be either 'default' or
@@ -15,35 +15,34 @@
 --     --
 --     -- default: 'default'
 --     -- preset = 'codicons',
---     preset = 'default',
+    preset = 'default',
 
 --     -- override preset symbols
 --     --
 --     -- default: {}
-
---     symbol_map = {
---       Text = '',
---       Method = 'ƒ',
---       Function = '',
---       Constructor = '',
---       Variable = '',
---       Class = '',
---       Interface = 'ﰮ',
---       Module = '',
---       Property = '',
---       Unit = '',
---       Value = '',
---       Enum = '了',
---       Keyword = '',
---       Snippet = '',
---       Color = '',
---       File = '',
---       Folder = '',
---       EnumMember = '',
---       Constant = '',
---       Struct = ''
---     }
--- });
+    symbol_map = {
+      Text = '',
+      Method = ' Meth',
+      Function = '  Func',
+      Constructor = '',
+      Variable = '  Var',
+      Class = '  Cls',
+      Interface = '  Mod',
+      Module = '',
+      Property = '',
+      Unit = '',
+      Value = '',
+      Enum = '了',
+      Keyword = '',
+      Snippet = '',
+      Color = '',
+      File = '',
+      Folder = '',
+      EnumMember = '',
+      Constant = '',
+      Struct = ''
+    }
+});
 
 -- let g:completion_customize_lsp_label = {
 --             \ 'Buffers': '﬘ Buf',
@@ -73,30 +72,30 @@
 --             \}
 --
 
-require('vim.lsp.protocol').CompletionItemKind = {
-    '', -- Text
-    ' Meth', -- Method
-    '  Func', -- Function
-    '', -- Constructor
-    '', -- Field
-    '  Var ', -- Variable
-    '  Cls ', -- Class
-    'ﰮ', -- Interface
-    '  Mod ', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '了', -- Enum
-    '  Key ', -- Keyword
-    '  Snip', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '  Const', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ  Oper', -- Operator
-    '  Param', -- TypeParameter
-}
+-- require('vim.lsp.protocol').CompletionItemKind = {
+--     '', -- Text
+--     ' Meth', -- Method
+--     '  Func', -- Function
+--     '', -- Constructor
+--     '', -- Field
+--     '  Var ', -- Variable
+--     '  Cls ', -- Class
+--     'ﰮ', -- Interface
+--     '  Mod ', -- Module
+--     '', -- Property
+--     '', -- Unit
+--     '', -- Value
+--     '了', -- Enum
+--     '  Key ', -- Keyword
+--     '  Snip', -- Snippet
+--     '', -- Color
+--     '', -- File
+--     '', -- Reference
+--     '', -- Folder
+--     '', -- EnumMember
+--     '  Const', -- Constant
+--     '', -- Struct
+--     '', -- Event
+--     'ﬦ  Oper', -- Operator
+--     '  Param', -- TypeParameter
+-- }

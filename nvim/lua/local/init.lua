@@ -13,5 +13,7 @@ require("local/lsp_colors");
 -- require("local/flow");
 require("local/tsserver");
 require("local/telescope");
-require("local/feline");
 require("local/nvim-tree");
+require("local/nvim-solarized");
+-- require("local/feline");
+require("local/lualine");
