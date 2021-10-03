@@ -8,6 +8,66 @@ local cik = require('vim.lsp.protocol').CompletionItemKind
 local lspkind = require('lspkind')
 local cmp = require'cmp'
 
+local comp_items = {
+-- if you change or add symbol here
+-- replace corresponding line in readme
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+}
+
+local comp_items_w_text = {
+-- if you change or add symbol here
+-- replace corresponding line in readme
+    Text = comp_items.Text .. " Text",
+    Method = comp_items.Method .. " Meth",
+    Function = comp_items.Function .. " Func",
+    Constructor = comp_items.Constructor .. " Constructor",
+    Field = comp_items.Field .. " Field",
+    Variable = comp_items.Variable .. " Var",
+    Class = comp_items.Class .. " Class",
+    Interface = comp_items.Interface .. " Interface",
+    Module = comp_items.Module .. " Mod",
+    Property = comp_items.Property .. " Prop",
+    Unit = comp_items.Unit .. " Unit",
+    Value = comp_items.Value .. " Value",
+    Enum = comp_items.Enum .. " Enum",
+    Keyword = comp_items.Keyword .. " Keyw",
+    Snippet = comp_items.Snippet .. " Snip",
+    Color = comp_items.Color .. " Color",
+    File = comp_items.File .. " File",
+    Reference = comp_items.Reference .. " Ref",
+    Folder = comp_items.Folder .. " Folder",
+    EnumMember = comp_items.EnumMember .. " EnumMember",
+    Constant = comp_items.Constant .. " Const",
+    Struct = comp_items.Struct .. " Struct",
+    Event = comp_items.Event .. " Event",
+    Operator = comp_items.Operator .. " Oper",
+    TypeParameter = comp_items.TypeParameter .. " Type",
+}
+
 cmp.setup({
     snippet = {
       expand = function(args)
@@ -32,7 +92,8 @@ cmp.setup({
     },
     formatting = {
         format = function(entry, vim_item)
-            vim_item.kind = lspkind.presets.default[vim_item.kind]
+            -- vim_item.kind = comp_items[vim_item.kind] .. " " .. vim_item.kind
+            vim_item.kind = comp_items_w_text[vim_item.kind]
             return vim_item
         end
     },

@@ -1,4 +1,4 @@
-require("local/lspkind");
+-- require("local/lspkind");
 require("local/lsp");
 require("local/pylsp");
 -- require("local/pyright");
