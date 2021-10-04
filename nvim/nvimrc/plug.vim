@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Lua utils / lib
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/popup.nvim'
 
 " For writing prose
 " Plug 'junegunn/goyo.vim'
