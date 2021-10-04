@@ -11,4 +11,3 @@
      \ 'ecl': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
      \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
  \ }
-
