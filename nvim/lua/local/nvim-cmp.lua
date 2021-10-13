@@ -1,11 +1,8 @@
-
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 
 vim.o.completeopt = "menu,menuone,noselect"
-local cik = require('vim.lsp.protocol').CompletionItemKind
 
-local lspkind = require('lspkind')
 local cmp = require'cmp'
 
 local source_name_map = {
@@ -27,37 +24,37 @@ local comp_items = {
 -- if you change or add symbol here
 -- replace corresponding line in readme
     -- Text = "",
-    Text = " ",
+    Text = " ",
     -- Method = "",
     Method = '',
-    Function = " ",
+    Function = " ",
     -- Constructor = "",
-    Constructor = ' ',
-    Field = " ﰠ",
-    Variable = " ",
-    Class = " ﴯ",
-    Interface = " ",
-    Module = " ",
+    Constructor = ' ',
+    Field = "ﰠ ",
+    Variable = " ",
+    Class = "ﴯ ",
+    Interface = " ",
+    Module = " ",
     -- Property = "ﰠ",
     Property = '',
     Unit = " 塞",
-    Value = " ",
+    Value = " ",
     -- Enum = "",
-    Enum = ' 了',
+    Enum = '了 ',
     -- Keyword = "",
-    Keyword = ' ',
+    Keyword = ' ',
     -- Snippet = "",
-    Snippet = ' ',
-    Color = " ",
-    File = " ",
-    Reference = " ",
-    Folder = " ",
+    Snippet = ' ',
+    Color = " ",
+    File = " ",
+    Reference = " ",
+    Folder = " ",
     EnumMember = "",
     -- Constant = "",
-    Constant = ' ',
-    Struct = " פּ",
-    Event = " ",
-    Operator = " ",
+    Constant = ' ',
+    Struct = "פּ ",
+    Event = " ",
+    Operator = " ",
     TypeParameter = "  "
 }
 
