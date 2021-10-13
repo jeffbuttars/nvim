@@ -3,21 +3,31 @@
 
 vim.o.completeopt = "menu,menuone,noselect"
 
+-- Tabnine config
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+        -- max_lines = 1000;
+        max_num_results = 10;
+        -- sort = true;
+        -- run_on_every_keystroke = true;
+        -- snippet_placeholder = '..';
+})
+
 local cmp = require'cmp'
 
 local source_name_map = {
-    nvim_lsp = "LSP",
-    buffer = "Buf",
-    treesitter = "TS",
-    luasnip = "Snip",
-    ultisnips = "Snip",
-    tabnine = "T9",
-    nvim_lua = "Lua",
-    path = "Path",
-    spell = "Spell",
-    latex_symbols = "Latex",
-    tags = "Tags",
-    zsh = "Zsh",
+    nvim_lsp = "[LSP]",
+    buffer = "[Buf]",
+    treesitter = "[TS]",
+    luasnip = "[Snip]",
+    ultisnips = "[Snip]",
+    tabnine = "[T9]",
+    nvim_lua = "[Lua]",
+    path = "[Path]",
+    spell = "[Spell]",
+    latex_symbols = "[Latex]",
+    tags = "[Tags]",
+    zsh = "[Zsh]",
 }
 
 local comp_items = {
@@ -26,7 +36,8 @@ local comp_items = {
     -- Text = "",
     Text = " ",
     -- Method = "",
-    Method = '',
+    -- Method = '',
+    Method = ' ',
     Function = " ",
     -- Constructor = "",
     Constructor = ' ',
@@ -119,14 +130,15 @@ cmp.setup({
         format = function(entry, vim_item)
             if vim_item.abbr then
                 vim_item.abbr = comp_items[vim_item.kind] .. "" .. vim_item.abbr
-            else
-                vim_item.kind =  comp_items_w_text[vim_item.kind]
             end
 
-            -- vim_item.kind = comp_items_text[vim_item.kind]
+            -- vim_item.kind = comp_items_text[k]
+
+            vim_item.kind = comp_items_text[vim_item.kind]
 
             -- set a name for each source
             vim_item.menu = source_name_map[entry.source.name]
+
             -- vim_item.kind = comp_items[vim_item.kind] .. " | " .. entry.source.name
             -- for k, v in pairs(vim_item) do
             --     print(k, v)
@@ -137,9 +149,9 @@ cmp.setup({
     },
     sources = {
       -- For ultisnips user.
-      { name = 'ultisnips' },
       { name = 'nvim_lsp' },
-      { name = 'tabnine' },
+      { name = 'ultisnips' },
+      { name = 'cmp_tabnine' },
 
       -- For vsnip user.
       -- { name = 'vsnip' },
@@ -147,9 +159,9 @@ cmp.setup({
       -- For luasnip user.
       -- { name = 'luasnip' },
       --
-      { name = 'nvim_lua' },
-      { name = 'buffer', kind = '﬘' },
       { name = 'treesitter' },
+      { name = 'buffer' },
+      { name = 'nvim_lua' },
       { name = 'path' },
       -- { name = 'nuspell' },
       { name = 'spell' },
@@ -157,14 +169,11 @@ cmp.setup({
       { name = 'look' },
       { name = 'zsh' },
       { name = 'tags' },
-    }
-})
-
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-        max_lines = 1000;
-        max_num_results = 10;
-        sort = true;
-        run_on_every_keystroke = true;
-        snippet_placeholder = '..';
+    },
+    documentation = {
+        -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
+        -- border = { '', '', '', ' ', '', '', '', ' ' },
+        -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+        border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+    },
 })
