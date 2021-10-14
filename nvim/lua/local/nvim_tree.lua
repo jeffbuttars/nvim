@@ -82,3 +82,4 @@ require"nvim-tree".setup {
 vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", {})
 
 vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
+vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
