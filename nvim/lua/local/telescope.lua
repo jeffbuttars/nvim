@@ -73,6 +73,10 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<CMD>lua require\'telescope.builtin\'.buf
 vim.api.nvim_set_keymap('i', '<C-p>', '<CMD>lua require\'telescope.builtin\'.git_files()<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', '<CMD>lua require\'telescope.builtin\'.git_files()<CR>', { silent = true })
 
+-- vim.cmd('command Rg execute "lua require\'telescope.builtin\'.live_grep()"')
+-- vim.cmd('command Ag execute "lua require\'telescope.builtin\'.live_grep()"')
+vim.cmd('command Lg execute "lua require\'telescope.builtin\'.live_grep()"')
+
 -- vim.api.nvim_set_keymap('i', '<leader>fg', '<CMD>lua require\'telescope.builtin\'.live_grep()<CR>', { silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>fg', '<CMD>lua require\'telescope.builtin\'.live_grep()<CR>', { silent = true })
 

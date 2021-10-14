@@ -1,9 +1,9 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 -- following options are the default
 
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+local tree_cb = require"nvim-tree.config".nvim_tree_callback
 
-require'nvim-tree'.setup {
+require"nvim-tree".setup {
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -13,17 +13,35 @@ require'nvim-tree'.setup {
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
   -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close          = false,
-  -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
+  auto_close          = true,
+  -- opens the tree when changing/opening a new tab if the tree wasn"t previously opened
   open_on_tab         = false,
+  update_to_buf_dir   = {
   -- hijacks new directory buffers when they are opened.
-  update_to_buf_dir   = true,
+      -- enable the feature
+      enable = true,
+      -- allow to open the tree if it was previously closed
+      auto_open = true,
+  },
+
   -- hijack the cursor in the tree to put it at the start of the filename
-  hijack_cursor       = false,
+  hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
-  -- show lsp diagnostics in the signcolumn
-  lsp_diagnostics     = true,
+  diagnostics = {
+      -- show lsp diagnostics in the signcolumn
+      enable = true,
+      icons = {
+          -- hint = "",
+          hint = "",
+          -- info = "",
+          info = "",
+          -- warning = "",
+          warning = "",
+          -- error = "",
+          error = "",
+      }
+  },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
@@ -33,7 +51,8 @@ require'nvim-tree'.setup {
     update_cwd  = true,
     -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
     -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
-    ignore_list = { '.py.orig', '.py,cover', '__pycache__' }
+    -- ignore_list = { ".py.orig", ".py,cover", "__pycache__" }
+    ignore_list = {}
   },
   -- configuration options for the system open command (`s` in the tree by default)
   system_open = {
@@ -46,8 +65,8 @@ require'nvim-tree'.setup {
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
     width = 64,
-    -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
-    side = 'left',
+    -- side of the tree, can be one of "left" | "right" | "top" | "bottom"
+    side = "left",
     -- if true the tree will resize itself after opening a file
     auto_resize = true,
     mappings = {
@@ -59,3 +78,7 @@ require'nvim-tree'.setup {
     }
   }
 }
+
+vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", {})
+
+vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.

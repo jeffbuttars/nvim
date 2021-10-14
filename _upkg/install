@@ -2,7 +2,8 @@
 
 source pkgs.sh
 source nvimenv.sh
-source vim_plug.sh
+# source vim_plug.sh
+# source install_packer.sh
 
 
 # Link our UltiSnips up
@@ -17,9 +18,9 @@ echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
 echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
 
-pr_info "Install/Updating plugs..."
-nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
-nvim --headless +UpdateRemotePlugins +qa
+# pr_info "Install/Updating plugins..."
+# nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
+nvim -c ':PackerSync' -c '<\CR>' -c ':qa'
 wait
 
 pr_pass "Install complete"

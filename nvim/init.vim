@@ -208,24 +208,18 @@ set list
 " context: show 15 lines of context
 set diffopt=filler,vertical,context:15,algorithm:patience
 
-runtime nvimrc/plug.vim
-
 lua << EOF
+require("local/packer")
 require("local")
 EOF
 
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
 " " Load our 'plugs' early
-runtime nvimrc/nerd-nvimtree.vim
 runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
-" runtime nvimrc/airline.vim
-runtime nvimrc/fzf.vim
 runtime nvimrc/dirdiff.vim
-"runtime nvimrc/doubletap.vim
 runtime nvimrc/ultisnips.vim
-runtime nvimrc/tabnine.vim
 runtime nvimrc/gui.vim
 
 if executable('nvui')

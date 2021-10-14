@@ -105,6 +105,12 @@ for k, v in pairs(comp_items) do
 end
 
 cmp.setup({
+    enabled = function(args)
+        -- print("args:", args)
+        -- print("bufftype:", vim.api.nvim_buf_get_option(0, 'buftype'))
+        -- print("bufftype?:", vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt')
+        return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt'
+    end,
     snippet = {
       expand = function(args)
         -- For `vsnip` user.
@@ -118,13 +124,18 @@ cmp.setup({
       end,
     },
     mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+      -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      -- ['<C-Space>'] = cmp.mapping.complete(),
+      -- ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+      }),
+      -- ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+      -- ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+      ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     },
     formatting = {
         format = function(entry, vim_item)
@@ -133,7 +144,6 @@ cmp.setup({
             end
 
             -- vim_item.kind = comp_items_text[k]
-
             vim_item.kind = comp_items_text[vim_item.kind]
 
             -- set a name for each source
@@ -151,7 +161,7 @@ cmp.setup({
       -- For ultisnips user.
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
-      { name = 'cmp_tabnine' },
+      -- { name = 'cmp_tabnine' },
 
       -- For vsnip user.
       -- { name = 'vsnip' },
@@ -177,3 +187,13 @@ cmp.setup({
         border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
     },
 })
+
+cmp.register_source('look', require('cmp_look').new())
+
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+
+-- https://github.com/hrsh7th/nvim-cmp#how-to-disable-nvim-cmp-on-the-specific-buffer
+--vim.cmd('autocmd FileType TelescopePrompt lua require("cmp").setup { enabled = false }')
