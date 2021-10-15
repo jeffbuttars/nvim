@@ -1,4 +1,3 @@
-
 require("local/lsp");
 require("local/pylsp");
 require("local/treesitter");

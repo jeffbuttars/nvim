@@ -105,12 +105,12 @@ for k, v in pairs(comp_items) do
 end
 
 cmp.setup({
-    enabled = function(args)
-        -- print("args:", args)
-        -- print("bufftype:", vim.api.nvim_buf_get_option(0, 'buftype'))
-        -- print("bufftype?:", vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt')
-        return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt'
-    end,
+    -- enabled = function(args)
+    --     -- print("args:", args)
+    --     -- print("bufftype:", vim.api.nvim_buf_get_option(0, 'buftype'))
+    --     -- print("bufftype?:", vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt')
+    --     return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt'
+    -- end,
     snippet = {
       expand = function(args)
         -- For `vsnip` user.
@@ -161,7 +161,7 @@ cmp.setup({
       -- For ultisnips user.
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
-      -- { name = 'cmp_tabnine' },
+      { name = 'cmp_tabnine' },
 
       -- For vsnip user.
       -- { name = 'vsnip' },
