@@ -119,6 +119,9 @@ local packer = require('packer').startup(function(use)
     use "ishan9299/nvim-solarized-lua"
     use "folke/lsp-colors.nvim"
 
+    -- Tab indicator
+    use "lukas-reineke/indent-blankline.nvim"
+
     -- LSP and completions
     use "neovim/nvim-lspconfig"
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
