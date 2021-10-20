@@ -1,6 +1,15 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 -- following options are the default
 
+vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
+vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
+
+-- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
+-- vim.cmd('let g:nvim_tree_respect_buf_cwd = 1')
+
+-- 0 by default, will enable file highlight for git attributes (can be used without the icons).
+vim.cmd('let g:nvim_tree_git_hl = 1')
+
 local tree_cb = require"nvim-tree.config".nvim_tree_callback
 
 require"nvim-tree".setup {
@@ -16,6 +25,7 @@ require"nvim-tree".setup {
   auto_close          = true,
   -- opens the tree when changing/opening a new tab if the tree wasn"t previously opened
   open_on_tab         = false,
+
   update_to_buf_dir   = {
   -- hijacks new directory buffers when they are opened.
       -- enable the feature
@@ -80,6 +90,3 @@ require"nvim-tree".setup {
 }
 
 vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", {})
-
-vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
-vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
