@@ -6,6 +6,7 @@
 -- (which is due to @Iron-E and @khuedoan)
 -- somewhere in your config before your first usage of packer:
 local fn = vim.fn
+local packer_boostrap = false
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     print("Installing Packer...")
@@ -15,8 +16,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 local packer = require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
     -- Lua utils / lib
     use 'nvim-lua/plenary.nvim'
@@ -120,7 +121,7 @@ local packer = require('packer').startup(function(use)
     use "folke/lsp-colors.nvim"
 
     -- Tab indicator
-    use "lukas-reineke/indent-blankline.nvim"
+    -- use "lukas-reineke/indent-blankline.nvim"
 
     -- LSP and completions
     use "neovim/nvim-lspconfig"
@@ -154,6 +155,9 @@ local packer = require('packer').startup(function(use)
         requires = "hrsh7th/nvim-cmp"
     }
 
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
 
 
@@ -165,5 +169,6 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
+
 
 return packer

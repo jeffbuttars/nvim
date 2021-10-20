@@ -20,7 +20,7 @@ echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
 
 # pr_info "Install/Updating plugins..."
 # nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
-nvim -c ':PackerSync' -c '<\CR>' -c ':qa'
-wait
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# wait
 
 pr_pass "Install complete"

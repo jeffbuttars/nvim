@@ -12,7 +12,7 @@ require("local/tsserver");
 require("local/telescope");
 require("local/nvim-solarized");
 require("local/lualine");
-require("local/indent-blankline");
+-- require("local/indent-blankline");
 
 -- require("local/flow");
 -- require("local/lsp-trouble");

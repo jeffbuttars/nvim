@@ -9,7 +9,7 @@ tabnine:setup({
         -- max_lines = 1000;
         max_num_results = 10;
         -- sort = true;
-        -- run_on_every_keystroke = true;
+        run_on_every_keystroke = false;
         -- snippet_placeholder = '..';
 })
 
@@ -134,8 +134,32 @@ cmp.setup({
       }),
       -- ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
       -- ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
-      ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      -- ['<Tab>'] = cmp.mapping.select_next_item({
+      --     behavior = cmp.SelectBehavior.Select,
+      --     select = true,
+      -- }),
+      -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
+      --     behavior = cmp.SelectBehavior.Select,
+      --     select = true,
+      -- }),
+      ['<Tab>'] = function(fallback)
+        if cmp.visible() then
+            cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+        else
+            fallback()
+        end
+      end,
+      ['<S-Tab>'] = function(fallback)
+          if cmp.visible() then
+              cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+          else
+              fallback()
+          end
+      end,
     },
     formatting = {
         format = function(entry, vim_item)
@@ -186,10 +210,15 @@ cmp.setup({
         -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
         border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
     },
+
+    experimental = {
+        ghost_text = true,
+    },
 })
 
 cmp.register_source('look', require('cmp_look').new())
 
+-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
