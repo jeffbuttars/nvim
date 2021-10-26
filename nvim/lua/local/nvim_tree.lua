@@ -1,5 +1,4 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
--- following options are the default
 
 vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
 vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
@@ -8,11 +7,12 @@ vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree whe
 -- vim.cmd('let g:nvim_tree_respect_buf_cwd = 1')
 
 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
+-- vim.cmd('let g:nvim_tree_icons = 1')
 vim.cmd('let g:nvim_tree_git_hl = 1')
 
-local tree_cb = require"nvim-tree.config".nvim_tree_callback
+vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
-require"nvim-tree".setup {
+require'nvim-tree'.setup {
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -36,6 +36,7 @@ require"nvim-tree".setup {
 
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = true,
+
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
   diagnostics = {
@@ -74,11 +75,15 @@ require"nvim-tree".setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
-    width = 64,
+    width = '20%',
+    -- width = 64,
+
     -- side of the tree, can be one of "left" | "right" | "top" | "bottom"
-    side = "left",
+    side = 'left',
+
     -- if true the tree will resize itself after opening a file
     auto_resize = true,
+
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -88,5 +93,3 @@ require"nvim-tree".setup {
     }
   }
 }
-
-vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", {})

@@ -70,7 +70,7 @@ local packer = require('packer').startup(function(use)
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require'nvim-tree'.setup {} end
+        config = function() require'local/nvim_tree' end
     }
 
     -- Unixy commands for vim
