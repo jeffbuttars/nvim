@@ -31,10 +31,7 @@ local packer = require('packer').startup(function(use)
 
     -- -> Python
     use 'psf/black'
-    use {
-        'stsewd/isort.nvim',
-        { run = ':UpdateRemotePlugins', ft = 'python' },
-    }
+    use 'brentyi/isort.vim'
 
     -- FZF setup
     use {

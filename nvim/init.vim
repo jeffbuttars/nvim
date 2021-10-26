@@ -222,6 +222,7 @@ runtime nvimrc/nerd-commenter.vim
 runtime nvimrc/theme.vim
 runtime nvimrc/dirdiff.vim
 runtime nvimrc/ultisnips.vim
+runtime nvimrc/isort.vim
 runtime nvimrc/gui.vim
 
 if executable('nvui')
