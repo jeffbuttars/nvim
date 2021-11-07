@@ -1,6 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 
+
 vim.o.completeopt = "menu,menuone,noselect"
 
 -- Tabnine config
@@ -28,6 +29,7 @@ local source_name_map = {
     latex_symbols = "[Latex]",
     tags = "[Tags]",
     zsh = "[Zsh]",
+    cmdline = "[Cmd]",
 }
 
 local comp_items = {
@@ -70,8 +72,6 @@ local comp_items = {
 }
 
 local comp_items_text = {
--- if you change or add symbol here
--- replace corresponding line in readme
     Text = "Text",
     Method = "Meth",
     Function = "Func",
@@ -208,3 +208,25 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- https://github.com/hrsh7th/nvim-cmp#how-to-disable-nvim-cmp-on-the-specific-buffer
 --vim.cmd('autocmd FileType TelescopePrompt lua require("cmp").setup { enabled = false }')
+
+-- https://github.com/hrsh7th/cmp-cmdline
+-- START --
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    sources = cmp.config.sources(
+        {
+            { name = 'path' }
+        },
+        {
+            { name = 'cmdline' }
+        }
+    )
+})
+-- END --

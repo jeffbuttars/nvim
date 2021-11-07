@@ -128,6 +128,7 @@ local packer = require('packer').startup(function(use)
         "tamago324/cmp-zsh",
         requires = { "Shougo/deol.nvim" },
     }
+
     -- -> nvim-cmp
     use {
         "hrsh7th/nvim-cmp",
@@ -141,6 +142,7 @@ local packer = require('packer').startup(function(use)
             "hrsh7th/cmp-calc",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-look",
+            'hrsh7th/cmp-cmdline',
             "ray-x/cmp-treesitter",
             "f3fora/cmp-spell",
             "tamago324/cmp-zsh",
