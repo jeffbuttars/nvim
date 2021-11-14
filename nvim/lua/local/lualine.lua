@@ -1,3 +1,5 @@
+local my_utils = require('local.utils')
+
 -- https://github.com/hoob3rt/lualine.nvim
 
 -- local custom_gruvbox = require'lualine.themes.gruvbox'
@@ -9,8 +11,8 @@
 -- }
 
 local l_options = {
-  section_separators = {'', ''},
-  -- component_separators = {'', ''}
+  section_separators = {my_utils.icons.half_circle_right_filled, my_utils.icons.half_circle_left_filled},
+  -- component_separators = {my_utils.icons.cresent_circle_right, my_utils.icons.cresent_circle_left}
 }
 
 if vim.env.TERM_META == 'dark' then

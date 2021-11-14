@@ -7,7 +7,7 @@ require("local/diffview");
 require("local/dirdiff");
 require("local/nvim-cmp");
 require("local/nvim_tree");
-require("local/lsp_colors");
+-- require("local/lsp_colors");
 require("local/tsserver");
 require("local/telescope");
 require("local/nvim-solarized");

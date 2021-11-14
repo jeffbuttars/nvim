@@ -1,3 +1,5 @@
+local my_utils = require('local.utils')
+
 require("trouble").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -31,11 +33,11 @@ require("trouble").setup {
     auto_fold = false, -- automatically fold a file trouble list at creation
     signs = {
         -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "﫠"
+        error = my_utils.signs.error,
+        warning = my_utils.signs.warning,
+        hint = my_utils.signs.hint,
+        information = my_utils.signs.information,
+        other = my_utils.signs.other
     },
     use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }

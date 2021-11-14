@@ -2,6 +2,7 @@
 --
 
 local actions = require('telescope.actions')
+local my_icons = require("local.utils").icons
 
 require('telescope').setup{
   defaults = {
@@ -15,9 +16,9 @@ require('telescope').setup{
       -- '--color=never',
     },
     -- prompt_prefix = "> ",
-    prompt_prefix = " ",
+    prompt_prefix = my_icons.pointy_cursor_right_filled .. " ",
     -- selection_caret = "> ",
-    selection_caret = " ",
+    selection_caret = my_icons.pointy_cursor_right_filled .. " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     -- selection_strategy = "reset",

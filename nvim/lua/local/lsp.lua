@@ -1,3 +1,5 @@
+local my_utils = require('local.utils')
+
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, { focusable = false }
@@ -9,18 +11,22 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     underline = true,
     virtual_text = false,
     signs = true,
-    update_in_insert = true,
+    update_in_insert = false,
     severity_sort = true,
   }
 )
 
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = {
+    Error = my_utils.signs.error .. " ",
+    Warning = my_utils.signs.warning .. " ",
+    Hint = my_utils.signs.hint .. " ",
+    Information = my_utils.signs.information .. " ",
+}
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
+  local hl = "LspDiagnosticsSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
 
 -- require'lspconfig'.pyright.setup{}
 

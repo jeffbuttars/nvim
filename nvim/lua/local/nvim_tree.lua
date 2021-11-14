@@ -1,5 +1,8 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
+local my_signs = require("local.utils").signs
+local actions = require('telescope.actions')
+
 vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
 vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
 
@@ -44,13 +47,13 @@ require'nvim-tree'.setup {
       enable = true,
       icons = {
           -- hint = "",
-          hint = "",
+          hint = my_signs.hint,
           -- info = "",
-          info = "",
+          info = my_signs.info,
           -- warning = "",
-          warning = "",
+          warning = my_signs.warning,
           -- error = "",
-          error = "",
+          error = my_signs.error,
       }
   },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
