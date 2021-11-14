@@ -28,19 +28,8 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- require'lspconfig'.pyright.setup{}
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
--- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-local servers = { 'clangd', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-
-  -- nvim_lsp[lsp].setup {
-  require('lspconfig')[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
+require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pylsp.setup{}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
