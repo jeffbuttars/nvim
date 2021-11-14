@@ -2,7 +2,7 @@
 --
 
 local actions = require('telescope.actions')
-local my_icons = require("local.utils").icons
+local nf_icons = require('local.nf-icons')
 
 require('telescope').setup{
   defaults = {
@@ -16,9 +16,9 @@ require('telescope').setup{
       -- '--color=never',
     },
     -- prompt_prefix = "> ",
-    prompt_prefix = my_icons.pointy_cursor_right_filled .. " ",
+    prompt_prefix = nf_icons['pl-left_hard_divider'] .. " ",
     -- selection_caret = "> ",
-    selection_caret = my_icons.pointy_cursor_right_filled .. " ",
+    selection_caret = nf_icons['pl-left_hard_divider']  .. " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     -- selection_strategy = "reset",

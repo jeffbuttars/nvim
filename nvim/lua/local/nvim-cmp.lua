@@ -8,8 +8,8 @@ vim.o.completeopt = "menu,menuone,noselect"
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
         -- max_lines = 1000;
-        max_num_results = 10;
-        -- sort = true;
+        max_num_results = 5;
+        sort = true;
         run_on_every_keystroke = false;
         -- snippet_placeholder = '..';
 })
@@ -168,14 +168,8 @@ cmp.setup({
       { name = 'nvim_lsp' },
       { name = 'ultisnips' },
       { name = 'cmp_tabnine' },
-
-      -- For vsnip user.
-      -- { name = 'vsnip' },
-
-      -- For luasnip user.
-      -- { name = 'luasnip' },
-      --
       { name = 'treesitter' },
+      { name = 'tags' },
       { name = 'buffer' },
       { name = 'nvim_lua' },
       { name = 'path' },
@@ -184,7 +178,6 @@ cmp.setup({
       { name = 'calc' },
       { name = 'look' },
       { name = 'zsh' },
-      { name = 'tags' },
     },
     documentation = {
         -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
@@ -205,6 +198,17 @@ cmp.register_source('look', require('cmp_look').new())
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+-- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'pyright', 'tsserver' }
+for _, lsp in ipairs(servers) do
+
+  -- nvim_lsp[lsp].setup {
+  require('lspconfig')[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+  }
+end
 
 -- https://github.com/hrsh7th/nvim-cmp#how-to-disable-nvim-cmp-on-the-specific-buffer
 --vim.cmd('autocmd FileType TelescopePrompt lua require("cmp").setup { enabled = false }')

@@ -1,4 +1,5 @@
-local my_utils = require('local.utils')
+-- local my_utils = require('local.utils')
+local nf_icons = require('local.nf-icons')
 
 -- https://github.com/hoob3rt/lualine.nvim
 
@@ -11,7 +12,8 @@ local my_utils = require('local.utils')
 -- }
 
 local l_options = {
-  section_separators = {my_utils.icons.half_circle_right_filled, my_utils.icons.half_circle_left_filled},
+  section_separators = {nf_icons['ple-right_half_circle_thick'], nf_icons['ple-left_half_circle_thick']},
+  -- section_separators = {my_utils.icons.half_circle_right_filled, my_utils.icons.half_circle_left_filled},
   -- component_separators = {my_utils.icons.cresent_circle_right, my_utils.icons.cresent_circle_left}
 }
 
@@ -25,4 +27,3 @@ require('lualine').setup({
     options = l_options,
     extension = {'quickfix', 'fugitive', 'fzf', 'nvim-tree'}
 })
-
