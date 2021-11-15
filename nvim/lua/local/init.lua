@@ -1,3 +1,4 @@
+require("local/pyright");
 require("local/lsp");
 require("local/pylsp");
 require("local/treesitter");
@@ -15,6 +16,5 @@ require("local/lualine");
 -- require("local/indent-blankline");
 
 -- require("local/flow");
--- require("local/lsp-trouble");
--- require("local/pyright");
+require("local/lsp-trouble");
 -- require("local/lspkind");

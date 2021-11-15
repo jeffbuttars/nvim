@@ -58,7 +58,7 @@ local packer = require('packer').startup(function(use)
 
     -- Status line
     use {
-        'hoob3rt/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
@@ -127,6 +127,19 @@ local packer = require('packer').startup(function(use)
     use {
         "tamago324/cmp-zsh",
         requires = { "Shougo/deol.nvim" },
+    }
+
+    -- Lua
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+          require("trouble").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+          }
+      end
     }
 
     -- -> nvim-cmp

@@ -28,8 +28,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-require'lspconfig'.pyright.setup{}
--- require'lspconfig'.pylsp.setup{}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
