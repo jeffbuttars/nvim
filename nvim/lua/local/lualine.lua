@@ -29,6 +29,11 @@ local l_options = {
   -- section_separators = {nf_icons['ple-right_half_circle_thick'], nf_icons['ple-left_half_circle_thick']},
   -- section_separators = {my_utils.icons.half_circle_right_filled, my_utils.icons.half_circle_left_filled},
   -- component_separators = {nf_icons['ple-right_half_circle_thick'], nf_icons['ple-left_half_circle_thick']}
+
+  -- 'pl-right_soft_divider' => ''
+  -- 'pl-left_soft_divider' => ''
+  -- component_separators = {nf_icons['pl-left_soft_divider'], nf_icons['pl-right_soft_divider']},
+  --pl-left_soft_divider
   theme = current_theme
 }
 
@@ -40,6 +45,9 @@ require('lualine').setup({
           'hostname',
           'branch',
           'filename',
+      },
+
+      lualine_c = {
          {
           'diagnostics',
     --       -- table of diagnostic sources, available sources:
@@ -51,7 +59,9 @@ require('lualine').setup({
           sections = {'error', 'warn', 'info', 'hint'},
         }
       },
-
-      lualine_c = {}
+      -- lualine_x = {'encoding', 'fileformat', 'filetype'},
+      lualine_x = {},
+      lualine_y = {'filetype'},
+      lualine_z = {'progress', 'location'}
     }
 })
