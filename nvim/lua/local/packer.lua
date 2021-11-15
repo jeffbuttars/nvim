@@ -100,7 +100,7 @@ local packer = require('packer').startup(function(use)
     use 'ajorgensen/vim-markdown-toc'
 
     -- Git
-    use "https://github.com/tpope/vim-fugitive"
+    use "tpope/vim-fugitive"
 
 
     use {
@@ -110,7 +110,7 @@ local packer = require('packer').startup(function(use)
     }
     use {
         "rbong/vim-flog",
-        requires = {  "https://github.com/tpope/vim-fugitive" },
+        requires = { "tpope/vim-fugitive" },
     }
 
     -- Theme / Colors
