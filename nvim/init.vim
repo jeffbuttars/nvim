@@ -224,6 +224,7 @@ runtime nvimrc/dirdiff.vim
 runtime nvimrc/ultisnips.vim
 runtime nvimrc/isort.vim
 runtime nvimrc/gui.vim
+runtime nvimrc/black.vim
 
 if executable('nvui')
     runtime nvimrc/nvui.vim
