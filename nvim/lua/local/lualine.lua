@@ -12,8 +12,12 @@ end
 
 local current_theme_name = 'solarized_dark'
 local current_theme = require('lualine.themes' .. '.' .. current_theme_name)
-local hostname_color = current_theme.normal.b.fg
+local remote_hostname_color = '#FF6666'
 
+function in_remote_session ()
+  -- print("in_remote_session:", not not (vim.env.SSH_CLIENT or vim.env.SSH_TTY))
+  return not not (vim.env.SSH_CLIENT or vim.env.SSH_TTY)
+end
 
 if vim.env.TERM_META == 'dark' then
     -- make the colors the same on boths sides of the line
@@ -24,12 +28,8 @@ if vim.env.TERM_META == 'dark' then
     current_theme.normal.c.bg = colors.base03
     current_theme.normal.c.fg = colors.base1
 
-    if vim.env.SSH_CLIENT then
-        hostname_color = colors.orange
-    end
-else
-    if vim.env.SSH_CLIENT then
-        hostname_color = '#FF6666'
+    if in_remote_session() then
+        remote_hostname_color = colors.orange
     end
 end
 
@@ -59,7 +59,12 @@ local lualine_cfg = {
     extension = {'quickfix', 'fugitive', 'fzf', 'nvim-tree'},
     sections = {
       lualine_b = {
-          'branch',
+        {
+          'hostname',
+          cond = in_remote_session,
+          color = { fg = remote_hostname_color },
+        },
+        'branch',
       },
       lualine_c = {
           {
@@ -90,18 +95,5 @@ local lualine_cfg = {
       lualine_z = {'progress', 'location'}
     }
 }
-
--- Only display the hostname if we're in a remote session
-if vim.env.SSH_CLIENT then
-    hostname_color = colors.orange
-
-    lualine_cfg.sections.lualine_b = {
-      {
-        'hostname',
-        color = { fg = hostname_color },
-      },
-      'branch',
-    }
-end
 
 require('lualine').setup(lualine_cfg)
