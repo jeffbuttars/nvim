@@ -12,7 +12,12 @@ end
 
 local current_theme_name = 'solarized_dark'
 local current_theme = require('lualine.themes' .. '.' .. current_theme_name)
+local remote_hostname_color = '#FF6666'
 
+function in_remote_session ()
+  -- print("in_remote_session:", not not (vim.env.SSH_CLIENT or vim.env.SSH_TTY))
+  return not not (vim.env.SSH_CLIENT or vim.env.SSH_TTY)
+end
 
 if vim.env.TERM_META == 'dark' then
     -- make the colors the same on boths sides of the line
@@ -22,6 +27,10 @@ if vim.env.TERM_META == 'dark' then
 
     current_theme.normal.c.bg = colors.base03
     current_theme.normal.c.fg = colors.base1
+
+    if in_remote_session() then
+        remote_hostname_color = colors.orange
+    end
 end
 
 -- https://github.com/hoob3rt/lualine.nvim
@@ -45,13 +54,17 @@ local l_options = {
   theme = current_theme
 }
 
-require('lualine').setup({
+local lualine_cfg = {
     options = l_options,
     extension = {'quickfix', 'fugitive', 'fzf', 'nvim-tree'},
     sections = {
       lualine_b = {
+        {
           'hostname',
-          'branch',
+          cond = in_remote_session,
+          color = { fg = remote_hostname_color },
+        },
+        'branch',
       },
       lualine_c = {
           {
@@ -81,4 +94,6 @@ require('lualine').setup({
       lualine_y = {'filetype'},
       lualine_z = {'progress', 'location'}
     }
-})
+}
+
+require('lualine').setup(lualine_cfg)
