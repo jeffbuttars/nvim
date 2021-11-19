@@ -8,9 +8,9 @@ vim.o.completeopt = "menu,menuone,noselect"
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
         -- max_lines = 1000;
-        max_num_results = 5;
+        -- max_num_results = 5;
         sort = true;
-        run_on_every_keystroke = false;
+        run_on_every_keystroke = true;
         -- snippet_placeholder = '..';
 })
 
@@ -18,18 +18,18 @@ local cmp = require'cmp'
 
 local source_name_map = {
     nvim_lsp = "[LSP]",
-    buffer = "[Buf]",
-    treesitter = "[TS]",
-    luasnip = "[Snip]",
     ultisnips = "[Snip]",
     tabnine = "[T9]",
-    nvim_lua = "[Lua]",
+    buffer = "[Buf]",
+    treesitter = "[TS]",
+    zsh = "[Zsh]",
     path = "[Path]",
     spell = "[Spell]",
-    latex_symbols = "[Latex]",
     tags = "[Tags]",
-    zsh = "[Zsh]",
+    nvim_lua = "[Lua]",
+    latex_symbols = "[Latex]",
     cmdline = "[Cmd]",
+    luasnip = "[Snip]",
 }
 
 local comp_items = {
