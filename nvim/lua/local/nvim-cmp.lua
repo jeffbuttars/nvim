@@ -7,11 +7,11 @@ vim.o.completeopt = "menu,menuone,noselect"
 -- Tabnine config
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
-        -- max_lines = 1000;
+        max_lines = 3000;
         max_num_results = 5;
         sort = true;
-        run_on_every_keystroke = false;
-        -- snippet_placeholder = '..';
+        run_on_every_keystroke = true;
+        snippet_placeholder = '..';
 })
 
 local cmp = require'cmp'
