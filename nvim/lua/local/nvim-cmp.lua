@@ -18,18 +18,18 @@ local cmp = require'cmp'
 
 local source_name_map = {
     nvim_lsp = "[LSP]",
-    buffer = "[Buf]",
-    treesitter = "[TS]",
-    luasnip = "[Snip]",
     ultisnips = "[Snip]",
     tabnine = "[T9]",
-    nvim_lua = "[Lua]",
+    buffer = "[Buf]",
+    treesitter = "[TS]",
+    zsh = "[Zsh]",
     path = "[Path]",
     spell = "[Spell]",
-    latex_symbols = "[Latex]",
     tags = "[Tags]",
-    zsh = "[Zsh]",
+    nvim_lua = "[Lua]",
+    latex_symbols = "[Latex]",
     cmdline = "[Cmd]",
+    luasnip = "[Snip]",
 }
 
 local comp_items = {
@@ -130,7 +130,7 @@ cmp.setup({
       -- ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
+          select = false,
       }),
       ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
       ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
