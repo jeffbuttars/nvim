@@ -1,4 +1,5 @@
 local my_utils = require('local.utils')
+local my_signs = my_utils.signs
 
 local Border = {
  {"╭", "FloatBorder"},
@@ -47,11 +48,14 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 
 local signs = {
-    Error = my_utils.signs.error .. " ",
-    Warning = my_utils.signs.warning .. " ",
-    Hint = my_utils.signs.hint .. " ",
-    Information = my_utils.signs.information .. " ",
+    Error = my_signs.error .. " ",
+    Warning = my_signs.warning .. " ",
+    Warn = my_signs.warning .. " ",
+    Hint = my_signs.hint .. " ",
+    Information = my_signs.information .. " ",
+    Info = my_signs.information .. " ",
 }
+
 for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
