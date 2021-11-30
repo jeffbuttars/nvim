@@ -1,9 +1,37 @@
 local my_utils = require('local.utils')
 
+local Border = {
+ {"╭", "FloatBorder"},
+ {"─", "FloatBorder"},
+ {"╮", "FloatBorder"},
+ {"│", "FloatBorder"},
+ {"╯", "FloatBorder"},
+ {"─", "FloatBorder"},
+ {"╰", "FloatBorder"},
+ {"│", "FloatBorder"},
+}
+
+vim.lsp.diagnostic.show_line_diagnostics(
+  {
+    border = Border,
+    focusable = false
+  }
+)
+
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, { focusable = false }
+  vim.lsp.handlers.hover, {
+    border = Border,
+    focusable = false,
+  }
 )
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+ vim.lsp.handlers.signature_help, {
+     border = Border
+   }
+ )
+
 
 -- https://neovim.io/doc/user/lsp.html
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -13,6 +41,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     signs = true,
     update_in_insert = false,
     severity_sort = true,
+    source = 'always',
   }
 )
 
