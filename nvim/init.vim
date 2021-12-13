@@ -215,6 +215,7 @@ require("local/packer")
 require("local")
 EOF
 
+
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
 " " Load our 'plugs' early
