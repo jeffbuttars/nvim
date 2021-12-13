@@ -1,6 +1,15 @@
 local my_utils = require('local.utils')
 local my_signs = my_utils.signs
 
+-- You've something like this your config.
+-- ```lua
+--   {'diagnostics', sources = {'nvim_lsp'}}
+-- ```
+-- It needs to be updated to:
+-- ```lua
+--   {'diagnostics', sources = {'nvim_diagnostic'}}
+-- ```
+
 local Border = {
  {"╭", "FloatBorder"},
  {"─", "FloatBorder"},

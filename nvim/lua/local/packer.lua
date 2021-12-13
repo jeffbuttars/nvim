@@ -26,6 +26,9 @@ local packer = require('packer').startup(function(use)
     -- For writing prose
     -- Plug 'junegunn/goyo.vim'
 
+
+    use 'monkoose/matchparen.nvim'
+
     -- Formatting
     use 'axelf4/vim-strip-trailing-whitespace'
 

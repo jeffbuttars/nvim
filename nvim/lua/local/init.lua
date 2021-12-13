@@ -1,3 +1,4 @@
+require("local/matchparen");
 require("local/pyright");
 require("local/lsp");
 require("local/pylsp");

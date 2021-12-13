@@ -80,10 +80,10 @@ local lualine_cfg = {
           {
             'diagnostics',
             -- table of diagnostic sources, available sources:
-            -- 'nvim_lsp', 'nvim', 'coc', 'ale', 'vim_lsp'
+            -- 'nvim_diagnostic', 'nvim', 'coc', 'ale', 'vim_lsp'
             -- Or a function that returns a table like
             --   {error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt}
-            sources = {'nvim_lsp'},
+            sources = {'nvim_diagnostic'},
             -- displays diagnostics from defined severity
             sections = {'error', 'warn', 'info', 'hint'},
             separator = nf_icons['pl-left_soft_divider'],
