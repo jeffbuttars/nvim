@@ -162,13 +162,14 @@ local packer = require('packer').startup(function(use)
             "ray-x/cmp-treesitter",
             "f3fora/cmp-spell",
             "tamago324/cmp-zsh",
+            "hrsh7th/cmp-emoji",
         },
     }
-    use {
-        "tzachar/cmp-tabnine",
-        run="./install.sh",
-        requires = "hrsh7th/nvim-cmp"
-    }
+    -- use {
+    --     "tzachar/cmp-tabnine",
+    --     run="./install.sh",
+    --     requires = "hrsh7th/nvim-cmp"
+    -- }
 
     if packer_bootstrap then
         require('packer').sync()

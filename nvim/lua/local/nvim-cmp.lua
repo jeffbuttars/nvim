@@ -5,24 +5,25 @@
 vim.o.completeopt = "menu,menuone,noselect"
 
 -- Tabnine config
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-        max_lines = 3000;
-        max_num_results = 5;
-        sort = true;
-        run_on_every_keystroke = true;
-        snippet_placeholder = '..';
-})
+-- local tabnine = require('cmp_tabnine.config')
+-- tabnine:setup({
+--         max_lines = 3000;
+--         max_num_results = 5;
+--         sort = true;
+--         run_on_every_keystroke = true;
+--         snippet_placeholder = '..';
+-- })
 
 local cmp = require'cmp'
+
+require "cmp_emoji"
 
 local source_name_map = {
     nvim_lsp = "[LSP]",
     ultisnips = "[Snip]",
-    tabnine = "[T9]",
+    -- tabnine = "[T9]",
     buffer = "[Buf]",
     treesitter = "[TS]",
-    zsh = "[Zsh]",
     path = "[Path]",
     spell = "[Spell]",
     tags = "[Tags]",
@@ -30,6 +31,8 @@ local source_name_map = {
     latex_symbols = "[Latex]",
     cmdline = "[Cmd]",
     luasnip = "[Snip]",
+    emoji = "[Emoji]",
+    zsh = "[Zsh]",
 }
 
 local comp_items = {
@@ -165,19 +168,19 @@ cmp.setup({
     },
     sources = {
       -- For ultisnips user.
-      { name = 'nvim_lsp' },
-      { name = 'ultisnips' },
-      { name = 'cmp_tabnine' },
-      { name = 'treesitter' },
-      { name = 'tags' },
-      { name = 'buffer' },
-      { name = 'nvim_lua' },
-      { name = 'path' },
-      -- { name = 'nuspell' },
-      { name = 'spell' },
-      { name = 'calc' },
-      { name = 'look' },
-      { name = 'zsh' },
+      { name = 'nvim_lsp', group_index = 1 },
+      { name = 'ultisnips', group_index = 1 },
+      -- { name = 'cmp_tabnine', group_index = 1 },
+      { name = 'treesitter', group_index = 1 },
+      { name = 'buffer', group_index = 1  },
+      { name = 'tags', group_index = 1 },
+      { name = 'nvim_lua', group_index = 1 },
+      { name = 'path', group_index = 1 },
+      { name = 'spell', group_index = 2 },
+      { name = 'calc', group_index = 2 },
+      { name = 'look', group_index = 2 },
+      { name = 'zsh', group_index = 2 },
+      { name = 'emoji', group_index = 2 },
     },
     documentation = {
         -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
