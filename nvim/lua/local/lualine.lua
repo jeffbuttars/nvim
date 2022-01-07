@@ -3,14 +3,12 @@ local nf_icons = require('local.nf-icons')
 local colors = require('local.utils').solarized_colors
 
 -- Setup and customize our theme
-local current_theme_name = 'solarized_dark'
+local current_theme_name = 'solarized_light'
+
 if vim.env.TERM_META == 'dark' then
     current_theme_name = 'solarized_dark'
-else
-    current_theme_name = 'solarized_light'
 end
 
-local current_theme_name = 'solarized_dark'
 local current_theme = require('lualine.themes' .. '.' .. current_theme_name)
 local remote_hostname_color = '#FF6666'
 
