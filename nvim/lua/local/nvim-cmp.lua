@@ -169,10 +169,11 @@ cmp.setup({
     sources = {
       -- For ultisnips user.
       { name = 'nvim_lsp', group_index = 1 },
+      { name = 'nvim_lsp_signature_help', group_index = 1 },
       { name = 'ultisnips', group_index = 1 },
       -- { name = 'cmp_tabnine', group_index = 1 },
       { name = 'treesitter', group_index = 1 },
-      { name = 'buffer', group_index = 1  },
+      { name = 'buffer', group_index = 1, Keyword_length = 3  },
       { name = 'tags', group_index = 1 },
       { name = 'nvim_lua', group_index = 1 },
       { name = 'path', group_index = 1 },
