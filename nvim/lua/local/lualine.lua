@@ -43,7 +43,6 @@ end
 
 local l_options = {
   section_separators = { left = nf_icons['ple-right_half_circle_thick'], right = nf_icons['ple-left_half_circle_thick'] },
-  -- section_separators = {my_utils.icons.half_circle_right_filled, my_utils.icons.half_circle_left_filled},
   -- component_separators = {nf_icons['ple-right_half_circle_thick'], nf_icons['ple-left_half_circle_thick']}
 
   -- 'pl-right_soft_divider' => ''
