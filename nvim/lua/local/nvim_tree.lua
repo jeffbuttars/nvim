@@ -3,12 +3,6 @@
 local my_signs = require("local.utils").signs
 local actions = require('telescope.actions')
 
-vim.cmd('let g:nvim_tree_disable_window_picker = 1') -- 0 by default, will disable the window picker.
-vim.cmd('let g:nvim_tree_quit_on_open = 1') -- 0 by default, closes the tree when you open a file
-
--- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
--- vim.cmd('let g:nvim_tree_respect_buf_cwd = 1')
-
 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
 -- vim.cmd('let g:nvim_tree_icons = 1')
 vim.cmd('let g:nvim_tree_git_hl = 1')
@@ -29,7 +23,20 @@ require'nvim-tree'.setup {
   -- opens the tree when changing/opening a new tab if the tree wasn"t previously opened
   open_on_tab         = false,
 
-  update_to_buf_dir   = {
+  actions = {
+      change_dir = {
+          enable = true,
+          global = false,
+      },
+      open_file = {
+          window_picker = {
+              enable = false,
+          },
+          quit_on_open = true,
+      },
+  },
+
+  update_to_buf_dir = {
   -- hijacks new directory buffers when they are opened.
       -- enable the feature
       enable = true,
@@ -97,3 +104,89 @@ require'nvim-tree'.setup {
     }
   }
 }
+
+-- init.lua
+
+-- following options are the default
+-- each of these are documented in `:help nvim-tree.OPTION_NAME`
+
+-- require'nvim-tree'.setup {
+--   disable_netrw        = false,
+--   hijack_netrw         = true,
+--   open_on_setup        = false,
+--   ignore_buffer_on_setup = false,
+--   ignore_ft_on_setup   = {},
+--   auto_close           = false,
+--   auto_reload_on_write = true,
+--   open_on_tab          = false,
+--   hijack_cursor        = false,
+--   update_cwd           = false,
+--   hijack_unnamed_buffer_when_opening = false,
+--   hijack_directories   = {
+--     enable = true,
+--     auto_open = true,
+--   },
+--   diagnostics = {
+--     enable = false,
+--     icons = {
+--       hint = "",
+--       info = "",
+--       warning = "",
+--       error = "",
+--     }
+--   },
+--   update_focused_file = {
+--     enable      = false,
+--     update_cwd  = false,
+--     ignore_list = {}
+--   },
+--   system_open = {
+--     cmd  = nil,
+--     args = {}
+--   },
+--   filters = {
+--     dotfiles = false,
+--     custom = {}
+--   },
+--   git = {
+--     enable = true,
+--     ignore = true,
+--     timeout = 500,
+--   },
+--   view = {
+--     width = 30,
+--     height = 30,
+--     hide_root_folder = false,
+--     side = 'left',
+--     preserve_window_proportions = false,
+--     mappings = {
+--       custom_only = false,
+--       list = {}
+--     },
+--     number = false,
+--     relativenumber = false,
+--     signcolumn = "yes"
+--   },
+--   trash = {
+--     cmd = "trash",
+--     require_confirm = true
+--   },
+--   actions = {
+--     change_dir = {
+--       enable = true,
+--       global = false,
+--     },
+--     open_file = {
+--       quit_on_open = false,
+--       resize_window = false,
+--       window_picker = {
+--         enable = true,
+--         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+--         exclude = {
+--           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
+--           buftype  = { "nofile", "terminal", "help", },
+--         }
+--       }
+--     }
+--   }
+-- }
