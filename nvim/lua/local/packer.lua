@@ -118,6 +118,7 @@ local packer = require('packer').startup(function(use)
 
     -- Theme / Colors
     use "ishan9299/nvim-solarized-lua"
+    use "EdenEast/nightfox.nvim"
     use "folke/lsp-colors.nvim"
 
     -- Tab indicator
