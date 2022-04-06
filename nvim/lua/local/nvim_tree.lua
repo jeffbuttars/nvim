@@ -18,8 +18,6 @@ require'nvim-tree'.setup {
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
-  -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close          = true,
   -- opens the tree when changing/opening a new tab if the tree wasn"t previously opened
   open_on_tab         = false,
 
@@ -29,10 +27,16 @@ require'nvim-tree'.setup {
           global = false,
       },
       open_file = {
+          quit_on_open = true,
+          resize_window = true,
           window_picker = {
               enable = false,
+              chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+              exclude = {
+                filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                buftype = { "nofile", "terminal", "help" },
+              },
           },
-          quit_on_open = true,
       },
   },
 
