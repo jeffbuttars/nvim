@@ -106,7 +106,8 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = {
         { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-        { key = "<C-e>",                        action = "edit_in_place" },
+        -- { key = "<C-e>",                        action = "edit_in_place" },
+        { key = "<C-e>",                        action = "" },
         { key = {"O"},                          action = "edit_no_picker" },
         { key = {"<2-RightMouse>", "<C-]>"},    action = "cd" },
         { key = "<C-v>",                        action = "vsplit" },
