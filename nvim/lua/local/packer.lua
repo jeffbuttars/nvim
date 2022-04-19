@@ -19,6 +19,12 @@ local packer = require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Faster startup for lua plugins, https://github.com/lewis6991/impatient.nvim
+    -- impatient needs to be setup before any other lua plugin is loaded
+    -- so it is recommended you add the following near the start of your init.vim
+    -- lua require('impatient')
+    use 'lewis6991/impatient.nvim'
+
     -- Lua utils / lib
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'

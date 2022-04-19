@@ -1,3 +1,5 @@
+
+require("local/impatient");
 require("local/matchparen");
 require("local/pyright");
 require("local/lsp");

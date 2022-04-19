@@ -126,7 +126,8 @@ cmp.setup({
         vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
-    mapping = {
+
+    mapping = cmp.mapping.preset.insert({
       -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       -- ['<C-Space>'] = cmp.mapping.complete(),
@@ -145,7 +146,8 @@ cmp.setup({
       --     behavior = cmp.SelectBehavior.Select,
       --     select = true,
       -- }),
-    },
+    }),
+
     formatting = {
         format = function(entry, vim_item)
             if vim_item.abbr then
@@ -183,17 +185,21 @@ cmp.setup({
       { name = 'zsh', group_index = 2 },
       { name = 'emoji', group_index = 2 },
     },
-    documentation = {
-        -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
-        -- border = { '', '', '', ' ', '', '', '', ' ' },
-        -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
-        border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+
+    window = {
+        documentation = {
+            -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
+            -- border = { '', '', '', ' ', '', '', '', ' ' },
+            -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+            border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        },
     },
 
     experimental = {
         ghost_text = true,
     },
 })
+
 
 cmp.register_source('look', require('cmp_look').new())
 
