@@ -219,13 +219,9 @@ EOF
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
 " " Load our 'plugs' early
-runtime nvimrc/nerd-commenter.vim
-runtime nvimrc/theme.vim
-runtime nvimrc/dirdiff.vim
-runtime nvimrc/ultisnips.vim
-runtime nvimrc/isort.vim
+" runtime nvimrc/ultisnips.vim
+" runtime nvimrc/isort.vim
 runtime nvimrc/gui.vim
-runtime nvimrc/black.vim
 
 if executable('nvui')
     runtime nvimrc/nvui.vim

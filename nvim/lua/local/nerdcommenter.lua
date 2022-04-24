@@ -1,5 +1,7 @@
- let b:leader = exists('g:mapleader') ? g:mapleader : '\'
- " I like to use CTRL-C to toggle comments
+vim.cmd([[
+" let b:leader = exists('g:mapleader') ? g:mapleader : '\'
+
+" I like to use CTRL-C to toggle comments
  exec 'noremap <C-C> :call nerdcommenter#Comment("n", "AlignLeft")<cr>'
  exec 'noremap <C-N> :call nerdcommenter#Comment("n", "Uncomment")<cr>'
 
@@ -11,3 +13,4 @@
      \ 'ecl': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
      \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
  \ }
+]])

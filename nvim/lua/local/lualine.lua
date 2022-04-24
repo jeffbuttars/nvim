@@ -2,14 +2,17 @@
 local nf_icons = require('local.nf-icons')
 local colors = require('local.utils').solarized_colors
 
--- Setup and customize our theme
-local current_theme_name = 'solarized_light'
+-- You can explicitly set the color theme, or let lualine use the current colorscheme
+-- to figure it out
+-- local current_theme_name = vim.g.colors_name
+-- -- Setup and customize our theme
+-- local current_theme_name = 'solarized_light'
 
-if vim.env.TERM_META == 'dark' then
-    current_theme_name = 'solarized_dark'
-end
+-- if vim.env.TERM_META == 'dark' then
+--     current_theme_name = 'solarized_dark'
+-- end
 
-local current_theme = require('lualine.themes' .. '.' .. current_theme_name)
+-- local current_theme = require('lualine.themes' .. '.' .. current_theme_name)
 local remote_hostname_color = '#FF6666'
 
 function in_remote_session ()
@@ -17,19 +20,19 @@ function in_remote_session ()
   return not not (vim.env.SSH_CLIENT or vim.env.SSH_TTY)
 end
 
-if vim.env.TERM_META == 'dark' then
-    -- make the colors the same on boths sides of the line
-    -- current_theme.normal.b = current_theme.normal.c
-    current_theme.normal.b.bg = colors.base02
-    current_theme.normal.b.fg = colors.base0
+-- if vim.env.TERM_META == 'dark' then
+--     -- make the colors the same on boths sides of the line
+--     -- current_theme.normal.b = current_theme.normal.c
+--     current_theme.normal.b.bg = colors.base02
+--     current_theme.normal.b.fg = colors.base0
 
-    current_theme.normal.c.bg = colors.base03
-    current_theme.normal.c.fg = colors.base1
+--     current_theme.normal.c.bg = colors.base03
+--     current_theme.normal.c.fg = colors.base1
 
-    if in_remote_session() then
-        remote_hostname_color = colors.orange
-    end
-end
+--     if in_remote_session() then
+--         remote_hostname_color = colors.orange
+--     end
+-- end
 
 -- https://github.com/hoob3rt/lualine.nvim
 
@@ -48,7 +51,7 @@ local l_options = {
   -- 'pl-right_soft_divider' => ''
   -- 'pl-left_soft_divider' => ''
   -- component_separators = { left = nf_icons['pl-left_soft_divider'], right = nf_icons['pl-right_soft_divider'] },
-  theme = current_theme
+  -- theme = current_theme
 }
 
 local lualine_cfg = {

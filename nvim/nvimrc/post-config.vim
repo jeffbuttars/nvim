@@ -4,17 +4,17 @@
 " "If you have something highlighted and type a, it replaces the text, like other editors.
 " "If you type (, however, it wraps the selected text in parentheses.
 " "This is enormously useful. Luckily, it's very easy to recreate in Vim:
-vnoremap ((  <ESC>`>a)<ESC>`<i(<ESC>
-vnoremap ))  <ESC>`<i(<ESC>`><right>a)<ESC>
-vnoremap {{  <ESC>`>a}<ESC>`<i{<ESC>
-vnoremap }}  <ESC>`<i{<ESC>`><right>a}<ESC>
-vnoremap [[  <ESC>`>a]<ESC>`<i[<ESC>
-vnoremap ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
-" If allow " here, it messes up register selection
-" So we use "" instead, and it works.
-vnoremap ""  <ESC>`>a"<ESC>`<i"<ESC>
-vnoremap ''  <ESC>`>a'<ESC>`<i'<ESC>
-vnoremap ``  <ESC>`>a`<ESC>`<i`<ESC>
+" vnoremap ((  <ESC>`>a)<ESC>`<i(<ESC>
+" vnoremap ))  <ESC>`<i(<ESC>`><right>a)<ESC>
+" vnoremap {{  <ESC>`>a}<ESC>`<i{<ESC>
+" vnoremap }}  <ESC>`<i{<ESC>`><right>a}<ESC>
+" vnoremap [[  <ESC>`>a]<ESC>`<i[<ESC>
+" vnoremap ]]  <ESC>`<i[<ESC>`><right>a]<ESC>
+" " If allow " here, it messes up register selection
+" " So we use "" instead, and it works.
+" vnoremap ""  <ESC>`>a"<ESC>`<i"<ESC>
+" vnoremap ''  <ESC>`>a'<ESC>`<i'<ESC>
+" vnoremap ``  <ESC>`>a`<ESC>`<i`<ESC>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " From an idea by Michael Naumann
@@ -62,8 +62,8 @@ endfunction
 
 " Map the <End> key to <Esc>
 " This is do to my X1 gen 2 kbd layout
-nmap <End> <ESC>
-imap <End> <ESC>
+" nmap <End> <ESC>
+" imap <End> <ESC>
 
 highlight OverColLimit term=inverse,bold cterm=bold ctermbg=red ctermfg=black gui=bold guibg=red guifg=black
 function! SetColorColumn(ccol)
@@ -153,8 +153,8 @@ augroup END
 " Move 1 more lines up or down in normal and visual selection modes.
 " nnoremap K :m .-2<CR>==
 " nnoremap J :m .+1<CR>==
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
+" vnoremap J :m '>+1<CR>gv=gv
 
 " For all text files set 'textwidth' to 98 characters.
 autocmd FileType text,txt setlocal textwidth=98
@@ -185,9 +185,3 @@ autocmd InsertLeave * :set cursorcolumn
 
 autocmd InsertEnter * :set nocursorline
 autocmd InsertEnter * :set nocursorcolumn
-
-" sign define LspDiagnosticsSignError text=✗ texthl=LspDiagnosticsSignError linehl= numhl=
-" sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
-" sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
-" sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
-" sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=

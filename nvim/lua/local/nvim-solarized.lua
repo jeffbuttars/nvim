@@ -49,7 +49,7 @@ vim.g.solarized_statusline = 'normal'
 -- vim.cmd('colorscheme solarized-low')
 
 
-vim.cmd('colorscheme solarized')
+-- vim.cmd('colorscheme solarized')
 -- vim.cmd[[
 -- highlight LspDiagnosticsLineNrError guibg=#000000 guifg=#FFFFFF gui=bold
 -- ]]
