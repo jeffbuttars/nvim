@@ -211,8 +211,8 @@ set list
 set diffopt=filler,vertical,context:15,algorithm:patience
 
 lua << EOF
-require("local/packer")
-require("local")
+require("plugins")
+require("core")
 EOF
 
 

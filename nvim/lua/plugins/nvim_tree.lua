@@ -1,7 +1,7 @@
 -- https://github.com/kyazdani42/nvim-tree.lua
 
 local my_signs = require("local.utils").signs
-local actions = require('telescope.actions')
+-- local actions = require('telescope.actions')
 
 -- 0 by default, will enable file highlight for git attributes (can be used without the icons).
 -- vim.cmd('let g:nvim_tree_icons = 1')

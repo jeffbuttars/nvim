@@ -1,7 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 
-
 vim.o.completeopt = "menu,menuone,noselect"
 
 -- Tabnine config

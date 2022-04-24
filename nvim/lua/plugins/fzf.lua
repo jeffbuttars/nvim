@@ -11,4 +11,5 @@
 --
 -- let g:fzf_tags_command = 'ctags --options=~/.ctags'
 
-vim.cmd('let g:fzf_preview_use_dev_icons = 1')
+-- vim.cmd('let g:fzf_preview_use_dev_icons = 1')
+-- vim.g.fzf_preview_use_dev_icons = true
