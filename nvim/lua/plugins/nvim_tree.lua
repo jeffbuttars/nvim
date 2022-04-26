@@ -40,7 +40,7 @@ require'nvim-tree'.setup {
       },
   },
 
-  update_to_buf_dir = {
+  hijack_directories = {
   -- hijacks new directory buffers when they are opened.
       -- enable the feature
       enable = true,
@@ -90,14 +90,13 @@ require'nvim-tree'.setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
-    width = '20%',
-    -- width = 64,
+    width = 64,
 
     -- side of the tree, can be one of "left" | "right" | "top" | "bottom"
     side = 'left',
 
     -- if true the tree will resize itself after opening a file
-    auto_resize = true,
+    -- auto_resize = true,
 
     mappings = {
       -- custom only false will merge the list with the default mappings
