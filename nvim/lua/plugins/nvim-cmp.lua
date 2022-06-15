@@ -126,26 +126,53 @@ cmp.setup({
       end,
     },
 
-    mapping = cmp.mapping.preset.insert({
-      -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      -- ['<C-Space>'] = cmp.mapping.complete(),
-      -- ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-      }),
-      ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
-      -- ['<Tab>'] = cmp.mapping.select_next_item({
-      --     behavior = cmp.SelectBehavior.Select,
-      --     select = true,
-      -- }),
-      -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
-      --     behavior = cmp.SelectBehavior.Select,
-      --     select = true,
-      -- }),
-    }),
+    mapping = {
+        ['<Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
+        ['<S-Tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
+    },
+
+    -- mapping = cmp.mapping.preset.insert({
+    --   -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    --   -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    --   -- ['<C-Space>'] = cmp.mapping.complete(),
+    --   -- ['<C-e>'] = cmp.mapping.close(),
+    --   ['<CR>'] = cmp.mapping.confirm({
+    --       behavior = cmp.ConfirmBehavior.Replace,
+    --       select = false,
+    --   }),
+    --   ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+
+
+    --    ['<Tab>'] = function(fallback)
+    --         if cmp.visible() then
+    --             cmp.select_next_item()
+    --         else
+    --             fallback()
+    --         end
+    --     end
+
+    --   ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    --   -- ['<Tab>'] = cmp.mapping.select_next_item({
+    --   --     behavior = cmp.SelectBehavior.Select,
+    --   --     select = true,
+    --   -- }),
+    --   -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
+    --   --     behavior = cmp.SelectBehavior.Select,
+    --   --     select = true,
+    --   -- }),
+    -- }),
 
     formatting = {
         format = function(entry, vim_item)
@@ -186,12 +213,17 @@ cmp.setup({
     },
 
     window = {
-        documentation = {
-            -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
-            -- border = { '', '', '', ' ', '', '', '', ' ' },
-            -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
-            border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
-        },
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+        -- completion = {
+        --     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        -- },
+        -- documentation = {
+        --     -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
+        --     -- border = { '', '', '', ' ', '', '', '', ' ' },
+        --     -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+        --     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        -- },
     },
 
     experimental = {
