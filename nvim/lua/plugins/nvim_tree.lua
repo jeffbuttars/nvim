@@ -99,6 +99,10 @@ require'nvim-tree'.setup {
     -- side of the tree, can be one of "left" | "right" | "top" | "bottom"
     side = 'left',
 
+    number = true,
+    relativenumber = true,
+    signcolumn = "yes",
+
     -- if true the tree will resize itself after opening a file
     -- auto_resize = true,
 

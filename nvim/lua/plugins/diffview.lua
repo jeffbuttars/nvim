@@ -15,7 +15,7 @@ require'diffview'.setup {
   file_panel = {
     win_config = {
         position = "left",
-        width = 35,
+        width = 64,
         -- height = 16,
     },
   },
