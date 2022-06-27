@@ -171,6 +171,7 @@ local packer = require('packer').startup(function(use)
             "f3fora/cmp-spell",
             "tamago324/cmp-zsh",
             "hrsh7th/cmp-emoji",
+            "onsails/lspkind.nvim",
         },
     }
     -- use {
