@@ -7,6 +7,7 @@
 " let g:neovide_cursor_vfx_mode = "ripple"
 " let g:neovide_cursor_vfx_mode = "wireframe"
 " let g:neovide_cursor_vfx_mode = "pixiedust"
+let g:neovide_cursor_trail_length=0.1
 
 " let g:neovide_transparency=0.9
 let g:neovide_refresh_rate=60
