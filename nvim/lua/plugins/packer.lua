@@ -38,6 +38,9 @@ local packer = require('packer').startup(function(use)
     -- Formatting
     use 'axelf4/vim-strip-trailing-whitespace'
 
+    -- Shell
+    use 'bash-lsp/bash-language-server'
+
     -- -> Python
     use 'psf/black'
     use 'brentyi/isort.vim'
