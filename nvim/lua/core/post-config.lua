@@ -20,6 +20,7 @@ vim.api.nvim_set_keymap("v", "''",  "<ESC>`>a'<ESC>`<i'<ESC>", options)
 vim.api.nvim_set_keymap("v", "``",  "<ESC>`>a`<ESC>`<i`<ESC>", options)
 
 
+
 -- https://bluz71.github.io/2017/06/28/current-treats-future-wants-of-neovim.html
 -- Make escape work in the Neovim terminal.
 -- tnoremap <Esc> <C-\><C-n>
@@ -70,3 +71,7 @@ local opts = { noremap = true, silent = true }
 
 vim.keymap.set({'n', 'i'}, "<C-+>", function() ResizeGuiFont(1)  end, opts)
 vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end, opts)
+
+
+vim.keymap.set({'n'}, "<C-PageDown>", ":tabNext<CR>", opts)
+vim.keymap.set({'n'}, "<C-PageUp>", ":tabprevious<CR>", opts)
