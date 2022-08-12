@@ -2,7 +2,7 @@ require("plugins/packer");
 require("plugins/impatient");
 
 require("plugins/black");
-require("plugins/black");
+require("plugins/bash-lsp");
 require("plugins/diffview");
 require("plugins/gitsigns");
 require("plugins/isort");

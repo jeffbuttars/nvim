@@ -17,6 +17,9 @@ local cmp = require'cmp'
 
 require "cmp_emoji"
 
+local lspkind = require('lspkind')
+
+
 local source_name_map = {
     nvim_lsp = "[LSP]",
     ultisnips = "[Snip]",
@@ -101,6 +104,34 @@ local comp_items_text = {
     TypeParameter = "TypeParam",
 }
 
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 local comp_items_w_text = {}
 for k, v in pairs(comp_items) do
     comp_items_w_text[k] = comp_items[k] .. " " .. comp_items_text[k]
@@ -126,74 +157,85 @@ cmp.setup({
       end,
     },
 
-    mapping = {
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
-        ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end,
+    view = {
+        entries = {
+            name = 'custom',
+            selection_order = 'near_cursor'
+        }
     },
 
-    -- mapping = cmp.mapping.preset.insert({
-    --   -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    --   -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    --   -- ['<C-Space>'] = cmp.mapping.complete(),
-    --   -- ['<C-e>'] = cmp.mapping.close(),
-    --   ['<CR>'] = cmp.mapping.confirm({
-    --       behavior = cmp.ConfirmBehavior.Replace,
-    --       select = false,
-    --   }),
-    --   ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    mapping = cmp.mapping.preset.insert({
+      -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      -- ['<C-Space>'] = cmp.mapping.complete(),
+      -- ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+      }),
+      ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+      ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+      -- ['<Tab>'] = cmp.mapping.select_next_item({
+      --     behavior = cmp.SelectBehavior.Select,
+      --     select = true,
+      -- }),
+      -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
+      --     behavior = cmp.SelectBehavior.Select,
+      --     select = true,
+      -- }),
+    }),
 
+    -- formatting = {
+    --     fields = { "kind", "abbr" },
+    --     format = function(_, vim_item)
+    --     vim_item.kind = cmp_kinds[vim_item.kind] or ""
+    --     return vim_item
+    --     end,
+    -- },
 
-    --    ['<Tab>'] = function(fallback)
-    --         if cmp.visible() then
-    --             cmp.select_next_item()
-    --         else
-    --             fallback()
-    --         end
-    --     end
+    -- formatting = {
+    --     fields = { "kind", "abbr" },
+    --     format = function(_, vim_item)
+    --     vim_item.kind = cmp_kinds[vim_item.kind] or ""
+    --     return vim_item
+    --     end,
+    -- },
 
-    --   ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
-    --   -- ['<Tab>'] = cmp.mapping.select_next_item({
-    --   --     behavior = cmp.SelectBehavior.Select,
-    --   --     select = true,
-    --   -- }),
-    --   -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
-    --   --     behavior = cmp.SelectBehavior.Select,
-    --   --     select = true,
-    --   -- }),
-    -- }),
-
+    -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
     formatting = {
+        fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-            if vim_item.abbr then
-                vim_item.abbr = comp_items[vim_item.kind] .. "" .. vim_item.abbr
-            end
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. strings[1] .. " "
+            kind.menu = "    " .. strings[2] .. ""
+            -- kind.menu = "    (" .. strings[2] .. ")"
 
-            -- vim_item.kind = comp_items_text[k]
-            vim_item.kind = comp_items_text[vim_item.kind]
-
-            -- set a name for each source
-            vim_item.menu = source_name_map[entry.source.name]
-
-            -- vim_item.kind = comp_items[vim_item.kind] .. " | " .. entry.source.name
-            -- for k, v in pairs(vim_item) do
-            --     print(k, v)
-            -- end
-
-            return vim_item
-        end
+            return kind
+        end,
     },
+
+    -- formatting = {
+    --     format = function(entry, vim_item)
+    --         if vim_item.abbr then
+    --             vim_item.abbr = comp_items[vim_item.kind] .. "" .. vim_item.abbr
+    --         end
+
+    --         -- vim_item.kind = comp_items_text[k]
+    --         vim_item.kind = comp_items_text[vim_item.kind]
+
+    --         -- set a name for each source
+    --         vim_item.menu = source_name_map[entry.source.name]
+
+    --         -- vim_item.kind = comp_items[vim_item.kind] .. " | " .. entry.source.name
+    --         -- for k, v in pairs(vim_item) do
+    --         --     print(k, v)
+    --         -- end
+
+    --         return vim_item
+    --     end
+    -- },
+
     sources = {
       -- For ultisnips user.
       { name = 'nvim_lsp', group_index = 1 },
@@ -201,8 +243,8 @@ cmp.setup({
       { name = 'ultisnips', group_index = 1 },
       -- { name = 'cmp_tabnine', group_index = 1 },
       { name = 'treesitter', group_index = 1 },
-      { name = 'buffer', group_index = 1, Keyword_length = 3  },
       { name = 'tags', group_index = 1 },
+      { name = 'buffer', group_index = 1, Keyword_length = 2  },
       { name = 'nvim_lua', group_index = 1 },
       { name = 'path', group_index = 1 },
       { name = 'spell', group_index = 2 },
@@ -213,17 +255,18 @@ cmp.setup({
     },
 
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-        -- completion = {
-        --     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
-        -- },
-        -- documentation = {
-        --     -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
-        --     -- border = { '', '', '', ' ', '', '', '', ' ' },
-        --     -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
-        --     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
-        -- },
+        documentation = {
+            -- border b_top , b_right , b_bot , b_left , b_topleft , b_topright , b_botright , b_botleft
+            -- border = { '', '', '', ' ', '', '', '', ' ' },
+            -- border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+            border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        },
+
+        completion = {
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            col_offset = -3,
+            side_padding = 0,
+        },
     },
 
     experimental = {

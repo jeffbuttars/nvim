@@ -3,6 +3,9 @@
 local my_signs = require("local.utils").signs
 -- local actions = require('telescope.actions')
 
+-- 0 by default, will enable file highlight for git attributes (can be used without the icons).
+-- vim.cmd('let g:nvim_tree_icons = 1')
+-- vim.cmd('let g:nvim_tree_git_hl = 1')
 
 vim.api.nvim_set_keymap("n", "<C-d>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
@@ -19,9 +22,7 @@ require'nvim-tree'.setup {
   open_on_tab         = false,
 
   renderer = {
-    -- false by default, will enable file highlight for git attributes (can be used without the icons).
       highlight_git = true,
-      -- icons = { }
   },
 
   actions = {
@@ -92,16 +93,15 @@ require'nvim-tree'.setup {
   },
 
   view = {
-    adaptive_size = true,
-    auto_resize = true,
-    -- add_trailing = true,
-    number = true,
-
     -- width of the window, can be either a number (columns) or a string in `%`
     width = 64,
 
     -- side of the tree, can be one of "left" | "right" | "top" | "bottom"
     side = 'left',
+
+    number = true,
+    relativenumber = true,
+    signcolumn = "yes",
 
     -- if true the tree will resize itself after opening a file
     -- auto_resize = true,

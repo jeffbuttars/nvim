@@ -227,8 +227,8 @@ if executable('nvui')
     runtime nvimrc/nvui.vim
 endif
 
-" if executable('neovide')
-"   runtime nvimrc/neovide.vim
-" endif
+if executable('neovide')
+  runtime nvimrc/neovide.vim
+endif
 
 runtime nvimrc/post-config.vim

@@ -13,10 +13,11 @@ require'diffview'.setup {
   },
   diff_binaries = false,    -- Show diffs for binaries
   file_panel = {
-      win_config = {
+    win_config = {
         position = "left",
         width = 64,
-      },
+        -- height = 16,
+    },
   },
   key_bindings = {
     -- The `view` bindings are active in the diff buffers, only when the current
