@@ -199,16 +199,26 @@ set splitbelow
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
-" algorithm:{text} Use the specified diff algorithm with the
-" internal diff engine. Currently supported
-" algorithms are:
-" myers      the default algorithm
-" minimal    spend extra time to generate the
-"         smallest possible diff
-" patience   patience diff algorithm
-" histogram  histogram diff algorithm
+" diffopt
 " context: show 15 lines of context
-set diffopt=filler,vertical,context:15,algorithm:patience
+" closeoff when a window is closed where 'diff' is set
+"   and there is only one window remaining in the
+"   same tab page with 'diff' set, execute
+"   `:diffoff` in that window.  This undoes a
+"   `:diffsplit` command.
+" hiddenoff Do not use diff mode for a buffer when it
+"   becomes hidden.
+" indent-heuristic
+"         Use the indent heuristic for the internal
+"         diff library.
+" algorithm:{text} Use the specified diff algorithm with the
+"   internal diff engine. Currently supported
+"   algorithms are:
+"     myers      the default algorithm
+"     minimal    spend extra time to generate the smallest possible diff
+"     patience   patience diff algorithm
+"     histogram  histogram diff algorithm
+set diffopt=internal,filler,vertical,context:15,closeoff,indent-heuristic,algorithm:histogram
 
 lua << EOF
 require("plugins")
