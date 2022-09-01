@@ -218,7 +218,7 @@ set list
 "     minimal    spend extra time to generate the smallest possible diff
 "     patience   patience diff algorithm
 "     histogram  histogram diff algorithm
-set diffopt=internal,filler,vertical,context:15,closeoff,indent-heuristic,algorithm:histogram
+set diffopt=internal,filler,vertical,context:15,closeoff,hiddenoff,indent-heuristic,algorithm:histogram
 
 lua << EOF
 require("plugins")
