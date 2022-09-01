@@ -5,8 +5,10 @@
 require("toggleterm").setup{
  open_mapping = [[<c-z>]],
  direction = 'float',
- -- float_opts = {
- -- }
+ float_opts = {
+    --     border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+    border = 'curved',
+ },
 }
 
 -- WARNING: Please do not copy and paste this configuration! It is here to show what options are available. It is not written be used as is.
