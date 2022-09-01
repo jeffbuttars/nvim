@@ -17,6 +17,7 @@ require("plugins/nvim_tree");
 require("plugins/pylsp");
 require("plugins/pyright");
 require("plugins/telescope");
+require("plugins/toggleterm");
 require("plugins/treesitter");
 require("plugins/tsserver");
 require("plugins/ultisnips");

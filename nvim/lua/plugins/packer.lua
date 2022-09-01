@@ -37,9 +37,17 @@ local packer = require('packer').startup(function(use)
 
     -- Formatting
     use 'axelf4/vim-strip-trailing-whitespace'
+    use 'smithbm2316/centerpad.nvim'
 
     -- Shell
     use 'bash-lsp/bash-language-server'
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = 'v2.*',
+        config = function()
+                require("toggleterm").setup()
+            end
+        }
 
     -- -> Python
     use 'psf/black'
