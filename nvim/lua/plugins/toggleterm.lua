@@ -2,23 +2,50 @@
 
 -- NOTE: Please ensure you have set hidden in your neovim config, otherwise the terminals will be discarded when closed.
 
-require("toggleterm").setup{
- open_mapping = [[<c-z>]],
- direction = 'float',
- float_opts = {
-    --     border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    border = 'curved',
- },
-}
+-- Add logic to only load and set this up if we're running Neovide
+--
+-- if exists("g:neovide")
+--     " Put anything you want to happen only in Neovide here
+-- endif
 
-local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+-- if vim.api.nvim_eval('exists("g:neovide")') then
+if vim.g.neovide then
+    require("toggleterm").setup{
+     open_mapping = [[<c-z>]],
+     direction = 'float',
+     float_opts = {
+        --     border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+        border = 'curved',
+     },
+    }
 
-function _lazygit_toggle()
-  lazygit:toggle()
+    local Terminal  = require('toggleterm.terminal').Terminal
+    local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+    function _lazygit_toggle()
+      lazygit:toggle()
+    end
+
+    vim.api.nvim_set_keymap("n", "<A-z>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 end
 
-vim.api.nvim_set_keymap("n", "<A-z>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+-- require("toggleterm").setup{
+--  open_mapping = [[<c-z>]],
+--  direction = 'float',
+--  float_opts = {
+--     --     border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+--     border = 'curved',
+--  },
+-- }
+
+-- local Terminal  = require('toggleterm.terminal').Terminal
+-- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+-- function _lazygit_toggle()
+--   lazygit:toggle()
+-- end
+
+-- vim.api.nvim_set_keymap("n", "<A-z>", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 -- WARNING: Please do not copy and paste this configuration! It is here to show what options are available. It is not written be used as is.
 -- require("toggleterm").setup{
