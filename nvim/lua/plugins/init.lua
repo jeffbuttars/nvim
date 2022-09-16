@@ -12,6 +12,7 @@ require("plugins/lualine");
 require("plugins/matchparen");
 require("plugins/nerdcommenter");
 require("plugins/nvim-cmp");
+-- require("plugins/nvim-lint");
 require("plugins/nvim-solarized");
 require("plugins/nvim_tree");
 require("plugins/pylsp");

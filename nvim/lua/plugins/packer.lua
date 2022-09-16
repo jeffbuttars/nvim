@@ -49,6 +49,9 @@ local packer = require('packer').startup(function(use)
             end
         }
 
+    -- Lint
+    -- use 'mfussenegger/nvim-lint'
+
     -- -> Python
     use 'psf/black'
     use 'brentyi/isort.vim'
