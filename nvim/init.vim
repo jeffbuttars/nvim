@@ -237,7 +237,8 @@ if executable('nvui')
     runtime nvimrc/nvui.vim
 endif
 
-if executable('neovide')
+if exists("g:neovide")
+  " Put anything you want to happen only in Neovide here
   runtime nvimrc/neovide.vim
 endif
 

@@ -1,24 +1,29 @@
 
 -- Set a builtin scheme as a default
-vim.cmd('colorscheme elflord')
+-- vim.g.colors_name = 'elflord'
 
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
 
 if vim.env.TERM_META == 'dark' then
     vim.opt.background = 'dark'
-    -- vim.cmd('colorscheme nightfox')
-    -- vim.cmd('colorscheme duskfox')
-    -- vim.cmd('colorscheme nordfox')
-    -- vim.cmd('colorscheme terrafox')
+    -- vim.g.colors_name = 'nightfox'
+    -- vim.g.colors_name = 'duskfox'
+    -- vim.g.colors_name = 'nordfox'
+    -- vim.g.colors_name = 'terafox'
+    vim.g.colors_name = 'terafox'
 else
     vim.opt.background = 'light'
-    -- vim.cmd('colorscheme dayfox')
-    -- vim.cmd('colorscheme dawnfox')
+    -- vim.g.colors_name = 'dayfox'
+    -- vim.g.colors_name = 'dawnfox'
+    vim.g.colors_name = 'solarized'
 end
 
-vim.cmd('colorscheme solarized')
 
+-- Use terafox when runing in neovide
+-- if vim.g.neovide then
+--     vim.g.colors_name = 'terafox'
+-- end
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true

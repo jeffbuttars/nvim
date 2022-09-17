@@ -3,7 +3,7 @@
 "
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=light " or dark
-colorscheme solarized_nvimqt
+" colorscheme solarized_nvimqt
 
 " Needed for nvim-gtk commands
 source /usr/share/nvim-gtk/runtime/nvim_gui_shim.vim
