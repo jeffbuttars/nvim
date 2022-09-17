@@ -46,16 +46,31 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 
 
 -- https://neovim.io/doc/user/lsp.html
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--     underline = true,
+--     virtual_text = false,
+--     signs = true,
+--     update_in_insert = false,
+--     severity_sort = true,
+--     source = 'always',
+--   }
+-- )
+
+vim.diagnostic.config({
     underline = true,
     virtual_text = false,
     signs = true,
-    update_in_insert = false,
-    severity_sort = true,
-    source = 'always',
-  }
-)
+    float = {
+        show_header = true,
+        source = 'always',
+        border = 'rounded',
+        focusable = false,
+        severity_sort = true, -- default to false
+    },
+    update_in_insert = false, -- default to false
+    severity_sort = true, -- default to false
+})
 
 
 local signs = {
