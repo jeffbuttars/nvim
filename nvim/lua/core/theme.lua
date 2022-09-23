@@ -5,25 +5,23 @@
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
 
+vim.opt.background = 'light'
+vim.g.colors_name = 'solarized'
+vim.cmd("colorscheme solarized")
+
 if vim.env.TERM_META == 'dark' then
     vim.opt.background = 'dark'
+    vim.g.colors_name = 'terafox'
+    vim.cmd("colorscheme terafox")
     -- vim.g.colors_name = 'nightfox'
     -- vim.g.colors_name = 'duskfox'
     -- vim.g.colors_name = 'nordfox'
-    -- vim.g.colors_name = 'terafox'
-    vim.g.colors_name = 'terafox'
-else
-    vim.opt.background = 'light'
+elseif vim.env.TERM_META == 'light' then
+    vim.g.colors_name = 'solarized'
+    vim.cmd("colorscheme solarized")
     -- vim.g.colors_name = 'dayfox'
     -- vim.g.colors_name = 'dawnfox'
-    vim.g.colors_name = 'solarized'
 end
-
-
--- Use terafox when runing in neovide
--- if vim.g.neovide then
---     vim.g.colors_name = 'terafox'
--- end
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
