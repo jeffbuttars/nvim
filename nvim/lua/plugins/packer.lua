@@ -42,11 +42,9 @@ local packer = require('packer').startup(function(use)
     -- Shell
     use 'bash-lsp/bash-language-server'
     use {
-        "akinsho/toggleterm.nvim",
-        tag = 'v2.*',
-        config = function()
-                require("toggleterm").setup()
-            end
+            "akinsho/toggleterm.nvim",
+            tag = '*',
+            config = function() require("toggleterm").setup() end
         }
 
     -- Lint
@@ -146,7 +144,10 @@ local packer = require('packer').startup(function(use)
 
     -- LSP and completions
     use "neovim/nvim-lspconfig"
-    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
 
     use {
         "tamago324/cmp-zsh",
@@ -162,6 +163,7 @@ local packer = require('packer').startup(function(use)
           -- your configuration comes here
           -- or leave it empty to use the default settings
           -- refer to the configuration section below
+          -- https://github.com/folke/trouble.nvim#%EF%B8%8F-configuration
           }
       end
     }
