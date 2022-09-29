@@ -73,5 +73,5 @@ vim.keymap.set({'n', 'i'}, "<C-+>", function() ResizeGuiFont(1)  end, opts)
 vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-1) end, opts)
 
 
-vim.keymap.set({'n'}, "<C-PageDown>", ":tabNext<CR>", opts)
-vim.keymap.set({'n'}, "<C-PageUp>", ":tabprevious<CR>", opts)
+vim.keymap.set({'n', 't'}, "<C-PageDown>", ":tabNext<CR>", opts)
+vim.keymap.set({'n', 't'}, "<C-PageUp>", ":tabprevious<CR>", opts)
