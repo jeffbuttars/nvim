@@ -228,12 +228,10 @@ EOF
 
 " Source the rest of the config, which is broken out into many files
 " runtime! nvimrc/*.vim
-" " Load our 'plugs' early
-" runtime nvimrc/ultisnips.vim
-" runtime nvimrc/isort.vim
-runtime nvimrc/gui.vim
+" runtime nvimrc/gui.vim
 
-if executable('nvui')
+" if executable('nvui')
+if exists("g:nvui")
     runtime nvimrc/nvui.vim
 endif
 
