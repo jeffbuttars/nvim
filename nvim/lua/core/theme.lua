@@ -23,6 +23,12 @@ elseif vim.env.TERM_META == 'light' then
     -- vim.g.colors_name = 'dawnfox'
 end
 
+-- if vim.g.neovide then
+--     vim.opt.background = 'dark'
+--     vim.g.colors_name = 'terafox'
+--     vim.cmd("colorscheme terafox")
+-- end
+
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
