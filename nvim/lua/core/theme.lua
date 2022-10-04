@@ -99,6 +99,9 @@ local cmp_high_group = {
   CmpItemKindTypeParameter = { fg = "#D8EEEB", bg = "#58B5A8" },
 }
 
+-- Winbar
+vim.opt.winbar='%-m %f %y'
+
 -- for k, v in pairs(cmp_high_group) do
 --     vim.cmd('highlight! '.. k .. ' guibg=' .. v.bg .. ' guifg=' .. v.fg)
 --     -- print('highlight! '.. k .. ' guibg=' .. v.bg .. ' guifg=' .. v.fg)
