@@ -17,4 +17,4 @@ let g:neovide_floating_blur_amount_x = 2.0
 let g:neovide_floating_blur_amount_y = 2.0
 
 " set guifont=FiraCode\ Nerd\ Font\ Mono:style=Medium\\,Regular:h24
-set guifont=FiraCode\ Nerd\ Font\ Mono:h12
+set guifont=FiraCode\ Nerd\ Font\ Mono:h14
