@@ -102,6 +102,9 @@ local cmp_high_group = {
 -- Winbar
 vim.opt.winbar='%-m %f %y'
 
+-- Hide the command line
+vim.opt.cmdheight = 0
+
 -- for k, v in pairs(cmp_high_group) do
 --     vim.cmd('highlight! '.. k .. ' guibg=' .. v.bg .. ' guifg=' .. v.fg)
 --     -- print('highlight! '.. k .. ' guibg=' .. v.bg .. ' guifg=' .. v.fg)
