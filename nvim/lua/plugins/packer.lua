@@ -119,6 +119,7 @@ local packer = require('packer').startup(function(use)
     -- Markdown stuff
     use 'PratikBhusal/vim-grip'
     use 'ajorgensen/vim-markdown-toc'
+    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
     -- Git
     use "tpope/vim-fugitive"
