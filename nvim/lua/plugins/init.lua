@@ -15,6 +15,7 @@ require("plugins/nvim-cmp");
 -- require("plugins/nvim-lint");
 require("plugins/nvim-solarized");
 require("plugins/nvim_tree");
+require("plugins/peek");
 require("plugins/pylsp");
 require("plugins/pyright");
 require("plugins/telescope");
