@@ -1,8 +1,19 @@
 snippet fun "function() "
 ${1}()
 {
-	$0
+    $0
 }
+endsnippet
+
+snippet if
+if [[ $1 ]]; then
+    ${0:${VISUAL}}
+fi
+endsnippet
+
+snippet elif
+elif [[ $1 ]]; then
+    ${0:${VISUAL}}
 endsnippet
 
 snippet go "getopts "
@@ -17,6 +28,8 @@ do
 done
 endsnippet
 
+
+
 snippet fori
 for ${1:needle} in ${2:haystack} ; do
     ${3:#statements}
@@ -28,5 +41,35 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 endsnippet
 
 snippet #! "#!/bin/bash" !b
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -o errexit
+# So that when a command fails,
+# bash exits instead of continuing with the rest of the script.
+
+set -o nounset
+# This will make the script fail, when accessing an unset variable.
+# Saves from horrible unintended consequences, with typos in variable names.
+# When you want to access a variable that may or may not have been set,
+# use "${VARNAME-}" instead of "$VARNAME", and you’re good.
+
+set -o pipefail
+# This will ensure that a pipeline command is treated as failed,
+# even if one command in the pipeline fails.
+
+if [[ "${TRACE-0}" == "1" ]]; then
+    # Use set -o xtrace, with a check on $TRACE env variable.
+    set -o xtrace
+fi
+
+# This helps in debugging your scripts, a lot.
+# People can now enable debug mode,
+# by running your script as TRACE=1 ./script.sh instead of ./script.sh endsnippet
+
+
+main() {
+    echo do awesome stuff
+}
+
+main "$@"
 endsnippet
