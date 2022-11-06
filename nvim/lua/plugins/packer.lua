@@ -34,6 +34,10 @@ local packer = require('packer').startup(function(use)
 
 
     use 'monkoose/matchparen.nvim'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
     -- Formatting
     use 'axelf4/vim-strip-trailing-whitespace'
