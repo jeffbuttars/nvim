@@ -1,26 +1,26 @@
-#!/bin/bash
+# #!/bin/bash
 
-source pkgs.sh
-source nvimenv.sh
-# source vim_plug.sh
-# source install_packer.sh
+# source pkgs.sh
+# source nvimenv.sh
+# # source vim_plug.sh
+# # source install_packer.sh
 
 
-# Link our UltiSnips up
-ln -nsf ${THIS_DIR}/../nvim/UltiSnips "$NVIM_HOME/"
+# # Link our UltiSnips up
+# ln -nsf ${THIS_DIR}/../nvim/UltiSnips "$NVIM_HOME/"
 
-mkdir -p "$(dirname ${NVIM_INIT})"
+# mkdir -p "$(dirname ${NVIM_INIT})"
 
-export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
-pr_info "Creating the new ${NVIM_INIT} whith ${PKGS_NVIM_DIR}"
+# export PKGS_NVIM_DIR="$(dirname $THIS_DIR/)/nvim"
+# pr_info "Creating the new ${NVIM_INIT} whith ${PKGS_NVIM_DIR}"
 
-echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
-echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
-echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
+# echo "set runtimepath+=$PKGS_NVIM_DIR" > "$NVIM_INIT"
+# echo "source $PKGS_NVIM_DIR/init.vim" >> "$NVIM_INIT"
+# echo "source $PKGS_NVIM_DIR/ginit.vim" >> "${NVIM_GINIT}"
 
-# pr_info "Install/Updating plugins..."
-# nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
-# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-# wait
+# # pr_info "Install/Updating plugins..."
+# # nvim -c ':PlugInstall' -c '<\CR>' -c ':qa'
+# # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# # wait
 
-pr_pass "Install complete"
+# pr_pass "Install complete"
