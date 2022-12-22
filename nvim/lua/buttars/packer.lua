@@ -33,12 +33,16 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    -- Theme / Colors
+    use "ishan9299/nvim-solarized-lua"
+    use "EdenEast/nightfox.nvim"
+    use "folke/lsp-colors.nvim"
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        -- config = function()
+        --     vim.cmd('colorscheme rose-pine')
+        -- end
     })
 
     use('nvim-treesitter/nvim-treesitter', {run =':TSUpdate'})

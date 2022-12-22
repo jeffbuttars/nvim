@@ -132,5 +132,17 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
+-- vim.opt.cursorline = false
+vim.opt.cursorline = true
+
+-- Only use cursorline/cursorcolun in normal mode
+-- autocmd InsertLeave * :set cursorline
+-- autocmd InsertLeave * :set cursorcolumn
+-- autocmd InsertLeave * :set laststatus=2
+--
+-- autocmd InsertEnter * :set nocursorline
+-- autocmd InsertEnter * :set nocursorcolumn
+-- autocmd InsertEnter * :set laststatus=0
+
 
 vim.g.mapleader = " "
