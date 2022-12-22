@@ -46,6 +46,23 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
 
+    -- formatting
+    use 'axelf4/vim-strip-trailing-whitespace'
+    use 'psf/black'
+    use 'brentyi/isort.vim'
+
+    -- Iconogrophy
+    use 'junegunn/vim-emoji'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'mortepau/codicons.nvim'
+
+    -- Status line
+    -- use "rebelot/heirline.nvim"
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
     -- LSP setup
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -62,6 +79,9 @@ return require('packer').startup(function(use)
             {'saadparwaiz1/cmp_luasnip'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-nvim-lua'},
+            { "tamago324/cmp-zsh",
+                requires = { "Shougo/deol.nvim" },
+            },
 
             -- Snippets
             {'L3MON4D3/LuaSnip'},
