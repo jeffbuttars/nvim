@@ -45,8 +45,11 @@ return require('packer').startup(function(use)
         -- end
     })
 
+    -- Tree Sitter
     use('nvim-treesitter/nvim-treesitter', {run =':TSUpdate'})
     use('nvim-treesitter/playground')
+
+
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
 
