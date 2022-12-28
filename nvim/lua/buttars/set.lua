@@ -146,3 +146,10 @@ vim.opt.cursorline = true
 
 
 vim.g.mapleader = " "
+
+-- If my preferred Python venv is available, use it.
+local py_venv_exec = os.getenv("HOME") .. '/.venv/bin/python'
+if vim.fn.filereadable(py_venv_exec) then
+    -- Explicitly set the python3 executable
+    vim.g.python3_host_prog = py_venv_exec
+end
