@@ -54,7 +54,7 @@ vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true }
 vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
 
 function SetColorColumn(ccol)
-    if not vim.bo.longLineMatchID then
+    if not vim.bo['longLineMatchID'] then
         vim.bo.longLineMatchID = 0
     end
 
@@ -100,7 +100,6 @@ function AutoSave()
     end
 
     if vim.fn.expand('%') ~= "" then
-        -- print("AutoSaving " .. vim.fn.expand('%'))
         local buf = vim.api.nvim_get_current_buf()
 
         if not vim.api.nvim_buf_get_option(buf, "modified") then
@@ -110,6 +109,7 @@ function AutoSave()
         vim.api.nvim_buf_call(buf,
         function()
             vim.api.nvim_command('silent! write')
+            print("Saved " .. vim.fn.expand('%'))
         end)
     end
 end
@@ -137,7 +137,7 @@ vim.api.nvim_create_autocmd(
     { "FileType" },
     {
         pattern = {"python", "sh", "javascript", "java", "c", "lua"},
-        callback = function() SetColorColumn(vim.opt_global.max_line_length) end,
+        callback = function() SetColorColumn(vim.g.max_line_length) end,
         group = MyCustomAutocmds
     }
 )
