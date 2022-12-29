@@ -30,8 +30,10 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { {'nvim-lua/plenary.nvim'},
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     }
+}
 
     -- Theme / Colors
     use "ishan9299/nvim-solarized-lua"
@@ -68,6 +70,11 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
+    -- Commenting
+    use {
+        'numToStr/Comment.nvim',
     }
 
     -- LSP setup

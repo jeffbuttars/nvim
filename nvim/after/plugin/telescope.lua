@@ -14,9 +14,41 @@ require('telescope').setup{
                 ["<C-k>"] = actions.move_selection_previous
             }
         },
-    }
+
+        max_results = 10,
+
+        color_devicons = true,
+        layout_strategy = "vertical",
+        -- layout_strategy = "flex",
+        height = 0.25,
+        layout_config = {
+            vertical = {
+                width = 0.9,
+                height = 0.95,
+                -- height = function(_, _, max_lines)
+                --     local percentage
+                --     local min = 3
+                --     return math.max(math.floor(percentage * max_lines), min)
+                -- end,
+                -- mirror = false,
+            },
+        },
+    },
+
+    extensions = {
+        fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+        }
+    },
 }
 
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
 
 -- project files
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})

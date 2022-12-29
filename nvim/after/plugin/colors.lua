@@ -1,4 +1,13 @@
 
+
+-- highlight OverColLimit term=inverse,bold cterm=bold ctermbg=red ctermfg=black gui=bold guibg=red guifg=black
+vim.api.nvim_set_hl(
+    0,
+    "OverColLimit",
+    { standout = true }
+    -- { standout = true, bold = true, ctermbg = "black", ctermfg = "red", bg = "black", fg = "red"}
+)
+
 local color_scheme = 'solarized-high'
 vim.g.colors_name = 'solarized'
 

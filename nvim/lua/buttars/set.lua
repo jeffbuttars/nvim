@@ -1,4 +1,3 @@
-
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
@@ -6,6 +5,10 @@
 -- https://neovim.io/doc/user/filetype.html
 -- Turn on filetype based plugin loading as well as filetype specific indent
 vim.cmd [[filetype plugin indent on]]
+
+-- Custom globals
+vim.g.max_line_length = 100
+
 
 -- Don't redraw screen when executing macros                                                                             │
 -- set lazyredraw
@@ -25,8 +28,8 @@ vim.opt.switchbuf = "split"
 vim.opt.undofile = true
 --vim.opt.undodir=~/.config/nvim/undos
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undolevels=1000
-vim.opt.undoreload=10000
+vim.opt.undolevels = 1000
+vim.opt.undoreload = 10000
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -44,8 +47,8 @@ vim.opt.wildignore = '*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,
 -- following option:
 -- vim.cmd[[set clipboard+=unnamed]]
 -- vim.cmd[[set clipboard+=unnamedplus]]
-vim.opt.clipboard:append {"unnamed"}
-vim.opt.clipboard:append {"unnamedplus"}
+vim.opt.clipboard:append { "unnamed" }
+vim.opt.clipboard:append { "unnamedplus" }
 
 -- I like to have my files automatically reloaded if they change on disk
 vim.opt.autoread = true
@@ -53,7 +56,7 @@ vim.opt.autoread = true
 -- vim.opt.guicursor = ""
 
 -- Relative line numbers
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Default tab setup sucks, use spaces at 4
@@ -61,7 +64,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.textwidth = 100
+vim.opt.textwidth = vim.g.max_line_length - 1
 vim.opt.shiftround = true
 
 --  The title of the window to titlestring
@@ -81,7 +84,7 @@ vim.opt.splitbelow = true
 -- vim.cmd[[set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"]]
 -- vim.opt.listchars = {tab = '»', trail = '·', nbsp = '~'}
 -- vim.opt.listchars = {tab = '»'}
-vim.opt.listchars = {trail = '·', nbsp = '~', tab = '»»'}
+vim.opt.listchars = { trail = '·', nbsp = '~', tab = '»»' }
 vim.opt.list = true
 
 
@@ -131,19 +134,15 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100"
--- vim.opt.cursorline = false
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.colorcolumn = "" .. vim.g.max_line_length
 
--- Only use cursorline/cursorcolun in normal mode
--- autocmd InsertLeave * :set cursorline
--- autocmd InsertLeave * :set cursorcolumn
--- autocmd InsertLeave * :set laststatus=2
---
--- autocmd InsertEnter * :set nocursorline
--- autocmd InsertEnter * :set nocursorcolumn
--- autocmd InsertEnter * :set laststatus=0
+-- A cleaner vertical split
+-- vim.opt.fillchars = "vert:│"
+vim.opt.fillchars = "vert::"
 
+vim.opt.switchbuf = { "uselast", "useopen" }
 
 vim.g.mapleader = " "
 
