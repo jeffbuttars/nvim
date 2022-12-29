@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
 
     -- formatting
+    use 'jose-elias-alvarez/null-ls.nvim'
     use 'axelf4/vim-strip-trailing-whitespace'
     use 'psf/black'
     use 'brentyi/isort.vim'

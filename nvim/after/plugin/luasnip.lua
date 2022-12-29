@@ -13,5 +13,6 @@ vim.keymap.set(
         if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
         end
-    end
+    end,
+    { desc = "LuaSnip trigger and jump forward" }
 )
