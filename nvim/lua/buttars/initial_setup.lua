@@ -152,3 +152,9 @@ if vim.fn.filereadable(py_venv_exec) then
     -- Explicitly set the python3 executable
     vim.g.python3_host_prog = py_venv_exec
 end
+
+-- Diagnositcs setup
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
