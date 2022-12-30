@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
 
     -- Git
     use('tpope/vim-fugitive')
+    use'lewis6991/gitsigns.nvim'
 
     -- formatting
     use 'jose-elias-alvarez/null-ls.nvim'

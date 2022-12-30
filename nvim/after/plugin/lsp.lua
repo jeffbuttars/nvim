@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local butt_utils = require("buttars.utils")
 
 lsp.preset("recommended")
 
@@ -40,11 +41,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 vim.keymap.set("n", "<leader>f", function()
 	vim.lsp.buf.format()
-	vim.api.nvim_command("write!")
 end)
 
 local MyLSPGroup = vim.api.nvim_create_augroup("MyCustomAutocmds", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	pattern = "*",
 	callback = function()
 		vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
@@ -65,15 +65,31 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 })
 
--- lsp.set_preferences({
---     suggest_lsp_servers = false,
---     sign_icons = {
---         error = 'E',
---         warn = 'W',
---         hint = 'H',
---         info = 'I'
---     }
--- })
+lsp.set_preferences({
+	suggest_lsp_servers = true,
+	sign_icons = {
+		error = butt_utils.signs.error,
+		warn = butt_utils.signs.warn,
+		hint = butt_utils.signs.hint,
+		info = butt_utils.signs.information,
+		other = butt_utils.signs.other,
+	},
+
+	configure_diagnostics = {
+		underline = true,
+		virtual_text = false,
+		signs = true,
+		float = {
+			show_header = true,
+			source = "always",
+			border = "rounded",
+			focusable = false,
+			severity_sort = true, -- defaulted to false
+		},
+		update_in_insert = true, -- defaulted to false
+		severity_sort = true, -- defaulted to false
+	},
+})
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -121,17 +137,17 @@ lsp.nvim_workspace()
 
 lsp.setup()
 
-vim.diagnostic.config({
-    -- underline = true,
-    virtual_text = false,
-    -- signs = true,
-    float = {
-        show_header = true,
-        source = 'always',
-        border = 'rounded',
-        focusable = false,
-        severity_sort = true, -- defaulted to false
-    },
-    -- update_in_insert = false, -- defaulted to false
-    severity_sort = true, -- defaulted to false
-})
+-- vim.diagnostic.config({
+-- 	-- underline = true,
+-- 	virtual_text = false,
+-- 	-- signs = true,
+-- 	float = {
+-- 		show_header = true,
+-- 		source = "always",
+-- 		border = "rounded",
+-- 		focusable = false,
+-- 		severity_sort = true, -- defaulted to false
+-- 	},
+-- 	-- update_in_insert = false, -- defaulted to false
+-- 	severity_sort = true, -- defaulted to false
+-- })

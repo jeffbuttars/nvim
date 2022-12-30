@@ -108,8 +108,8 @@ function AutoSave()
 
         vim.api.nvim_buf_call(buf,
         function()
-            vim.api.nvim_command('silent! write!')
-            print("Saved " .. vim.fn.expand('%'))
+            vim.api.nvim_cmd({cmd='write', args = {}, bang = true}, {})
+            print("Saved " .. vim.fn.expand('%') )
         end)
     end
 end
@@ -118,7 +118,7 @@ local MyCustomAutocmds = vim.api.nvim_create_augroup("MyCustomAutocmds", { clear
 
 -- AutoSave often
 vim.api.nvim_create_autocmd(
-    { "CursorHold", "BufLeave", "FocusLost", "WinLeave" },
+    { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "WinLeave" },
     { pattern = "*", callback = AutoSave, group = MyCustomAutocmds }
 )
 

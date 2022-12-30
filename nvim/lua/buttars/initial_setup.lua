@@ -45,8 +45,6 @@ vim.opt.wildignore = '*.swp,*.bak,*.pyc,*.pyo,*.class,*.6,.git,.hg,.svn,*.o,*.a,
 -- If you want to ALWAYS use the clipboard for ALL operations (as opposed
 -- to interacting with the '+' and/or '*' registers explicitly), set the
 -- following option:
--- vim.cmd[[set clipboard+=unnamed]]
--- vim.cmd[[set clipboard+=unnamedplus]]
 vim.opt.clipboard:append { "unnamed" }
 vim.opt.clipboard:append { "unnamedplus" }
 
@@ -84,7 +82,7 @@ vim.opt.splitbelow = true
 -- vim.cmd[[set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"]]
 -- vim.opt.listchars = {tab = '»', trail = '·', nbsp = '~'}
 -- vim.opt.listchars = {tab = '»'}
-vim.opt.listchars = { trail = '·', nbsp = '~', tab = '.»' }
+vim.opt.listchars = { trail = '·', nbsp = '~', tab = '».' }
 -- vim.opt.listchars = { trail = '·', nbsp = '~', tab = '..' }
 vim.opt.list = true
 
