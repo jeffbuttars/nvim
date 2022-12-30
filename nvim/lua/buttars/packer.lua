@@ -61,6 +61,13 @@ return require('packer').startup(function(use)
     -- Undo
     use('mbbill/undotree')
 
+    -- Shell
+    use {
+            "akinsho/toggleterm.nvim",
+            tag = '*',
+            config = function() require("toggleterm").setup() end
+        }
+
     -- Git
     use('tpope/vim-fugitive')
     use'lewis6991/gitsigns.nvim'
