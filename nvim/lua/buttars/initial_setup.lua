@@ -19,7 +19,7 @@ vim.opt.history = 10000
 
 
 -- CursorHold updatime time in ms
-vim.opt.updatetime = 250
+vim.opt.updatetime = 1000
 
 vim.opt.switchbuf = "split"
 
@@ -84,7 +84,8 @@ vim.opt.splitbelow = true
 -- vim.cmd[[set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"]]
 -- vim.opt.listchars = {tab = '»', trail = '·', nbsp = '~'}
 -- vim.opt.listchars = {tab = '»'}
-vim.opt.listchars = { trail = '·', nbsp = '~', tab = '»»' }
+vim.opt.listchars = { trail = '·', nbsp = '~', tab = '.»' }
+-- vim.opt.listchars = { trail = '·', nbsp = '~', tab = '..' }
 vim.opt.list = true
 
 

@@ -108,7 +108,7 @@ function AutoSave()
 
         vim.api.nvim_buf_call(buf,
         function()
-            vim.api.nvim_command('silent! write')
+            vim.api.nvim_command('silent! write!')
             print("Saved " .. vim.fn.expand('%'))
         end)
     end
