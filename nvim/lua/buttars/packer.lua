@@ -99,6 +99,9 @@ return require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 	})
 
+    -- Misc
+    use 'monkoose/matchparen.nvim'
+
 	-- LSP setup
 	use({
 		"VonHeikemen/lsp-zero.nvim",
