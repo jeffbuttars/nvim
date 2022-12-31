@@ -79,11 +79,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- ====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
--- vim.cmd[[set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"]]
--- vim.opt.listchars = {tab = '»', trail = '·', nbsp = '~'}
--- vim.opt.listchars = {tab = '»'}
-vim.opt.listchars = { trail = '·', nbsp = '~', tab = '».' }
--- vim.opt.listchars = { trail = '·', nbsp = '~', tab = '..' }
+vim.opt.listchars = { trail = '·', nbsp = '~', tab = '» ' }
 vim.opt.list = true
 
 

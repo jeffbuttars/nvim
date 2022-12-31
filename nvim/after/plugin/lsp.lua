@@ -1,3 +1,4 @@
+require("cmp_nvim_ultisnips").setup{}
 local lsp = require("lsp-zero")
 local butt_utils = require("buttars.utils")
 
@@ -29,14 +30,28 @@ lsp.configure("sumneko_lua", {
 })
 
 local cmp = require("cmp")
-
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 	["<C-y>"] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
+
+	--  Following is for  C-j/k completion/jumping with ultisnips
+	["<C-j>"] = cmp.mapping(function(fallback)
+		cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+	end, {
+		"i",
+		"s", --[[ "c" (to enable the mapping in command mode) ]]
+	}),
+	["<C-k>"] = cmp.mapping(function(fallback)
+		cmp_ultisnips_mappings.jump_backwards(fallback)
+	end, {
+		"i",
+		"s", --[[ "c" (to enable the mapping in command mode) ]]
+	}),
 })
 
 vim.keymap.set("n", "<leader>f", function()
@@ -62,7 +77,19 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 -- })
 
 lsp.setup_nvim_cmp({
+	snippet = {
+		expand = function(args)
+			vim.fn["UltiSnips#Anon"](args.body)
+		end,
+	},
 	mapping = cmp_mappings,
+	sources = {
+		{ name = "path" },
+		{ name = "nvim_lsp", keyword_length = 3 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "ultisnips", group_index = 2 },
+		-- { name = "nvim_lsp_signature_help", group_index = 1 },
+	},
 })
 
 lsp.set_preferences({
@@ -136,18 +163,3 @@ end)
 lsp.nvim_workspace()
 
 lsp.setup()
-
--- vim.diagnostic.config({
--- 	-- underline = true,
--- 	virtual_text = false,
--- 	-- signs = true,
--- 	float = {
--- 		show_header = true,
--- 		source = "always",
--- 		border = "rounded",
--- 		focusable = false,
--- 		severity_sort = true, -- defaulted to false
--- 	},
--- 	-- update_in_insert = false, -- defaulted to false
--- 	severity_sort = true, -- defaulted to false
--- })
