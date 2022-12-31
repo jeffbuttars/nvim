@@ -124,7 +124,7 @@ lsp.set_preferences({
 			focusable = false,
 			severity_sort = true, -- defaulted to false
 		},
-		update_in_insert = true, -- defaulted to false
+		update_in_insert = false, -- defaulted to false
 		severity_sort = true, -- defaulted to false
 	},
 })

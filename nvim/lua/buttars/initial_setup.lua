@@ -6,9 +6,8 @@
 -- Turn on filetype based plugin loading as well as filetype specific indent
 vim.cmd [[filetype plugin indent on]]
 
--- Custom globals
+-- 80 is way to 1950
 vim.g.max_line_length = 100
-
 
 -- Don't redraw screen when executing macros                                                                             │
 -- set lazyredraw
@@ -16,7 +15,6 @@ vim.opt.lazyredraw = true
 
 -- keep 10000 lines of command line history
 vim.opt.history = 10000
-
 
 -- CursorHold updatime time in ms
 vim.opt.updatetime = 500
@@ -26,8 +24,7 @@ vim.opt.switchbuf = "split"
 -- Enable persistent undo
 -- and tell vim were to store the undo files.
 vim.opt.undofile = true
---vim.opt.undodir=~/.config/nvim/undos
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
 
@@ -51,13 +48,11 @@ vim.opt.clipboard:append { "unnamedplus" }
 -- I like to have my files automatically reloaded if they change on disk
 vim.opt.autoread = true
 
--- vim.opt.guicursor = ""
-
--- Relative line numbers
+-- Relative line numbers by default. Modal line numbers are setup in events.lua
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Default tab setup sucks, use spaces at 4
+-- Default tab setup sucks, use 4 spaces for default
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -81,7 +76,6 @@ vim.opt.splitbelow = true
 -- ====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
 vim.opt.listchars = { trail = '·', nbsp = '~', tab = '» ' }
 vim.opt.list = true
-
 
 -- diffopt
 -- context: show 15 lines of context
@@ -113,21 +107,23 @@ vim.opt.diffopt = {
     "algorithm:histogram"
 }
 
-vim.opt.wrap = false
+-- Line wrapping
+vim.opt.wrap = true
 
+-- Instead of swapfiles and backups, aggressive saving is setup in events.lua
 vim.opt.swapfile = false
 vim.opt.backup = false
 
+-- Highlight searches as they are made
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
+-- More better colors
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
@@ -138,8 +134,6 @@ vim.opt.colorcolumn = "" .. vim.g.max_line_length
 vim.opt.fillchars = "vert::"
 
 vim.opt.switchbuf = { "uselast", "useopen" }
-
-vim.g.mapleader = " "
 
 -- If my preferred Python venv is available, use it.
 local py_venv_exec = os.getenv("HOME") .. '/.venv/bin/python'
