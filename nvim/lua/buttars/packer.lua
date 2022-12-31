@@ -102,6 +102,12 @@ return require("packer").startup(function(use)
 	-- Misc
 	use("monkoose/matchparen.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+    use { "windwp/nvim-autopairs" }
+
+    -- Markdown stuff
+    use 'PratikBhusal/vim-grip'
+    use 'ajorgensen/vim-markdown-toc'
+    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
 	-- LSP setup
 	use({
