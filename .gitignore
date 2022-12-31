@@ -3,3 +3,4 @@ GRTAGS
 GTAGS
 .mypy_cache
 nvim/spell
+nvim/undodir
