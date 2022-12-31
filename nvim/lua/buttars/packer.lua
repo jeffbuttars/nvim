@@ -99,8 +99,9 @@ return require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 	})
 
-    -- Misc
-    use 'monkoose/matchparen.nvim'
+	-- Misc
+	use("monkoose/matchparen.nvim")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- LSP setup
 	use({
@@ -130,7 +131,7 @@ return require("packer").startup(function(use)
 				"SirVer/ultisnips",
 				requires = "honza/vim-snippets",
 			},
-            { "onsails/lspkind.nvim" },
+			{ "onsails/lspkind.nvim" },
 		},
 	})
 
