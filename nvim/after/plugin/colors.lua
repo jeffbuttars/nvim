@@ -41,4 +41,17 @@ end
 -- ColorMyStuff()
 
 -- Solarized setup
+--
+vim.g.solarized_visibility = 'high'
+vim.g.solarized_statusline = 'high'
+vim.g.solarized_diffmode = 'normal'
+
+-- termtrans If you want to keep the transparency in your terminal (default: disabled)
+-- To enable transparency
+if vim.fn.has('gui_running') == 0 then
+    vim.g.solarized_termtrans = 0
+else
+    vim.g.solarized_termtrans = 1
+end
+
 vim.cmd.colorscheme(color_scheme)
