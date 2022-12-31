@@ -127,6 +127,7 @@ return require("packer").startup(function(use)
 				"SirVer/ultisnips",
 				requires = "honza/vim-snippets",
 			},
+            { "onsails/lspkind.nvim" },
 		},
 	})
 

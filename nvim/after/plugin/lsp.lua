@@ -90,6 +90,17 @@ lsp.setup_nvim_cmp({
 		{ name = "ultisnips", group_index = 2 },
 		-- { name = "nvim_lsp_signature_help", group_index = 1 },
 	},
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. strings[1] .. " "
+            kind.menu = "    " .. strings[2] .. ""
+
+            return kind
+        end,
+    },
 })
 
 lsp.set_preferences({
