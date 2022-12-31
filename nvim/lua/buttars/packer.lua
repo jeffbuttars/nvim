@@ -108,7 +108,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
+            -- { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
             { "tamago324/cmp-zsh",
@@ -116,11 +116,10 @@ return require('packer').startup(function(use)
             },
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            {'rafamadriz/friendly-snippets'},
+            -- { 'L3MON4D3/LuaSnip' },
+            -- {'rafamadriz/friendly-snippets'},
             { 'honza/vim-snippets' },
 
-            --[[ { 'honza/vim-snippets' },
             -- From cmp-nvim-ultisnips:
             --   UltiSnip was auto-removing tab mappings for select mode,
             --   that leads to we cannot jump through snippet stops
@@ -131,7 +130,7 @@ return require('packer').startup(function(use)
                 config = function()
                     vim.g.UltiSnipsRemoveSelectModeMappings = 0
                 end,
-            }, ]]
+            },
         }
     }
 

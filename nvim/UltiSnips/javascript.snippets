@@ -1,0 +1,276 @@
+priority 1
+
+snippet fns "Function namespace"
+let ${1:new_namespace} = (function $1 (){
+
+    // Private vars
+    ${2: var ${3:name} = 'private'}
+    
+
+    // Private functions
+    ${4: ${5:var pfunc = function pfunc() {
+        return ''
+    }} }
+
+    // Return the public interface
+    return {
+        $6:$0
+    }
+})()
+endsnippet
+
+snippet ons "object namespace"
+if (! window.${1:nsname} ) {
+    var $1 = {}
+    window.$1 = $1
+}$0
+endsnippet
+
+snippet af "Anonymous Function" i
+function (${1:args}) {${2}}${3}
+endsnippet
+
+snippet (af "Anonymous Function"
+(function (${1:args}) {${2}
+})${3}
+endsnippet
+
+snippet (af) "Anonymous Function"
+let ${1} = (function (${2:args}) {
+${3}
+})()
+endsnippet
+
+snippet naf "Named Anonymous Function"
+function ${1:funcname}(${2:args}) {${3}}$0
+endsnippet
+
+snippet nf "Named inline function"
+let ${1:fname} function (${2:args}) {${3}}$0
+endsnippet
+
+snippet lf "Let function"
+let ${1:func_name} = function (${2:args}) {
+    ${3:console.log('$1()')}
+}
+endsnippet
+
+snippet lnf "let named function"
+let ${1:func_name} = function $1(${2:args}) {
+    ${3:console.log( ${4: '$1()'} )}$5
+}
+endsnippet
+
+# snippet v "simple var = someting expression"
+# var ${1} = ${2}
+# endsnippet
+
+snippet c "simple const = SOMETING"
+const ${1} = ${2}
+endsnippet
+
+snippet clg "console.log()"
+console.log('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet ldbg "logger.debug"
+logger.debug('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet cle "console.error()"
+console.error('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet lerr "logger.error"
+logger.error('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet clw "console.warn()"
+console.warn('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet linf "logger.info"
+logger.info('${1}'${2:, ${3}})$0
+endsnippet
+
+snippet clt "console.table()"
+console.log(${1:'$2'})
+console.table($3)$0
+endsnippet
+
+snippet cld "console.dir()"
+console.log(${1:'$2'})
+console.dir($3)$0
+endsnippet
+
+snippet cltime "console.time()"
+console.time('${1}')
+console.timeEnd('$1')$0
+endsnippet
+
+snippet cl "class"
+class ${1} {
+	${2}
+}${0}
+endsnippet
+
+snippet vcl "let className = class"
+let ${1} = class ${2:$1} {
+	${3}
+}${0}
+endsnippet
+
+snippet req "require('')"
+require('${1}')$0
+endsnippet
+
+snippet lreq "let name = require('')"
+let ${1} = require('${2:$1}')$0
+endsnippet
+
+snippet fori "for key in" b
+for (let ${1:key} in ${2:obj}) { if ($2.hasOwnProperty(key)) {
+    ${3:$2[key]}$0
+}}
+endsnippet
+
+snippet forl "for (let x of )" b
+for (let ${1} of ${2}) {
+	${0}
+}
+endsnippet
+
+# snippet for "for (...) {...} (faster)" b
+# for (let ${2:i} = ${1:Things}.length - 1; $2 >= 0; $2--){
+#     ${3:$1[$2]}$0
+# }
+# endsnippet
+
+snippet for "for (...) {...}" b
+for (let ${2:i} = 0, len = ${1:Things}.length; $2 < len; $2++) {
+	${3:$1[$2]}$0
+}
+endsnippet
+
+snippet if "if" !b
+if (${1}) {
+    ${2}
+}${0}
+endsnippet
+
+snippet else "else" !b
+else (${1}) {
+    ${2}
+}${0}
+endsnippet
+
+snippet imf "import { something } from [module]" b
+import { ${1:something}${2:, nexthing } } from '${3:mod}'${0}
+endsnippet
+
+snippet im "import [something] from [module]" b
+import ${1:something} from '${2:mod}'${0}
+endsnippet
+
+snippet . "...spread" i
+...${1}${0}
+endsnippet
+
+snippet > "Arrow/Pure func" i
+(${1:params}) => ${2:{${3}}}${0}
+endsnippet
+
+snippet _each "lodash each" b
+_.forEach(${1:collection}, function (${2:obj}) {
+  ${3:$2}${0}
+})
+endsnippet
+
+snippet je
+<${1}${2}>
+  ${3}
+</$1>${0}
+endsnippet
+
+snippet jec
+<${1}${2} />${0}
+endsnippet
+
+snippet >c "Arrow component (${1:params}) => ${2}" i
+${1}${2: }(${3:props}) => {
+  return (${4})
+}
+$1.propTypes = {${5}}
+${0}
+endsnippet
+
+snippet di "Object/Dicitonary item" i
+${1:'$2'}: ${3}${0}
+endsnippet
+
+snippet rrcomp "import React, build Component Class" b
+import React from 'react'
+
+class ${1} extends React.Component {
+  render () {
+    return (
+		<div>
+			${0}
+		</div>
+	)
+  }
+}
+endsnippet
+
+snippet rcomp "React Component Class" b
+class ${1} extends React.Component {
+  render () {
+    return (
+		<div>
+			${0}
+		</div>
+	)
+  }
+}
+endsnippet
+
+snippet render "React render function" b
+render: function () {
+  return (
+    ${0}
+  )
+}
+endsnippet
+
+snippet prom "Promise"
+${1}new Promise((resolve, reject) => {
+  ${0}
+})
+endsnippet
+
+snippet .red "reduce" i
+.reduce((p, ${1:v}) => ${3:{
+  ${4}
+}}, ${2:[]})
+endsnippet
+
+snippet .map "map" i
+.map((${1:v}) => ${2:{
+  ${3}
+}})
+endsnippet
+
+snippet .g "get" i
+.get('${1}'${2:, ${3:default}})${0}
+endsnippet
+
+snippet rcon "React constructor"
+constructor(props) {
+  super(props)
+  ${0}
+}
+endsnippet
+
+snippet bind "Function bind"
+${1:func} = $1.bind(${2:this}${3})${0}
+endsnippet
