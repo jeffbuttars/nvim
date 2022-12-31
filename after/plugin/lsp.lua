@@ -72,10 +72,6 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 -- cmp_mappings['<Tab>'] = nil
 -- cmp_mappings['<S-Tab>'] = nil
 
--- lsp.set_preferences({
--- 	sign_icons = { }
--- })
-
 lsp.setup_nvim_cmp({
 	snippet = {
 		expand = function(args)
@@ -172,5 +168,4 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.nvim_workspace()
-
 lsp.setup()

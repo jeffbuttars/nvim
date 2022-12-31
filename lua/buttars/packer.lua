@@ -88,7 +88,6 @@ return require("packer").startup(function(use)
 	use("mortepau/codicons.nvim")
 
 	-- Status line
-	-- use "rebelot/heirline.nvim"
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },

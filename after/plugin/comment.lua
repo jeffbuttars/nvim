@@ -1,4 +1,3 @@
-
 -- https://github.com/numToStr/Comment.nvim
 -- Configuration (optional)
 -- Following are the default config for the setup().
