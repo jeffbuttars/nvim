@@ -4,7 +4,7 @@
 --   UltiSnip was auto-removing tab mappings for select mode,
 --   that leads to we cannot jump through snippet stops
 --   We have to disable this by set UltiSnipsRemoveSelectModeMappings = 0 (Credit JoseConseco)
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
+-- vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- Make sure it picks up our snippet file first, so our overwrites take effect.
 vim.g.UltiSnipsDontReverseSearchPath = true

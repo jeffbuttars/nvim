@@ -87,7 +87,7 @@ function SetColorColumn(ccol)
     end
 end
 
-function AutoSave()
+function AutoSave(args)
     -- close the preview window if it's visible
     -- and the pop up menu is not visible, but not if
     -- we're in a preview window.
@@ -100,13 +100,11 @@ function AutoSave()
     end
 
     if vim.fn.expand('%') ~= "" then
-        local buf = vim.api.nvim_get_current_buf()
-
-        if not vim.api.nvim_buf_get_option(buf, "modified") then
+        if not vim.api.nvim_buf_get_option(args.buf, "modified") then
             return
         end
 
-        vim.api.nvim_buf_call(buf,
+        vim.api.nvim_buf_call(args.buf,
         function()
             vim.api.nvim_cmd({cmd='write', args = {}, bang = true}, {})
             print("Saved " .. vim.fn.expand('%') )
@@ -118,7 +116,7 @@ local MyCustomAutocmds = vim.api.nvim_create_augroup("MyCustomAutocmds", { clear
 
 -- AutoSave often
 vim.api.nvim_create_autocmd(
-    { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "WinLeave" },
+    { "CursorHold", "BufLeave", "FocusLost", "WinLeave", "InsertLeave" },
     { pattern = "*", callback = AutoSave, group = MyCustomAutocmds }
 )
 
