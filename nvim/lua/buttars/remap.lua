@@ -21,6 +21,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -53,6 +54,10 @@ vim.api.nvim_set_keymap("v", '""', '<ESC>`>a"<ESC>`<i"<ESC>', { noremap = true }
 vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
 
+vim.keymap.set({'n', 't'}, "<C-PageDown>", ":tabNext<CR>", { noremap = true, silent = true })
+vim.keymap.set({'n', 't'}, "<C-PageUp>", ":tabprevious<CR>", { noremap = true, silent = true })
+
+opts
 function SetColorColumn(ccol)
     if not vim.bo['longLineMatchID'] then
         vim.bo.longLineMatchID = 0

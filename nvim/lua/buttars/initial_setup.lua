@@ -19,7 +19,7 @@ vim.opt.history = 10000
 
 
 -- CursorHold updatime time in ms
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 500
 
 vim.opt.switchbuf = "split"
 
