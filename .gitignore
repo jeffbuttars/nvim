@@ -1,6 +1,3 @@
-GPATH
-GRTAGS
-GTAGS
-.mypy_cache
-nvim/spell
-nvim/undodir
+plugin/packer_compiled.lua
+undodir
+spell
