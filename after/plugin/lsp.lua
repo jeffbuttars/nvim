@@ -1,5 +1,7 @@
-require("cmp_nvim_ultisnips").setup{}
+require("cmp_nvim_ultisnips").setup({})
+local cmp = require("cmp")
 local lsp = require("lsp-zero")
+-- local lspkind = require("lspkind")
 local butt_utils = require("buttars.utils")
 
 lsp.preset("recommended")
@@ -9,13 +11,6 @@ lsp.ensure_installed({
 	"eslint",
 	"sumneko_lua",
 	"rust_analyzer",
-	-- 'css-lsp',
-	-- 'bash-language-server',
-	-- 'html-lsp',
-	--'nginx-language-server',
-	--'jedi-language-server',
-	-- 'pyright',
-	--'python-lsp-server',
 })
 
 -- Fix Undefined global 'vim'
@@ -29,7 +24,6 @@ lsp.configure("sumneko_lua", {
 	},
 })
 
-local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
@@ -52,14 +46,17 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 		"i",
 		"s", --[[ "c" (to enable the mapping in command mode) ]]
 	}),
+	["<Tab>"] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+		else
+			fallback()
+		end
+	end, { "i", "s" }),
 })
 
-vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
-end)
-
 local MyLSPGroup = vim.api.nvim_create_augroup("MyCustomAutocmds", { clear = true })
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	pattern = "*",
 	callback = function()
 		vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
@@ -67,36 +64,41 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	group = MyLSPGroup,
 })
 
--- disable completion with tab
--- this helps with copilot setup
--- cmp_mappings['<Tab>'] = nil
--- cmp_mappings['<S-Tab>'] = nil
-
 lsp.setup_nvim_cmp({
-	snippet = {
-		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
-		end,
-	},
 	mapping = cmp_mappings,
 	sources = {
+		{ name = "nvim_lsp", keyword_length = 1 },
+		{ name = "ultisnips", keyword_length = 1 },
+		{ name = "buffer", keyword_length = 2 },
 		{ name = "path" },
-		{ name = "nvim_lsp", keyword_length = 3 },
-		{ name = "buffer", keyword_length = 3 },
-		{ name = "ultisnips", group_index = 2 },
-		-- { name = "nvim_lsp_signature_help", group_index = 1 },
+		{ name = "nvim_lua" },
+		{ name = "nvim_lsp_signature_help" },
 	},
-    formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-            local strings = vim.split(kind.kind, "%s", { trimempty = true })
-            kind.kind = " " .. strings[1] .. " "
-            kind.menu = "    " .. strings[2] .. ""
-
-            return kind
-        end,
-    },
+	-- formatting = {
+	-- 	format = lspkind.cmp_format({
+	-- 		-- mode = "symbol",
+	-- 		maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+	-- 		ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+	--
+	-- 		-- The function below will be called before any actual modifications from lspkind
+	-- 		-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+	-- 		before = function (entry, vim_item)
+	-- 		    return vim_item
+	-- 		end
+	-- 	}),
+	-- },
+	-- formatting = {
+ --        expandable_indicator = true,
+	-- 	fields = { "kind", "abbr", "menu" },
+	-- 	format = function(entry, vim_item)
+	-- 		local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+	-- 		local strings = vim.split(kind.kind, "%s", { trimempty = true })
+	-- 		kind.kind = " " .. strings[1] .. " "
+	-- 		kind.menu = "    " .. strings[2] .. ""
+	--
+	-- 		return kind
+	-- 	end,
+	-- },
 })
 
 lsp.set_preferences({
@@ -169,3 +171,38 @@ end)
 
 lsp.nvim_workspace()
 lsp.setup()
+
+-- -- https://github.com/hrsh7th/cmp-cmdline
+-- -- START --
+-- -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline('/', {
+--   sources = {
+--     { name = 'buffer' }
+--   }
+-- })
+--
+-- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline(':', {
+--     sources = cmp.config.sources(
+--         {
+--             { name = 'path' }
+--         },
+--         {
+--             { name = 'cmdline' }
+--         }
+--     )
+-- })
+
+-- Need to force in the UltiSnips config for cmp after the lsp-zero setup.
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			vim.fn["UltiSnips#Anon"](args.body)
+		end,
+	},
+})
+
+-- LSP key maps for
+vim.keymap.set("n", "<leader>f", function()
+	vim.lsp.buf.format()
+end)

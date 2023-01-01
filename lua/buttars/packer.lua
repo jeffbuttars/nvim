@@ -1,3 +1,4 @@
+
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -40,10 +41,6 @@ return require("packer").startup(function(use)
 	use("ishan9299/nvim-solarized-lua")
 	use("EdenEast/nightfox.nvim")
 	use("folke/lsp-colors.nvim")
-	-- use({
-	--     'rose-pine/neovim',
-	--     as = 'rose-pine',
-	-- })
 
 	-- Tree Sitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -101,12 +98,12 @@ return require("packer").startup(function(use)
 	-- Misc
 	use("monkoose/matchparen.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-    use { "windwp/nvim-autopairs" }
+	use({ "windwp/nvim-autopairs" })
 
-    -- Markdown stuff
-    use 'PratikBhusal/vim-grip'
-    use 'ajorgensen/vim-markdown-toc'
-    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+	-- Markdown stuff
+	use("PratikBhusal/vim-grip")
+	use("ajorgensen/vim-markdown-toc")
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
 	-- LSP setup
 	use({
@@ -121,21 +118,19 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
-			-- { 'saadparwaiz1/cmp_luasnip' },
-			{ "quangnguyen30192/cmp-nvim-ultisnips" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+			{ "hrsh7th/cmp-cmdline" },
+			-- { "saadparwaiz1/cmp_luasnip" },
 			{ "tamago324/cmp-zsh", requires = { "Shougo/deol.nvim" } },
 
 			-- Snippets
-			-- { 'L3MON4D3/LuaSnip' },
-			-- {'rafamadriz/friendly-snippets'},
+			-- { "L3MON4D3/LuaSnip" },
+			-- { "rafamadriz/friendly-snippets" },
+			{ "quangnguyen30192/cmp-nvim-ultisnips", requires = { "SirVer/ultisnips" } },
+			{ "SirVer/ultisnips" },
 			{ "honza/vim-snippets" },
-
-			{
-				"SirVer/ultisnips",
-				requires = "honza/vim-snippets",
-			},
 			{ "onsails/lspkind.nvim" },
 		},
 	})
