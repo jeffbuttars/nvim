@@ -67,12 +67,12 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 	sources = {
-		{ name = "nvim_lsp", keyword_length = 2 },
 		{ name = "ultisnips", keyword_length = 2 },
+		{ name = "nvim_lsp", keyword_length = 2 },
+		{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lua" },
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "path", keyword_length = 3 },
-		{ name = "nvim_lua" },
-		{ name = "nvim_lsp_signature_help" },
 	},
 	formatting = {
         expandable_indicator = true,
