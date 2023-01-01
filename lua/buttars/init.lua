@@ -3,7 +3,7 @@ require("buttars.initial_setup")
 require("buttars.packer")
 
 require("buttars.keymaps")
-require("buttars.event")
+require("buttars.autocmds")
 
 if vim.g.neovide then
     require("buttars.neovide")
