@@ -1,7 +1,7 @@
 require("cmp_nvim_ultisnips").setup({})
 local cmp = require("cmp")
 local lsp = require("lsp-zero")
--- local lspkind = require("lspkind")
+local lspkind = require("lspkind")
 local butt_utils = require("buttars.utils")
 
 lsp.preset("recommended")
@@ -67,38 +67,26 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
 	sources = {
-		{ name = "nvim_lsp", keyword_length = 1 },
-		{ name = "ultisnips", keyword_length = 1 },
-		{ name = "buffer", keyword_length = 2 },
-		{ name = "path" },
+		{ name = "nvim_lsp", keyword_length = 2 },
+		{ name = "ultisnips", keyword_length = 2 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "path", keyword_length = 3 },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp_signature_help" },
 	},
-	-- formatting = {
-	-- 	format = lspkind.cmp_format({
-	-- 		-- mode = "symbol",
-	-- 		maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-	-- 		ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-	--
-	-- 		-- The function below will be called before any actual modifications from lspkind
-	-- 		-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-	-- 		before = function (entry, vim_item)
-	-- 		    return vim_item
-	-- 		end
-	-- 	}),
-	-- },
-	-- formatting = {
- --        expandable_indicator = true,
-	-- 	fields = { "kind", "abbr", "menu" },
-	-- 	format = function(entry, vim_item)
-	-- 		local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-	-- 		local strings = vim.split(kind.kind, "%s", { trimempty = true })
-	-- 		kind.kind = " " .. strings[1] .. " "
-	-- 		kind.menu = "    " .. strings[2] .. ""
-	--
-	-- 		return kind
-	-- 	end,
-	-- },
+	formatting = {
+        expandable_indicator = true,
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+            -- print("entry source: ", vim.inspect(entry))
+			local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = strings[1]  -- Left side of word (icon)
+			kind.menu = " " .. strings[2] -- Right side of word
+            -- print("KIND: ", vim.inspect(kind))
+			return kind
+		end,
+	},
 })
 
 lsp.set_preferences({
