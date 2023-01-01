@@ -17,7 +17,7 @@ vim.opt.lazyredraw = true
 vim.opt.history = 10000
 
 -- CursorHold updatime time in ms
-vim.opt.updatetime = 500
+vim.opt.updatetime = 750
 
 vim.opt.switchbuf = "split"
 

@@ -1,14 +1,8 @@
 -- base set of autocommands for vim events
 
 local function SetColorColumn(ccol)
-	if not vim.bo["longLineMatchID"] then
-		vim.bo.longLineMatchID = 0
-	end
-
-	vim.opt.colorcolumn = true
-
-	if not vim.opt.colorcolumn then
-		return
+	if not vim.b["longLineMatchID"] then
+		vim.b.longLineMatchID = 0
 	end
 
 	vim.fn.clearmatches()
@@ -21,15 +15,16 @@ local function SetColorColumn(ccol)
 	end
 
 	local num_matches = #vim.fn.getmatches()
-	if num_matches < 1 or vim.bo.longLineMatchID == 0 or vim.opt.colorcolumn ~= (ccol + 1) then
+	if num_matches < 1 or vim.b.longLineMatchID == 0 or vim.opt.colorcolumn ~= ("" .. (ccol + 1)) then
 		-- echo "SetColorColumn applying" b:longLineMatchID "" a:ccol "\%>".a:ccol."v.\+"
-		vim.opt.colorcolumn = ccol
+		vim.opt.colorcolumn = ccol .. ""
 		vim.opt.textwidth = ccol - 1
-		vim.bo.longLineMatchID = vim.fn.matchadd("OverColLimit", "\\%>" .. ccol .. "v.\\+", -1)
+		vim.b.longLineMatchID = vim.fn.matchadd("OverColLimit", "\\%>" .. ccol .. "v.\\+", -1)
 	end
 end
 
 local function AutoSave(args)
+	-- print("AutoSave ", args)
 	-- close the preview window if it's visible
 	-- and the pop up menu is not visible, but not if
 	-- we're in a preview window.
@@ -40,12 +35,11 @@ local function AutoSave(args)
 	if (not vim.opt.modified:get()) or (not vim.api.nvim_buf_get_option(0, "modifiable")) or vim.opt.readonly:get() then
 		-- print(
 		-- 	"Not Saved " .. vim.fn.expand("%"),
-  --           args.event,
+		-- 	args.event,
 		-- 	not vim.opt.modified:get(),
 		-- 	not vim.api.nvim_buf_get_option(0, "modifiable"),
 		-- 	vim.opt.readonly:get(),
 		-- 	(not vim.opt.modified:get()) or (not vim.api.nvim_buf_get_option(0, "modifiable")) or vim.opt.readonly:get()
-		--
 		-- )
 		return
 	end
@@ -63,31 +57,32 @@ local function AutoSave(args)
 	end
 end
 
-local MyCustomAutocmds = vim.api.nvim_create_augroup("MyCustomAutocmds", { clear = true })
+local OperatorDefinedAutoCmds = vim.api.nvim_create_augroup("OperatorDefinedAutoCmds", { clear = true })
 
 -- AutoSave often
-vim.api.nvim_create_autocmd(
-	{ "CursorHold", "BufLeave", "FocusLost", "WinLeave" },
-	{ pattern = "*", callback = AutoSave, group = MyCustomAutocmds }
-)
+vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave" }, {
+	pattern = "*",
+	callback = AutoSave,
+	group = OperatorDefinedAutoCmds,
+	desc = "AutoSave current buffer",
+})
 
 -- Need to make this _not_ change the quickfix size.
-vim.api.nvim_create_autocmd(
-	{ "VimResized" },
-	{ pattern = "*", callback = vim.lsp.buf.format, group = MyCustomAutocmds }
-)
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+	pattern = "*",
+	callback = vim.lsp.buf.format,
+	group = OperatorDefinedAutoCmds,
+})
 
 vim.api.nvim_create_autocmd(
 	{ "QuickFixCmdPost" },
-	{ pattern = "*grep*", command = "cwindow", group = MyCustomAutocmds }
+	{ pattern = "*grep*", command = "cwindow", group = OperatorDefinedAutoCmds }
 )
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "python", "sh", "javascript", "java", "c", "lua" },
-	callback = function()
-		SetColorColumn(vim.g.max_line_length)
-	end,
-	group = MyCustomAutocmds,
+	callback = function() SetColorColumn(vim.g.max_line_length) end,
+	group = OperatorDefinedAutoCmds,
 })
 
 -- Only use cursorline/cursorcolumn in normal mode
@@ -102,7 +97,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 		vim.opt.cursorcolumn = true
 		vim.opt.relativenumber = true
 	end,
-	group = MyCustomAutocmds,
+	group = OperatorDefinedAutoCmds,
 })
 
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
@@ -112,7 +107,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 		vim.opt.cursorcolumn = false
 		vim.opt.relativenumber = false
 	end,
-	group = MyCustomAutocmds,
+	group = OperatorDefinedAutoCmds,
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
@@ -120,7 +115,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
 	callback = function()
 		vim.opt.relativenumber = false
 	end,
-	group = MyCustomAutocmds,
+	group = OperatorDefinedAutoCmds,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
@@ -128,5 +123,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
 	callback = function()
 		vim.opt.relativenumber = true
 	end,
-	group = MyCustomAutocmds,
+	group = OperatorDefinedAutoCmds,
 })
