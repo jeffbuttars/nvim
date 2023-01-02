@@ -1,28 +1,19 @@
 -- Nvim CMP setup
-local cmp = require("cmp")
 
+local butt_cmp = require("buttars.cmp")
+
+-- Also setup the UltiSnips cmp integration
 require("cmp_nvim_ultisnips").setup({})
 
 -- https://github.com/hrsh7th/cmp-cmdline
--- START --
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline("/", {
-    sources = {
-        { name = "buffer" },
-    },
-})
+butt_cmp.cmp.setup.cmdline("/", butt_cmp.cmd_mappings["/"])
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(":", {
-    sources = cmp.config.sources({
-        { name = "path" },
-    }, {
-        { name = "cmdline" },
-    }),
-})
+butt_cmp.cmp.setup.cmdline(":", butt_cmp.cmd_mappings[":"])
 
 -- UltiSnips setup for cmp
-cmp.setup({
+butt_cmp.cmp.setup({
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)

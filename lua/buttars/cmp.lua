@@ -1,3 +1,5 @@
+-- Delcaration and some setup for nvim-cmp. This is meant to be required by lsp
+-- and nvim-cmp in 'after'
 local butt_utils = require("buttars.utils")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
@@ -52,6 +54,7 @@ local cmp_formatting_item_text = {
 }
 
 return {
+	cmp = cmp,
 	mappings = {
 		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -79,6 +82,23 @@ return {
 			end
 		end, { "i", "s", "c" }),
 	},
+	cmd_mappings = {
+		-- https://github.com/hrsh7th/cmp-cmdline
+		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+		[":"] = {
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+		},
+		["/"] = {
+			sources = {
+				{ name = "buffer" },
+			},
+		},
+	},
+	-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 	sources = {
 		{ name = "ultisnips", keyword_length = 2 },
 		{ name = "nvim_lsp", keyword_length = 2 },
