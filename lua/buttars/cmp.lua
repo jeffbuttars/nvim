@@ -58,7 +58,8 @@ return {
     mappings = {
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }),
+            { "i", "c" }),
         ["<C-Space>"] = cmp.mapping.complete(),
 
         --  Following is for  C-j/k completion/jumping with ultisnips
