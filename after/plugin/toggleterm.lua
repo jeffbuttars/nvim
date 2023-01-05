@@ -1,7 +1,7 @@
 -- https://github.com/akinsho/toggleterm.nvim
 
 -- If we're running Neovide, map C-Z to toggle term
-local open_mapping = [[<leader>tt]]
+local open_mapping = [[<c-\]]
 
 if vim.g.neovide then
      open_mapping = [[<c-z>]]
