@@ -11,7 +11,7 @@ vim.g.max_line_length = 100
 
 -- Don't redraw screen when executing macros                                                                             │
 -- set lazyredraw
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 
 -- keep 10000 lines of command line history
 vim.opt.history = 10000

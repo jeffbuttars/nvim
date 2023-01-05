@@ -55,6 +55,15 @@ local cmp_formatting_item_text = {
 
 return {
     cmp = cmp,
+    performance = {
+        debounce = 300,
+        throttle = 300,
+        fetching_timeout = 500,
+        -- performance defaults --
+        -- debounce = 60,
+        -- throttle = 30,
+        -- fetching_timeout = 500,
+    },
     mappings = {
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -105,12 +114,12 @@ return {
     },
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     sources = {
-        { name = "ultisnips", keyword_length = 2 },
-        { name = "nvim_lsp", keyword_length = 2 },
+        { name = "ultisnips", keyword_length = 1, max_item_count = 5 },
+        { name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp_signature_help" },
-        { name = "nvim_lua" },
-        { name = "buffer", keyword_length = 3 },
-        { name = "path", keyword_length = 3 },
+        { name = "nvim_lua", max_item_count = 5 },
+        { name = "buffer", keyword_length = 2, max_item_count = 5 },
+        { name = "path", keyword_length = 2, max_item_count = 5 },
     },
 
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
