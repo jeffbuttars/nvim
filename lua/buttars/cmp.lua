@@ -70,6 +70,7 @@ return {
         ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }),
             { "i", "c" }),
         ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
 
         --  Following is for  C-j/k completion/jumping with ultisnips
         ["<C-j>"] = cmp.mapping(function(fallback)
