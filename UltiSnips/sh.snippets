@@ -44,7 +44,10 @@ endsnippet
 
 snippet #! "#!/bin/bash" !b
 #!/usr/bin/env bash
+${0}
+endsnippet
 
+snippet preamble "bash preamble code" !b
 set -o errexit
 # So that when a command fails,
 # bash exits instead of continuing with the rest of the script.
@@ -70,7 +73,8 @@ fi
 
 
 main() {
-    echo do awesome stuff
+    ${0}
+    echo "do awesome stuff"
 }
 
 main "$@"
