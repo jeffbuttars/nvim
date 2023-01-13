@@ -11,4 +11,5 @@ require("neo-tree").setup({
 	},
 })
 
-vim.api.nvim_set_keymap("n", "<C-d>", ":NeoTreeFocus<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-d>", ":NeoTreeFocus<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus reveal_force_cwd<CR>", { noremap = true, silent = true })
