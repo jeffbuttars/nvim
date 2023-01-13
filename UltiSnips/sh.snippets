@@ -47,7 +47,7 @@ snippet #! "#!/bin/bash" !b
 ${0}
 endsnippet
 
-snippet preamble "bash preamble code" !b
+snippet preamble "verbose bash boilerplate code" !b
 set -o errexit
 # So that when a command fails,
 # bash exits instead of continuing with the rest of the script.
@@ -62,15 +62,34 @@ set -o pipefail
 # This will ensure that a pipeline command is treated as failed,
 # even if one command in the pipeline fails.
 
+# This helps in debugging your scripts, a lot.
+# People can now enable debug mode,
+# by running your script as TRACE=1 ./script.sh instead of ./script.sh endsnippet
 if [[ "${TRACE-0}" == "1" ]]; then
     # Use set -o xtrace, with a check on $TRACE env variable.
     set -o xtrace
 fi
 
+main() {
+    ${0}
+    echo "do awesome stuff"
+}
+
+main "$@"
+endsnippet
+
+snippet mkscript "bash script boiler" !b
+set -o errexit
+set -o nounset
+set -o pipefail
+
 # This helps in debugging your scripts, a lot.
 # People can now enable debug mode,
 # by running your script as TRACE=1 ./script.sh instead of ./script.sh endsnippet
-
+if [[ "${TRACE-0}" == "1" ]]; then
+    # Use set -o xtrace, with a check on $TRACE env variable.
+    set -o xtrace
+fi
 
 main() {
     ${0}

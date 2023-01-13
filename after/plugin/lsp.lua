@@ -31,6 +31,7 @@ lsp.configure("sumneko_lua", {
 
 -- setup our preferred cmp setup
 lsp.setup_nvim_cmp({
+    completion = butt_cmp.completion,
 	mapping = lsp.defaults.cmp_mappings(butt_cmp.mappings),
 	sources = butt_cmp.sources,
 	formatting = butt_cmp.formatting,

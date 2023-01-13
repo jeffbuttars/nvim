@@ -14,6 +14,7 @@ butt_cmp.cmp.setup.cmdline(":", butt_cmp.cmd_mappings[":"])
 
 -- UltiSnips setup for cmp
 butt_cmp.cmp.setup({
+    experimental = butt_cmp.experimental,
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
