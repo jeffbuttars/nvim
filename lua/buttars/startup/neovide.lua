@@ -20,7 +20,7 @@ vim.g.neovide_floating_blur_amount_y = 2.0
 
 -- https://neovide.dev/faq.html
 -- Adjust the font size while running
-vim.g.gui_font_default_size = 12
+vim.g.gui_font_default_size = 16
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "FiraCode Nerd Font Mono"
 
