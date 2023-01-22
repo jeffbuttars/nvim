@@ -1,4 +1,3 @@
-
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -39,6 +38,7 @@ return require("packer").startup(function(use)
 
 	-- Theme / Colors
 	use("ishan9299/nvim-solarized-lua")
+	use({ "rose-pine/neovim", as = "rose-pine" })
 	use("EdenEast/nightfox.nvim")
 	use("folke/lsp-colors.nvim")
 

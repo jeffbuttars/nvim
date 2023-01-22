@@ -1,4 +1,7 @@
+local lualine_cfg = {
+	options = {
+		them = "rose-pine-alt",
+	},
+}
 
-local lualine_cfg = {}
-
-require('lualine').setup(lualine_cfg)
+require("lualine").setup(lualine_cfg)
