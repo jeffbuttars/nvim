@@ -8,7 +8,7 @@ local function SetColorColumn(ccol)
     vim.fn.clearmatches()
 
     if ccol == 0 or vim.opt.buftype:get() ~= "" or vim.fn.expand("%") == "" or vim.opt.buftype:get() == "log" then
-        vim.opt_local.colorcolumn = 0
+        vim.opt_local.colorcolumn = "0"
         vim.opt.textwidth = 0
 
         return
