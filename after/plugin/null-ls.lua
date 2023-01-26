@@ -16,11 +16,11 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.jshint,
 		null_ls.builtins.diagnostics.jsonlint,
 		null_ls.builtins.diagnostics.luacheck,
-		null_ls.builtins.diagnostics.markdownlint,
+		-- null_ls.builtins.diagnostics.markdownlint,
 		-- null_ls.builtins.diagnostics.markdownlint.with({
 		-- 	extra_args = { "--config", "~/.markdownlint.json" },
 		-- }),
-		-- null_ls.builtins.diagnostics.markdownlint_cli2
+		null_ls.builtins.diagnostics.markdownlint_cli2,
 		null_ls.builtins.diagnostics.mypy,
 		null_ls.builtins.diagnostics.pydocstyle,
 		null_ls.builtins.diagnostics.ruff,
