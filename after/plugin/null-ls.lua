@@ -22,7 +22,7 @@ null_ls.setup({
 		-- }),
 		null_ls.builtins.diagnostics.markdownlint_cli2,
 		null_ls.builtins.diagnostics.mypy,
-		null_ls.builtins.diagnostics.pydocstyle,
+		-- null_ls.builtins.diagnostics.pydocstyle,
 		null_ls.builtins.diagnostics.ruff,
 		null_ls.builtins.diagnostics.shellcheck,
 		null_ls.builtins.diagnostics.sqlfluff.with({
