@@ -98,3 +98,7 @@ main() {
 
 main "$@"
 endsnippet
+
+snippet shellcheck_source "# shellcheck source=somefile" !b
+# shellcheck source=${0:${VISUAL:\/dev\/null}}
+endsnippet
