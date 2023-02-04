@@ -58,7 +58,6 @@ return {
     -- preselect = cmp.PreselectMode.Item,
     --
     completion = {
-        -- completeopt = "menu,menuone,select",
         completeopt = "menu,menuone,noselect",
     },
 
