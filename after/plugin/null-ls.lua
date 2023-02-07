@@ -34,7 +34,7 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.zsh,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.codespell,
-		null_ls.builtins.formatting.deno_fmt, -- will use the source for all supported file types
+		-- null_ls.builtins.formatting.deno_fmt, -- will use the source for all supported file types
 		-- null_ls.builtins.formatting.deno_fmt.with({
 		-- 	filetypes = { "markdown" }, -- only runs `deno fmt` for markdown
 		-- }),
@@ -51,7 +51,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.pg_format,
 		null_ls.builtins.formatting.prettier_standard,
 		null_ls.builtins.formatting.prettierd,
-		null_ls.builtins.formatting.ruff,
+		-- null_ls.builtins.formatting.ruff,
 		null_ls.builtins.formatting.shfmt.with({
 			extra_args = { "--indent", "4" }, -- change to your dialect
 		}),
