@@ -6,6 +6,11 @@ require("neo-tree").setup({
 		use_libuv_file_watcher = true,
 	},
 
+	window = {
+		-- width = "fit_content",
+		max_width = "33%",
+	},
+
 	buffers = {
 		follow_current_file = true,
 	},
@@ -22,6 +27,22 @@ require("neo-tree").setup({
 			unstaged = "",
 			staged = "",
 			conflict = "",
+		},
+	},
+	event_handlers = {
+		-- {
+		-- 	event = "neo_tree_window_after_open",
+		-- 	handler = function()
+		-- 		vim.wo.number = true
+		-- 		vim.wo.relativenumber = true
+		-- 	end,
+		-- },
+		{
+			event = "neo_tree_buffer_enter",
+			handler = function()
+				vim.wo.number = true
+				vim.wo.relativenumber = true
+			end,
 		},
 	},
 })
