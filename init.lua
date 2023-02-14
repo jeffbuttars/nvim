@@ -134,7 +134,7 @@ vim.opt.colorcolumn = "" .. vim.g.max_line_length
 
 -- A cleaner vertical split
 -- vim.opt.fillchars = "vert:│"
-vim.opt.fillchars = "vert::"
+vim.opt.fillchars = "vert::,diff:╱"
 
 vim.opt.switchbuf = { "uselast", "useopen" }
 
