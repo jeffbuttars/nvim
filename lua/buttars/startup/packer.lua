@@ -105,6 +105,12 @@ return require("packer").startup(function(use)
 	use("ajorgensen/vim-markdown-toc")
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
+    -- Rust
+    use("simrat39/rust-tools.nvim")
+
+    -- Debug
+    use('mfussenegger/nvim-dap')
+
 	-- LSP setup
 	use({
 		"VonHeikemen/lsp-zero.nvim",
@@ -113,6 +119,8 @@ return require("packer").startup(function(use)
 			{ "neovim/nvim-lspconfig" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
+
+            { "sumneko/lua-language-server" },
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },
