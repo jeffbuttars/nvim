@@ -51,7 +51,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.pg_format,
 		null_ls.builtins.formatting.prettier_standard,
 		null_ls.builtins.formatting.prettierd,
-		-- null_ls.builtins.formatting.ruff,
+		null_ls.builtins.formatting.ruff,
 		null_ls.builtins.formatting.shfmt.with({
 			extra_args = { "--indent", "4" }, -- change to your dialect
 		}),
