@@ -105,6 +105,9 @@ return require("packer").startup(function(use)
 	use("ajorgensen/vim-markdown-toc")
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
+    -- Mermaid
+    use("craigmac/vim-mermaid")
+
     -- Rust
     use("simrat39/rust-tools.nvim")
 

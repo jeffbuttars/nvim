@@ -15,6 +15,8 @@ require('peek').setup({
                             -- amount of bytes in size
   throttle_time = 200,   -- minimum amount of time in milliseconds
                             -- that has to pass before starting new render
+
+  app = 'browser',
 })
 
 vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
