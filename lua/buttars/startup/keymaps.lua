@@ -57,3 +57,5 @@ vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true }
 
 vim.keymap.set({ "n", "t" }, "<C-PageDown>", ":tabNext<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "t" }, "<C-PageUp>", ":tabprevious<CR>", { noremap = true, silent = true })
+
+-- LSP keymaps in lsp.lua
