@@ -44,8 +44,15 @@ require("neo-tree").setup({
 				vim.wo.relativenumber = true
 			end,
 		},
+        {
+            event = "file_opened",
+            handler = function()
+                require("neo-tree").close_all()
+            end,
+        },
 	},
 })
 
 -- vim.api.nvim_set_keymap("n", "<C-d>", ":NeoTreeFocus<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus reveal_force_cwd<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus reveal_force_cwd<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus<CR>", { noremap = true, silent = true })
