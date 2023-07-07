@@ -36,6 +36,14 @@ return require("packer").startup(function(use)
 		},
 	})
 
+    use({
+        "nvim-telescope/telescope-media-files.nvim",
+        requires = {
+            {"nvim-telescope/telescope.nvim"},
+
+        },
+    })
+
 	-- Theme / Colors
 	use("ishan9299/nvim-solarized-lua")
 	use({ "rose-pine/neovim", as = "rose-pine" })
@@ -89,6 +97,14 @@ return require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
+	-- Buffer line
+    use({
+        'willothy/nvim-cokeline',
+        requires = {
+            "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+            "kyazdani42/nvim-web-devicons", -- If you want devicons
+        },
+    })
 
 	-- Commenting
 	use({
