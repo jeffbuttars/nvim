@@ -31,7 +31,7 @@ lsp.configure("lua-language-server", {
 
 -- setup our preferred cmp setup
 lsp.setup_nvim_cmp({
-    completion = butt_cmp.completion,
+	completion = butt_cmp.completion,
 	mapping = lsp.defaults.cmp_mappings(butt_cmp.mappings),
 	sources = butt_cmp.sources,
 	formatting = butt_cmp.formatting,
@@ -118,3 +118,31 @@ lsp.setup()
 vim.keymap.set("n", "<leader>f", function()
 	vim.lsp.buf.format()
 end)
+
+-- -- TypeScript
+require("lspconfig").tsserver.setup({})
+require("lspconfig").eslint.setup({})
+
+-- HTML / Emmet
+require("lspconfig").emmet_ls.setup({
+	filetypes = {
+		"css",
+		"html",
+		"javascriptreact",
+		"less",
+		"sass",
+		"scss",
+		"typescriptreact",
+	},
+})
+
+-- require('lspconfig').rust_analyzer.setup({})
+
+-- local status, nvim_lsp = pcall(require, "lspconfig")
+-- if (not status) then return end
+--
+-- nvim_lsp.tsserver.setup {
+--   on_attach = lsp.on_attach,
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--   cmd = { "typescript-language-server", "--stdio" }
+-- }
