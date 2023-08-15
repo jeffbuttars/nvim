@@ -2,15 +2,15 @@ local get_hex = require("cokeline/utils").get_hex
 local buf_delete = require("cokeline/utils").buf_delete
 
 require("cokeline").setup({
-	default_hl = {
-	    focused = function(buffer)
-	    return
-	        buffer.is_focused
-	        and get_hex('Normal', 'fg')
-	        or get_hex('Comment', 'fg')
-	    end,
-	    -- bg = get_hex('ColorColumn', 'bg'),
-	},
+	-- default_hl = {
+	--     focused = function(buffer)
+	--     return
+	--         buffer.is_focused
+	--         and get_hex('Normal', 'fg')
+	--         or get_hex('Comment', 'fg')
+	--     end,
+	--     -- bg = get_hex('ColorColumn', 'bg'),
+	-- },
 
 	sidebar = {
 		filetype = "neo-tree",
