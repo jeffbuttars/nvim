@@ -53,7 +53,7 @@ local cmp_formatting_item_text = {
     TypeParameter = "TypeParam",
 }
 
-return {
+local butt_cmp = {
     cmp = cmp,
     -- preselect = cmp.PreselectMode.Item,
     --
@@ -77,7 +77,7 @@ return {
         -- throttle = 30,
         -- fetching_timeout = 500,
     },
-    mappings = {
+    mappings = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
@@ -105,7 +105,7 @@ return {
                 fallback()
             end
         end, { "i", "s", "c" }),
-    },
+    }),
     cmd_mappings = {
         -- https://github.com/hrsh7th/cmp-cmdline
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
@@ -160,3 +160,13 @@ return {
         ghost_text = true
     }
 }
+
+
+cmp.setup({
+    completion = butt_cmp.completion,
+    mapping = butt_cmp.mappings,
+    sources = butt_cmp.sources,
+    formatting = butt_cmp.formatting,
+})
+
+return butt_cmp

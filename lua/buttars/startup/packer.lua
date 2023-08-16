@@ -74,7 +74,7 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 
 	-- formatting
-	use("jose-elias-alvarez/null-ls.nvim")
+	-- use("jose-elias-alvarez/null-ls.nvim")
 	use("axelf4/vim-strip-trailing-whitespace")
 	use("psf/black")
 	use("brentyi/isort.vim")
@@ -89,6 +89,14 @@ return require("packer").startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
+
+  use({
+    'willothy/nvim-cokeline',
+    requires = {
+      "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+      "kyazdani42/nvim-web-devicons", -- If you want devicons
+    },
+  })
 
 	-- Commenting
 	use({
@@ -115,16 +123,21 @@ return require("packer").startup(function(use)
 	-- Debug
 	use("mfussenegger/nvim-dap")
 
+    -- Django
+    -- use("tweekmonster/django-plus.vim")
+    use("jeffbuttars/django-plus.vim")
+
 	-- LSP setup
 	use({
 		"VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 
-			{ "sumneko/lua-language-server" },
+			{ "luals/lua-language-server" },
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },

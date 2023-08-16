@@ -2,7 +2,7 @@ local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
 -- Telescope media files setup
-require('telescope').load_extension('media_files')
+-- require('telescope').load_extension('media_files')
 
 
 require('telescope').setup{
