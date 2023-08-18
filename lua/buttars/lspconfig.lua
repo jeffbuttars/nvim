@@ -25,19 +25,31 @@ lspconfig.pylsp.setup({
         pylsp = {
             plugins = {
                 black = {
-                    enabled = true
+                    enabled = true,
+                    lineLength: 100
+                    -- preview: true
                 },
-                isort = {
+                ruff = {
+                    enabled = true,
+                    lineLength: 100
+                },
+                autopep8 = {
+                    enabled = false
+                },
+                pyls_isort = {
                     enabled = true,
                     profile = "black"
+                },
+                pyls_mypy = {
+                    enabled = true,
                 },
                 jedi_completion = {
                     enabled = true
                     -- fuzzy = true
                 },
-                rope_autoimport = {
-                    enabled = true
-                },
+                -- rope_autoimport = {
+                --     enabled = true
+                -- },
                 pycodestyle = {
                     enabled = false,
                     ignore = { 'W391' },

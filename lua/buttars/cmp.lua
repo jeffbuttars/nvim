@@ -88,26 +88,6 @@ cmp.setup({
             end
         end, { "i", "s", "c" }),
     }),
-    cmdline = {
-        -- https://github.com/hrsh7th/cmp-cmdline
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        [":"] = {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
-        },
-        ["/"] = {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        },
-    },
     sources = {
         { name = "ultisnips", keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
@@ -144,3 +124,23 @@ cmp.setup({
         ghost_text = true
     }
 })
+
+-- https://github.com/hrsh7th/cmp-cmdline
+-- Command completion setup
+cmp.setup.cmdline(":", {
+            -- completion = { autocomplete = false },
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                { name = "cmdline" },
+            }),
+        })
+
+cmp.setup.cmdline("/", {
+            -- completion = { autocomplete = false },
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })

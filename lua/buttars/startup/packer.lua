@@ -154,6 +154,7 @@ return require("packer").startup(function(use)
 
 			-- Snippets
 			-- { "L3MON4D3/LuaSnip" },  -- Supports UltiSnips style of snippets
+			-- { "rafamadriz/friendly-snippets" },
 			{ "quangnguyen30192/cmp-nvim-ultisnips", requires = { "SirVer/ultisnips" } },
 			{ "SirVer/ultisnips" },
 			{ "honza/vim-snippets" },
