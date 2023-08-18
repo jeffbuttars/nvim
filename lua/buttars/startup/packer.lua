@@ -130,7 +130,8 @@ return require("packer").startup(function(use)
 	-- LSP setup
 	use({
 		"VonHeikemen/lsp-zero.nvim",
-        branch = "v2.x",
+        -- branch = "v2.x",
+        branch = "dev-v3",
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
@@ -148,11 +149,11 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-cmdline" },
 			-- { "saadparwaiz1/cmp_luasnip" },
+            -- {"L3MON4D3/LuaSnip"},
 			{ "tamago324/cmp-zsh", requires = { "Shougo/deol.nvim" } },
 
 			-- Snippets
-			-- { "L3MON4D3/LuaSnip" },
-			-- { "rafamadriz/friendly-snippets" },
+			-- { "L3MON4D3/LuaSnip" },  -- Supports UltiSnips style of snippets
 			{ "quangnguyen30192/cmp-nvim-ultisnips", requires = { "SirVer/ultisnips" } },
 			{ "SirVer/ultisnips" },
 			{ "honza/vim-snippets" },

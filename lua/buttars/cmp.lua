@@ -1,8 +1,9 @@
--- Delcaration and some setup for nvim-cmp. This is meant to be required by lsp
--- and nvim-cmp in 'after'
+-- Delcaration and some setup for nvim-cmp. This is meant to be required by lsp-zero 'after'
 local butt_utils = require("buttars.utils")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+
+require("cmp_nvim_ultisnips").setup({})
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
@@ -53,31 +54,12 @@ local cmp_formatting_item_text = {
     TypeParameter = "TypeParam",
 }
 
-local butt_cmp = {
-    cmp = cmp,
-    -- preselect = cmp.PreselectMode.Item,
-    --
+
+cmp.setup({
     completion = {
         completeopt = "menu,menuone,noselect",
     },
-
-    performance = {
-        -- This is the interval used to group up completions from different sources
-        -- for filtering and displaying.
-        -- debounce = 60,
-
-        -- This is used to delay filtering and displaying completions.
-        -- throttle = 1000,
-
-        -- The nvim-cmp will wait to display the most prioritized source.
-        -- fetching_timeout = 500,
-
-        -- performance defaults --
-        -- debounce = 60,
-        -- throttle = 30,
-        -- fetching_timeout = 500,
-    },
-    mappings = cmp.mapping.preset.insert({
+    mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
@@ -106,7 +88,7 @@ local butt_cmp = {
             end
         end, { "i", "s", "c" }),
     }),
-    cmd_mappings = {
+    cmdline = {
         -- https://github.com/hrsh7th/cmp-cmdline
         -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
         [":"] = {
@@ -126,7 +108,6 @@ local butt_cmp = {
             },
         },
     },
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     sources = {
         { name = "ultisnips", keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
@@ -135,8 +116,6 @@ local butt_cmp = {
         { name = "buffer", keyword_length = 2, max_item_count = 5 },
         { name = "path", keyword_length = 2, max_item_count = 5 },
     },
-
-    -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
     formatting = {
         expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
@@ -156,17 +135,12 @@ local butt_cmp = {
             return kind_fmt
         end,
     },
+    snippet = {
+        expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
     experimental = {
         ghost_text = true
     }
-}
-
-
-cmp.setup({
-    completion = butt_cmp.completion,
-    mapping = butt_cmp.mappings,
-    sources = butt_cmp.sources,
-    formatting = butt_cmp.formatting,
 })
-
-return butt_cmp
