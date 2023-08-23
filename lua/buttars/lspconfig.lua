@@ -19,6 +19,9 @@ lspconfig.emmet_ls.setup({
     },
 })
 
+-- lspconfig.pyls-black.setup({
+-- })
+
 lspconfig.pylsp.setup({
     -- configurationSources = {"black"},
     settings = {
@@ -26,36 +29,50 @@ lspconfig.pylsp.setup({
             plugins = {
                 black = {
                     enabled = true,
-                    lineLength: 100
-                    -- preview: true
-                },
-                ruff = {
-                    enabled = true,
-                    lineLength: 100
-                },
-                autopep8 = {
-                    enabled = false
-                },
-                pyls_isort = {
-                    enabled = true,
-                    profile = "black"
+                    lineLength = 100
+                    -- preview = true
                 },
                 pyls_mypy = {
                     enabled = true,
+                },
+                autopep8 = {
+                    enabled = false
                 },
                 jedi_completion = {
                     enabled = true
                     -- fuzzy = true
                 },
-                -- rope_autoimport = {
-                --     enabled = true
-                -- },
+                pyflakes = {
+                    enabled = false,
+                },
                 pycodestyle = {
                     enabled = false,
                     ignore = { 'W391' },
                     maxLineLength = 100
                 },
+                pyls_isort = {
+                    enabled = false,
+                    profile = "black"
+                },
+                rope_autoimport = {
+                    enabled = false
+                },
             }
         }
     },
 })
+
+-- Configure `ruff-lsp`.
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+-- For the default config, along with instructions on how to customize the settings
+require('lspconfig').ruff_lsp.setup {
+    -- on_attach = on_attach,
+    init_options = {
+        settings = {
+            -- Any extra CLI arguments for `ruff` go here.
+            args = {},
+            fixAll = true,
+            organizeImports = true,
+        }
+    }
+}

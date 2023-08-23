@@ -2,6 +2,34 @@
 
 local lsp = require("lsp-zero").preset({})
 
+local function code_action_organizes_imports(code_action_obj)
+    if code_action_obj.kind == "source.organizeImports" then
+        -- vim.print("TRUE CA OBJ:", code_action_obj)
+        return true
+    end
+
+    -- vim.print("FALSE CA OBJ:", code_action_obj)
+    return false
+end
+
+local function code_action_fixes_all(code_action_obj)
+    if code_action_obj.kind == "source.fixAll" then
+        -- vim.print("TRUE CA OBJ:", code_action_obj)
+        return true
+    end
+
+    -- vim.print("FALSE CA OBJ:", code_action_obj)
+    return false
+end
+
+local function format_filter(format_obj)
+    vim.print("FMT OBJ NAME:", format_obj.name)
+    if format_obj.name == 'ruff_lsp' then
+        vim.print("FMT OBJ:", format_obj)
+    end
+    return true
+end
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -25,7 +53,7 @@ lsp.on_attach(function(client, bufnr)
         vim.lsp.buf.hover()
     end, opts)
 
-    vim.keymap.set("n", "<leader>vca", function()
+    vim.keymap.set("n", "<leader>ca", function()
         vim.lsp.buf.code_action()
     end, opts)
 
@@ -42,13 +70,15 @@ lsp.on_attach(function(client, bufnr)
     end, opts)
 
     if client.supports_method("textDocument/formatting") then
-        vim.keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-        -- vim.keymap.set("n", "<leader>f", function()
-        --     vim.lsp.buf.format({
-        --         timeout_ms = 1000,
-        --         -- async=true
-        --     })
-        -- end, opts)
+        vim.keymap.set("n", "<leader>f", function()
+
+            vim.lsp.buf.format()
+            -- vim.lsp.buf.code_action({ filter = code_action_organizes_imports, apply = true })
+            -- vim.lsp.buf.code_action({filter = code_action_fixes_all, apply=true})
+
+            -- vim.lsp.buf.format({filter = format_filter})
+            -- vim.lsp.buf.format({ async=true })
+        end, opts)
     end
 
     -- LSP key map for formatting a buffer
