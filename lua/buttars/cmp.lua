@@ -1,8 +1,9 @@
--- Delcaration and some setup for nvim-cmp. This is meant to be required by lsp
--- and nvim-cmp in 'after'
+-- Delcaration and some setup for nvim-cmp. This is meant to be required by lsp-zero 'after'
 local butt_utils = require("buttars.utils")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+
+require("cmp_nvim_ultisnips").setup({})
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
@@ -53,31 +54,12 @@ local cmp_formatting_item_text = {
     TypeParameter = "TypeParam",
 }
 
-return {
-    cmp = cmp,
-    -- preselect = cmp.PreselectMode.Item,
-    --
+
+cmp.setup({
     completion = {
         completeopt = "menu,menuone,noselect",
     },
-
-    performance = {
-        -- This is the interval used to group up completions from different sources
-        -- for filtering and displaying.
-        -- debounce = 60,
-
-        -- This is used to delay filtering and displaying completions.
-        -- throttle = 1000,
-
-        -- The nvim-cmp will wait to display the most prioritized source.
-        -- fetching_timeout = 500,
-
-        -- performance defaults --
-        -- debounce = 60,
-        -- throttle = 30,
-        -- fetching_timeout = 500,
-    },
-    mappings = {
+    mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
         ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
@@ -105,38 +87,15 @@ return {
                 fallback()
             end
         end, { "i", "s", "c" }),
-    },
-    cmd_mappings = {
-        -- https://github.com/hrsh7th/cmp-cmdline
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        [":"] = {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
-        },
-        ["/"] = {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        },
-    },
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    }),
     sources = {
         { name = "ultisnips", keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp_signature_help" },
-        { name = "nvim_lua", max_item_count = 5 },
+        -- { name = "nvim_lua", max_item_count = 5 },
         { name = "buffer", keyword_length = 2, max_item_count = 5 },
         { name = "path", keyword_length = 2, max_item_count = 5 },
     },
-
-    -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
     formatting = {
         expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
@@ -156,7 +115,32 @@ return {
             return kind_fmt
         end,
     },
+    snippet = {
+        expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
     experimental = {
         ghost_text = true
     }
-}
+})
+
+-- https://github.com/hrsh7th/cmp-cmdline
+-- Command completion setup
+cmp.setup.cmdline(":", {
+            -- completion = { autocomplete = false },
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                { name = "cmdline" },
+            }),
+        })
+
+cmp.setup.cmdline("/", {
+            -- completion = { autocomplete = false },
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })

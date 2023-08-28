@@ -1,5 +1,5 @@
-local get_hex = require("cokeline/utils").get_hex
-local buf_delete = require("cokeline/utils").buf_delete
+local get_hex = require("cokeline.utils").get_hex
+-- local buf_delete = require("cokeline/utils").buf_delete
 
 require("cokeline").setup({
 	-- default_hl = {
