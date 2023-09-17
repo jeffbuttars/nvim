@@ -18,6 +18,8 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+    use("folke/zen-mode.nvim")
+
 	-- FZF setup
 	use({
 		"junegunn/fzf",
@@ -108,13 +110,32 @@ return require("packer").startup(function(use)
 	use("monkoose/matchparen.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "windwp/nvim-autopairs" })
+    use({
+        'altermo/ultimate-autopair.nvim',
+        event={'InsertEnter','CmdlineEnter'},
+        branch='v0.6',
+        config=function ()
+            require('ultimate-autopair').setup({
+                tabout = {
+                    enable = true,
+                    -- map='<S-tab>', --string or table
+                    -- cmap='<S-tab>', --string or table
+                },
+                space2 = {enable = true},  --[ |] > f > [ f| ]
+                -- fastwarp={
+                --     multi=true,
+                --     {},
+                --     {faster=true,map='<C-A-e>',cmap='<C-A-e>'},
+                -- }
+            })
+        end,
+    })
 	use({ "Bekaboo/deadcolumn.nvim" })
 
 	-- Markdown stuff
 	use("PratikBhusal/vim-grip")
 	use("ajorgensen/vim-markdown-toc")
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
-
 	-- Mermaid
 	use("craigmac/vim-mermaid")
 
@@ -130,6 +151,32 @@ return require("packer").startup(function(use)
 			"nvim-telescope/telescope.nvim",
 		},
 	})
+
+    -- Codium
+    -- https://github.com/Exafunction/codeium.vim
+    -- Remove the `use` here if you're using folke/lazy.nvim.
+    use {
+    'Exafunction/codeium.vim',
+    -- config = function ()
+        -- Change '<C-g>' here to any keycode you like.
+        -- vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+        -- vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+        -- vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+        -- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    -- end
+    }
+
+    -- use {
+    --     "WillEhrendreich/codeium.nvim",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim",
+    --         "hrsh7th/nvim-cmp",
+    --     },
+    --     -- config = function()
+    --     --     require("codeium").setup({
+    --     --     })
+    --     -- end
+    -- }
 
 	-- Debug
 	use("mfussenegger/nvim-dap")

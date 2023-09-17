@@ -145,4 +145,4 @@ if vim.fn.filereadable(py_venv_exec) then
     vim.g.python3_host_prog = py_venv_exec
 end
 
-require("buttars.startup")
+require("buttars")

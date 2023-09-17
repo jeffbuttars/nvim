@@ -7,7 +7,12 @@ require("cmp_nvim_ultisnips").setup({})
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-local cmp_formatting_kind_func = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })
+
+local cmp_formatting_kind_func = lspkind.cmp_format({
+    mode = "symbol_text",
+    maxwidth = 50,
+    -- symbol_map = { Codeium = "", },
+})
 
 local cmp_formatting_source_name_map = {
     buffer = "Buf",
@@ -24,6 +29,7 @@ local cmp_formatting_source_name_map = {
     treesitter = "TS",
     ultisnips = "Snip",
     zsh = "Zsh",
+    -- codeium = "Codeium",
 }
 
 local cmp_formatting_item_text = {
@@ -52,6 +58,7 @@ local cmp_formatting_item_text = {
     Event = "Event",
     Operator = "Oper",
     TypeParameter = "TypeParam",
+    -- Codeium = "Codeium",
 }
 
 
@@ -89,12 +96,13 @@ cmp.setup({
         end, { "i", "s", "c" }),
     }),
     sources = {
-        { name = "ultisnips", keyword_length = 1, max_item_count = 5 },
-        { name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
+        -- { name = "codeium",                keyword_length = 1, max_item_count = 3 },
+        { name = "ultisnips",              keyword_length = 1, max_item_count = 5 },
+        { name = "nvim_lsp",               keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp_signature_help" },
         -- { name = "nvim_lua", max_item_count = 5 },
-        { name = "buffer", keyword_length = 2, max_item_count = 5 },
-        { name = "path", keyword_length = 2, max_item_count = 5 },
+        { name = "buffer",                 keyword_length = 2, max_item_count = 5 },
+        { name = "path",                   keyword_length = 2, max_item_count = 5 },
     },
     formatting = {
         expandable_indicator = true,
@@ -128,19 +136,19 @@ cmp.setup({
 -- https://github.com/hrsh7th/cmp-cmdline
 -- Command completion setup
 cmp.setup.cmdline(":", {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
-        })
+    -- completion = { autocomplete = false },
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
+})
 
 cmp.setup.cmdline("/", {
-            -- completion = { autocomplete = false },
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        })
+    -- completion = { autocomplete = false },
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer" },
+    },
+})
