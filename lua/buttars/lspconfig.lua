@@ -22,56 +22,61 @@ lspconfig.emmet_ls.setup({
 -- lspconfig.pyls-black.setup({
 -- })
 
--- lspconfig.pylsp.setup({
+lspconfig.pylsp.setup({
 --     -- configurationSources = {"black"},
---     settings = {
---         pylsp = {
---             plugins = {
---                 black = {
---                     enabled = false,
---                     lineLength = 100
---                     -- preview = true
---                 },
---                 pyls_mypy = {
---                     enabled = true,
---                 },
---                 autopep8 = {
---                     enabled = false
---                 },
---                 jedi_completion = {
---                     enabled = true
---                     -- fuzzy = true
---                 },
---                 pyflakes = {
---                     enabled = false,
---                 },
---                 pycodestyle = {
---                     enabled = false,
---                     ignore = { 'W391' },
---                     maxLineLength = 100
---                 },
---                 pyls_isort = {
---                     enabled = false,
---                     profile = "black"
---                 },
+    settings = {
+        pylsp = {
+            plugins = {
+                ruff = {
+                    enabled = true,
+                    config = "~/pyproject.toml",
+                    -- extendSelect = {"I"},
+                },
+                black = {
+                    enabled = true,
+                    lineLength = 100
+                    -- preview = true
+                },
+                pyls_mypy = {
+                    enabled = true,
+                },
+                autopep8 = {
+                    enabled = false
+                },
+                jedi_completion = {
+                    enabled = true
+                    -- fuzzy = true
+                },
+                pyflakes = {
+                    enabled = false,
+                },
+                pycodestyle = {
+                    enabled = false,
+                    ignore = { 'W391' },
+                    maxLineLength = 100
+                },
+                isort = {
+                    enabled = true,
+                    profile = "black"
+                },
 --                 rope_autoimport = {
 --                     enabled = false
 --                 },
---                 yapf = {
---                     enabled = false
---                 },
---                 mccabe = {
---                     enabled = false
---                 }
---             }
---         }
---     },
--- })
+                yapf = {
+                    enabled = false
+                },
+                mccabe = {
+                    enabled = false
+                }
+            }
+        }
+    },
+})
 
 -- Configure `ruff-lsp`.
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
-require('lspconfig').ruff_lsp.setup {
+lspconfig.ruff_lsp.setup {
     -- on_attach = on_attach,
     init_options = {
         settings = {

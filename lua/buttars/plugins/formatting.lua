@@ -10,5 +10,5 @@ return {
     },
     { "psf/black" },
     -- Use ruff for import sorting
-    -- { "brentyi/isort.vim" },
+    { "brentyi/isort.vim" },
 }

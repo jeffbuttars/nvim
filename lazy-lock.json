@@ -21,6 +21,7 @@
   "fzf.vim": { "branch": "master", "commit": "678ee1a549bd873dde35f6146f288a3f2e29d983" },
   "gitsigns.nvim": { "branch": "main", "commit": "bce4576a9047085a528c479a7fe1e2f6b787b6c1" },
   "indent-blankline.nvim": { "branch": "master", "commit": "9637670896b68805430e2f72cf5d16be5b97a22a" },
+  "isort.vim": { "branch": "master", "commit": "b208480802af0d8c02c906cc11972cc6ad297bd3" },
   "lazy.nvim": { "branch": "main", "commit": "2a9354c7d2368d78cbd5575a51a2af5bd8a6ad01" },
   "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },
   "lsp-zero.nvim": { "branch": "v3.x", "commit": "53068d66f0313ac7c496e0b04f1f80169ee7980d" },

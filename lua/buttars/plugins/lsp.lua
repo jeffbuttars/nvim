@@ -65,12 +65,12 @@ return {
             -- end
 
             lsp_zero.on_attach(function(client, bufnr)
-                local opts = { buffer = bufnr, remap = false }
+                -- local opts = { buffer = bufnr, remap = false }
 
-                if client.name == "eslint" then
-                    vim.cmd.LspStop("eslint")
-                    return
-                end
+                -- if client.name == "eslint" then
+                --     vim.cmd.LspStop("eslint")
+                --     return
+                -- end
 
                 lsp_zero.default_keymaps({ buffer = bufnr })
 
@@ -83,9 +83,9 @@ return {
                     vim.lsp.buf.implementation()
                 end, opts)
 
-                vim.keymap.set("n", "K", function()
-                    vim.lsp.buf.hover()
-                end, opts)
+                -- vim.keymap.set("n", "K", function()
+                --     vim.lsp.buf.hover()
+                -- end, opts)
 
                 vim.keymap.set("n", "<leader>ca", function()
                     vim.lsp.buf.code_action()
@@ -103,42 +103,46 @@ return {
                     vim.lsp.buf.signature_help()
                 end, opts)
 
-                if client.supports_method("textDocument/formatting") then
-                    vim.keymap.set("n", "<leader>f", function()
-                        vim.lsp.buf.format()
-                        -- vim.lsp.buf.code_action({ filter = code_action_organizes_imports, apply = true })
-                        -- vim.lsp.buf.code_action({filter = code_action_fixes_all, apply=true})
+                vim.keymap.set("n", "<leader>f", function()
+                    vim.lsp.buf.format()
+                end, opts)
 
-                        -- vim.lsp.buf.format({filter = format_filter})
-                        -- vim.lsp.buf.format({ async=true })
-                    end, opts)
-                end
+                -- if client.supports_method("textDocument/formatting") then
+                --     vim.keymap.set("n", "<leader>f", function()
+                --         vim.lsp.buf.format()
+                --         -- vim.lsp.buf.code_action({ filter = code_action_organizes_imports, apply = true })
+                --         -- vim.lsp.buf.code_action({filter = code_action_fixes_all, apply=true})
+                --
+                --         -- vim.lsp.buf.format({filter = format_filter})
+                --         -- vim.lsp.buf.format({ async=true })
+                --     end, opts)
+                -- end
 
                 -- LSP key map for formatting a buffer
             end)
 
-            lsp_zero.format_on_save({
-                format_opts = {
-                    async = true,
-                },
-                servers = {
-                    ["ruff-lsp"] = {"python"}
-                }
-            })
+            -- lsp_zero.format_on_save({
+            --     format_opts = {
+            --         async = true,
+            --     },
+            --     servers = {
+            --         ["ruff-lsp"] = {"python"}
+            --     }
+            -- })
 
             -- Mason integration
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 -- Replace the language servers listed here
                 -- with the ones you want to install
-                ensure_installed = { 'jedi_language_server', 'bashls', 'lua_ls', 'tsserver'},
+                ensure_installed = { 'jedi_language_server', 'bashls', 'lua_ls', 'tsserver' },
 
                 handlers = {
                     lsp_zero.default_setup,
-                    lua_ls = function()
-                        -- (Optional) Configure lua language server for neovim
-                        require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
-                    end,
+                    -- lua_ls = function()
+                    --     -- (Optional) Configure lua language server for neovim
+                    --     require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+                    -- end,
                 },
             })
 
