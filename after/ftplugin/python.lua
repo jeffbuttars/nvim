@@ -6,7 +6,8 @@ vim.keymap.set("n", "<F5>", "<cmd>Black<CR><cmd>%!ruff --fix-only -e -n --stdin-
 local FormatPyOnSave = vim.api.nvim_create_augroup("FormatPyOnSave", { clear = true })
 
 vim.api.nvim_create_autocmd(
-    { "CursorHold", "BufLeave", "FocusLost", "WinLeave", "BufWritePost" },
+    -- { "CursorHold", "BufLeave", "FocusLost", "WinLeave", "BufWritePre" },
+    "BufWritePre",
     {
     pattern = "*.py",
     command = "silent! %!ruff --fix-only -e -n --stdin-filename % - 2>/dev/null",
@@ -15,7 +16,8 @@ vim.api.nvim_create_autocmd(
 })
 
 vim.api.nvim_create_autocmd(
-    { "CursorHold", "BufLeave", "FocusLost", "WinLeave", "BufWritePost" },
+    -- { "CursorHold", "BufLeave", "FocusLost", "WinLeave", "BufWritePre" },
+    "BufWritePre",
     {
     pattern = "*.py",
     command = "silent! Black",
