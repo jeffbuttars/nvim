@@ -1,27 +1,27 @@
 -- base set of autocommands for vim events
 
-local function SetColorColumn(ccol)
-    if not vim.b["longLineMatchID"] then
-        vim.b.longLineMatchID = 0
-    end
-
-    vim.fn.clearmatches()
-
-    if ccol == 0 or vim.opt.buftype:get() ~= "" or vim.fn.expand("%") == "" or vim.opt.buftype:get() == "log" then
-        vim.opt_local.colorcolumn = "0"
-        vim.opt.textwidth = 0
-
-        return
-    end
-
-    local num_matches = #vim.fn.getmatches()
-    if num_matches < 1 or vim.b.longLineMatchID == 0 or vim.opt.colorcolumn ~= ("" .. (ccol + 1)) then
-        -- echo "SetColorColumn applying" b:longLineMatchID "" a:ccol "\%>".a:ccol."v.\+"
-        vim.opt.colorcolumn = ccol .. ""
-        vim.opt.textwidth = ccol - 1
-        vim.b.longLineMatchID = vim.fn.matchadd("OverColLimit", "\\%>" .. ccol .. "v.\\+", -1)
-    end
-end
+-- local function SetColorColumn(ccol)
+--     if not vim.b["longLineMatchID"] then
+--         vim.b.longLineMatchID = 0
+--     end
+--
+--     vim.fn.clearmatches()
+--
+--     if ccol == 0 or vim.opt.buftype:get() ~= "" or vim.fn.expand("%") == "" or vim.opt.buftype:get() == "log" then
+--         vim.opt_local.colorcolumn = "0"
+--         vim.opt.textwidth = 0
+--
+--         return
+--     end
+--
+--     local num_matches = #vim.fn.getmatches()
+--     if num_matches < 1 or vim.b.longLineMatchID == 0 or vim.opt.colorcolumn ~= ("" .. (ccol + 1)) then
+--         -- echo "SetColorColumn applying" b:longLineMatchID "" a:ccol "\%>".a:ccol."v.\+"
+--         vim.opt.colorcolumn = ccol .. ""
+--         vim.opt.textwidth = ccol - 1
+--         vim.b.longLineMatchID = vim.fn.matchadd("OverColLimit", "\\%>" .. ccol .. "v.\\+", -1)
+--     end
+-- end
 
 local function AutoSave(args)
     -- print("AutoSave ", args)
@@ -79,13 +79,13 @@ vim.api.nvim_create_autocmd(
     { pattern = "*grep*", command = "cwindow", group = OperatorDefinedAutoCmds }
 )
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "python", "sh", "javascript", "java", "c", "lua" },
-    callback = function()
-        SetColorColumn(vim.g.max_line_length)
-    end,
-    group = OperatorDefinedAutoCmds,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--     pattern = { "python", "sh", "javascript", "java", "c", "lua" },
+--     callback = function()
+--         SetColorColumn(vim.g.max_line_length)
+--     end,
+--     group = OperatorDefinedAutoCmds,
+-- })
 
 -- Only use cursorline/cursorcolumn in normal mode
 -- set linenumbers on by default

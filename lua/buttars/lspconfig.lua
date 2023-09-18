@@ -23,10 +23,14 @@ lspconfig.emmet_ls.setup({
 -- })
 
 lspconfig.pylsp.setup({
---     -- configurationSources = {"black"},
     settings = {
+        formatComnmand = {"black"},
         pylsp = {
             plugins = {
+                jedi_completion = {
+                    enabled = true,
+                    fuzzy = true
+                },
                 ruff = {
                     enabled = true,
                     config = "~/pyproject.toml",
@@ -37,15 +41,15 @@ lspconfig.pylsp.setup({
                     lineLength = 100
                     -- preview = true
                 },
+                isort = {
+                    enabled = true,
+                    profile = "black"
+                },
                 pyls_mypy = {
                     enabled = true,
                 },
                 autopep8 = {
                     enabled = false
-                },
-                jedi_completion = {
-                    enabled = true
-                    -- fuzzy = true
                 },
                 pyflakes = {
                     enabled = false,
@@ -54,10 +58,6 @@ lspconfig.pylsp.setup({
                     enabled = false,
                     ignore = { 'W391' },
                     maxLineLength = 100
-                },
-                isort = {
-                    enabled = true,
-                    profile = "black"
                 },
 --                 rope_autoimport = {
 --                     enabled = false
@@ -76,14 +76,14 @@ lspconfig.pylsp.setup({
 -- Configure `ruff-lsp`.
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
-lspconfig.ruff_lsp.setup {
-    -- on_attach = on_attach,
-    init_options = {
-        settings = {
-            -- Any extra CLI arguments for `ruff` go here.
-            args = {},
-            fixAll = true,
-            organizeImports = true,
-        }
-    }
-}
+-- lspconfig.ruff_lsp.setup {
+--     -- on_attach = on_attach,
+--     init_options = {
+--         settings = {
+--             -- Any extra CLI arguments for `ruff` go here.
+--             args = {},
+--             fixAll = true,
+--             organizeImports = true,
+--         }
+--     }
+-- }

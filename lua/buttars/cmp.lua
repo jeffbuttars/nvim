@@ -9,58 +9,59 @@ require("cmp_nvim_ultisnips").setup({})
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
--- local cmp_formatting_kind_func = lspkind.cmp_format({
---     mode = "symbol_text",
---     maxwidth = 50,
---     -- symbol_map = { Codeium = "", },
--- })
---
--- local cmp_formatting_source_name_map = {
---     buffer = "Buf",
---     cmdline = "Cmd",
---     emoji = "Emoji",
---     latex_symbols = "Latex",
---     luasnip = "Snip",
---     nvim_lsp = "LSP",
---     nvim_lua = "Lua",
---     path = "Path",
---     spell = "Spell",
---     tabnine = "T9",
---     tags = "Tags",
---     treesitter = "TS",
---     ultisnips = "Snip",
---     zsh = "Zsh",
---     -- codeium = "Codeium",
--- }
---
--- local cmp_formatting_item_text = {
---     Text = "Text",
---     Method = "Meth",
---     Function = "Func",
---     Constructor = " Constructor",
---     Field = "Field",
---     Variable = "Var ",
---     Class = "Cls ",
---     Interface = "Interface",
---     Module = "Mod ",
---     Property = "Prop",
---     Unit = "Unit",
---     Value = "Val ",
---     Enum = "Enum",
---     Keyword = "KeyW",
---     Snippet = "Snip",
---     Color = "Colr",
---     File = "File",
---     Reference = "Ref ",
---     Folder = "Dir ",
---     EnumMember = "EnumMbr",
---     Constant = "Const",
---     Struct = "Struct",
---     Event = "Event",
---     Operator = "Oper",
---     TypeParameter = "TypeParam",
---     -- Codeium = "Codeium",
--- }
+
+local cmp_formatting_kind_func = lspkind.cmp_format({
+    mode = "symbol_text",
+    maxwidth = 50,
+    symbol_map = { Codeium = "", },
+})
+
+local cmp_formatting_source_name_map = {
+    buffer = "Buf",
+    cmdline = "Cmd",
+    emoji = "Emoji",
+    latex_symbols = "Latex",
+    luasnip = "Snip",
+    nvim_lsp = "LSP",
+    nvim_lua = "Lua",
+    path = "Path",
+    spell = "Spell",
+    tabnine = "T9",
+    tags = "Tags",
+    treesitter = "TS",
+    ultisnips = "Snip",
+    zsh = "Zsh",
+    codeium = "Codeium",
+}
+
+local cmp_formatting_item_text = {
+    Text = "Text",
+    Method = "Meth",
+    Function = "Func",
+    Constructor = " Constructor",
+    Field = "Field",
+    Variable = "Var ",
+    Class = "Cls ",
+    Interface = "Interface",
+    Module = "Mod ",
+    Property = "Prop",
+    Unit = "Unit",
+    Value = "Val ",
+    Enum = "Enum",
+    Keyword = "KeyW",
+    Snippet = "Snip",
+    Color = "Colr",
+    File = "File",
+    Reference = "Ref ",
+    Folder = "Dir ",
+    EnumMember = "EnumMbr",
+    Constant = "Const",
+    Struct = "Struct",
+    Event = "Event",
+    Operator = "Oper",
+    TypeParameter = "TypeParam",
+    Codeium = "Codeium",
+}
 
 cmp.setup({
     completion = {
@@ -104,26 +105,25 @@ cmp.setup({
         { name = "buffer",                 keyword_length = 2, max_item_count = 5 },
         { name = "path",                   keyword_length = 2, max_item_count = 5 },
     },
-    formatting = lsp_zero.formatting,
-    -- formatting = {
-    --     expandable_indicator = true,
-    --     fields = { "kind", "abbr", "menu" },
-    --     format = function(entry, vim_item)
-    --         -- print("entry source: ", vim.inspect(entry))
-    --         local kind_fmt = cmp_formatting_kind_func(entry, vim_item)
-    --         local strings = vim.split(kind_fmt.kind, "%s", { trimempty = true })
-    --         local source_name = cmp_formatting_source_name_map[entry.source.name] or entry.source.name
-    --
-    --         -- Left side of word (icon)
-    --         kind_fmt.kind = strings[1]
-    --
-    --         -- Right side of word
-    --         kind_fmt.menu = " " .. cmp_formatting_item_text[strings[2]]
-    --             or strings[2] .. " " .. butt_utils.icons["fa-long_arrow_left"] .. source_name
-    --         -- print("KIND: ", vim.inspect(kind))
-    --         return kind_fmt
-    --     end,
-    -- },
+    formatting = {
+        expandable_indicator = true,
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            -- print("entry source: ", vim.inspect(entry))
+            local kind_fmt = cmp_formatting_kind_func(entry, vim_item)
+            local strings = vim.split(kind_fmt.kind, "%s", { trimempty = true })
+            local source_name = cmp_formatting_source_name_map[entry.source.name] or entry.source.name
+
+            -- Left side of word (icon)
+            kind_fmt.kind = strings[1]
+
+            -- Right side of word
+            kind_fmt.menu = " " .. cmp_formatting_item_text[strings[2]]
+                or strings[2] .. " " .. butt_utils.icons["fa-long_arrow_left"] .. source_name
+            -- print("KIND: ", vim.inspect(kind))
+            return kind_fmt
+        end,
+    },
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)

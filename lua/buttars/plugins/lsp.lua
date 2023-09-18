@@ -58,9 +58,9 @@ return {
             --
             -- local function format_filter(format_obj)
             --     vim.print("FMT OBJ NAME:", format_obj.name)
-            --     if format_obj.name == 'ruff_lsp' then
-            --         vim.print("FMT OBJ:", format_obj)
-            --     end
+            --     -- if format_obj.name == 'ruff_lsp' then
+            --     --     vim.print("FMT OBJ:", format_obj)
+            --     -- end
             --     return true
             -- end
 
@@ -103,8 +103,8 @@ return {
                     vim.lsp.buf.signature_help()
                 end, opts)
 
-                vim.keymap.set("n", "<leader>f", function()
-                    vim.lsp.buf.format()
+                vim.keymap.set({"n", "x"}, "<leader>f", function()
+                    vim.lsp.buf.format({async = false})
                 end, opts)
 
                 -- if client.supports_method("textDocument/formatting") then
@@ -121,14 +121,14 @@ return {
                 -- LSP key map for formatting a buffer
             end)
 
-            -- lsp_zero.format_on_save({
-            --     format_opts = {
-            --         async = true,
-            --     },
-            --     servers = {
-            --         ["ruff-lsp"] = {"python"}
-            --     }
-            -- })
+            lsp_zero.format_on_save({
+                format_opts = {
+                    async = false,
+                },
+                servers = {
+                    ["pylsp"] = {"python"},
+                }
+            })
 
             -- Mason integration
             require('mason').setup({})
@@ -139,10 +139,10 @@ return {
 
                 handlers = {
                     lsp_zero.default_setup,
-                    -- lua_ls = function()
-                    --     -- (Optional) Configure lua language server for neovim
-                    --     require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
-                    -- end,
+                    lua_ls = function()
+                        -- (Optional) Configure lua language server for neovim
+                        require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+                    end,
                 },
             })
 
@@ -173,7 +173,7 @@ return {
             vim.api.nvim_create_autocmd({ "CursorHold" }, {
                 pattern = "*",
                 callback = function()
-                    vim.diagnostic.open_float(0, { focusable = false, scope = "line" })
+                    vim.diagnostic.open_float(0, { focusable = false, scope = "line", source = true })
                 end,
                 group = MyLSPGroup,
             })
