@@ -95,9 +95,16 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s", "c" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+                fallback()
+            end
+        end, { "i", "s", "c" }),
     }),
     sources = {
-        { name = "codeium",                keyword_length = 1, max_item_count = 3 },
+        { name = "codeium",                keyword_length = 1, max_item_count = 5 },
         { name = "ultisnips",              keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp",               keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp_signature_help" },
