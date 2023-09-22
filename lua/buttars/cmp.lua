@@ -2,7 +2,7 @@
 local butt_utils = require("buttars.utils")
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-local lsp_zero = require('lsp-zero')
+-- local lsp_zero = require('lsp-zero')
 
 require("cmp_nvim_ultisnips").setup({})
 
@@ -97,7 +97,7 @@ cmp.setup({
         end, { "i", "s", "c" }),
     }),
     sources = {
-        -- { name = "codeium",                keyword_length = 1, max_item_count = 3 },
+        { name = "codeium",                keyword_length = 1, max_item_count = 3 },
         { name = "ultisnips",              keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp",               keyword_length = 1, max_item_count = 5 },
         { name = "nvim_lsp_signature_help" },

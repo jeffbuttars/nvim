@@ -34,7 +34,7 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            local get_hex = require("cokeline.utils").get_hex
+            local hlgroups = require("cokeline.hlgroups")
             -- local buf_delete = require("cokeline/utils").buf_delete
 
             require("cokeline").setup({
@@ -53,9 +53,9 @@ return {
                     components = {
                         {
                             text = "     Filesystem",
-                            fg = get_hex("NeoTreeNormal", "fg"),
-                            bg = get_hex("NeoTreeNormal", "bg"),
-                            highlight = get_hex("NeoTreeFileName", "fg"),
+                            fg = hlgroups.get_hl_attr("NeoTreeNormal", "fg"),
+                            bg = hlgroups.get_hl_attr("NeoTreeNormal", "bg"),
+                            highlight = hlgroups.get_hl_attr("NeoTreeFileName", "fg"),
                             style = "bold",
                         },
                     },
@@ -65,10 +65,10 @@ return {
                     {
                         text = "",
                         fg = function(buffer)
-                            return (buffer.is_focused and get_hex('Normal', 'fg')) or get_hex('Normal', 'bg')
+                            return (buffer.is_focused and hlgroups.get_hl_attr('Normal', 'fg')) or hlgroups.get_hl_attr('Normal', 'bg')
                         end,
                         bg = function(_)
-                            return get_hex('Normal', 'bg')
+                            return hlgroups.get_hl_attr('Normal', 'bg')
                         end,
                     },
                     {
@@ -76,7 +76,7 @@ return {
                             return " " .. buffer.devicon.icon
                         end,
                         fg = function(buffer)
-                            return (buffer.is_focused and get_hex('Normal', 'bg')) or get_hex('Normal', 'fg')
+                            return (buffer.is_focused and hlgroups.get_hl_attr('Normal', 'bg')) or hlgroups.get_hl_attr('Normal', 'fg')
                         end,
                     },
                     {
@@ -120,10 +120,10 @@ return {
                     {
                         text = "",
                         fg = function(buffer)
-                            return (buffer.is_focused and get_hex('Normal', 'fg')) or get_hex('Normal', 'bg')
+                            return (buffer.is_focused and hlgroups.get_hl_attr('Normal', 'fg')) or hlgroups.get_hl_attr('Normal', 'bg')
                         end,
                         bg = function(_)
-                            return get_hex('Normal', 'bg')
+                            return hlgroups.get_hl_attr('Normal', 'bg')
                         end,
                     },
                 },

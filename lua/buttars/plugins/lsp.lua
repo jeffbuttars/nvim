@@ -103,9 +103,9 @@ return {
                     vim.lsp.buf.signature_help()
                 end, opts)
 
-                vim.keymap.set({"n", "x"}, "<leader>f", function()
-                    vim.lsp.buf.format({async = false})
-                end, opts)
+                -- vim.keymap.set({"n", "x"}, "<leader>f", function()
+                --     vim.lsp.buf.format({async = false})
+                -- end, opts)
 
                 -- if client.supports_method("textDocument/formatting") then
                 --     vim.keymap.set("n", "<leader>f", function()
@@ -141,7 +141,9 @@ return {
                     lsp_zero.default_setup,
                     lua_ls = function()
                         -- (Optional) Configure lua language server for neovim
-                        require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+                        local lua_ls_config = lsp_zero.nvim_lua_ls()
+                        lua_ls_config.settings.Lua.workspace.ignoreDir = { ".git", ".upkg" }
+                        require('lspconfig').lua_ls.setup(lua_ls_config)
                     end,
                 },
             })

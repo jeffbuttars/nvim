@@ -31,22 +31,22 @@ lspconfig.pylsp.setup({
                     enabled = true,
                     fuzzy = true
                 },
-                ruff = {
+                pylsp_mypy = {
                     enabled = true,
+                },
+                ruff = {
+                    enabled = false,
                     config = "~/pyproject.toml",
                     -- extendSelect = {"I"},
                 },
                 black = {
                     enabled = true,
-                    lineLength = 100
+                    lineLength = 99,
                     -- preview = true
                 },
                 isort = {
                     enabled = true,
                     profile = "black"
-                },
-                pyls_mypy = {
-                    enabled = true,
                 },
                 autopep8 = {
                     enabled = false
@@ -59,9 +59,9 @@ lspconfig.pylsp.setup({
                     ignore = { 'W391' },
                     maxLineLength = 100
                 },
---                 rope_autoimport = {
---                     enabled = false
---                 },
+                rope_autoimport = {
+                    enabled = false
+                },
                 yapf = {
                     enabled = false
                 },

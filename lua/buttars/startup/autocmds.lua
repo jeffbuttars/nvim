@@ -60,7 +60,7 @@ end
 local OperatorDefinedAutoCmds = vim.api.nvim_create_augroup("OperatorDefinedAutoCmds", { clear = true })
 
 -- AutoSave often
-vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave", "VimLeave" }, {
     pattern = "*",
     callback = AutoSave,
     group = OperatorDefinedAutoCmds,
