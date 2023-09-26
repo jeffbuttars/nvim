@@ -7,6 +7,7 @@
 -- let g:neovide_cursor_vfx_mode = "wireframe"
 -- let g:neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_trail_length = 0.1
+vim.g.neovide_cursor_animation_length = 0
 
 -- vim.g.neovide_transparency=0.9
 vim.g.neovide_refresh_rate = 60
@@ -20,7 +21,7 @@ vim.g.neovide_floating_blur_amount_y = 2.0
 
 -- https://neovide.dev/faq.html
 -- Adjust the font size while running
-vim.g.gui_font_default_size = 16
+vim.g.gui_font_default_size = 14
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "FiraCode Nerd Font Mono"
 

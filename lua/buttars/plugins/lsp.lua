@@ -121,14 +121,14 @@ return {
                 -- LSP key map for formatting a buffer
             end)
 
-            lsp_zero.format_on_save({
-                format_opts = {
-                    async = false,
-                },
-                servers = {
-                    ["pylsp"] = {"python"},
-                }
-            })
+            -- lsp_zero.format_on_save({
+            --     format_opts = {
+            --         async = false,
+            --     },
+            --     servers = {
+            --         ["pylsp"] = {"python"},
+            --     }
+            -- })
 
             -- Mason integration
             require('mason').setup({})

@@ -145,4 +145,9 @@ if vim.fn.filereadable(py_venv_exec) then
     vim.g.python3_host_prog = py_venv_exec
 end
 
+-- Spelling
+vim.opt.spell = true
+vim.opt.spelllang = {"en_us"}
+vim.opt.spellsuggest = {"best", 9}
+
 require("buttars")

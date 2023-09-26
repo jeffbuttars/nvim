@@ -4,7 +4,7 @@ return {
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
-					lua = { "stylua" },
+					lua = { "codespell", "stylua" },
 					-- Conform will run multiple formatters sequentially
 					python = { "ruff_fix", "black" },
 					htmldjango = { "djlint" },
@@ -17,6 +17,13 @@ return {
 					bash = { { "shfmt", "beautysh" } },
 					sh = { { "shfmt", "beautysh" } },
 					json = { "jq" },
+					yaml = { "yamlfix" },
+					-- Use the "*" filetype to run formatters on all filetypes.
+					["*"] = { "codespell" },
+					-- Use the "_" filetype to run formatters on filetypes that don't
+					-- have other formatters configured.
+					["_"] = { "trim_whitespace" },
+					-- zig = { "zigfmg" },
 				},
 			})
 
