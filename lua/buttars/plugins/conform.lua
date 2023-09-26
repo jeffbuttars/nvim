@@ -1,27 +1,32 @@
 return {
-    {
-    'stevearc/conform.nvim',
-    config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-                lua = { "stylua" },
-                -- Conform will run multiple formatters sequentially
-                python = { "ruff_fix", "black" },
+	{
+		"stevearc/conform.nvim",
+		config = function()
+			require("conform").setup({
+				formatters_by_ft = {
+					lua = { "stylua" },
+					-- Conform will run multiple formatters sequentially
+					python = { "ruff_fix", "black" },
+					htmldjango = { "djlint" },
+					html = { "htmlbeautifier" },
 
-                -- For some reason this version creates an empty file
-                -- python = { "ruff_fix", "fuff_format", "black" },
-                -- Use a sub-list to run only the first available formatter
-                javascript = { { "prettierd", "prettier" } },
-            },
-        })
+					-- For some reason this version creates an empty file
+					-- python = { "ruff_fix", "fuff_format", "black" },
+					-- Use a sub-list to run only the first available formatter
+					javascript = { { "prettierd", "prettier" } },
+					bash = { { "shfmt", "beautysh" } },
+					sh = { { "shfmt", "beautysh" } },
+					json = { "jq" },
+				},
+			})
 
-        -- Conform also provides a formatexpr, same as the LSP client:
-        vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+			-- Conform also provides a formatexpr, same as the LSP client:
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
-        vim.keymap.set({"n", "x"}, "<leader>f", function()
-            -- require("conform").format({ bufnr = args.buf, lsp_fallback = true })
-            require("conform").format({ lsp_fallback = true, async = false })
-        end, opts)
-    end
-},
+			vim.keymap.set({ "n", "x" }, "<leader>f", function()
+				-- require("conform").format({ bufnr = args.buf, lsp_fallback = true })
+				require("conform").format({ lsp_fallback = true, async = false })
+			end, opts)
+		end,
+	},
 }
