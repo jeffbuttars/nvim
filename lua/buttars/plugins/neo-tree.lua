@@ -7,12 +7,15 @@ return {
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         },
-        keys = { "<C-d>" },
+        keys = { "<C-d>", "<C-g>" },
         config = function()
             -- https://github.com/nvim-neo-tree/neo-tree.nvim
             require("neo-tree").setup({
                 filesystem = {
-                    follow_current_file = true,
+                    follow_current_file = {
+                        enabled = true,
+                        leave_dirs_open = true, -- default: false
+                    },
                     use_libuv_file_watcher = true,
                 },
 
@@ -22,7 +25,10 @@ return {
                 },
 
                 buffers = {
-                    follow_current_file = true,
+                    follow_current_file = {
+                        enabled = true,
+                        leave_dirs_open = true, -- default: false
+                    },
                 },
                 git_status = {
                     symbols = {
@@ -63,9 +69,8 @@ return {
                 },
             })
 
-            -- vim.api.nvim_set_keymap("n", "<C-d>", ":NeoTreeFocus<CR>", { noremap = true, silent = true })
-            -- vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus reveal_force_cwd<CR>", { noremap = true, silent = true })
-            vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "<C-d>", ":Neotree action=focus toggle reveal<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "<C-g>", ":Neotree action=focus toggle reveal source=git_status<CR>", { noremap = true, silent = true })
         end
     }
 }
