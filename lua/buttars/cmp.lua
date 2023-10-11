@@ -214,9 +214,9 @@ cmp.setup({
 	-- },
 
 	sources = {
-		{ name = "codeium", keyword_length = 1, max_item_count = 5 },
+		{ name = "codeium", keyword_length = 0, max_item_count = 5 },
 		{ name = "ultisnips", keyword_length = 1, max_item_count = 5 },
-		{ name = "nvim_lsp", keyword_length = 1, max_item_count = 5 },
+		{ name = "nvim_lsp", keyword_length = 1, max_item_count = 10 },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "nvim_lua", keyword_length = 1, max_item_count = 5 },
 		{ name = "buffer", keyword_length = 2, max_item_count = 5 },

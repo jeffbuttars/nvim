@@ -13,11 +13,13 @@ return {
 					-- For some reason this version creates an empty file
 					-- python = { "ruff_fix", "fuff_format", "black" },
 					-- Use a sub-list to run only the first available formatter
-					javascript = { { "prettierd", "prettier" } },
+					javascript = { { "standardjs", "prettierd", "prettier" } },
+                    css = { "stylelint" },
 					bash = { { "shfmt", "beautysh" } },
 					sh = { { "shfmt", "beautysh" } },
 					json = { "jq" },
 					yaml = { "yamlfix" },
+					c = { "clang_format" },
 					-- Use the "*" filetype to run formatters on all filetypes.
 					["*"] = { "codespell" },
 					-- Use the "_" filetype to run formatters on filetypes that don't
@@ -33,7 +35,7 @@ return {
 			vim.keymap.set({ "n", "x" }, "<leader>f", function()
 				-- require("conform").format({ bufnr = args.buf, lsp_fallback = true })
 				require("conform").format({ lsp_fallback = true, async = false })
-			end, opts)
+			end, { noremap = true })
 		end,
 	},
 }

@@ -3,12 +3,12 @@ return {
 		"ajorgensen/vim-markdown-toc",
 		ft = { "markdown" },
 	},
-	{ "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
-	--[[ {
-		"PratikBhusal/vim-grip",
-		cmd = { "GripStart", "GripExport" },
-	}, ]]
-	--[[ {
+	{ 
+        "iamcco/markdown-preview.nvim",
+        build = "cd app && yarn install",
+        ft = { "markdown", "pandoc.markdown", "rmd" },
+    },
+	{
 		"toppair/peek.nvim",
 		cmd = { "PeekOpen", "PeekClose" },
 		build = "deno task --quiet build:fast",
@@ -37,5 +37,5 @@ return {
 			vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
 			vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 		end,
-	}, ]]
+	},
 }
