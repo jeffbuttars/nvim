@@ -7,6 +7,16 @@ return {
         "iamcco/markdown-preview.nvim",
         build = "cd app && yarn install",
         ft = { "markdown", "pandoc.markdown", "rmd" },
+        config = function()
+            vim.g.mkdp_preview_options = {
+                uml = {
+                    -- For using local server:
+                    --   `plantuml -picoweb:9999`
+                    server = 'http://127.0.0.1:9999/plantuml',
+                    imageFormat = 'svg',
+                },
+            }
+        end
     },
 	{
 		"toppair/peek.nvim",
