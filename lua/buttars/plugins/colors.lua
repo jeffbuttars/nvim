@@ -2,6 +2,9 @@ return {
 	-- Theme / Colors
 	-- "ishan9299/nvim-solarized-lua",
 
+    {
+        "catppuccin/nvim",
+    },
 	{
 		-- https://github.com/rose-pine/neovim
 		"rose-pine/neovim",
@@ -23,12 +26,12 @@ return {
 		-- 	vim.cmd([[ colorscheme NeoSolarized ]])
 		-- end,
 	},
-	{
-		"EdenEast/nightfox.nvim",
-		-- opts = {
-		-- 	transparent = true,
-		-- },
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	-- opts = {
+	-- 	-- 	transparent = true,
+	-- 	-- },
+	-- },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	lazy = false,
@@ -38,9 +41,18 @@ return {
 	{
 		"folke/lsp-colors.nvim",
 	},
-	{
-		-- https://github.com/norcalli/nvim-colorizer.lua
-		"/norcalli/nvim-colorizer.lua",
-		ft = { "css", "html", "bash", "javascript", "markdown" },
-	},
+    {
+        'brenoprata10/nvim-highlight-colors',
+    },
+	-- {
+	-- 	-- https://github.com/norcalli/nvim-colorizer.lua
+	-- 	"/norcalli/nvim-colorizer.lua",
+    --     opts = {
+    --         "*",
+    --         css = {RRGGBBAA = True, rgb_fn = True, hsl_fn = True, css = True, css_fn = True},
+    --         html = {RRGGBBAA = True, rgb_fn = True, hsl_fn = True, css = True, css_fn = True},
+    --     },
+	-- 	-- ft = { "css", "html", "bash", "javascript", "markdown", "ini" },
+    --     -- lazy = true,
+	-- },
 }

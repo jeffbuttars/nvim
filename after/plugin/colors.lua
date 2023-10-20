@@ -23,7 +23,8 @@ elseif vim.env.TERM_META == "light" then
 end
 
 -- Rose Pine
-local color_scheme = "rose-pine"
+-- local color_scheme = "rose-pine"
+local color_scheme = "catppuccin-latte"
 
 -- Set the colorscheme!
 -- vim.g.colors_name = color_scheme

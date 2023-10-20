@@ -16,6 +16,11 @@ return {
                     imageFormat = 'svg',
                 },
             }
+
+            vim.g.mkdp_filetypes = { "markdown", "plantuml" }
+            vim.g.mkdp_auto_close = false
+            -- vim.g.mkdp_combine_preview = false
+            -- vim.g.mkdp_combine_preview_auto_refresh = true
         end
     },
 	{
