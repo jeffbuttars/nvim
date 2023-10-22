@@ -8,35 +8,37 @@ return {
       local cmp = require("cmp")
       local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
-      opts.mapping["<C-j>"] = cmp.mapping(function(fallback)
-        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-      end, {
-        "i",
-        "s", --[[ "c" (to enable the mapping in command mode) ]]
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<C-j>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        end, {
+          "i",
+          "s", --[[ "c" (to enable the mapping in command mode) ]]
+        }),
+
+        ["<C-k>"] = cmp.mapping(function(fallback)
+          cmp_ultisnips_mappings.jump_backwards(fallback)
+        end, {
+          "i",
+          "s", --[[ "c" (to enable the mapping in command mode) ]]
+        }),
+
+        ["<Tab>"] = function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end,
+
+        ["<S-Tab>"] = function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end,
       })
-
-      opts.mapping["<C-k>"] = cmp.mapping(function(fallback)
-        cmp_ultisnips_mappings.jump_backwards(fallback)
-      end, {
-        "i",
-        "s", --[[ "c" (to enable the mapping in command mode) ]]
-      })
-
-      opts.mapping["<Tab>"] = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end
-
-      opts.mapping["<S-Tab>"] = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end
 
       opts.snippet = {
         expand = function(args)
