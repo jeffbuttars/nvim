@@ -11,14 +11,6 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    opts = {
-      diagnostics = {
-        virtual_text = false,
-      },
-    },
-  },
-  {
     "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
       opts.defaults.mappings.i = {
