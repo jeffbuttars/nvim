@@ -4,10 +4,13 @@
 
 -- show diagnostics popup when we're chillin in normal mode
 local MyLSPGroup = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
+
+-- Show a diagnostic popup on cursor hold
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
   callback = function()
     vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
+    -- vim.diagnostic.open_float({ focusable = false, scope = "buffer", source = true })
   end,
   group = MyLSPGroup,
 })
@@ -41,27 +44,25 @@ local function AutoSave(args)
   end
 end
 
-local OperatorDefinedAutoCmds =
-  vim.api.nvim_create_augroup("OperatorDefinedAutoCmds", { clear = true })
-
 -- AutoSave often
 vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave", "VimLeave" }, {
   pattern = "*",
   callback = AutoSave,
-  group = OperatorDefinedAutoCmds,
+  group = MyLSPGroup,
   desc = "AutoSave current buffer",
 })
 
+-- Format buf on resize ?
 -- Need to make this _not_ change the quickfix size.
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-  pattern = "*",
-  callback = vim.lsp.buf.format,
-  group = OperatorDefinedAutoCmds,
-})
+-- vim.api.nvim_create_autocmd({ "VimResized" }, {
+--   pattern = "*",
+--   callback = vim.lsp.buf.format,
+--   group = MyLSPGroup,
+-- })
 
 vim.api.nvim_create_autocmd(
   { "QuickFixCmdPost" },
-  { pattern = "*grep*", command = "cwindow", group = OperatorDefinedAutoCmds }
+  { pattern = "*grep*", command = "cwindow", group = MyLSPGroup }
 )
 
 -- Only use cursorline/cursorcolumn in normal mode
@@ -76,7 +77,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     vim.opt.cursorcolumn = true
     vim.opt.relativenumber = true
   end,
-  group = OperatorDefinedAutoCmds,
+  group = MyLSPGroup,
 })
 
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
@@ -86,7 +87,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
     vim.opt.cursorcolumn = false
     vim.opt.relativenumber = false
   end,
-  group = OperatorDefinedAutoCmds,
+  group = MyLSPGroup,
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
@@ -94,7 +95,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
   callback = function()
     vim.opt.relativenumber = false
   end,
-  group = OperatorDefinedAutoCmds,
+  group = MyLSPGroup,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
@@ -102,7 +103,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   callback = function()
     vim.opt.relativenumber = true
   end,
-  group = OperatorDefinedAutoCmds,
+  group = MyLSPGroup,
 })
 
 --  When editing a file, always jump to the last known cursor position.
@@ -110,13 +111,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
 --  (happens when dropping a file on gvim).
 --  Also don't do it when the mark is in the first line, that is the default
 --  position when opening a file.
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = "*",
-  callback = function()
-    if vim.fn.line("'\"") and vim.fn.line("'\"") <= vim.fn.line("$") then
-      -- vim.api.nvim_cmd("normal! g`\"")
-      vim.api.nvim_cmd({ cmd = "normal", args = { 'g`"' }, bang = true }, {})
-    end
-  end,
-  group = OperatorDefinedAutoCmds,
-})
+--
+--  Commented out, because LazyVim has it's own version for this
+-- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+--   pattern = "*",
+--   callback = function()
+--     if vim.fn.line("'\"") and vim.fn.line("'\"") <= vim.fn.line("$") then
+--       -- vim.api.nvim_cmd("normal! g`\"")
+--       vim.api.nvim_cmd({ cmd = "normal", args = { 'g`"' }, bang = true }, {})
+--     end
+--   end,
+--   group = MyLSPGroup
+-- })
