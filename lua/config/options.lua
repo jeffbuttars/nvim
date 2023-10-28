@@ -10,3 +10,7 @@ vim.g.autoformat = false
 
 -- This may be annoying, set to false if so
 -- opt.confirm = true -- Confirm to save changes before exiting modified buffer
+
+-- LazzVim default is opt.completeopt = "menu,menuone,noselect"
+-- vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
