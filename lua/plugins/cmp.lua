@@ -4,7 +4,6 @@ return {
     "nvim-cmp",
     -- @param opts cmp.ConfigSchema
     opts = function(_, opts)
-      require("cmp_nvim_ultisnips").setup({})
       local cmp = require("cmp")
       local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
@@ -13,6 +12,18 @@ return {
         -- completeopt = { "menu", "menuone", "noinsert" },
         -- completeopt = { "menu", "preview", "menuone", "noselect" },
       }
+
+    -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
+    --       if cmp.visible() then
+    --         vim.print("TAB VISIBLE")
+    --         cmp.select_next_item()
+    --       else
+    --         vim.print("TAB NOT VISIBLE, FAlling back")
+    --         -- cmp.abort()
+    --         fallback()
+    --         -- vim.api.nvim_feedkeys("\<Tab>", "t", true)
+    --       end
+    --     end, { "i", "s", "c" })
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-j>"] = cmp.mapping(function(fallback)
@@ -29,35 +40,38 @@ return {
           "s", --[[ "c" (to enable the mapping in command mode) ]]
         }),
 
-        ["<Tab>"] = function(fallback)
+        ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
+            -- vim.print("TAB VISIBLE")
             cmp.select_next_item()
           else
+            -- vim.print("TAB NOT VISIBLE, FAlling back")
             fallback()
           end
-        end,
+        end, { "i", "s", "c" }),
 
-        ["<S-Tab>"] = function(fallback)
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           else
             fallback()
           end
-        end,
+        end, { "i", "s", "c" }),
 
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
-        -- ["<CR>"] = cmp.mapping({
-        --   i = function(fallback)
-        --     if cmp.visible() and cmp.get_active_entry() then
-        --       cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-        --     else
-        --       fallback()
-        --     end
-        --   end,
-        --   s = cmp.mapping.confirm({ select = true }),
-        --   -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        -- }),
+        --   ["<CR>"] = cmp.mapping({
+        --     i = function(fallback)
+        --       if cmp.visible() and cmp.get_active_entry() then
+        --         cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        --       -- cmp.mapping.confirm({ select = false })
+        --       else
+        --         fallback()
+        --       end
+        --     end,
+        --     s = cmp.mapping.confirm({ select = true }),
+        --     -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        --   }),
       })
 
       opts.snippet = {
@@ -71,46 +85,35 @@ return {
         documentation = cmp.config.window.bordered(),
       }
 
-      -- table.insert(opts.sources, 2, {
-      --   name = "ultisnips",
-      --   keyword_length = 1,
-      --   max_item_count = 5,
-      --   group_index = 1,
-      --   -- priority = 90,
-      -- })
-
       -- Just override with our own table
       opts.sources = cmp.config.sources({
         {
-          group_index = 1,
+          -- group_index = 1,
           name = "codeium",
-          priority = 100,
+          -- priority = 100,
           keyword_length = 0,
         },
         {
-          group_index = 1,
+          -- keyword_length = 1,
+          name = "nvim_lsp",
+          -- priority = 85,
+        },
+        {
+          -- group_index = 1,
           keyword_length = 1,
           max_item_count = 5,
           name = "ultisnips",
-          priority = 90,
-        },
-        {
-          group_index = 1,
-          keyword_length = 1,
-          name = "nvim_lsp",
-          priority = 85,
+          -- priority = 90,
         },
         -- {
-        --   group_index = 1,
         --   name = "luasnip",
         -- },
         {
-          group_index = 1,
           name = "path",
           max_item_count = 3,
         },
+      }, {
         {
-          group_index = 2,
           name = "buffer",
           max_item_count = 5,
         },
@@ -150,10 +153,21 @@ return {
     end,
 
     dependencies = {
-      { "quangnguyen30192/cmp-nvim-ultisnips", dependencies = { "SirVer/ultisnips" } },
+      {
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        "hrsh7th/cmp-cmdline",
+        -- "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-buffer",
+        -- "hrsh7th/cmp-path",
+        -- "saadparwaiz1/cmp_luasnip",
+        dependencies = { "SirVer/ultisnips" },
+        requires = { "nvim-treesitter/nvim-treesitter" },
+      },
       {
         "SirVer/ultisnips",
-        config = function()
+        lazy = false,
+        priority = 1000,
+        init = function()
           -- UltiSnips
           -- This must be loaded at startup and not in after
 
