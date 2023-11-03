@@ -7,23 +7,47 @@ return {
       local cmp = require("cmp")
       local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
+      -- https://github.com/hrsh7th/cmp-cmdline
+      -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
+
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }),
+      })
+
       opts.completion = {
         completeopt = "menu,preview,menuone,noselect",
         -- completeopt = { "menu", "menuone", "noinsert" },
         -- completeopt = { "menu", "preview", "menuone", "noselect" },
       }
 
-    -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-    --       if cmp.visible() then
-    --         vim.print("TAB VISIBLE")
-    --         cmp.select_next_item()
-    --       else
-    --         vim.print("TAB NOT VISIBLE, FAlling back")
-    --         -- cmp.abort()
-    --         fallback()
-    --         -- vim.api.nvim_feedkeys("\<Tab>", "t", true)
-    --       end
-    --     end, { "i", "s", "c" })
+      -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
+      --       if cmp.visible() then
+      --         vim.print("TAB VISIBLE")
+      --         cmp.select_next_item()
+      --       else
+      --         vim.print("TAB NOT VISIBLE, FAlling back")
+      --         -- cmp.abort()
+      --         fallback()
+      --         -- vim.api.nvim_feedkeys("\<Tab>", "t", true)
+      --       end
+      --     end, { "i", "s", "c" })
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-j>"] = cmp.mapping(function(fallback)
