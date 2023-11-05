@@ -1,3 +1,56 @@
+-- telescope-config.lua
+local M = {}
+
+-- We cache the results of "git rev-parse"
+-- Process creation is expensive in Windows, so this reduces latency
+local is_inside_work_tree = {}
+
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
+-- Live grep from project git root with fallback
+M.project_files = function()
+  local opts = {} -- define here if you want to define something
+  local builtin = require("telescope.builtin")
+
+  local cwd = vim.fn.getcwd()
+  if is_inside_work_tree[cwd] == nil then
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    is_inside_work_tree[cwd] = vim.v.shell_error == 0
+  end
+
+  if is_inside_work_tree[cwd] then
+    builtin.git_files(opts)
+  else
+    builtin.find_files(opts)
+  end
+end
+
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#find-files-from-project-git-root-with-fallback
+-- Find files from project git root with fallback
+-- This function is basically find_files() combined with git_files().
+-- The appeal of this function over the default find_files() is that you can find files that are not tracked by git.
+-- Also, find_files() only finds files in the current directory but this function finds files regardless of your current directory as long as you're in the project directory.
+M.find_files_from_project_git_root = function()
+  local opts = {hidden = true}
+
+  local function is_git_repo()
+    vim.fn.system("git rev-parse --is-inside-work-tree")
+    return vim.v.shell_error == 0
+  end
+
+  local function get_git_root()
+    local dot_git_path = vim.fn.finddir(".git", ".;")
+    return vim.fn.fnamemodify(dot_git_path, ":h")
+  end
+
+  if is_git_repo() then
+    opts = {
+      cwd = get_git_root(),
+    }
+  end
+
+  require("telescope.builtin").find_files(opts)
+end
+
 return {
   {
     -- Disable the floating command line input,
@@ -21,7 +74,24 @@ return {
         ["<C-j>"] = require("telescope.actions").move_selection_next,
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
       }
+      opts.defaults.mappings.n = {
+        ["<leader><space"] = require("telescope.builtin").git_files,
+      }
     end,
+    keys = {
+      {
+        "<leader><space>",
+        function()
+          M.find_files_from_project_git_root()
+        end,
+        desc = "Find Files",
+      },
+      -- {
+      --   "<leader><space>",
+      --   "<cmd>Telescope git_files<cr>",
+      --   desc = "Find Git Files",
+      -- },
+    },
   },
 
   {
