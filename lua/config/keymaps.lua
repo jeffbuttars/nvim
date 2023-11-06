@@ -31,3 +31,38 @@ end, { noremap = true })
 vim.keymap.set("n", "c-i", function()
   vim.lsp.buf.implementation()
 end, { noremap = true })
+
+--  DELETED Keymaps --
+-- Remove some keymaps that I don't find are any better than the default Vim key maps
+vim.keymap.del("n", "<leader>ww")
+vim.keymap.del("n", "<leader>wd")
+vim.keymap.del("n", "<leader>w-")
+vim.keymap.del("n", "<leader>w|")
+vim.keymap.del("n", "<leader>-")
+vim.keymap.del("n", "<leader>|")
+
+-- buffers
+vim.keymap.del("n", "[b")
+vim.keymap.del("n", "]b")
+
+-- Move Lines
+vim.keymap.del("n", "<A-j>")
+vim.keymap.del("n", "<A-k>")
+vim.keymap.del("i", "<A-j>")
+vim.keymap.del("i", "<A-k>")
+
+-- save file
+vim.keymap.del({ "i", "x", "n", "s" }, "<C-s>")
+--
+-- new file
+vim.keymap.del("n", "<leader>fn")
+
+-- quit
+vim.keymap.del("n", "<leader>qq")
+
+-- REMAPS --
+-- ALT is used by my WM, so we remap things that use ALT that are useful
+vim.keymap.del("v", "<A-j>")
+vim.keymap.del("v", "<A-k>")
+vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })

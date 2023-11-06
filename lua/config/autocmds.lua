@@ -2,9 +2,11 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- show diagnostics popup when we're chillin in normal mode
-local MyLSPGroup = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
+local Util = require("lazyvim.util")
 
+local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
+
+-- show diagnostics popup when we're chillin in normal mode
 -- Show a diagnostic popup on cursor hold
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
@@ -12,7 +14,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
     -- vim.diagnostic.open_float({ focusable = false, scope = "buffer", source = true })
   end,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
 })
 
 local function AutoSave(args)
@@ -48,7 +50,7 @@ end
 vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave", "VimLeave" }, {
   pattern = "*",
   callback = AutoSave,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
   desc = "AutoSave current buffer",
 })
 
@@ -57,12 +59,12 @@ vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave",
 -- vim.api.nvim_create_autocmd({ "VimResized" }, {
 --   pattern = "*",
 --   callback = vim.lsp.buf.format,
---   group = MyLSPGroup,
+--   group = ButtarsACmds,
 -- })
 
 vim.api.nvim_create_autocmd(
   { "QuickFixCmdPost" },
-  { pattern = "*grep*", command = "cwindow", group = MyLSPGroup }
+  { pattern = "*grep*", command = "cwindow", group = ButtarsACmds }
 )
 
 -- Only use cursorline/cursorcolumn in normal mode
@@ -77,7 +79,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     vim.opt.cursorcolumn = true
     vim.opt.relativenumber = true
   end,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
 })
 
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
@@ -87,7 +89,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
     vim.opt.cursorcolumn = false
     vim.opt.relativenumber = false
   end,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
 })
 
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
@@ -95,7 +97,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
   callback = function()
     vim.opt.relativenumber = false
   end,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
 })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
@@ -103,8 +105,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   callback = function()
     vim.opt.relativenumber = true
   end,
-  group = MyLSPGroup,
+  group = ButtarsACmds,
 })
+
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   pattern = "*",
+--   callback = function()
+--     Util.format({ force = true })
+--   end,
+--   group = ButtarsACmds,
+-- })
 
 --  When editing a file, always jump to the last known cursor position.
 --  Don't do it when the position is invalid or when inside an event handler
@@ -121,5 +131,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
 --       vim.api.nvim_cmd({ cmd = "normal", args = { 'g`"' }, bang = true }, {})
 --     end
 --   end,
---   group = MyLSPGroup
+--   group = ButtarsACmds
 -- })
