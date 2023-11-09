@@ -67,6 +67,3 @@ vim.keymap.del("v", "<A-j>")
 vim.keymap.del("v", "<A-k>")
 vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
--- DoubleTap Dev
---hello
