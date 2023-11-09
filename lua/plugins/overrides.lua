@@ -1,6 +1,9 @@
 -- telescope-config.lua
 local M = {}
 
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+
 -- We cache the results of "git rev-parse"
 -- Process creation is expensive in Windows, so this reduces latency
 local is_inside_work_tree = {}
@@ -30,7 +33,7 @@ end
 -- The appeal of this function over the default find_files() is that you can find files that are not tracked by git.
 -- Also, find_files() only finds files in the current directory but this function finds files regardless of your current directory as long as you're in the project directory.
 M.find_files_from_project_git_root = function()
-  local opts = {hidden = true}
+  local opts = { hidden = true }
 
   local function is_git_repo()
     vim.fn.system("git rev-parse --is-inside-work-tree")
@@ -96,7 +99,57 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "3rd/image.nvim",
+        event = "VeryLazy",
+        dependencies = {
+          {
+            "nvim-treesitter/nvim-treesitter",
+            build = ":TSUpdate",
+            config = function()
+              require("nvim-treesitter.configs").setup({
+                ensure_installed = { "markdown" },
+                highlight = { enable = true },
+              })
+            end,
+          },
+        },
+        opts = {
+          backend = "kitty",
+          integrations = {
+            markdown = {
+              enabled = true,
+              clear_in_insert_mode = false,
+              download_remote_images = true,
+              only_render_image_at_cursor = false,
+              filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+            },
+            neorg = {
+              enabled = true,
+              clear_in_insert_mode = false,
+              download_remote_images = true,
+              only_render_image_at_cursor = false,
+              filetypes = { "norg" },
+            },
+          },
+          max_width = nil,
+          max_height = nil,
+          max_width_window_percentage = nil,
+          max_height_window_percentage = 50,
+          kitty_method = "normal",
+        },
+      },
+    },
     opts = {
+      window = {
+        auto_expand_width = true,
+        mapping = {
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+        },
+      },
       event_handlers = {
         {
           event = "neo_tree_buffer_enter",

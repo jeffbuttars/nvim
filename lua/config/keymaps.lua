@@ -9,17 +9,18 @@ vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev)
 -- Search and replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Enclosing/Surrounding character mappings, visually select then double tap the
--- character to enclose the selections
-vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "))", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "{{", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", '""', '<ESC>`>a"<ESC>`<i"<ESC>', { noremap = true })
-vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
+-- -- Enclosing/Surrounding character mappings, visually select then double tap the
+-- -- character to enclose the selections
+-- A part of DoubleTap now
+-- vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "))", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "{{", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", '""', '<ESC>`>a"<ESC>`<i"<ESC>', { noremap = true })
+-- vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
 
 -- Paste over visual selection without the register swap with what's selected
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -66,3 +67,6 @@ vim.keymap.del("v", "<A-j>")
 vim.keymap.del("v", "<A-k>")
 vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- DoubleTap Dev
+--hello
