@@ -4,10 +4,10 @@
 --
 
 -- If my preferred Python venv is available, use it.
-local py_venv_exec = os.getenv("HOME") .. '/.venv/bin/python'
+local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
 if vim.fn.filereadable(py_venv_exec) then
-    -- Explicitly set the python3 executable
-    vim.g.python3_host_prog = py_venv_exec
+  -- Explicitly set the python3 executable
+  vim.g.python3_host_prog = py_venv_exec
 end
 
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
@@ -25,7 +25,7 @@ vim.opt.autoread = true
 --  The title of the window to titlestring
 vim.opt.title = true
 
-vim.opt.listchars = { trail = "·" }
+vim.opt.listchars = { trail = "·", tab = "", nbsp = "~" }
 
 -- diffopt
 -- context: show 15 lines of context
@@ -47,23 +47,24 @@ vim.opt.listchars = { trail = "·" }
 --     patience   patience diff algorithm
 --     histogram  histogram diff algorithm
 vim.opt.diffopt = {
-    "internal",
-    "filler",
-    "vertical",
-    "context:15",
-    "closeoff",
-    "hiddenoff",
-    "indent-heuristic",
-    "algorithm:histogram"
+  "internal",
+  "filler",
+  "vertical",
+  "context:15",
+  "closeoff",
+  "hiddenoff",
+  "indent-heuristic",
+  "algorithm:histogram",
 }
 
 -- Line wrapping
 vim.opt.wrap = true
 vim.opt.linebreak = true
-vim.opt.showbreak = '↪'
-
+vim.opt.showbreak = "↪"
 
 -- Instead of swapfiles and backups, aggressive saving is setup in ./autocmds.lua
--- vim.opt.swapfile = false
--- vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.backup = false
 
+vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
+vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
