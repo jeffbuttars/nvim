@@ -108,10 +108,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   group = ButtarsACmds,
 })
 
--- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
 --   pattern = "*",
 --   callback = function()
---     Util.format({ force = true })
+--     Util.format()
 --   end,
 --   group = ButtarsACmds,
 -- })
