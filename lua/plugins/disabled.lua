@@ -48,11 +48,11 @@ return {
   --   "rcarriga/nvim-notify",
   --   enabled = false,
   -- },
-  -- {
-  --   -- Looks cool, not sure how slow it is, might want to re-enable
-  --   "echasnovski/mini.indentscope",
-  --   enabled = false,
-  -- },
+  {
+    -- Looks cool, not sure how slow it is, might want to re-enable
+    "echasnovski/mini.indentscope",
+    enabled = false,
+  },
   -- {
   --   "lukas-reineke/indent-blankline.nvim",
   --   enabled = false,
