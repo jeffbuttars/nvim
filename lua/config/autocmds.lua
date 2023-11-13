@@ -18,6 +18,13 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 })
 
 local function AutoSave(args)
+  -- Restart LSP servers every 30 minutes, keep em fresh
+  local now = vim.fn.reltimefloat(vim.fn.reltime())
+  if vim.g.lsp_restart_interval > (now - vim.g.lsp_restart_last) then
+    vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
+    vim.g.lsp_restart_last = now
+  end
+
   -- close the preview window if it's visible
   -- and the pop up menu is not visible, but not if
   -- we're in a preview window.
