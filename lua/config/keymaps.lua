@@ -9,12 +9,20 @@ vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev)
 -- Search and replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Make current file executable
+vim.keymap.set(
+  "n",
+  "<leader>fx",
+  "<cmd>!chmod +x %<CR>",
+  { silent = true, desc = "Make current file executable" }
+)
+
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
 -- A part of DoubleTap now
 -- vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "))", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "{{", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "((", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
