@@ -15,6 +15,7 @@
   "codeium.nvim": { "branch": "main", "commit": "822e762567a0bf50b1a4e733c8c93691934d7606" },
   "conform.nvim": { "branch": "master", "commit": "ca3dfba94600aa62bfc88ae37cbd4f17eaea2553" },
   "deadcolumn.nvim": { "branch": "master", "commit": "b9b5e237371ae5379e280e4df9ecf62e4bc8d7a5" },
+  "diffview.nvim": { "branch": "main", "commit": "d38c1b5266850f77f75e006bcc26213684e1e141" },
   "django-plus.vim": { "branch": "master", "commit": "7b94c709e88c9227bfc35eaae802da58705f8dfc" },
   "dressing.nvim": { "branch": "master", "commit": "fe3071330a0720ce3695ac915820c8134b22d1b0" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
