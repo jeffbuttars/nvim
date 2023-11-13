@@ -1,7 +1,10 @@
 -- telescope-config.lua
 local M = {}
 
-package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path
+  .. ";"
+  .. vim.fn.expand("$HOME")
+  .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 
 -- We cache the results of "git rev-parse"
@@ -55,6 +58,15 @@ M.find_files_from_project_git_root = function()
 end
 
 return {
+  {
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      opts.linters_by_ft = {
+        sh = { "shellcheck" },
+        python = { "ruff" },
+      }
+    end,
+  },
   {
     -- Disable the floating command line input,
     -- Use the bottom line
