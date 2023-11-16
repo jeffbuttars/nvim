@@ -25,7 +25,7 @@ vim.opt.autoread = true
 --  The title of the window to titlestring
 vim.opt.title = true
 
-vim.opt.listchars = { trail = "·", tab = "", nbsp = "~" }
+vim.opt.listchars = { trail = "·", tab = "  ", nbsp = "~" }
 
 -- diffopt
 -- context: show 15 lines of context
