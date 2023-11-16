@@ -2,9 +2,26 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Whichkey goodness maps
+local wk = require("which-key")
+wk.register({
+  ["<leader>gd"] = {
+    function()
+      local gs = package.loaded.gitsigns
+      gs.diffthis("~")
+    end,
+    " Diffthis",
+  },
+})
+
 -- diagnostics jump to next/prev
-vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev)
+wk.register({
+  mode = { "n" },
+  ["<leader>xn"] = { vim.diagnostic.goto_next, "diagnostic next" },
+  ["<leader>xp"] = { vim.diagnostic.goto_prev, "diagnostic prev" },
+})
+-- vim.keymap.set("n", "<leader>xn", vim.diagnostic.goto_next)
+-- vim.keymap.set("n", "<leader>xp", vim.diagnostic.goto_prev)
 
 -- Search and replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
