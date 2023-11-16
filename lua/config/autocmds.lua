@@ -20,9 +20,18 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 local function AutoSave(args)
   -- Restart LSP servers every 30 minutes, keep em fresh
   local now = vim.fn.reltimefloat(vim.fn.reltime())
-  if vim.g.lsp_restart_interval > (now - vim.g.lsp_restart_last) then
-    vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
-    vim.g.lsp_restart_last = now
+
+  if vim.g.lsp_restart_interval then
+    if not vim.g.lsp_restart_last then
+      vim.g.lsp_restart_last = now
+    end
+
+    if (now - vim.g.lsp_restart_last) > vim.g.lsp_restart_interval then
+      require("notify")("Restarting LSP Servers...")
+      -- vim.print("Restarting LSP Servers: " .. (now - vim.g.lsp_restart_last) .. " : " .. now .. " : " .. vim.g.lsp_restart_last)
+      vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
+      vim.g.lsp_restart_last = now
+    end
   end
 
   -- close the preview window if it's visible
