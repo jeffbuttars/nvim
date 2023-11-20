@@ -158,10 +158,47 @@ return {
     opts = {
       window = {
         auto_expand_width = true,
-        mapping = {
+        mappings = {
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+          ["e"] = {
+            function()
+              vim.api.nvim_exec("Neotree focus filesystem left", true)
+            end,
+            desc = "Focus File System",
+          },
+          ["b"] = {
+            function()
+              vim.api.nvim_exec("Neotree focus buffers left", true)
+            end,
+            desc = "Focus Buffers List",
+          },
+          ["g"] = {
+            function()
+              vim.api.nvim_exec("Neotree focus git_status left", true)
+            end,
+            desc = "Focus Git Status",
+          },
         },
       },
+      filesystem = {
+        window = {
+          mappings = {
+            ["o"] = { command = "system_open", desc = "Open W/System" },
+          },
+        },
+
+        commands = {
+          system_open = function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+            -- macOs: open file in default application in the background.
+            vim.fn.jobstart({ "xdg-open", "-g", path }, { detach = true })
+            -- Linux: open file in default application
+            vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+          end,
+        },
+      },
+
       event_handlers = {
         {
           event = "neo_tree_buffer_enter",
