@@ -17,7 +17,9 @@ return {
 
         ["<leader>a"] = {
           name = "AI",
+          mode = { "n", "v" },
           c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+          z = { "<cmd>ChatGPTActAs<CR>", "ChatGPTActAs", mode = { "n" } },
           e = {
             "<cmd>ChatGPTEditWithInstruction<CR>",
             "Edit with instruction",
@@ -170,8 +172,10 @@ return {
       openai_params = {
         -- -- model = "gpt-3.5-turbo", max_tokens = 300,
         -- -- model = "gpt-4-32k",  -- 32.768 max tokens
-        model = "gpt-4",
-        max_tokens = 8192,
+        -- model = "gpt-4",
+        model = "gpt-4-1106-preview",
+        -- max_tokens = 8192,
+        max_tokens = 400,
         frequency_penalty = 0,
         presence_penalty = 0,
         temperature = 0,
@@ -184,7 +188,7 @@ return {
         top_p = 1,
         n = 1,
       },
-      actions_paths = {},
+      -- actions_paths = { "~./config/nvim/lua/plugins/chatgpt_actions.json" },
       show_quickfixes_cmd = "Trouble quickfix",
       predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
     },
