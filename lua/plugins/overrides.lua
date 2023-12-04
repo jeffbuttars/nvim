@@ -64,6 +64,7 @@ return {
       opts.linters_by_ft = {
         sh = { "shellcheck" },
         python = { "ruff" },
+        javascript = { "standardjs" },
       }
     end,
   },
@@ -89,9 +90,9 @@ return {
         ["<C-j>"] = require("telescope.actions").move_selection_next,
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
       }
-      opts.defaults.mappings.n = {
-        ["<leader><space"] = require("telescope.builtin").git_files,
-      }
+      -- opts.defaults.mappings.n = {
+      --   ["<C-p>"] = require("telescope.builtin").git_files,
+      -- }
     end,
     keys = {
       {
@@ -101,8 +102,13 @@ return {
         end,
         desc = "Find Files",
       },
+      {
+        "<C-p>",
+        require("telescope.builtin").git_files,
+        desc = "Find Files in Git repo",
+      },
       -- {
-      --   "<leader><space>",
+      --   "<C-p>",
       --   "<cmd>Telescope git_files<cr>",
       --   desc = "Find Git Files",
       -- },
