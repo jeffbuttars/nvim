@@ -37,15 +37,15 @@ func ${1:Test${2:FuncName}} (${4:t *testing.T}) {
 endsnippet
 
 snippet pr "Print" !b
-fmt.Print(${1})${0}
+fmt.Print("${1}")${0}
 endsnippet
 
 snippet prl "Println" !b
-fmt.Println(${1})${0}
+fmt.Println("${1}")${0}
 endsnippet
 
 snippet prf "Printf" !b
-fmt.Printf("${1}\n", ${2})${0}
+fmt.Printf("${1}: ${2:+v}\n", ${3})${0}
 endsnippet
 
 snippet fp "Fprint" !b
@@ -65,4 +65,18 @@ snippet ifer "if err" !b
 if err != nil {
     return ${1}
 }${0}
+endsnippet
+
+snippet ifep "if err panic" !b
+if err != nil {
+    panic(${1})
+}${0}
+endsnippet
+
+snippet ee "err :=" !b
+err := ${1}
+endsnippet
+
+snippet ve "err :=" !b
+${1:var}, err := ${2}
 endsnippet
