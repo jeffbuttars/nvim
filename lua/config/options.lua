@@ -67,6 +67,9 @@ vim.opt.showbreak = "↪"
 -- vim.opt.backup = false
 vim.opt.swapfile = true
 vim.opt.backup = true
+vim.opt.backupdir = "~/tmp/.vim/backup,/tmp//"
+vim.opt.directory = "~/tmp/.vim/swap,/tmp//"
+vim.opt.undodir = "~/tmp/.vim/undo,/tmp//"
 
 vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
