@@ -1,12 +1,18 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    -- init = function(_, opts)
+    --   require("lspconfig").typos_lsp.setup({})
+    --
+    --   return opts
+    -- end,
     opts = {
       diagnostics = {
         virtual_text = false,
       },
 
       servers = {
+        typos_lsp = {},
         pyright = false,
         pylsp = {
           settings = {
