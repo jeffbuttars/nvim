@@ -2,7 +2,7 @@ return {
   {
     dir = "~/Dev/DoubleTap",
     -- "jeffbuttars/DoubleTap",
-    event = "InsertEnter",
+    event = "BufEnter",
     -- dev = true,
     opts = {},
   },

@@ -133,6 +133,10 @@ return {
         --   name = "luasnip",
         -- },
         {
+          name = "typos_lsp",
+          -- keyword_length = 2,
+        },
+        {
           name = "path",
           max_item_count = 3,
         },
