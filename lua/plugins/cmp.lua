@@ -33,9 +33,10 @@ return {
 
       opts.completion = {
         completeopt = "menu,preview,menuone,noselect",
-        -- completeopt = { "menu", "menuone", "noinsert" },
-        -- completeopt = { "menu", "preview", "menuone", "noselect" },
+        -- completeopt = "menu,preview,menuone,noselect,noinsert",
       }
+
+      opts.preselect = cmp.PreselectMode.None
 
       -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
       --       if cmp.visible() then
@@ -112,26 +113,31 @@ return {
       -- Just override with our own table
       opts.sources = cmp.config.sources({
         {
-          -- group_index = 1,
+          keyword_length = 1,
+          max_item_count = 5,
+          name = "ultisnips",
+          priority = 100,
+        },
+        {
           name = "codeium",
-          -- priority = 100,
+          priority = 90,
           keyword_length = 0,
+          max_item_count = 5,
         },
         {
           -- keyword_length = 1,
           name = "nvim_lsp",
-          -- priority = 85,
+          priority = 1,
         },
-        {
-          -- group_index = 1,
-          keyword_length = 1,
-          max_item_count = 5,
-          name = "ultisnips",
-          -- priority = 90,
-        },
+        { name = "nvim_lsp_signature_help" },
+      }, {
         -- {
         --   name = "luasnip",
         -- },
+        {
+          name = "buffer",
+          max_item_count = 5,
+        },
         {
           name = "typos_lsp",
           -- keyword_length = 2,
@@ -140,41 +146,38 @@ return {
           name = "path",
           max_item_count = 3,
         },
-      }, {
-        {
-          name = "buffer",
-          max_item_count = 5,
-        },
-        -- {
-        --   group_index = 2,
-        --   name = "spell",
-        --   keyword_length = 3,
-        --   max_item_count = 5,
-        --   option = {
-        --     keep_all_entries = false,
-        --     -- enable_in_context = function()
-        --     -- 	return true
-        --     -- end,
-        --     enable_in_context = function()
-        --       return require("cmp.config.context").in_treesitter_capture("spell")
-        --     end,
-        --   },
-        -- },
-        -- {
-        --   group_index = 1,
-        --   name = "html-css",
-        --   keyword_length = 2,
-        --   max_item_count = 5,
-        --   option = {
-        --     file_extensions = { "css", "sass", "less" },
-        --     enable_on = { "html", "htmldjango" },
-        --     style_sheets = {
-        --       -- example of remote styles, only css no js for now
-        --       "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
-        --     },
-        --   },
-        -- },
+        { name = "cmp_yanky" },
+        { name = "color_names" },
       })
+      -- {
+      --   group_index = 2,
+      --   name = "spell",
+      --   keyword_length = 3,
+      --   max_item_count = 5,
+      --   option = {
+      --     keep_all_entries = false,
+      --     -- enable_in_context = function()
+      --     -- 	return true
+      --     -- end,
+      --     enable_in_context = function()
+      --       return require("cmp.config.context").in_treesitter_capture("spell")
+      --     end,
+      --   },
+      -- },
+      -- {
+      --   group_index = 1,
+      --   name = "html-css",
+      --   keyword_length = 2,
+      --   max_item_count = 5,
+      --   option = {
+      --     file_extensions = { "css", "sass", "less" },
+      --     enable_on = { "html", "htmldjango" },
+      --     style_sheets = {
+      --       -- example of remote styles, only css no js for now
+      --       "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
+      --     },
+      --   },
+      -- },
 
       -- vim.print("SOURCES:", opts.sources)
       -- vim.print("completion:", opts.completion)

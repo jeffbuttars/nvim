@@ -16,7 +16,7 @@ return {
         pyright = false,
         pylsp = {
           settings = {
-            formatComnmand = { "black" },
+            formatCommand = { "black" },
             pylsp = {
               plugins = {
                 jedi_completion = {
