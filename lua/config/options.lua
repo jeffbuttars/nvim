@@ -12,6 +12,7 @@ end
 
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
 vim.opt.pumheight = 15 -- Maximum number of entries in a popup
+vim.opt.pumblend = 0
 
 -- Disable LazyVim auto format, default is true
 -- vim.g.autoformat = true
