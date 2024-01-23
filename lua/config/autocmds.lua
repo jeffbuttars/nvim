@@ -41,9 +41,6 @@ local function AutoSave(args)
     vim.api.nvim_command("pclose")
   end
 
-  -- vim.print(vim.opt.buflisted:get())
-  -- vim.print(vim.opt.bufhidden:get())
-
   -- Ignore hidden or unlisted buffers and other types of buffers
   if
     (not vim.opt.modified:get())
@@ -62,7 +59,7 @@ local function AutoSave(args)
     end
 
     vim.api.nvim_buf_call(args.buf, function()
-      vim.api.nvim_cmd({ cmd = "write", args = {}, bang = true }, {})
+      vim.api.nvim_cmd({ cmd = "write", args = {}, bang = true, mods = { silent = true } }, {})
       print("Saved " .. vim.fn.expand("%"))
     end)
   end
