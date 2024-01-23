@@ -10,9 +10,13 @@ if vim.fn.filereadable(py_venv_exec) then
   vim.g.python3_host_prog = py_venv_exec
 end
 
+-- transparency menus seem to work with Alacritty ok, Wezterm is a maybe
+
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
-vim.opt.pumheight = 15 -- Maximum number of entries in a popup
-vim.opt.pumblend = 0
+-- vim.opt.pumheight = 15 -- Maximum number of entries in a popup
+vim.opt.pumblend = 0 -- Uncomment if using transparency causes rendering issues
+-- vim.api.nvim_set_hl(0, "PmenuSel", { blend = 0 })
+-- vim.api.nvim_set_hl(0, "Pmenu", { blend = 0 })
 
 -- Disable LazyVim auto format, default is true
 -- vim.g.autoformat = true
@@ -74,3 +78,6 @@ vim.opt.undodir = "~/tmp/.vim/undo,/tmp//"
 
 vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
+
+-- vim.opt.timeoutlen = 300  -- default
+vim.opt.timeoutlen = 1000

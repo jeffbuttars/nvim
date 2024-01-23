@@ -214,7 +214,7 @@ return {
           -- vim.g.UltiSnipsListSnippets = '<c-q>'
           -- vim.g.UltiSnipsListSnippets                <c-tab>
 
-          vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
+          -- vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
         end,
       },
       { "honza/vim-snippets" },

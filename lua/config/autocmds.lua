@@ -41,10 +41,16 @@ local function AutoSave(args)
     vim.api.nvim_command("pclose")
   end
 
+  -- vim.print(vim.opt.buflisted:get())
+  -- vim.print(vim.opt.bufhidden:get())
+
+  -- Ignore hidden or unlisted buffers and other types of buffers
   if
     (not vim.opt.modified:get())
     or (not vim.api.nvim_buf_get_option(0, "modifiable"))
     or vim.opt.readonly:get()
+    or vim.opt.buflisted:get() == false
+    or vim.opt.bufhidden:get() == "hide"
   then
     return
   end
