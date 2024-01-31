@@ -68,17 +68,17 @@ return {
       }
     end,
   },
-  {
-    -- Disable the floating command line input,
-    -- Use the bottom line
-    "folke/noice.nvim",
-    enabled = false,
-    opts = function(_, opts)
-      opts.cmdline = { view = "cmdline" }
-      opts.presets.bottom_search = true -- use a classic bottom cmdline for search
-      opts.presets.command_palette = true -- position the cmdline and popupmenu together
-    end,
-  },
+  -- {
+  --   -- Disable the floating command line input,
+  --   -- Use the bottom line
+  --   "folke/noice.nvim",
+  --   enabled = false,
+  --   opts = function(_, opts)
+  --     opts.cmdline = { view = "cmdline" }
+  --     opts.presets.bottom_search = true -- use a classic bottom cmdline for search
+  --     opts.presets.command_palette = true -- position the cmdline and popupmenu together
+  --   end,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
