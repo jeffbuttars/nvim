@@ -20,4 +20,16 @@ return {
       return opts
     end,
   },
+  {
+    "rasulomaroff/reactive.nvim",
+    opts = {
+      load = { "catppuccin-latte-cursor", "latte" },
+      builtin = {
+        --   cursorline = true,
+        --   cursor = true,
+        --
+        modemsg = true,
+      },
+    },
+  },
 }

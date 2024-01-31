@@ -21,18 +21,18 @@ local function AutoSave(args)
   -- Restart LSP servers every 30 minutes, keep em fresh
   local now = vim.fn.reltimefloat(vim.fn.reltime())
 
-  if vim.g.lsp_restart_interval then
-    if not vim.g.lsp_restart_last then
-      vim.g.lsp_restart_last = now
-    end
-
-    if (now - vim.g.lsp_restart_last) > vim.g.lsp_restart_interval then
-      require("notify")("Restarting LSP Servers...")
-      -- vim.print("Restarting LSP Servers: " .. (now - vim.g.lsp_restart_last) .. " : " .. now .. " : " .. vim.g.lsp_restart_last)
-      vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
-      vim.g.lsp_restart_last = now
-    end
-  end
+  -- if vim.g.lsp_restart_interval then
+  --   if not vim.g.lsp_restart_last then
+  --     vim.g.lsp_restart_last = now
+  --   end
+  --
+  --   if (now - vim.g.lsp_restart_last) > vim.g.lsp_restart_interval then
+  --     require("notify")("Restarting LSP Servers...")
+  --     -- vim.print("Restarting LSP Servers: " .. (now - vim.g.lsp_restart_last) .. " : " .. now .. " : " .. vim.g.lsp_restart_last)
+  --     vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
+  --     vim.g.lsp_restart_last = now
+  --   end
+  -- end
 
   -- close the preview window if it's visible
   -- and the pop up menu is not visible, but not if
@@ -104,7 +104,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   pattern = "*",
   callback = function()
-    vim.opt.cursorline = false
+    -- vim.opt.cursorline = false
     vim.opt.cursorcolumn = false
     vim.opt.relativenumber = false
   end,
