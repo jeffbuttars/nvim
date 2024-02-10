@@ -94,25 +94,25 @@ return {
       --   ["<C-p>"] = require("telescope.builtin").git_files,
       -- }
     end,
-    keys = {
-      {
-        "<leader><space>",
-        function()
-          M.find_files_from_project_git_root()
-        end,
-        desc = "Find Files",
-      },
-      {
-        "<C-p>",
-        require("telescope.builtin").git_files,
-        desc = "Find Files in Git repo",
-      },
-      -- {
-      --   "<C-p>",
-      --   "<cmd>Telescope git_files<cr>",
-      --   desc = "Find Git Files",
-      -- },
-    },
+    -- keys = {
+    --   {
+    --     "<leader><space>",
+    --     function()
+    --       M.find_files_from_project_git_root()
+    --     end,
+    --     desc = "Find Files",
+    --   },
+    --   {
+    --     "<C-p>",
+    --     require("telescope.builtin").git_files,
+    --     desc = "Find Files in Git repo",
+    --   },
+    --   -- {
+    --   --   "<C-p>",
+    --   --   "<cmd>Telescope git_files<cr>",
+    --   --   desc = "Find Git Files",
+    --   -- },
+    -- },
   },
 
   {

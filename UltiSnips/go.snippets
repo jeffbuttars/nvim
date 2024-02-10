@@ -96,23 +96,48 @@ snippet ve "err :=" !b
 ${1:var}, err := ${2}
 endsnippet
 
-snippet zdbg "zlog.Debug()" !b
-zlog.Debug().Msgf("${1} : ${2:%+v}", ${3})
+snippet dbg "slog.Debug()" !b
+slog.Debug("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet zerr "zlog.Error().Err(err)" !b
-zlog.Error()${1:.Err(${2:err})}.Msgf("${3} : ${4:%+v}", ${5})
+snippet err "slog.Error()" !b
+slog.Error("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet zwrn "zlog.Warn()" !b
-zlog.Warn().Msgf("${1} : ${2:%+v}", ${3})
+snippet wrn "slog.Warn()" !b
+slog.Warn("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet zinf "zlog.Info()" !b
-zlog.Info().Msgf("${1} : ${2:%+v}", ${3})
+snippet inf "slog.Info()" !b
+slog.Info("${1:msg}"${2:,})
 ${0}
 endsnippet
 
+
+snippet dbgc "slog.DebugContext()" !b
+slog.DebugContext(${1:ctx}, "${2:msg}"${3:,})
+${0}
+endsnippet
+
+snippet errc "slog.ErrorContext()" !b
+slog.ErrorContext(${1:ctx}, "${2:msg}"${3:,})
+${0}
+endsnippet
+
+snippet wrnc "slog.WarnContext()" !b
+slog.WarnContext(${1:ctx}, "${2:msg}"${3:,})
+${0}
+endsnippet
+
+snippet infc "slog.InfoContext()" !b
+slog.InfoContext(${1:ctx}, "${2:msg}"${3:,})
+${0}
+endsnippet
+
+snippet wgrp "slog.WithGroup()" !b
+slog.WithGroup(${1:"GroupName"})
+${0}
+endsnippet

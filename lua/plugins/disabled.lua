@@ -65,5 +65,9 @@ return {
     "dstein64/vim-startuptime",
     enabled = false,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    enabled = false,
+  },
   -- { "MunifTanjim/nui.nvim", lazy = true, enabled = false },
 }
