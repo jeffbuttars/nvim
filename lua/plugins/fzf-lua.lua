@@ -38,7 +38,7 @@ return {
       {
         "<leader>/",
         function()
-          require("fzf-lua").live_grep()
+          require("fzf-lua").grep({ multiprocess = true })
         end,
         desc = "Grep (root dir)",
       },
@@ -161,14 +161,14 @@ return {
       {
         "<leader>sg",
         function()
-          require("fzf-lua").live_grep()
+          require("fzf-lua").grep({ multiprocess = true })
         end,
         desc = "Grep (cwd)",
       },
       {
         "<leader>sG",
         function()
-          require("fzf-lua").live_grep({ cwd = "~/" })
+          require("fzf-lua").grep({ cwd = "~/", multiprocess = true })
         end,
         desc = "Grep (~/)",
       },

@@ -80,4 +80,7 @@ vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
 
 -- vim.opt.timeoutlen = 300  -- default
-vim.opt.timeoutlen = 1000
+vim.opt.timeoutlen = 500
+
+-- Enable treesitter in Octo buffers/windows
+vim.treesitter.language.register("markdown", "octo")
