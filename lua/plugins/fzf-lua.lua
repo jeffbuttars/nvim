@@ -4,13 +4,8 @@ return {
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- build = "./install --bin",
-    -- config = function()
-    --   -- calling `setup` is optional for customization
-    --   require("fzf-lua").setup({ "fzf-lua" })
-    -- end,
     opts = function(_, opts)
       local actions = require("fzf-lua.actions")
-      opts.actions = { files = { ["default"] = actions.file_edit } }
       require("fzf-lua").setup_fzfvim_cmds()
     end,
     keys = {
@@ -33,7 +28,7 @@ return {
       {
         "<leader>,",
         function()
-          require("fzf-lua").buffers()
+          require("fzf-lua").buffers({ sort_mru = true, sort_lastused = true })
         end,
         desc = "Select Buffer",
       },
