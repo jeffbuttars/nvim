@@ -47,6 +47,11 @@ vim.keymap.set(
 -- vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
 
+-- Terminal Normal Mode
+-- Add CTRL-K/J for up/down movement. This is mostly for UI selectors that use a terminal mode selector
+vim.api.nvim_set_keymap("t", "<C-k>", "<C-p>", { noremap = true })
+vim.api.nvim_set_keymap("t", "<C-j>", "<C-n>", { noremap = true })
+
 -- Paste over visual selection without the register swap with what's selected
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
