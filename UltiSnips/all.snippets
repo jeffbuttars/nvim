@@ -47,6 +47,12 @@ if not snip.c:
 	snip.rv = uuid.uuid4()`
 endsnippet
 
+snippet uuid7 "UUID V7 Default Format" i
+`!p from uuid_extensions import uuid7
+if not snip.c:
+	snip.rv = str(uuid7())`
+endsnippet
+
 snippet modeline "Vim modeline" b
 vim: set softtabstop=`!v &softtabstop` tabstop=`!v &tabstop` shiftwidth=`!v &shiftwidth`:
 endsnippet
