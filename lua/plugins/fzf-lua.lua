@@ -4,8 +4,50 @@ return {
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- build = "./install --bin",
+    init = function()
+      -- require("lspconfig").typos_lsp.setup({})
+
+      -- disable/remap the LazyVim lsp/telescope key maps
+      -- https://www.lazyvim.org/plugins/lsp
+      -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
+      -- { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
+      -- { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+      -- { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
+      -- { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
+
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = {
+        "gd",
+        function()
+          require("fzf-lua").lsp_definitions({ reuse_win = true })
+        end,
+        desc = "Goto Definition",
+        has = "definition",
+      }
+      keys[#keys + 1] = {
+        "gI",
+        function()
+          require("fzf-lua").lsp_implementations({ reuse_win = true })
+        end,
+        desc = "GoTo Implementation",
+      }
+      keys[#keys + 1] = {
+        "gy",
+        function()
+          require("fzf-lua").lsp_typedefs({ reuse_win = true })
+        end,
+        desc = "Goto T[y]pe Definition",
+      }
+      keys[#keys + 1] = {
+        "gr",
+        function()
+          require("fzf-lua").lsp_references()
+        end,
+        desc = "References",
+      }
+    end,
     opts = function(_, opts)
-      local actions = require("fzf-lua.actions")
+      -- local actions = require("fzf-lua.actions")
       require("fzf-lua").setup_fzfvim_cmds()
     end,
     keys = {

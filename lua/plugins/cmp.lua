@@ -113,16 +113,16 @@ return {
       -- Just override with our own table
       opts.sources = cmp.config.sources({
         {
-          keyword_length = 1,
-          max_item_count = 5,
-          name = "ultisnips",
+          name = "codeium",
           priority = 100,
+          -- keyword_length = 2,
+          max_item_count = 5,
         },
         {
-          name = "codeium",
+          -- keyword_length = 2,
+          max_item_count = 3,
+          name = "ultisnips",
           priority = 90,
-          keyword_length = 0,
-          max_item_count = 5,
         },
         {
           -- keyword_length = 1,
