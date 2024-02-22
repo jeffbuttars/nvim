@@ -10,6 +10,8 @@ if vim.fn.filereadable(py_venv_exec) then
   vim.g.python3_host_prog = py_venv_exec
 end
 
+vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
+
 -- transparency menus seem to work with Alacritty ok, Wezterm is a maybe
 
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
