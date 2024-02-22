@@ -113,8 +113,13 @@ return {
       -- Just override with our own table
       opts.sources = cmp.config.sources({
         {
-          name = "codeium",
+          -- keyword_length = 1,
+          name = "nvim_lsp",
           priority = 100,
+        },
+        {
+          name = "codeium",
+          priority = 90,
           -- keyword_length = 2,
           max_item_count = 5,
         },
@@ -122,12 +127,7 @@ return {
           -- keyword_length = 2,
           max_item_count = 3,
           name = "ultisnips",
-          priority = 90,
-        },
-        {
-          -- keyword_length = 1,
-          name = "nvim_lsp",
-          priority = 1,
+          priority = 80,
         },
         { name = "nvim_lsp_signature_help" },
       }, {
@@ -148,22 +148,21 @@ return {
         },
         { name = "cmp_yanky" },
         { name = "color_names" },
+        {
+          name = "spell",
+          keyword_length = 3,
+          max_item_count = 5,
+          option = {
+            keep_all_entries = false,
+            -- enable_in_context = function()
+            -- 	return true
+            -- end,
+            enable_in_context = function()
+              return require("cmp.config.context").in_treesitter_capture("spell")
+            end,
+          },
+        },
       })
-      -- {
-      --   group_index = 2,
-      --   name = "spell",
-      --   keyword_length = 3,
-      --   max_item_count = 5,
-      --   option = {
-      --     keep_all_entries = false,
-      --     -- enable_in_context = function()
-      --     -- 	return true
-      --     -- end,
-      --     enable_in_context = function()
-      --       return require("cmp.config.context").in_treesitter_capture("spell")
-      --     end,
-      --   },
-      -- },
       -- {
       --   group_index = 1,
       --   name = "html-css",
