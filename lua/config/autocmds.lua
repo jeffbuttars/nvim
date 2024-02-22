@@ -11,8 +11,17 @@ local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clea
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
   callback = function()
-    vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
-    -- vim.diagnostic.open_float({ focusable = false, scope = "buffer", source = true })
+    vim.lsp.buf.document_highlight()
+    local result = vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
+
+    if result == nil then
+      vim.diagnostic.hide()
+      vim.lsp.buf.hover()
+      -- result = vim.lsp.buf.hover()
+      -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
+      -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
+      -- vim.lsp.codelens.display()
+    end
   end,
   group = ButtarsACmds,
 })
