@@ -1,10 +1,18 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- init = function(_, opts)
-    --   require("lspconfig").typos_lsp.setup({})
-    --
-    --   return opts
+    -- init = function()
+    --   --   require("lspconfig").typos_lsp.setup({})
+    --   --
+    --   local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    --   keys[#keys + 1] = {
+    --     "K",
+    --     function()
+    --       local result = vim.lsp.buf.hover()
+    --       vim.print("HOVER Result:" .. result)
+    --     end,
+    --     desc = "Hover",
+    --   }
     -- end,
     opts = {
       diagnostics = {

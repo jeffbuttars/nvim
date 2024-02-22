@@ -122,6 +122,9 @@ return {
       "MunifTanjim/nui.nvim",
       {
         "3rd/image.nvim",
+        cond = function()
+          return not vim.g.neovide
+        end,
         event = "VeryLazy",
         dependencies = {
           {
