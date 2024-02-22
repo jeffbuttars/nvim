@@ -200,14 +200,14 @@ return {
       {
         "<leader>sg",
         function()
-          require("fzf-lua").grep({ multiprocess = true, resume = true })
+          require("fzf-lua").live_grep({ multiprocess = true })
         end,
         desc = "Grep (cwd)",
       },
       {
         "<leader>sG",
         function()
-          require("fzf-lua").grep({ cwd = "~/", multiprocess = true, resume = true })
+          require("fzf-lua").live_grep({ cwd = "~/", multiprocess = true })
         end,
         desc = "Grep (~/)",
       },
