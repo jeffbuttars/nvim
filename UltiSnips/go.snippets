@@ -96,48 +96,57 @@ snippet ve "err :=" !b
 ${1:var}, err := ${2}
 endsnippet
 
-snippet dbg "slog.Debug()" !b
-slog.Debug("${1:msg}"${2:,})
+snippet dbg "logger.Debug()" !b
+logger.Debug("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet err "slog.Error()" !b
-slog.Error("${1:msg}"${2:,})
+snippet err "logger.Error()" !b
+logger.Error("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet wrn "slog.Warn()" !b
-slog.Warn("${1:msg}"${2:,})
+snippet wrn "logger.Warn()" !b
+logger.Warn("${1:msg}"${2:,})
 ${0}
 endsnippet
 
-snippet inf "slog.Info()" !b
-slog.Info("${1:msg}"${2:,})
+snippet inf "logger.Info()" !b
+logger.Info("${1:msg}"${2:,})
 ${0}
 endsnippet
 
 
-snippet dbgc "slog.DebugContext()" !b
-slog.DebugContext(${1:ctx}, "${2:msg}"${3:,})
+snippet dbgc "logger.DebugContext()" !b
+logger.DebugContext(${1:ctx}, "${2:msg}"${3:,})
 ${0}
 endsnippet
 
-snippet errc "slog.ErrorContext()" !b
-slog.ErrorContext(${1:ctx}, "${2:msg}"${3:,})
+snippet errc "logger.ErrorContext()" !b
+logger.ErrorContext(${1:ctx}, "${2:msg}"${3:,})
 ${0}
 endsnippet
 
-snippet wrnc "slog.WarnContext()" !b
-slog.WarnContext(${1:ctx}, "${2:msg}"${3:,})
+snippet wrnc "logger.WarnContext()" !b
+logger.WarnContext(${1:ctx}, "${2:msg}"${3:,})
 ${0}
 endsnippet
 
-snippet infc "slog.InfoContext()" !b
-slog.InfoContext(${1:ctx}, "${2:msg}"${3:,})
+snippet infc "logger.InfoContext()" !b
+logger.InfoContext(${1:ctx}, "${2:msg}"${3:,})
 ${0}
 endsnippet
 
-snippet wgrp "slog.WithGroup()" !b
-slog.WithGroup(${1:"GroupName"})
+snippet wgrp "logger.WithGroup()" !b
+logger.WithGroup(${1:"GroupName"})
 ${0}
+endsnippet
+
+snippet fsel "for select" !b
+for ${1}{
+	select {
+		case ${2}:
+		${3:default:}${0}
+	}
+}
 endsnippet
