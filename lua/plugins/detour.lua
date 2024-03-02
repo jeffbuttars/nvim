@@ -1,6 +1,7 @@
 return {
   {
     "carbon-steel/detour.nvim",
+    lazy = true,
     config = function()
       -- A keymap for selecting a terminal buffer to open in a popup
       local wk = require("which-key")

@@ -2,6 +2,7 @@
 return {
   {
     "pwntester/octo.nvim",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "ibhagwan/fzf-lua",
