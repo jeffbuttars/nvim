@@ -5,7 +5,7 @@ return {
       colorscheme = "catppuccin-latte",
     },
   },
-  { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+  { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true },
 
   {
     "folke/lsp-colors.nvim",
