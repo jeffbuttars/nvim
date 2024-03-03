@@ -10,7 +10,17 @@ wk.register({
       local gs = package.loaded.gitsigns
       gs.diffthis("~")
     end,
-    " Diffthis",
+    "Diffthis",
+  },
+})
+
+wk.register({
+  ["<leader>gb"] = {
+    function()
+      local gs = package.loaded.gitsigns
+      gs.blame_line()
+    end,
+    "Blame Line",
   },
 })
 
