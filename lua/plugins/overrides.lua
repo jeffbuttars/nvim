@@ -147,41 +147,43 @@ return {
       -- },
     },
   },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   opts = function(_, opts)
-  --     opts.defaults.mappings.i = {
-  --       ["<C-j>"] = require("telescope.actions").move_selection_next,
-  --       ["<C-k>"] = require("telescope.actions").move_selection_previous,
-  --     }
-  --     opts.defaults.mappings.n = {
-  --       ["<C-j>"] = require("telescope.actions").move_selection_next,
-  --       ["<C-k>"] = require("telescope.actions").move_selection_previous,
-  --     }
-  --     -- opts.defaults.mappings.n = {
-  --     --   ["<C-p>"] = require("telescope.builtin").git_files,
-  --     -- }
-  --   end,
-  --   -- keys = {
-  --   --   {
-  --   --     "<leader><space>",
-  --   --     function()
-  --   --       M.find_files_from_project_git_root()
-  --   --     end,
-  --   --     desc = "Find Files",
-  --   --   },
-  --   --   {
-  --   --     "<C-p>",
-  --   --     require("telescope.builtin").git_files,
-  --   --     desc = "Find Files in Git repo",
-  --   --   },
-  --   --   -- {
-  --   --   --   "<C-p>",
-  --   --   --   "<cmd>Telescope git_files<cr>",
-  --   --   --   desc = "Find Git Files",
-  --   --   -- },
-  --   -- },
-  -- },
+  {
+    "nvim-telescope/telescope.nvim",
+    lazy = "VeryLazy",
+    cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTEditWithInstruction", "ChatGPTActAs" },
+    opts = function(_, opts)
+      opts.defaults.mappings.i = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      }
+      opts.defaults.mappings.n = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      }
+      -- opts.defaults.mappings.n = {
+      --   ["<C-p>"] = require("telescope.builtin").git_files,
+      -- }
+    end,
+    -- keys = {
+    --   {
+    --     "<leader><space>",
+    --     function()
+    --       M.find_files_from_project_git_root()
+    --     end,
+    --     desc = "Find Files",
+    --   },
+    --   {
+    --     "<C-p>",
+    --     require("telescope.builtin").git_files,
+    --     desc = "Find Files in Git repo",
+    --   },
+    --   -- {
+    --   --   "<C-p>",
+    --   --   "<cmd>Telescope git_files<cr>",
+    --   --   desc = "Find Git Files",
+    --   -- },
+    -- },
+  },
 
   {
     "nvim-neo-tree/neo-tree.nvim",
