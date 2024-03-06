@@ -65,7 +65,24 @@ return {
         sh = { "shellcheck" },
         python = { "ruff" },
         javascript = { "standardjs" },
+        go = {
+          "golangcilint",
+          args = {
+
+            "run",
+            "--out-format",
+            "--enable=revive",
+            "json",
+            function()
+              return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+            end,
+          },
+        },
       }
+
+      -- local golangcilint = require("golangcilint").linters.golangcilint
+      -- golangcilint.args = {
+      -- }
     end,
   },
   {
@@ -179,10 +196,10 @@ return {
       { "<leader>fg", false },
       { "<leader>fr", false },
       { "<leader>fR", false },
-      -- git          false },
+      -- git
       { "<leader>gc", false },
       { "<leader>gs", false },
-      -- search       false },
+      -- search
       { '<leader>s"', false },
       { "<leader>sa", false },
       { "<leader>sb", false },
@@ -225,7 +242,6 @@ return {
       --   -- },
     },
   },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
