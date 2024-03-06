@@ -147,41 +147,84 @@ return {
       -- },
     },
   },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   opts = function(_, opts)
-  --     opts.defaults.mappings.i = {
-  --       ["<C-j>"] = require("telescope.actions").move_selection_next,
-  --       ["<C-k>"] = require("telescope.actions").move_selection_previous,
-  --     }
-  --     opts.defaults.mappings.n = {
-  --       ["<C-j>"] = require("telescope.actions").move_selection_next,
-  --       ["<C-k>"] = require("telescope.actions").move_selection_previous,
-  --     }
-  --     -- opts.defaults.mappings.n = {
-  --     --   ["<C-p>"] = require("telescope.builtin").git_files,
-  --     -- }
-  --   end,
-  --   -- keys = {
-  --   --   {
-  --   --     "<leader><space>",
-  --   --     function()
-  --   --       M.find_files_from_project_git_root()
-  --   --     end,
-  --   --     desc = "Find Files",
-  --   --   },
-  --   --   {
-  --   --     "<C-p>",
-  --   --     require("telescope.builtin").git_files,
-  --   --     desc = "Find Files in Git repo",
-  --   --   },
-  --   --   -- {
-  --   --   --   "<C-p>",
-  --   --   --   "<cmd>Telescope git_files<cr>",
-  --   --   --   desc = "Find Git Files",
-  --   --   -- },
-  --   -- },
-  -- },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts)
+      opts.defaults.mappings.i = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      }
+      opts.defaults.mappings.n = {
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      }
+      -- opts.defaults.mappings.n = {
+      --   ["<C-p>"] = require("telescope.builtin").git_files,
+      -- }
+    end,
+    keys = {
+      { "<leader>sg", false },
+      { "<leader>sG", false },
+      { "<leader<space>", false },
+      { "<leader<C-p>", false },
+      { "<leader>,", false },
+      { "<leader>/", false },
+      { "<leader>:", false },
+      { "<leader><space>", false },
+      -- find
+      { "<leader>fb", false },
+      { "<leader>fc", false },
+      { "<leader>ff", false },
+      { "<leader>fF", false },
+      { "<leader>fg", false },
+      { "<leader>fr", false },
+      { "<leader>fR", false },
+      -- git          false },
+      { "<leader>gc", false },
+      { "<leader>gs", false },
+      -- search       false },
+      { '<leader>s"', false },
+      { "<leader>sa", false },
+      { "<leader>sb", false },
+      { "<leader>sc", false },
+      { "<leader>sC", false },
+      { "<leader>sd", false },
+      { "<leader>sD", false },
+      { "<leader>sg", false },
+      { "<leader>sG", false },
+      { "<leader>sh", false },
+      { "<leader>sH", false },
+      { "<leader>sk", false },
+      { "<leader>sM", false },
+      { "<leader>sm", false },
+      { "<leader>so", false },
+      { "<leader>sR", false },
+      { "<leader>sw", false },
+      { "<leader>sW", false },
+      { "<leader>sw", false },
+      { "<leader>sW", false },
+      { "<leader>uC", false },
+      { "<leader>ss", false },
+      { "<leader>sS", false },
+      --   {
+      --     "<leader><space>",
+      --     function()
+      --       M.find_files_from_project_git_root()
+      --     end,
+      --     desc = "Find Files",
+      --   },
+      --   {
+      --     "<C-p>",
+      --     require("telescope.builtin").git_files,
+      --     desc = "Find Files in Git repo",
+      --   },
+      --   -- {
+      --   --   "<C-p>",
+      --   --   "<cmd>Telescope git_files<cr>",
+      --   --   desc = "Find Git Files",
+      --   -- },
+    },
+  },
 
   {
     "nvim-neo-tree/neo-tree.nvim",

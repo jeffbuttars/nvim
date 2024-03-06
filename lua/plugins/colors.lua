@@ -12,14 +12,19 @@ return {
   },
   {
     "brenoprata10/nvim-highlight-colors",
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function(_, opts)
-      require("colorizer").setup()
-      return opts
+    opts = function(_, opts)
+      -- require("nvim-highlight-colors").setup()
+      opts.render = "virtual"
+      opts.enable_tailwind = true
     end,
   },
+  -- {
+  --   "NvChad/nvim-colorizer.lua",
+  --   config = function(_, opts)
+  --     require("colorizer").setup()
+  --     return opts
+  --   end,
+  -- },
   {
     "rasulomaroff/reactive.nvim",
     opts = {

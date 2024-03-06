@@ -252,7 +252,8 @@ return {
       {
         "<leader>sR",
         function()
-          require("fzf-lua").resume()
+          -- require("fzf-lua").resume()
+          require("fzf-lua").live_grep({ multiprocess = true, resume = true })
         end,
         desc = "Resume",
       },

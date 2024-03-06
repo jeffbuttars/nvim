@@ -67,7 +67,7 @@ return {
   },
   -- {
   --   "nvim-telescope/telescope.nvim",
-  o--   enabled = false,
+  --   enabled = false,
   -- },
   -- { "MunifTanjim/nui.nvim", lazy = true, enabled = false },
 }
