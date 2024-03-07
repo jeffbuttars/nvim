@@ -97,48 +97,47 @@ ${1:var}, err := ${2}
 endsnippet
 
 snippet dbg "logger.Debug()" !b
-logger.Debug("${1:msg}"${2:,})
+${1:inst.}logger.Debug("${2:msg}"${3:,})
 ${0}
 endsnippet
 
 snippet err "logger.Error()" !b
-logger.Error("${1:msg}"${2:,})
+${1:inst.}logger.Error("${2:msg}"${3:,})
 ${0}
 endsnippet
 
 snippet wrn "logger.Warn()" !b
-logger.Warn("${1:msg}"${2:,})
+${1:inst.}logger.Warn("${2:msg}"${3:,})
 ${0}
 endsnippet
 
 snippet inf "logger.Info()" !b
-logger.Info("${1:msg}"${2:,})
+${1:inst.}logger.Info("${2:msg}"${3:,})
 ${0}
 endsnippet
 
-
 snippet dbgc "logger.DebugContext()" !b
-logger.DebugContext(${1:ctx}, "${2:msg}"${3:,})
+${1:inst.}logger.DebugContext(${2:ctx}, "${3:msg}"${4:,})
 ${0}
 endsnippet
 
 snippet errc "logger.ErrorContext()" !b
-logger.ErrorContext(${1:ctx}, "${2:msg}"${3:,})
+${1:inst.}logger.ErrorContext(${2:ctx}, "${3:msg}"${$:,})
 ${0}
 endsnippet
 
 snippet wrnc "logger.WarnContext()" !b
-logger.WarnContext(${1:ctx}, "${2:msg}"${3:,})
+${1:inst.}logger.WarnContext(${2:ctx}, "${3:msg}"${4:,})
 ${0}
 endsnippet
 
 snippet infc "logger.InfoContext()" !b
-logger.InfoContext(${1:ctx}, "${2:msg}"${3:,})
+${1:inst.}logger.InfoContext(${2:ctx}, "${3:msg}"${4:,})
 ${0}
 endsnippet
 
 snippet wgrp "logger.WithGroup()" !b
-logger.WithGroup(${1:"GroupName"})
+${1:inst.}logger.WithGroup(${2:"GroupName"})
 ${0}
 endsnippet
 
