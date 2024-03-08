@@ -123,6 +123,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
   pattern = "*",
   callback = function()
+    vim.opt.cursorcolumn = false
+    vim.opt.cursorline = false
     vim.opt.relativenumber = false
   end,
   group = ButtarsACmds,
@@ -132,6 +134,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   pattern = "*",
   callback = function()
     vim.opt.relativenumber = true
+    vim.opt.cursorline = true
+    vim.opt.cursorcolumn = true
   end,
   group = ButtarsACmds,
 })
