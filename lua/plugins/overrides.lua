@@ -65,24 +65,32 @@ return {
         sh = { "shellcheck" },
         python = { "ruff" },
         javascript = { "standardjs" },
-        go = {
-          "golangcilint",
-          args = {
-
-            "run",
-            "--out-format",
-            "--enable=revive",
-            "json",
-            function()
-              return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-            end,
-          },
-        },
+        -- go = { "golangcilint" },
       }
 
-      -- local golangcilint = require("golangcilint").linters.golangcilint
-      -- golangcilint.args = {
+      -- opts.linters = {
+      --   golintcilint = {
+      --     args = {
+      --       "run",
+      --       "--enable=revive",
+      --       function()
+      --         return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+      --       end,
+      --     },
+      --   },
       -- }
+
+      local golangcilint = require("lint").linters.golangcilint
+      golangcilint.args = {
+        args = {
+          "run",
+          "--out-format=json",
+          "--enable=revive",
+          function()
+            return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+          end,
+        },
+      }
     end,
   },
   {
