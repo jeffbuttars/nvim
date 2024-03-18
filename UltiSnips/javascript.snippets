@@ -5,7 +5,7 @@ let ${1:new_namespace} = (function $1 (){
 
     // Private vars
     ${2: var ${3:name} = 'private'}
-    
+
 
     // Private functions
     ${4: ${5:var pfunc = function pfunc() {
@@ -19,7 +19,7 @@ let ${1:new_namespace} = (function $1 (){
 })()
 endsnippet
 
-snippet ons "object namespace"
+snippet owns "object namespace"
 if (! window.${1:nsname} ) {
     var $1 = {}
     window.$1 = $1
@@ -61,11 +61,11 @@ let ${1:func_name} = function $1(${2:args}) {
 }
 endsnippet
 
-# snippet v "simple var = someting expression"
+# snippet v "simple var = something expression"
 # var ${1} = ${2}
 # endsnippet
 
-snippet c "simple const = SOMETING"
+snippet c "simple const = SOMETHING"
 const ${1} = ${2}
 endsnippet
 
@@ -129,9 +129,9 @@ let ${1} = require('${2:$1}')$0
 endsnippet
 
 snippet fori "for key in" b
-for (let ${1:key} in ${2:obj}) { if ($2.hasOwnProperty(key)) {
+for (const ${1:key} of ${2:obj}) {
     ${3:$2[key]}$0
-}}
+}
 endsnippet
 
 snippet forl "for (let x of )" b
@@ -204,7 +204,7 @@ $1.propTypes = {${5}}
 ${0}
 endsnippet
 
-snippet di "Object/Dicitonary item" i
+snippet di "Object/Dictionary item" i
 ${1:'$2'}: ${3}${0}
 endsnippet
 
