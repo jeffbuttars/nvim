@@ -63,7 +63,7 @@ vim.api.nvim_set_keymap("t", "<C-k>", "<C-p>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<C-j>", "<C-n>", { noremap = true })
 
 -- Paste over visual selection without the register swap with what's selected
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "c-]", function()
   vim.lsp.buf.definition()
