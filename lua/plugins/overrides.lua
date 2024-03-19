@@ -70,14 +70,14 @@ return {
 
       local golangcilint = require("lint").linters.golangcilint
       golangcilint.args = {
-        args = {
-          "run",
-          "--out-format=json",
-          "--enable=revive",
-          function()
-            return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
-          end,
-        },
+        "run",
+        "--out-format",
+        "json",
+        "--enable",
+        "revive",
+        function()
+          return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+        end,
       }
     end,
   },
