@@ -109,6 +109,10 @@ vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Clear search with <esc>
--- I don't like this, so I disable it.
--- map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-vim.keymap.del({ "i", "n" }, "<esc>")
+vim.keymap.set(
+  { "i", "n" },
+  "<leader><esc>",
+  "<cmd>noh<cr><esc>",
+  { desc = "Escape and clear hlsearch" }
+)
+-- vim.keymap.del({ "i", "n" }, "<esc>")

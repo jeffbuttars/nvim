@@ -1,23 +1,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- init = function()
-    --   --   require("lspconfig").typos_lsp.setup({})
-    --   --
-    --   local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    --   keys[#keys + 1] = {
-    --     "K",
-    --     function()
-    --       local result = vim.lsp.buf.hover()
-    --       vim.print("HOVER Result:" .. result)
-    --     end,
-    --     desc = "Hover",
-    --   }
-    -- end,
-    opts = function(_, opts)
-      -- opts.diagnostics.virtual_text = false
-
-      opts.servers = {
+    opts = {
+      -- diagnostics = { virtual_text = false },
+      servers = {
         typos_lsp = {},
         pyright = false,
         pylsp = {
@@ -70,35 +56,7 @@ return {
             },
           },
         },
-      }
-
-      -- local lspconfig = require("lspconfig")
-      -- local configs = require("lspconfig/configs")
-      --
-      -- if not configs.golangcilsp then
-      --   configs.golangcilsp = {
-      --     default_config = {
-      --       cmd = { "golangci-lint-langserver" },
-      --       root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
-      --       init_options = {
-      --         command = {
-      --           "golangci-lint",
-      --           "run",
-      --           "--enable-all",
-      --           "--disable",
-      --           "lll",
-      --           "--out-format",
-      --           "json",
-      --           "--issues-exit-code=1",
-      --         },
-      --       },
-      --     },
-      --   }
-      -- end
-      --
-      -- lspconfig.golangci_lint_ls.setup({
-      --   filetypes = { "go", "gomod" },
-      -- })
-    end,
+      },
+    },
   },
 }

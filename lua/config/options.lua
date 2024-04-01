@@ -16,9 +16,10 @@ vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
 
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
 -- vim.opt.pumheight = 15 -- Maximum number of entries in a popup
-vim.opt.pumblend = 0 -- Uncomment if using transparency causes rendering issues
+-- vim.opt.pumblend = 0 -- Set to 0 if using transparency causes rendering issues
+vim.opt.pumblend = 20
 -- vim.api.nvim_set_hl(0, "PmenuSel", { blend = 0 })
--- vim.api.nvim_set_hl(0, "Pmenu", { blend = 0 })
+-- vim.api.nvim_set_hl(0, "Pmenu", { blend = 20 })
 
 -- Disable LazyVim auto format, default is true
 -- vim.g.autoformat = true
