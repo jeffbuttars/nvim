@@ -22,7 +22,8 @@ return {
         -- For some reason this version creates an empty file
         -- python = { "ruff_fix", "fuff_format", "black" },
         -- Use a sub-list to run only the first available formatter
-        javascript = { { "standardjs", "prettierd", "prettier" } },
+        javascript = { "standardjs" },
+        -- javascript = { "standardjs", { "prettierd", "prettier" } },
         css = { "stylelint" },
         bash = { { "shfmt", "beautysh" } },
         sh = { { "shfmt", "beautysh" } },
