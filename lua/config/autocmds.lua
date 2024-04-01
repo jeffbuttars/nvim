@@ -30,6 +30,7 @@ local function AutoSave(args)
   -- Restart LSP servers every 30 minutes, keep em fresh
   local now = vim.fn.reltimefloat(vim.fn.reltime())
 
+  -- NOTE: (jeff), If there is a mis-behaving lsp, the restart interval can help
   -- if vim.g.lsp_restart_interval then
   --   if not vim.g.lsp_restart_last then
   --     vim.g.lsp_restart_last = now
@@ -81,14 +82,6 @@ vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave",
   group = ButtarsACmds,
   desc = "AutoSave current buffer",
 })
-
--- Format buf on resize ?
--- Need to make this _not_ change the quickfix size.
--- vim.api.nvim_create_autocmd({ "VimResized" }, {
---   pattern = "*",
---   callback = vim.lsp.buf.format,
---   group = ButtarsACmds,
--- })
 
 vim.api.nvim_create_autocmd(
   { "QuickFixCmdPost" },
@@ -148,6 +141,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
 --   group = ButtarsACmds,
 -- })
 
+--  NOTE: (jeff) Currently using sessions in place of the following.
 --  When editing a file, always jump to the last known cursor position.
 --  Don't do it when the position is invalid or when inside an event handler
 --  (happens when dropping a file on gvim).
