@@ -32,14 +32,14 @@ func ${1:name}(${2}) ${3: error} {
 endsnippet
 
 snippet met "func (Recvr) FName()" !b
-func$ (${1:recvr})} ${2:name}(${3}) ${4: error} {
-    ${0}
+func$ (${1:recvr}) ${2:funcName}(${3}) ${4: error} {
+	${0}
 }
 endsnippet
 
 snippet funct "func for Test" !b
 func ${1:Test${2:FuncName}} (${4:t *testing.T}) {
-    ${0}
+  ${0}
 }
 endsnippet
 
@@ -74,8 +74,8 @@ endsnippet
 
 snippet ifer "if err, return err" !b
 if err != nil {
-		${1:fmt.Fprintf(os.Stderr, "${2:%+v}", err)}
-    return ${3:err}
+		${1:${2:recvr.}logger.Error("${3:msg}", "error", err)}
+    return ${4:err}
 }
 ${0}
 endsnippet
