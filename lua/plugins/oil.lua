@@ -1,7 +1,6 @@
 return {
   {
     "stevearc/oil.nvim",
-    lazy = true,
     opts = {
       columns = {
         "icon",

@@ -2,7 +2,6 @@
 return {
   {
     "pwntester/octo.nvim",
-    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "ibhagwan/fzf-lua",
@@ -15,7 +14,7 @@ return {
 
       local wk = require("which-key")
       wk.register({
-        ["<leader>go"] = {
+        ["<leader>gO"] = {
           name = "Octo - GitHub",
           mode = { "n" },
           ["i"] = {
