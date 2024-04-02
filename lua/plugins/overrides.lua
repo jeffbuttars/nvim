@@ -66,6 +66,7 @@ return {
         python = { "ruff" },
         javascript = { "standardjs" },
         go = { "golangcilint" },
+        ["*"] = { "typos", "codespell" },
       }
 
       local golangcilint = require("lint").linters.golangcilint
