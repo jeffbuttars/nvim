@@ -110,9 +110,15 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Clear search with <esc>
 vim.keymap.set(
-  { "i", "n" },
+  { "n" },
   "<leader><esc>",
   "<cmd>noh<cr><esc>",
   { desc = "Escape and clear hlsearch" }
 )
--- vim.keymap.del({ "i", "n" }, "<esc>")
+
+vim.keymap.set("n", "<leader><esc>", function()
+  vim.cmd("noh")
+  require("trouble").close()
+  vim.diagnostic.hide()
+  vim.diagnostic.reset()
+end, { noremap = true, desc = "Escape and clear hlsearch" })
