@@ -35,25 +35,6 @@ return {
         }),
       })
 
-      opts.completion = {
-        completeopt = "menu,preview,menuone,noselect",
-        -- completeopt = "menu,preview,menuone,noselect,noinsert",
-      }
-
-      opts.preselect = cmp.PreselectMode.None
-
-      -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-      --       if cmp.visible() then
-      --         vim.print("TAB VISIBLE")
-      --         cmp.select_next_item()
-      --       else
-      --         vim.print("TAB NOT VISIBLE, FAlling back")
-      --         -- cmp.abort()
-      --         fallback()
-      --         -- vim.api.nvim_feedkeys("\<Tab>", "t", true)
-      --       end
-      --     end, { "i", "s", "c" })
-
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-j>"] = cmp.mapping(function(fallback)
           cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
@@ -88,19 +69,6 @@ return {
         end, { "i", "s", "c" }),
 
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-
-        --   ["<CR>"] = cmp.mapping({
-        --     i = function(fallback)
-        --       if cmp.visible() and cmp.get_active_entry() then
-        --         cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-        --       -- cmp.mapping.confirm({ select = false })
-        --       else
-        --         fallback()
-        --       end
-        --     end,
-        --     s = cmp.mapping.confirm({ select = true }),
-        --     -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        --   }),
       })
 
       opts.snippet = {
@@ -114,59 +82,61 @@ return {
         documentation = cmp.config.window.bordered(),
       }
 
-      -- Just override with our own table
-      opts.sources = cmp.config.sources({
-        {
-          -- keyword_length = 1,
-          name = "nvim_lsp",
-          priority = 100,
-        },
-        {
-          name = "codeium",
-          priority = 90,
-          -- keyword_length = 2,
-          max_item_count = 5,
-        },
-        {
-          -- keyword_length = 2,
-          max_item_count = 3,
-          name = "ultisnips",
-          priority = 80,
-        },
-        { name = "nvim_lsp_signature_help" },
-      }, {
-        -- {
-        --   name = "luasnip",
-        -- },
-        {
-          name = "buffer",
-          max_item_count = 5,
-        },
-        {
-          name = "typos_lsp",
-          -- keyword_length = 2,
-        },
-        {
-          name = "path",
-          max_item_count = 3,
-        },
-        { name = "cmp_yanky" },
-        { name = "color_names" },
-        {
-          name = "spell",
-          keyword_length = 3,
-          max_item_count = 5,
-          option = {
-            keep_all_entries = false,
-            -- enable_in_context = function()
-            -- 	return true
-            -- end,
-            enable_in_context = function()
-              return require("cmp.config.context").in_treesitter_capture("spell")
-            end,
-          },
-        },
+      -- Update sources with our old ass snippet stuff
+      table.insert(opts.sources, 1, {
+        -- keyword_length = 2,
+        name = "ultisnips",
+        group_index = 1,
+        max_item_count = 3,
+        priority = 80,
       })
+
+      table.insert(opts.sources, 1, {
+        name = "typos_lsp",
+        group_index = 2,
+      })
+
+      -- Just override with our own table
+      -- opts.sources = cmp.config.sources({
+      --   {
+      --     -- keyword_length = 1,
+      --     name = "nvim_lsp",
+      --     priority = 100,
+      --   },
+      --   { name = "nvim_lsp_signature_help" },
+      -- }, {
+      --   -- {
+      --   --   name = "luasnip",
+      --   -- },
+      --   {
+      --     name = "buffer",
+      --     max_item_count = 5,
+      --   },
+      --   {
+      --     name = "typos_lsp",
+      --     -- keyword_length = 2,
+      --   },
+      --   {
+      --     name = "path",
+      --     max_item_count = 3,
+      --   },
+      --   { name = "cmp_yanky" },
+      --   { name = "color_names" },
+      --   {
+      --     name = "spell",
+      --     keyword_length = 3,
+      --     max_item_count = 5,
+      --     option = {
+      --       keep_all_entries = false,
+      --       -- enable_in_context = function()
+      --       -- 	return true
+      --       -- end,
+      --       enable_in_context = function()
+      --         return require("cmp.config.context").in_treesitter_capture("spell")
+      --       end,
+      --     },
+      --   },
+      -- })
       -- {
       --   group_index = 1,
       --   name = "html-css",
@@ -190,10 +160,6 @@ return {
       {
         "quangnguyen30192/cmp-nvim-ultisnips",
         "hrsh7th/cmp-cmdline",
-        -- "hrsh7th/cmp-nvim-lsp",
-        -- "hrsh7th/cmp-buffer",
-        -- "hrsh7th/cmp-path",
-        -- "saadparwaiz1/cmp_luasnip",
         dependencies = { "SirVer/ultisnips" },
         requires = { "nvim-treesitter/nvim-treesitter" },
       },
@@ -221,12 +187,6 @@ return {
         end,
       },
       { "honza/vim-snippets" },
-      {
-        "Exafunction/codeium.nvim",
-        cmd = "Codeium",
-        build = ":Codeium Auth",
-        opts = {},
-      },
     },
   },
 }
