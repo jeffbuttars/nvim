@@ -1,13 +1,5 @@
 return {
   -- {
-  --   "L3MON4D3/LuaSnip",
-  --   enabled = false,
-  -- },
-  -- {
-  --   "rafamadriz/friendly-snippets",
-  --   enabled = false,
-  -- },
-  -- {
   --   "echasnovski/mini.pairs",
   --   enabled = false,
   -- },
@@ -15,10 +7,10 @@ return {
   --   "echasnovski/mini.ai",
   --   enabled = false,
   -- },
-  {
-    "folke/flash.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "folke/flash.nvim",
+  --   enabled = false,
+  -- },
   -- {
   --   "RRethy/vim-illuminate",
   --   enabled = false,
