@@ -14,14 +14,14 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     -- vim.lsp.buf.document_highlight()  -- more annoying than useful
     local result = vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
 
-    if result == nil then
-      vim.diagnostic.hide()
-      -- vim.lsp.buf.hover()
-      -- result = vim.lsp.buf.hover()  -- Cool info, but gets annoying
-      -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
-      -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
-      -- vim.lsp.codelens.display()
-    end
+    -- if result == nil then
+    --   vim.diagnostic.hide()
+    --   -- vim.lsp.buf.hover()
+    --   -- result = vim.lsp.buf.hover()  -- Cool info, but gets annoying
+    --   -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
+    --   -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
+    --   -- vim.lsp.codelens.display()
+    -- end
   end,
   group = ButtarsACmds,
 })

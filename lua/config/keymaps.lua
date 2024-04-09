@@ -47,15 +47,15 @@ vim.keymap.set(
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
 -- A part of DoubleTap now
--- vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "((", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", '""', '<ESC>`>a"<ESC>`<i"<ESC>', { noremap = true })
--- vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
--- vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "((", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", '""', '<ESC>`>a"<ESC>`<i"<ESC>', { noremap = true })
+vim.api.nvim_set_keymap("v", "''", "<ESC>`>a'<ESC>`<i'<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("v", "``", "<ESC>`>a`<ESC>`<i`<ESC>", { noremap = true })
 
 -- Terminal Normal Mode
 -- Add CTRL-K/J for up/down movement. This is mostly for UI selectors that use a terminal mode selector
@@ -69,9 +69,9 @@ vim.keymap.set("n", "c-]", function()
   vim.lsp.buf.definition()
 end, { noremap = true })
 
-vim.keymap.set("n", "c-i", function()
-  vim.lsp.buf.implementation()
-end, { noremap = true })
+-- vim.keymap.set("n", "c-i", function()
+--   vim.lsp.buf.implementation()
+-- end, { noremap = true })
 
 --  DELETED Keymaps --
 -- Remove some keymaps that I don't find are any better than the default Vim key maps
@@ -119,6 +119,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader><esc>", function()
   vim.cmd("noh")
   require("trouble").close()
-  vim.diagnostic.hide()
-  vim.diagnostic.reset()
+  -- vim.diagnostic.hide()
+  -- vim.diagnostic.reset()
 end, { noremap = true, desc = "Escape and clear hlsearch" })
