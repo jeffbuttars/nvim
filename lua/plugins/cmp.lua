@@ -35,6 +35,12 @@ return {
         }),
       })
 
+      opts.completion = {
+        completeopt = "menu,preview,menuone,noselect",
+        -- completeopt = "menu,preview,menuone,noselect,noinsert",
+      }
+      opts.preselect = cmp.PreselectMode.None
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-j>"] = cmp.mapping(function(fallback)
           cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
