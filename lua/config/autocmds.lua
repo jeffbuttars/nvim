@@ -2,8 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local Util = require("lazyvim.util")
-
 local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
 
 -- show diagnostics popup when we're chillin in normal mode
@@ -11,17 +9,11 @@ local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clea
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
   callback = function()
-    -- vim.lsp.buf.document_highlight()  -- more annoying than useful
-    local result = vim.diagnostic.open_float({ focusable = false, scope = "line", source = true })
-
-    -- if result == nil then
-    --   vim.diagnostic.hide()
-    --   -- vim.lsp.buf.hover()
-    --   -- result = vim.lsp.buf.hover()  -- Cool info, but gets annoying
-    --   -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
-    --   -- vim.print("HOVER RESULT:", vim.lsp.buf.implementation())
-    --   -- vim.lsp.codelens.display()
-    -- end
+    vim.diagnostic.open_float({
+      focusable = false,
+      scope = "line",
+      source = true,
+    })
   end,
   group = ButtarsACmds,
 })
@@ -83,6 +75,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave",
   desc = "AutoSave current buffer",
 })
 
+-- Put the results of a good old grep into the cwindow to easily naviagate the results
 vim.api.nvim_create_autocmd(
   { "QuickFixCmdPost" },
   { pattern = "*grep*", command = "cwindow", group = ButtarsACmds }
@@ -132,14 +125,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   end,
   group = ButtarsACmds,
 })
-
--- vim.api.nvim_create_autocmd({ "CursorHold" }, {
---   pattern = "*",
---   callback = function()
---     Util.format()
---   end,
---   group = ButtarsACmds,
--- })
 
 --  NOTE: (jeff) Currently using sessions in place of the following.
 --  When editing a file, always jump to the last known cursor position.
