@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      diagnostics = { virtual_text = false },
+      diagnostics = { virtual_text = false, float = { border = "rounded" } },
 
       -- servers = {
       --   typos_lsp = {},
