@@ -2,6 +2,8 @@
 return {
   {
     "pwntester/octo.nvim",
+    -- Octo requires explicit loading, my preference
+    cmd = "Octo",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "ibhagwan/fzf-lua",
