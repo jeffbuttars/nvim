@@ -46,10 +46,7 @@ vim.keymap.set(
 
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
--- A part of DoubleTap now
-vim.api.nvim_set_keymap("v", "((", "<ESC>`>a)<ESC>`<i(<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "((", "<ESC>`>a}<ESC>`<i{<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "[[", "<ESC>`>a]<ESC>`<i[<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
