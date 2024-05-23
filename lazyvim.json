@@ -4,10 +4,11 @@
     "lazyvim.plugins.extras.editor.mini-diff",
     "lazyvim.plugins.extras.editor.mini-move",
     "lazyvim.plugins.extras.editor.trouble-v3",
+    "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.linting.eslint"
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "4964"
   },
-  "version": 3
+  "version": 4
 }

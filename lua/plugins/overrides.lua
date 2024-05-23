@@ -342,11 +342,22 @@ return {
         },
         {
           event = "file_opened",
-          handler = function()
+          handler = function(file_path)
             require("neo-tree.command").execute({ action = "close" })
           end,
         },
       },
     },
   },
+  -- {
+  --   "echasnovski/mini.indentscope",
+  --   opts = {
+  --     -- symbol = "∶",
+  --     -- symbol = "┊",
+  --     draw = {
+  --       -- delay = 500,
+  --       animation = require("mini.indentscope").gen_animation.none(),
+  --     },
+  --   },
+  -- },
 }

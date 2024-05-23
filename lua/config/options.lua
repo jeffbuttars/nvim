@@ -81,7 +81,7 @@ vim.opt.undodir = "~/tmp/.vim/undo,/tmp//"
 
 vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
-vim.g.lazyvim_python_lsp = "jedi"
+vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff_lsp"
 
 -- vim.opt.timeoutlen = 300  -- default
@@ -89,3 +89,8 @@ vim.opt.timeoutlen = 500
 
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
+
+-- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
+-- set tagfunc=v:lua.vim.lsp.tagfunc
+-- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
+-- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
