@@ -43,6 +43,10 @@ return {
     "folke/flash.nvim",
     enabled = false,
   },
+  {
+    "folke/ts-comments.nvim",
+    enabled = false,
+  },
   -- {
   --   "RRethy/vim-illuminate",
   --   enabled = false,
