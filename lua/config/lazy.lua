@@ -9,25 +9,26 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
+    -- -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- import/override with your plugins
+
     { import = "lazyvim.plugins.extras.coding.codeium" },
+    { import = "lazyvim.plugins.extras.coding.mini-comment" },
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.git" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.ui.alpha" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" }, -- to slow for me
+    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     { import = "lazyvim.plugins.extras.util.dot" },
-
+    -- import/override with your plugins
     { import = "plugins" },
   },
   defaults = {
@@ -59,11 +60,11 @@ require("lazy").setup({
       },
     },
   },
-  dev = {
-    -- directory where you store your local plugin projects
-    path = "~/Dev",
-    ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
-    patterns = {}, -- For example {"folke"}
-    fallback = false, -- Fallback to git when local plugin doesn't exist
-  },
+  -- dev = {
+  --   -- directory where you store your local plugin projects
+  --   path = "~/Dev",
+  --   ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
+  --   patterns = {}, -- For example {"folke"}
+  --   fallback = false, -- Fallback to git when local plugin doesn't exist
+  -- },
 })

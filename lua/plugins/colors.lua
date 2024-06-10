@@ -5,7 +5,7 @@ return {
       colorscheme = "catppuccin-latte",
     },
   },
-  { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true },
+  { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true, enabled = false },
 
   {
     "folke/lsp-colors.nvim",
@@ -18,13 +18,6 @@ return {
       opts.enable_tailwind = true
     end,
   },
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   config = function(_, opts)
-  --     require("colorizer").setup()
-  --     return opts
-  --   end,
-  -- },
   {
     "rasulomaroff/reactive.nvim",
     opts = {
@@ -37,9 +30,9 @@ return {
       },
     },
   },
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    config = true,
-    event = { "WinNew" },
-  },
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   config = true,
+  --   event = { "WinNew" },
+  -- },
 }
