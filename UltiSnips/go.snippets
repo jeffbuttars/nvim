@@ -1,4 +1,26 @@
+extends go
 priority 1
+
+global !p
+def meth_ref(rcvr):
+	if not len(rcvr):
+		return rcvr
+
+	if len(rcvr) == 1 and rcvr[0] == '*':
+		return ""
+
+	if len(rcvr) > 2 and rcvr[0] == '*':
+		rcvr = rcvr[1:]
+
+	uppers = [char.lower() for char in rcvr if char.isupper()]
+	if len(uppers) > 0:
+		if len(uppers) == 1 and rcvr[0].isupper():
+			return rcvr.lower()
+		else:
+			return "".join(uppers)
+
+	return rcvr
+endglobal
 
 snippet pkg "package <>" !b
 package ${1}
@@ -32,7 +54,7 @@ func ${1:name}(${2}) ${3: error} {
 endsnippet
 
 snippet met "func (Recvr) FName()" !b
-func$ (${1:recvr}) ${2:funcName}(${3}) ${4: error} {
+func (${2:`!p snip.rv += meth_ref(t[1])`} ${1:recvr}) ${3:funcName}(${4:params}) ${5: error} {
 	${0}
 }
 endsnippet

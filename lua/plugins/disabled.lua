@@ -1,8 +1,8 @@
 return {
-  -- {
-  --   "lewis6991/gitsigns.nvim",
-  --   enabled = false,
-  -- },
+  {
+    "lewis6991/gitsigns.nvim",
+    enabled = false,
+  },
   -- {
   --   "folke/trouble.nvim",
   --   enabled = false,
@@ -23,10 +23,10 @@ return {
   --   "stevearc/dressing.nvim",
   --   enabled = false,
   -- },
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   enabled = false,
-  -- },
+  {
+    "nvim-lualine/lualine.nvim",
+    enabled = false,
+  },
   -- {
   --   "folke/noice.nvim",
   --   enabled = false,
@@ -74,11 +74,6 @@ return {
   },
   -- {
   --   "rcarriga/nvim-notify",
-  --   enabled = false,
-  -- },
-  -- {
-  --   -- Looks cool, not sure how slow it is, might want to re-enable
-  --   "echasnovski/mini.indentscope",
   --   enabled = false,
   -- },
   {
