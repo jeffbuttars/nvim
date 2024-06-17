@@ -11,6 +11,6 @@ return {
       font = "+4", -- (10% increase per step)
     },
 
-    gitsigns = { enabled = true },
+    gitsigns = { enabled = false },
   },
 }
