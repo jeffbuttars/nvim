@@ -29,6 +29,7 @@ vim.opt.pumblend = 20
 
 -- I like to have my files automatically reloaded if they change on disk
 vim.opt.autoread = true
+vim.opt.autowriteall = true
 
 --  The title of the window to titlestring
 vim.opt.title = true
