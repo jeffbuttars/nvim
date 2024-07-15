@@ -4,31 +4,42 @@
 
 -- Whichkey goodness maps
 local wk = require("which-key")
-wk.register({
-  ["<leader>gd"] = {
-    function()
-      local gs = package.loaded.gitsigns
-      gs.diffthis("~")
-    end,
-    "Diffthis",
-  },
-})
+-- wk.register({
+--   ["<leader>gd"] = {
+--     function()
+--       local gs = package.loaded.gitsigns
+--       gs.diffthis("~")
+--     end,
+--     "Diffthis",
+--   },
+-- })
 
-wk.register({
-  ["<leader>gb"] = {
-    function()
-      local gs = package.loaded.gitsigns
-      gs.blame_line()
-    end,
-    "Blame Line",
-  },
+wk.add({
+  "<leader>gd",
+  function()
+    local gs = package.loaded.gitsigns
+    gs.diffthis("~")
+  end,
+  desc = "Diffthis",
+})
+-- {
+--     { "<leader>gd", <function 1>, desc = "Diffthis" },
+--   })
+
+wk.add({
+  "<leader>gb",
+  function()
+    local gs = package.loaded.gitsigns
+    gs.blame_line()
+  end,
+  desc = "Blame Line",
 })
 
 -- diagnostics jump to next/prev
-wk.register({
+wk.add({
   mode = { "n" },
-  ["<leader>xn"] = { vim.diagnostic.goto_next, "diagnostic next" },
-  ["<leader>xp"] = { vim.diagnostic.goto_prev, "diagnostic prev" },
+  { "<leader>xn", vim.diagnostic.goto_next, desc = "diagnostic next" },
+  { "<leader>xp", vim.diagnostic.goto_prev, desc = "diagnostic prev" },
 })
 -- vim.keymap.set("n", "<leader>xn", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<leader>xp", vim.diagnostic.goto_prev)
