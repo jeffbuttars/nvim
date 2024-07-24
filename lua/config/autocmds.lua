@@ -6,17 +6,17 @@ local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clea
 
 -- show diagnostics popup when we're chillin in normal mode
 -- Show a diagnostic popup on cursor hold
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
-  pattern = "*",
-  callback = function()
-    vim.diagnostic.open_float({
-      focusable = false,
-      scope = "line",
-      source = true,
-    })
-  end,
-  group = ButtarsACmds,
-})
+-- vim.api.nvim_create_autocmd({ "CursorHold" }, {
+--   pattern = "*",
+--   callback = function()
+--     vim.diagnostic.open_float({
+--       focusable = false,
+--       scope = "line",
+--       source = true,
+--     })
+--   end,
+--   group = ButtarsACmds,
+-- })
 
 local function AutoSave(args)
   -- Restart LSP servers every 30 minutes, keep em fresh
