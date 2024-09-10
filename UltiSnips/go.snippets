@@ -86,7 +86,11 @@ fmt.Fprintf(${1:writer}, "${2:%+v}", ${3})${0}
 endsnippet
 
 snippet fpe "Fprint to Stderr Formatted" !b
-fmt.Fprint(os.Stderr, , "${1:%+v}", ${2})${0}
+fmt.Fprint(os.Stderr, "${1:%+v}", ${2})${0}
+endsnippet
+
+snippet fer "Errorf"
+fmt.Errorf("${1}: ${2:%w}", ${2}${3:err})${0}
 endsnippet
 
 # For Templates

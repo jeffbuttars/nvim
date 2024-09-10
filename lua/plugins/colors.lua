@@ -1,8 +1,17 @@
 return {
   {
+    "xero/evangelion.nvim",
+    lazy = false,
+    priority = 1000,
+    -- config = function()
+    --   vim.cmd("colorscheme evangelion")
+    -- end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin-latte",
+      -- colorscheme = "evangelion",
     },
   },
   { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true, enabled = false },
