@@ -132,3 +132,10 @@ vim.keymap.set("n", "<leader><esc>", function()
   -- vim.diagnostic.hide()
   -- vim.diagnostic.reset()
 end, { noremap = true, desc = "Escape and clear hlsearch" })
+
+-- ZenMode toggle
+wk.add({
+  "<leader>wz",
+  ":ZenMode<cr>",
+  desc = "ZenMode",
+})
