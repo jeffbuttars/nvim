@@ -72,9 +72,8 @@ vim.opt.linebreak = true
 vim.opt.showbreak = "↪"
 
 -- Instead of swapfiles and backups, aggressive saving is setup in ./autocmds.lua
--- vim.opt.swapfile = false
+vim.opt.swapfile = false
 -- vim.opt.backup = false
-vim.opt.swapfile = true
 vim.opt.backup = true
 vim.opt.backupdir = "~/tmp/.vim/backup,/tmp//"
 vim.opt.directory = "~/tmp/.vim/swap,/tmp//"
