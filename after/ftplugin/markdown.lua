@@ -1,0 +1,22 @@
+-- local MiniIcons = require("mini.icons")
+-- local wk = require("which-key")
+--
+-- wk.add({
+--   {
+--     "<leader>m",
+--     desc = "Markdown",
+--     group = "markdown",
+--     icon = MiniIcons.get("filetype", "markdown"),
+--   },
+--   {
+--     "<leader>mp",
+--     "<cmd>MarkdownPreview<cr>",
+--     desc = "Markdown Preview",
+--     icon = MiniIcons.get("filetype", "html"),
+--   },
+--   {
+--     "<leader>mv",
+--     "<cmd>Markview toggle<cr>",
+--     desc = "Markdown View in Editor",
+--   },
+-- })
