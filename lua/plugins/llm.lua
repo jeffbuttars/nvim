@@ -224,30 +224,30 @@ return {
     },
   },
 
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   cmd = "Codeium",
-  --   build = ":Codeium Auth",
-  --   opts = {
-  --     enable_chat = true,
-  --     enable_local_search = true,
-  --     enable_index_service = true,
-  --   },
-  -- },
   {
-    -- https://github.com/monkoose/neocodeium
-    "monkoose/neocodeium",
-    event = "VeryLazy",
-    config = function()
-      local neocodeium = require("neocodeium")
-      neocodeium.setup()
-      -- vim.keymap.set("i", "<C-f>", neocodeium.accept)
-    end,
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    cmd = "Codeium",
+    build = ":Codeium Auth",
+    opts = {
+      enable_chat = true,
+      enable_local_search = true,
+      enable_index_service = true,
+    },
   },
+  -- {
+  --   -- https://github.com/monkoose/neocodeium
+  --   "monkoose/neocodeium",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     local neocodeium = require("neocodeium")
+  --     neocodeium.setup()
+  --     -- vim.keymap.set("i", "<C-f>", neocodeium.accept)
+  --   end,
+  -- },
   -- {
   --   {
   --     "huggingface/llm.nvim",

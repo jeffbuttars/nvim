@@ -48,18 +48,52 @@ return {
     -- }
     -- end,
   },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false, -- Recommended
+  --   -- ft = "markdown" -- If you decide to lazy-load anyway
+  --
+  --   dependencies = {
+  --     -- You will not need this if you installed the
+  --     -- parsers manually
+  --     -- Or if the parsers are in your $RUNTIMEPATH
+  --     "nvim-treesitter/nvim-treesitter",
+  --
+  --     "nvim-tree/nvim-web-devicons",
+  --   },
+  -- },
+
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false, -- Recommended
-    -- ft = "markdown" -- If you decide to lazy-load anyway
-
-    dependencies = {
-      -- You will not need this if you installed the
-      -- parsers manually
-      -- Or if the parsers are in your $RUNTIMEPATH
-      "nvim-treesitter/nvim-treesitter",
-
-      "nvim-tree/nvim-web-devicons",
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      file_types = { "markdown", "norg", "rmd", "org" },
+      code = {
+        sign = true,
+        width = "block",
+        right_pad = 1,
+      },
+      heading = {
+        sign = true,
+        icons = {},
+      },
     },
+    -- ft = { "markdown", "norg", "rmd", "org" },
+    -- config = function(_, opts)
+    --   require("render-markdown").setup(opts)
+    --   LazyVim.toggle.map("<leader>um", {
+    --     name = "Render Markdown",
+    --     get = function()
+    --       return require("render-markdown.state").enabled
+    --     end,
+    --     set = function(enabled)
+    --       local m = require("render-markdown")
+    --       if enabled then
+    --         m.enable()
+    --       else
+    --         m.disable()
+    --       end
+    --     end,
+    --   })
+    -- end,
   },
 }
