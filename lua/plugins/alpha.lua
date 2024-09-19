@@ -9,11 +9,11 @@ return {
 
   -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("f", " " .. " Find file",       "<cmd> lua require('fzf-lua').files() <cr>"),
+      dashboard.button("f", " " .. " Find file",       "<cmd> lua require('telescope.builtin').find_files() <cr>"),
       -- dashboard.button("n", " " .. " New file",        "<cmd> ene <BAR> startinsert <cr>"),
-      dashboard.button("r", " " .. " Recent files",    "<cmd> lua require('fzf-lua').oldfiles() <cr>"),
-      dashboard.button("g", " " .. " Find text",       "<cmd> lua require('fzf-lua').live_grep() <cr>"),
-      dashboard.button("c", " " .. " Config",          "<cmd> lua require('fzf-lua').files({ cwd = '~/.config/nvim', resume = true }) <cr>"),
+      dashboard.button("r", " " .. " Recent files",    "<cmd> lua require('telescope.builtin').oldfiles() <cr>"),
+      dashboard.button("g", " " .. " Find text",       "<cmd> lua require('telescope.builtin').live_grep() <cr>"),
+      dashboard.button("c", " " .. " Config",          "<cmd> lua require('telescope.builtin').find_files({ cwd = '~/.config/nvim', resume = true }) <cr>"),
       dashboard.button("s", " " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
       dashboard.button("x", " " .. " Lazy Extras",     "<cmd> LazyExtras <cr>"),
       dashboard.button("l", "󰒲 " .. " Lazy",            "<cmd> Lazy <cr>"),

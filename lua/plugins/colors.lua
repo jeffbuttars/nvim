@@ -19,14 +19,14 @@ return {
   {
     "folke/lsp-colors.nvim",
   },
-  {
-    "brenoprata10/nvim-highlight-colors",
-    opts = function(_, opts)
-      -- require("nvim-highlight-colors").setup()
-      opts.render = "virtual"
-      opts.enable_tailwind = true
-    end,
-  },
+  -- {
+  --   "brenoprata10/nvim-highlight-colors",
+  --   opts = function(_, opts)
+  --     -- require("nvim-highlight-colors").setup()
+  --     opts.render = "virtual"
+  --     opts.enable_tailwind = true
+  --   end,
+  -- },
   {
     "rasulomaroff/reactive.nvim",
     opts = {

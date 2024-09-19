@@ -27,7 +27,7 @@ return {
     -- sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
     --   middle: means the cursor position is always at the middle of the preview page
     --   top: means the Vim top viewport always shows up at the top of the preview page
-    --   relative: means the cursor position is always at relative positon of the preview page
+    --   relative: means the cursor position is always at relative position of the preview page
     -- hide_yaml_meta: whether to hide YAML metadata, default is 1
     -- sequence_diagrams: js-sequence-diagrams options
     -- content_editable: if enable content editable for preview page, default: v:false
@@ -62,16 +62,19 @@ return {
   --     "nvim-tree/nvim-web-devicons",
   --   },
   -- },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
 
-  require("render-markdown").setup({
-    code = {
-      sign = true,
-      width = "full",
+      code = {
+        sign = true,
+        width = "full",
+      },
+      heading = {
+        enabled = true,
+        sign = true,
+        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      },
     },
-    heading = {
-      enabled = true,
-      sign = true,
-      icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-    },
-  }),
+  },
 }
