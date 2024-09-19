@@ -94,3 +94,16 @@ vim.treesitter.language.register("markdown", "octo")
 -- set tagfunc=v:lua.vim.lsp.tagfunc
 -- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
 -- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
+
+-- Fix for wezterm, not sure how it effects everything else
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = function() end,
+    ["*"] = function() end,
+  },
+}
