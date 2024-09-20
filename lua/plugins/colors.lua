@@ -7,6 +7,7 @@ return {
     --   vim.cmd("colorscheme evangelion")
     -- end,
   },
+  { "danwlker/primeppuccin", priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {

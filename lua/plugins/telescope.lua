@@ -52,6 +52,8 @@ M.find_files_from_project_git_root = function()
     opts = {
       cwd = get_git_root(),
     }
+    require("telescope.builtin").git_files(opts)
+    return
   end
 
   require("telescope.builtin").find_files(opts)
