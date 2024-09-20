@@ -96,6 +96,6 @@ vim.treesitter.language.register("markdown", "octo")
 -- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
 
 -- Fix for wezterm over ssh, not sure how it effects everything else
-if vim.env.SSH_TTY ~= "" then
-  vim.g.clipboard = false
-end
+-- if vim.env.SSH_TTY ~= "" then
+--   vim.g.clipboard = false
+-- end

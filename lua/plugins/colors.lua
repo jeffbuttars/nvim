@@ -7,6 +7,7 @@ return {
     --   vim.cmd("colorscheme evangelion")
     -- end,
   },
+  { "rose-pine/neovim", name = "rose-pine" },
   { "danwlker/primeppuccin", priority = 1000 },
   {
     "LazyVim/LazyVim",
