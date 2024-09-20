@@ -17,7 +17,7 @@ vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
 -- vim.opt.pumheight = 15 -- Maximum number of entries in a popup
 -- vim.opt.pumblend = 0 -- Set to 0 if using transparency causes rendering issues
-vim.opt.pumblend = 20
+vim.opt.pumblend = 0
 -- vim.api.nvim_set_hl(0, "PmenuSel", { blend = 0 })
 -- vim.api.nvim_set_hl(0, "Pmenu", { blend = 0 })
 
@@ -95,15 +95,7 @@ vim.treesitter.language.register("markdown", "octo")
 -- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
 -- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
 
--- Fix for wezterm, not sure how it effects everything else
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = function() end,
-    ["*"] = function() end,
-  },
-}
+-- Fix for wezterm over ssh, not sure how it effects everything else
+if vim.env.SSH_TTY ~= "" then
+  vim.g.clipboard = false
+end
