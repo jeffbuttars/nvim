@@ -223,7 +223,6 @@ return {
       predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
     },
   },
-
   {
     "Exafunction/codeium.nvim",
     dependencies = {

@@ -99,3 +99,17 @@ vim.treesitter.language.register("markdown", "octo")
 -- if vim.env.SSH_TTY ~= "" then
 --   vim.g.clipboard = false
 -- end
+-- if vim.env.SSH_TTY ~= "" then
+--   vim.print("Detected SSH_TTY, forcing osc52")
+--   vim.g.clipboard = {
+--     name = "OSC 52",
+--     copy = {
+--       ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--       ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--     },
+--     paste = {
+--       ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+--       ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+--     },
+--   }
+-- end
