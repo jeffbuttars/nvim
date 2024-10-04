@@ -20,6 +20,7 @@ return {
         {
           mode = { "n", "v" },
           { "<leader>ac", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+          { "<leader>aC", "<cmd>Codeium Chat<CR>", desc = "Codeium Chat" },
           { "<leader>az", "<cmd>ChatGPTActAs<CR>", desc = "ChatGPTActAs", mode = { "n" } },
           { "<leader>ae", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
           { "<leader>ag", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
