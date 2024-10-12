@@ -19,8 +19,7 @@ return {
         { "<leader>a", group = "AI" },
         {
           mode = { "n", "v" },
-          { "<leader>ac", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-          { "<leader>aC", "<cmd>Codeium Chat<CR>", desc = "Codeium Chat" },
+          { "<leader>aC", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
           { "<leader>az", "<cmd>ChatGPTActAs<CR>", desc = "ChatGPTActAs", mode = { "n" } },
           { "<leader>ae", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
           { "<leader>ag", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
@@ -226,74 +225,17 @@ return {
   },
   {
     "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
-    cmd = "Codeium",
-    build = ":Codeium Auth",
-    opts = {
-      enable_chat = true,
-      enable_local_search = true,
-      enable_index_service = true,
-    },
+    init = function()
+      -- Setup up some keymaps
+      require("which-key").add({
+        mode = { "n", "v" },
+        {
+          "<leader>ac",
+          "<cmd>Codeium Chat<CR>",
+          desc = "Codeium Chat",
+          icon = "",
+        },
+      })
+    end,
   },
-  -- {
-  --   -- https://github.com/monkoose/neocodeium
-  --   "monkoose/neocodeium",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     local neocodeium = require("neocodeium")
-  --     neocodeium.setup()
-  --     -- vim.keymap.set("i", "<C-f>", neocodeium.accept)
-  --   end,
-  -- },
-  -- {
-  --   {
-  --     "huggingface/llm.nvim",
-  --     opts = {
-  --       api_token = nil, -- cf Install paragraph
-  --       model = "bigcode/starcoder", -- the model ID, behavior depends on backend
-  --       -- model = "bigcode/starcoder2-7b", -- the model ID, behavior depends on backend
-  --       backend = "huggingface", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-  --       url = nil, -- the http url of the backend
-  --       tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
-  --       -- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
-  --       request_body = {
-  --         parameters = {
-  --           max_new_tokens = 60,
-  --           temperature = 0.2,
-  --           top_p = 0.95,
-  --         },
-  --       },
-  --       -- set this if the model supports fill in the middle
-  --       fim = {
-  --         enabled = true,
-  --         prefix = "<fim_prefix>",
-  --         middle = "<fim_middle>",
-  --         suffix = "<fim_suffix>",
-  --       },
-  --       debounce_ms = 150,
-  --       accept_keymap = "<Tab>",
-  --       dismiss_keymap = "<S-Tab>",
-  --       tls_skip_verify_insecure = false,
-  --       -- llm-ls configuration, cf llm-ls section
-  --       lsp = {
-  --         bin_path = vim.api.nvim_call_function("stdpath", { "data" }) .. "/mason/bin/llm-ls",
-  --         -- bin_path = nil,
-  --         host = nil,
-  --         port = nil,
-  --         version = "0.5.2",
-  --       },
-  --       -- tokenizer = nil, -- cf Tokenizer paragraph
-  --       tokenizer = {
-  --         repository = "bigcode/starcoder",
-  --       },
-  --
-  --       context_window = 8192, -- max number of tokens for the context window
-  --       enable_suggestions_on_startup = true,
-  --       enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
-  --     },
-  --   },
-  -- },
 }
