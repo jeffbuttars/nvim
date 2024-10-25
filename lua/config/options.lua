@@ -23,12 +23,10 @@ vim.opt.pumblend = 0
 
 -- Disable LazyVim auto format, default is true
 -- vim.g.autoformat = true
-
 -- This may be annoying, set to false if so
 -- opt.confirm = true -- Confirm to save changes before exiting modified buffer
-
 -- I like to have my files automatically reloaded if they change on disk
-vim.opt.autoread = true
+vim.autoread = true
 vim.opt.autowriteall = true
 
 --  The title of the window to titlestring
