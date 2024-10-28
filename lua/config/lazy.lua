@@ -9,8 +9,16 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
+    { --* the completion engine *--
+      "iguanacucumber/magazine.nvim",
+      name = "nvim-cmp",
+    },
+
     -- -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+    -- import our override plugins first
+    -- { import = "plugins.override" },
 
     -- import any extras modules here
 
