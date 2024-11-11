@@ -21,7 +21,6 @@ return {
       "templ",
       "typos",
       "djlint",
-      "fish_indent",
       "markdown-toc",
       "markdownlint-cli2",
       "prettier",
