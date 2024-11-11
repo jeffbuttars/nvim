@@ -80,7 +80,7 @@ vim.opt.undodir = "~/tmp/.vim/undo,/tmp//"
 vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
 vim.g.lazyvim_python_lsp = "basedpyright"
-vim.g.lazyvim_python_ruff = "ruff_lsp"
+vim.g.lazyvim_python_ruff = "ruff"
 
 -- vim.opt.timeoutlen = 300  -- default
 vim.opt.timeoutlen = 500
