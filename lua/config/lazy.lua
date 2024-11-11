@@ -14,8 +14,9 @@ require("lazy").setup({
 
     -- import any extras modules here
 
-    { import = "lazyvim.plugins.extras.coding.codeium" },
+    { import = "lazyvim.plugins.extras.ai.codeium" },
     { import = "lazyvim.plugins.extras.coding.mini-comment" },
+    -- { import = "lazyvim.plugins.extras.coding.blink" }, -- nvim-cmp alternative
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.docker" },
@@ -32,6 +33,8 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
   },
+
+
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
