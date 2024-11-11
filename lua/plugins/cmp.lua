@@ -7,10 +7,6 @@ return {
       local cmp = require("cmp")
       local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
-      opts.experimental = {
-        ghost_text = true,
-      }
-
       -- https://github.com/hrsh7th/cmp-cmdline
       -- `/` cmdline setup.
       cmp.setup.cmdline("/", {
