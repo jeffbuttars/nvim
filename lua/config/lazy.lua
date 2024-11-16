@@ -16,7 +16,6 @@ require("lazy").setup({
 
     { import = "lazyvim.plugins.extras.ai.codeium" },
     { import = "lazyvim.plugins.extras.coding.mini-comment" },
-    -- { import = "lazyvim.plugins.extras.coding.blink" }, -- nvim-cmp alternative
     { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.docker" },
