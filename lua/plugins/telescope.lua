@@ -44,7 +44,15 @@ M.find_files_from_project_git_root = function()
   end
 
   local function get_git_root()
+    -- Look for .git folder or file. Will be a file if in worktree
     local dot_git_path = vim.fn.finddir(".git", ".;")
+    local dot_git_path_f = vim.fn.findfile(".git", ".;")
+
+    -- prefer the shorter(closest?) path
+    if #dot_git_path_f < #dot_git_path then
+      return vim.fn.fnamemodify(dot_git_path_f, ":h")
+    end
+
     return vim.fn.fnamemodify(dot_git_path, ":h")
   end
 
@@ -56,7 +64,8 @@ M.find_files_from_project_git_root = function()
     return
   end
 
-  require("telescope.builtin").find_files(opts)
+  local ff_fn = LazyVim.pick("files", { root = false })
+  ff_fn(opts)
 end
 
 return {
