@@ -3,6 +3,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    -- init = function()
+    --   require'lspconfig'.gopls.setup{}
+    -- end,
     opts = {
       diagnostics = { virtual_text = false, float = { border = "rounded" } },
       inlay_hints = { enabled = false },
