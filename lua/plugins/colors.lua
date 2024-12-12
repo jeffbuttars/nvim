@@ -8,7 +8,7 @@ return {
     -- end,
   },
   { "rose-pine/neovim", name = "rose-pine" },
-  { "danwlker/primeppuccin", priority = 1000 },
+  -- { "danwlker/primeppuccin", priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -29,18 +29,17 @@ return {
   --     opts.enable_tailwind = true
   --   end,
   -- },
-  {
-    "rasulomaroff/reactive.nvim",
-    opts = {
-      load = { "catppuccin-latte-cursor", "latte" },
-      builtin = {
-        --   cursorline = true,
-        --   cursor = true,
-        --
-        modemsg = true,
-      },
-    },
-  },
+  -- {
+  --   "rasulomaroff/reactive.nvim",
+  --   opts = {
+  --     load = { "catppuccin-latte-cursor", "latte" },
+  --     builtin = {
+  --       cursorline = true,
+  --       cursor = true,
+  --       modemsg = true,
+  --     },
+  --   },
+  -- },
   -- {
   --   "nvim-zh/colorful-winsep.nvim",
   --   config = true,

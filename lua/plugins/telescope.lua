@@ -36,6 +36,8 @@ local M = {}
 -- The appeal of this function over the default find_files() is that you can find files that are not tracked by git.
 -- Also, find_files() only finds files in the current directory but this function finds files regardless of your current directory as long as you're in the project directory.
 M.find_files_from_project_git_root = function()
+  -- local opts = require("telescope.themes").get_ivy({ hidden = true })
+  -- local opts = require("telescope.themes").get_cursor({ hidden = true })
   local opts = { hidden = true }
 
   local function is_git_repo()
@@ -57,9 +59,8 @@ M.find_files_from_project_git_root = function()
   end
 
   if is_git_repo() then
-    opts = {
-      cwd = get_git_root(),
-    }
+    opts.cwd = get_git_root()
+
     require("telescope.builtin").git_files(opts)
     return
   end
@@ -72,6 +73,23 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
+      require("telescope").setup({
+        pickers = {
+          find_files = {
+            theme = "ivy",
+            layout_config = {
+              height = 0.7,
+            },
+          },
+          git_files = {
+            theme = "ivy",
+            layout_config = {
+              height = 0.7,
+            },
+          },
+        },
+      })
+
       opts.defaults.mappings.i = {
         ["<C-j>"] = require("telescope.actions").move_selection_next,
         ["<C-k>"] = require("telescope.actions").move_selection_previous,
@@ -100,6 +118,11 @@ return {
         end,
         -- require("telescope.builtin").git_files,
         desc = "Find Files in Git repo",
+      },
+      {
+        "<leader>fh",
+        require("telescope.builtin").help_tags,
+        desc = "Find Help",
       },
     },
     -- keys = {
