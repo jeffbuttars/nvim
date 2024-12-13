@@ -4,36 +4,6 @@
 
 -- Whichkey goodness maps
 local wk = require("which-key")
--- wk.register({
---   ["<leader>gd"] = {
---     function()
---       local gs = package.loaded.gitsigns
---       gs.diffthis("~")
---     end,
---     "Diffthis",
---   },
--- })
-
-wk.add({
-  "<leader>gd",
-  function()
-    local gs = package.loaded.gitsigns
-    gs.diffthis("~")
-  end,
-  desc = "Diffthis",
-})
--- {
---     { "<leader>gd", <function 1>, desc = "Diffthis" },
---   })
-
-wk.add({
-  "<leader>gb",
-  function()
-    local gs = package.loaded.gitsigns
-    gs.blame_line()
-  end,
-  desc = "Blame Line",
-})
 
 -- diagnostics jump to next/prev
 wk.add({
