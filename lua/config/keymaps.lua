@@ -4,6 +4,10 @@
 
 -- Whichkey goodness maps
 local wk = require("which-key")
+local map = LazyVim.safe_keymap_set
+
+-- This only works if plugins/blink.lua is sorced first
+local blink_cmp = require("blink.cmp")
 
 -- diagnostics jump to next/prev
 wk.add({
@@ -85,8 +89,35 @@ vim.keymap.del("n", "<leader>qq")
 -- ALT is used by my WM, so we remap things that use ALT that are useful
 vim.keymap.del("v", "<A-j>")
 vim.keymap.del("v", "<A-k>")
-vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- Various iterations of moving Visual stuff up/down and working with snippets and cmp as desired
+-- vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+-- vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+-- map("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+-- map("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map("v", "<C-j>", function()
+  if blink_cmp.is_visible() then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, true, true), "m", true)
+  else
+    vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes(":m '>+1<cr>gv=gv", true, true, true),
+      "m",
+      true
+    )
+  end
+end, { desc = "Move Visual down" })
+
+map("v", "<C-k>", function()
+  if blink_cmp.is_visible() then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-k>", true, true, true), "m", true)
+  else
+    vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes(":m '<-2<cr>gv=gv", true, true, true),
+      "m",
+      true
+    )
+  end
+end, { desc = "Move Visual up" })
 
 -- Clear search with <esc>
 vim.keymap.set(

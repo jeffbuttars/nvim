@@ -1,5 +1,98 @@
--- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local blink_cmp = require("blink.cmp")
+
+if not blink_cmp.is_visible then
+  function blink_cmp.is_visible()
+    local menu = require("blink.cmp.completion.windows.menu")
+    local gtext = require("blink.cmp.completion.windows.ghost_text")
+
+    return (menu.win and menu.win:is_open()) or (gtext and gtext.is_open and gtext.is_open())
+    -- return require("blink.cmp.completion.windows.menu").win:is_open()
+    --   or require("blink.cmp.completion.windows.ghost_text").is_open()
+  end
+end
+
+local function t(keys)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), "m", true)
+end
+
+local function can_execute(arg)
+  return vim.fn[arg]() == 1
+end
+
+-- The <Plug> mappings are defined in autoload/cmp_nvim_ultisnips.vim.
+
+local actions = {
+  expand = {
+    condition = { can_execute, "UltiSnips#CanExpandSnippet" },
+    command = { t, "<Plug>(cmpu-expand)" },
+  },
+  jump_forwards = {
+    condition = { can_execute, "UltiSnips#CanJumpForwards" },
+    command = { t, "<Plug>(cmpu-jump-forwards)" },
+  },
+  jump_backwards = {
+    condition = { can_execute, "UltiSnips#CanJumpBackwards" },
+    command = { t, "<Plug>(cmpu-jump-backwards)" },
+  },
+  select_next_item = {
+    condition = { blink_cmp.is_visible },
+    command = { blink_cmp.select_next },
+  },
+  select_prev_item = {
+    condition = { blink_cmp.visible },
+    command = { blink_cmp.select_prev },
+  },
+}
+
+local us_mappings = {}
+
+function us_mappings.compose(action_keys)
+  return function(fallback)
+    for _, action_key in ipairs(action_keys) do
+      local action = actions[action_key]
+
+      if not action then
+        error(
+          string.format(
+            "[cmp_nvim_ultisnips.mappings] Invalid key %s was passed to compose function. "
+              .. "Please check your mappings.\nAllowed values: 'expand', 'jump_forwards', "
+              .. "'jump_backwards', 'select_next_item', 'select_prev_item'.",
+            action_key
+          )
+        )
+      end
+      -- vim.print("compose action_key:", action_key)
+      -- vim.print("compose calling condition:", action.condition)
+      -- vim.print("blink_cmp", blink_cmp)
+      if action.condition[1](action.condition[2]) == true then
+        -- vim.print("compose calling command:", action.command)
+        action.command[1](action.command[2])
+        return true
+      end
+    end
+
+    if fallback ~= nil then
+      -- vim.print("compose calling fallback:", fallback)
+      fallback()
+      return true
+    end
+
+    -- vim.print("compose did nothing")
+    return false
+  end
+end
+
+function us_mappings.expand_or_jump_forwards(fallback)
+  return us_mappings.compose({ "expand", "jump_forwards", "select_next_item" })(fallback)
+end
+
+function us_mappings.jump_forwards(fallback)
+  return us_mappings.compose({ "jump_forwards", "select_next_item" })(fallback)
+end
+
+function us_mappings.jump_backwards(fallback)
+  return us_mappings.compose({ "jump_backwards", "select_prev_item" })(fallback)
+end
 
 return {
   "saghen/blink.cmp",
@@ -12,6 +105,24 @@ return {
 
     keymap = {
       preset = "enter",
+      ["<C-j>"] = {
+        function(cmp)
+          -- vim.print("C-J")
+          -- vim.print("C-J", cmp)
+          -- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+          local expanded = us_mappings.expand_or_jump_forwards()
+
+          -- vim.print("c-j expanded", expanded)
+
+          if expanded then
+            -- vim.print("C-J cancel")
+            cmp.cancel()
+          end
+
+          return expanded
+        end,
+        "fallback",
+      },
       ["<S-Tab>"] = {
         "select_prev",
         "fallback",
@@ -66,7 +177,7 @@ return {
       max_items = 5,
       menu = {
         border = "rounded",
-        -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+        -- winhighlight = "Normal:BlinkCmpus_mappingsenu,FloatBorder:BlinkCmpus_mappingsenuBorder,CursorLine:BlinkCmpus_mappingsenuSelection,Search:None",
         winhighlight = "",
         draw = {
           columns = {
@@ -86,6 +197,7 @@ return {
           group_index = 1,
           max_item_count = 3,
           priority = 80,
+          score_offset = 101,
         },
       },
     },
@@ -106,7 +218,7 @@ return {
         -- UltiSnips
         -- This must be loaded at startup and not in after
 
-        -- Make sure it picks up our snippet file first, so our overwrites take effect.
+        -- us_mappingsake sure it picks up our snippet file first, so our overwrites take effect.
         vim.g.UltiSnipsDontReverseSearchPath = true
 
         -- vim.api.nvim_exec([[let g:UltiSnipsExpandTrigger = '<C-j>']], true)

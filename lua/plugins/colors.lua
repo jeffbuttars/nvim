@@ -20,6 +20,9 @@ return {
 
   {
     "folke/lsp-colors.nvim",
+    -- local colors = require("catppuccin.palettes").get_palette()
+    -- local colors = require("catppuccin.palettes").get_palette(vim.o.background)
+    -- require("lsp-colors").setup({ mode = "virtual", colors = colors })
   },
   -- {
   --   "brenoprata10/nvim-highlight-colors",
