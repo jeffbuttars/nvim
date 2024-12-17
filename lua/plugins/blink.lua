@@ -177,13 +177,32 @@ return {
       max_items = 5,
       menu = {
         border = "rounded",
-        -- winhighlight = "Normal:BlinkCmpus_mappingsenu,FloatBorder:BlinkCmpus_mappingsenuBorder,CursorLine:BlinkCmpus_mappingsenuSelection,Search:None",
-        winhighlight = "",
+        -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+        winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
         draw = {
           columns = {
             { "kind_icon", "kind" },
             { "label", "label_description", gap = 1 },
           },
+        },
+      },
+      documentation = {
+        auto_show = true,
+        -- ghost_text = {
+        --   enabled = true,
+        -- },
+        window = {
+          border = "padded",
+          -- winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+        },
+      },
+      signature = {
+        enabled = true,
+        window = {
+          -- border = "padded",
+          -- winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpSignatureHelpBorder",
         },
       },
     },
