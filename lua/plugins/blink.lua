@@ -65,6 +65,9 @@ return {
       auto_complete_delay = 50,
       max_items = 5,
       menu = {
+        border = "rounded",
+        -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+        winhighlight = "",
         draw = {
           columns = {
             { "kind_icon", "kind" },
