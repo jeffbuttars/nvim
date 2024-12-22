@@ -39,13 +39,16 @@ return {
   --   "echasnovski/mini.ai",
   --   enabled = false,
   -- },
+  -- {
+  --   "echasnovski/mini.git",
+  --   enabled = false,
+  -- },
   {
     "folke/flash.nvim",
     enabled = false,
   },
   {
     "folke/ts-comments.nvim",
-    enabled = false,
   },
   -- {
   --   "RRethy/vim-illuminate",
