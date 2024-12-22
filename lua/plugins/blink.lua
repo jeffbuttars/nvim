@@ -104,7 +104,7 @@ return {
     },
 
     keymap = {
-      preset = "enter",
+      preset = "default",
       ["<C-j>"] = {
         function(cmp)
           -- vim.print("C-J")
@@ -171,10 +171,9 @@ return {
     completion = {
       list = {
         selection = "manual",
+        -- max_items = 5,
       },
-      auto_complete = true,
-      auto_complete_delay = 50,
-      max_items = 5,
+      -- auto_complete_delay = 50,
       menu = {
         border = "rounded",
         -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
@@ -192,20 +191,23 @@ return {
         --   enabled = true,
         -- },
         window = {
-          border = "padded",
+          border = "rounded",
           -- winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
           winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-        },
-      },
-      signature = {
-        enabled = true,
-        window = {
-          -- border = "padded",
-          -- winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
-          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpSignatureHelpBorder",
+          winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
         },
       },
     },
+
+    signature = {
+      enabled = true,
+      window = {
+        border = "rounded",
+        -- winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+        -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpSignatureHelpBorder",
+      },
+    },
+
     sources = {
       compat = { "ultisnips" },
       providers = {
@@ -213,9 +215,6 @@ return {
           kind = "Snippet",
           name = "ultisnips",
           module = "blink.compat.source",
-          group_index = 1,
-          max_item_count = 3,
-          priority = 80,
           score_offset = 101,
         },
       },
