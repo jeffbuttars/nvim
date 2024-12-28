@@ -1,3 +1,6 @@
+vim.g.color_light = "catppuccin-latte"
+vim.g.color_dark = "catppuccin-macchiato"
+
 return {
   {
     "xero/evangelion.nvim",
@@ -12,7 +15,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-latte",
+      colorscheme = vim.g.color_light,
       -- colorscheme = "evangelion",
     },
   },
