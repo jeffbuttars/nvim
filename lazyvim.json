@@ -5,6 +5,7 @@
     "lazyvim.plugins.extras.coding.neogen",
     "lazyvim.plugins.extras.editor.inc-rename",
     "lazyvim.plugins.extras.editor.mini-diff",
+    "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.linting.eslint",
     "lazyvim.plugins.extras.util.chezmoi",
     "lazyvim.plugins.extras.util.mini-hipatterns"

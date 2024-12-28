@@ -22,27 +22,27 @@ return {
       return opts
     end,
   },
-  {
-    "echasnovski/mini-git",
-    version = false,
-    main = "mini.git",
-
-    opts = function(_, opts)
-      return opts
-    end,
-  },
-  {
-    "echasnovski/mini.diff",
-    version = false,
-
-    opts = function(_, opts)
-      -- opts.view = {
-      --   style = vim.go.number and "sign",
-      -- }
-
-      return opts
-    end,
-  },
+  -- {
+  --   "echasnovski/mini-git",
+  --   version = false,
+  --   main = "mini.git",
+  --
+  --   opts = function(_, opts)
+  --     return opts
+  --   end,
+  -- },
+  -- {
+  --   "echasnovski/mini.diff",
+  --   version = false,
+  --
+  --   opts = function(_, opts)
+  --     -- opts.view = {
+  --     --   style = vim.go.number and "sign",
+  --     -- }
+  --
+  --     return opts
+  --   end,
+  -- },
   {
     "echasnovski/mini.icons",
     opts = {

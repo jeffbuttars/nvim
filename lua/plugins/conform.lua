@@ -17,7 +17,7 @@ return {
       },
       formatters_by_ft = {
         ["python"] = { "ruff_fix", "black" },
-        ["htmldjango"] = { "djlint" },
+        -- ["htmldjango"] = { "djlint" },
         html = { "htmlbeautifier" },
         -- For some reason this version creates an empty file
         -- python = { "ruff_fix", "fuff_format", "black" },
