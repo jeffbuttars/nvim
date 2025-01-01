@@ -1,16 +1,5 @@
 local blink_cmp = require("blink.cmp")
 
-if not blink_cmp.is_visible then
-  function blink_cmp.is_visible()
-    local menu = require("blink.cmp.completion.windows.menu")
-    local gtext = require("blink.cmp.completion.windows.ghost_text")
-
-    return (menu.win and menu.win:is_open()) or (gtext and gtext.is_open and gtext.is_open())
-    -- return require("blink.cmp.completion.windows.menu").win:is_open()
-    --   or require("blink.cmp.completion.windows.ghost_text").is_open()
-  end
-end
-
 local function t(keys)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), "m", true)
 end

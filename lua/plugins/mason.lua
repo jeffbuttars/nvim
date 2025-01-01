@@ -7,7 +7,6 @@ return {
       "codespell",
       "cueimports",
       "cuelsp",
-      "cuepls",
       "golines",
       "gomodifytags",
       "htmlbeautifier",
