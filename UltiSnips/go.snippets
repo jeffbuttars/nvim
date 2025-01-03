@@ -114,6 +114,13 @@ if err != nil {
 ${0}
 endsnippet
 
+snippet ifef "if error, return formatted wrap" !
+if err != nil {
+	return fmt.Errorf("${1}: %w", ${2}err)
+}
+${0}
+endsnippet
+
 snippet ee "err :=" !b
 err := ${1}
 endsnippet

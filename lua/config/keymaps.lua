@@ -6,7 +6,6 @@
 local wk = require("which-key")
 local map = LazyVim.safe_keymap_set
 
--- This only works if plugins/blink.lua is sorced first
 local blink_cmp = require("blink.cmp")
 
 -- diagnostics jump to next/prev
