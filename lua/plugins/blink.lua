@@ -85,13 +85,7 @@ end
 
 return {
   "saghen/blink.cmp",
-  --
   opts = {
-    appearance = {
-      use_nvim_cmp_as_default = true,
-      nerd_font_variant = "mono",
-    },
-
     keymap = {
       preset = "default",
       ["<enter>"] = {
@@ -109,6 +103,7 @@ return {
         end,
         "fallback",
       },
+
       ["<C-j>"] = {
         function(cmp)
           -- vim.print("C-J")
@@ -171,13 +166,15 @@ return {
         "fallback",
       },
     },
-
+    --
     completion = {
+      -- ghost_text = {
+      --   enabled = true,
+      -- },
       list = {
-        selection = "manual",
-        -- max_items = 5,
+        selection = { preselect = false, auto_insert = false },
       },
-      -- auto_complete_delay = 50,
+      --       -- auto_complete_delay = 50,
       menu = {
         border = "rounded",
         -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
@@ -191,9 +188,6 @@ return {
       },
       documentation = {
         auto_show = true,
-        -- ghost_text = {
-        --   enabled = true,
-        -- },
         window = {
           border = "rounded",
           -- winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
@@ -202,7 +196,6 @@ return {
         },
       },
     },
-
     signature = {
       enabled = true,
       window = {
@@ -224,7 +217,6 @@ return {
       },
     },
   },
-
   dependencies = {
     {
       "quangnguyen30192/cmp-nvim-ultisnips",
