@@ -2,57 +2,62 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    dependencies = {
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      -- {
-      --   "3rd/image.nvim",
-      --   cond = function()
-      --     return not vim.g.neovide
-      --   end,
-      --   dependencies = {
-      --     {
-      --       "nvim-treesitter/nvim-treesitter",
-      --       build = ":TSUpdate",
-      --       config = function()
-      --         require("nvim-treesitter.configs").setup({
-      --           ensure_installed = { "markdown" },
-      --           highlight = { enable = true },
-      --         })
-      --       end,
-      --     },
-      --   },
-      --   opts = {
-      --     backend = "kitty",
-      --     integrations = {
-      --       markdown = {
-      --         enabled = true,
-      --         clear_in_insert_mode = false,
-      --         download_remote_images = true,
-      --         only_render_image_at_cursor = false,
-      --         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-      --       },
-      --       neorg = {
-      --         enabled = true,
-      --         clear_in_insert_mode = false,
-      --         download_remote_images = true,
-      --         only_render_image_at_cursor = false,
-      --         filetypes = { "norg" },
-      --       },
-      --     },
-      --     max_width = nil,
-      --     max_height = nil,
-      --     max_width_window_percentage = nil,
-      --     max_height_window_percentage = 50,
-      --     kitty_method = "normal",
-      --   },
-      -- },
+      "3rd/image.nvim",
     },
+    -- dependencies = {
+    -- {
+    --   "3rd/image.nvim",
+    --   cond = function()
+    --     return not vim.g.neovide
+    --   end,
+    --   dependencies = {
+    --     {
+    --       "nvim-treesitter/nvim-treesitter",
+    --       build = ":TSUpdate",
+    --       config = function()
+    --         require("nvim-treesitter.configs").setup({
+    --           ensure_installed = { "markdown" },
+    --           highlight = { enable = true },
+    --         })
+    --       end,
+    --     },
+    --   },
+    --   opts = {
+    --     backend = "kitty",
+    --     integrations = {
+    --       markdown = {
+    --         enabled = true,
+    --         clear_in_insert_mode = false,
+    --         download_remote_images = true,
+    --         only_render_image_at_cursor = false,
+    --         filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+    --       },
+    --       neorg = {
+    --         enabled = true,
+    --         clear_in_insert_mode = false,
+    --         download_remote_images = true,
+    --         only_render_image_at_cursor = false,
+    --         filetypes = { "norg" },
+    --       },
+    --     },
+    --     max_width = nil,
+    --     max_height = nil,
+    --     max_width_window_percentage = nil,
+    --     max_height_window_percentage = 50,
+    --     kitty_method = "normal",
+    --   },
+    -- },
+    -- },
     opts = {
       window = {
         auto_expand_width = true,
         mappings = {
-          -- ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
-          ["P"] = { "toggle_preview", config = { use_float = true } },
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+          -- ["P"] = { "toggle_preview", config = { use_float = true } },
           ["e"] = {
             function()
               vim.api.nvim_exec("Neotree focus filesystem left", true)
