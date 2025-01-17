@@ -1,13 +1,17 @@
 local Snacks = require("snacks")
-local function is_git_repo()
-  vim.fn.system("git rev-parse --is-inside-work-tree")
-  return vim.v.shell_error == 0
-end
 
 return {
   "folke/snacks.nvim",
   opts = {
-    picker = {},
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
   },
 
  -- stylua: ignore
@@ -15,8 +19,8 @@ return {
     {
       "<C-p>",
       function()
-        if is_git_repo() then
-          Snacks.picker.git_files()
+        if Snacks.git.get_root() then
+          Snacks.picker.git_files({untracked = true})
           return
         end
 
