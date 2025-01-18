@@ -19,8 +19,8 @@ elif [[ $1 ]]; then
 endsnippet
 
 snippet go "getopts "
-while getopts ":${1:h${2}}" ${3:opts} 
-do 
+while getopts ":${1:h${2}}" ${3:opts}
+do
     case $$3 in
     h)
         echo "A help message for this script.";;
@@ -30,7 +30,9 @@ do
 done
 endsnippet
 
-
+snippet dateiso "date --iso-8601=seconds"
+date --iso-8601=seconds
+endsnippet
 
 snippet fori
 for ${1:needle} in ${2:haystack} ; do
