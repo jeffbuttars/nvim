@@ -10,7 +10,6 @@
   "cmp-nvim-ultisnips": { "branch": "main", "commit": "2be0eda0f7fbf47ebd9fbdace369cc45d57acf49" },
   "codeium.nvim": { "branch": "main", "commit": "ebed4f7cc8a18184d8332d421ca10bed5f7d59a1" },
   "conform.nvim": { "branch": "master", "commit": "363243c03102a531a8203311d4f2ae704c620d9b" },
-  "detour.nvim": { "branch": "main", "commit": "8f00f6405e4d47c6b6c3603a5d8ef0d6a2ae7759" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "django-plus.vim": { "branch": "master", "commit": "7b94c709e88c9227bfc35eaae802da58705f8dfc" },
   "evangelion.nvim": { "branch": "main", "commit": "d53f34f42d344e69303361064d4bcb46811f7fe6" },
