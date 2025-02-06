@@ -62,6 +62,7 @@ vim.opt.diffopt = {
   "hiddenoff",
   "indent-heuristic",
   "algorithm:histogram",
+  "linematch:60",
 }
 
 -- Line wrapping
@@ -89,7 +90,7 @@ vim.opt.timeoutlen = 500
 vim.treesitter.language.register("markdown", "octo")
 
 -- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
--- set tagfunc=v:lua.vim.lsp.tagfunc
+-- vim.opt.tagfunc = vim.lsp.tagfunc
 -- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
 -- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
 
