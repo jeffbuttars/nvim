@@ -8,7 +8,7 @@ return {
         -- refer to the configuration section below
       },
       lazygit = {
-          -- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
+        -- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
         -- automatically configure lazygit to use the current colorscheme
         -- and integrate edit with the current neovim instance
         configure = true,
@@ -40,9 +40,21 @@ return {
           style = "lazygit",
         },
       },
+      picker = {
+        sources = {
+          explorer = {
+            -- your explorer picker configuration comes here
+            -- or leave it empty to use the default settings
+            -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+            jump = { close = true },
+            auto_close = true,
+            layout = { preset = "sidebar", preview = true },
+          },
+        },
+      },
     },
     animate = {
       enabled = true,
-    }
+    },
   },
 }
