@@ -3,11 +3,17 @@
 -- Add any additional options here
 --
 
--- If my preferred Python venv is available, use it.
-local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
-if vim.fn.filereadable(py_venv_exec) then
-  -- Explicitly set the python3 executable
-  vim.g.python3_host_prog = py_venv_exec
+-- uv python find
+-- If uv is installed, ask it
+if vim.fn.executable("uv") == 1 then
+  vim.g.python3_host_prog = string.gsub(vim.fn.system("uv python find"), "\n", "")
+else
+  -- If my preferred Python venv is available, use it.
+  local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
+  if vim.fn.filereadable(py_venv_exec) then
+    -- Explicitly set the python3 executable
+    vim.g.python3_host_prog = py_venv_exec
+  end
 end
 
 vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
