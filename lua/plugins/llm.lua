@@ -218,7 +218,7 @@ return {
         top_p = 1,
         n = 1,
       },
-      -- actions_paths = { "~./config/nvim/lua/plugins/chatgpt_actions.json" },
+      actions_paths = { "~/.config/nvim/lua/plugins/chatgpt_actions.json" },
       show_quickfixes_cmd = "Trouble quickfix",
       predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
     },

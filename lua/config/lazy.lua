@@ -43,7 +43,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax", "catppuccin", "solarized" } },
+  install = { colorscheme = { "catppuccin", "tokyonight", "habamax", "solarized" } },
   checker = {
     enabled = true,
     frequency = 3600 * 24 * 7, -- Once a week

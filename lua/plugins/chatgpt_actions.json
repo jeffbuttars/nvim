@@ -1,0 +1,30 @@
+{
+  "commit_msg": {
+    "type": "chat",
+    "opts": {
+      "title": "Commit Message from diff file",
+      "template": "Create a commit message from the following diff.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
+      "strategy": "append",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  },
+  "pr_message": {
+    "type": "chat",
+    "opts": {
+      "title": "PR Summary from diff file",
+      "template": "Create a pull request that has a one line summary followed by an itemized list of changes from the following diff.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
+      "strategy": "append",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  }
+}

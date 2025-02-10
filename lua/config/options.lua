@@ -89,26 +89,9 @@ vim.opt.timeoutlen = 500
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
 
+-- vim.cmd([[set clipboard+=unnamedplus]])
+
 -- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
 -- vim.opt.tagfunc = vim.lsp.tagfunc
 -- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
 -- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
-
--- Fix for wezterm over ssh, not sure how it effects everything else
--- if vim.env.SSH_TTY ~= "" then
---   vim.g.clipboard = false
--- end
--- if vim.env.SSH_TTY ~= "" then
---   vim.print("Detected SSH_TTY, forcing osc52")
---   vim.g.clipboard = {
---     name = "OSC 52",
---     copy = {
---       ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
---       ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
---     },
---     paste = {
---       ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
---       ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
---     },
---   }
--- end
