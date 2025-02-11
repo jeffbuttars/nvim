@@ -30,7 +30,7 @@ return {
  -- stylua: ignore
   keys = {
     {
-      "<C-p>",
+      "<leader><space>",
       function()
         if Snacks.git.get_root() then
           Snacks.picker.git_files({untracked = true})
