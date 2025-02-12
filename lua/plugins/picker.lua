@@ -7,13 +7,9 @@ return {
     "folke/snacks.nvim",
     opts = {
       picker = {
-        win = {
-          input = {
-            keys = {
-              ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
-            },
-          },
-        },
+        -- win = {
+        --   width = 0,
+        -- },
         sources = {
           explorer = {
             -- your explorer picker configuration comes here
@@ -21,7 +17,15 @@ return {
             -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
             jump = { close = true },
             auto_close = true,
-            layout = { preset = "sidebar", preview = true },
+            -- layout = { preset = "vscode", preview = "main", width = 0 },
+            -- layout = { preset = "sidebar", preview = "main", width = 0 },
+            -- layout = { preset = "dropdown", preview = "main", width = 0 },
+            -- layout = { preset = "vertical", preview = "main", width = 0 },
+            layout = {
+              preset = "sidebar",
+              preview = "main",
+              layout = { width = vim.o.columns / 4 },
+            },
           },
         },
       },

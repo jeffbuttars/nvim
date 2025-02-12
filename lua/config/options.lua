@@ -95,7 +95,19 @@ vim.opt.timeoutlen = 500
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
 
--- vim.cmd([[set clipboard+=unnamedplus]])
+vim.o.clipboard = "unnamedplus"
+
+-- Cross host clipboard yank/past
+-- https://marceloborges.dev/posts/3/
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+    local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
+    copy_to_unnamedplus(vim.v.event.regcontents)
+    local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
+    copy_to_unnamed(vim.v.event.regcontents)
+  end,
+})
 
 -- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
 -- vim.opt.tagfunc = vim.lsp.tagfunc
