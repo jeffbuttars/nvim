@@ -1,3 +1,9 @@
+local Snacks = require("snacks")
+-- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
+vim.opt.tagfunc = Snacks.picker.lsp_defenitions
+-- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
+-- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
+
 return {
   {
     "folke/snacks.nvim",

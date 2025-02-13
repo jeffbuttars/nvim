@@ -23,7 +23,7 @@ vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
 -- vim.opt.pumheight = 15 -- Maximum number of entries in a popup
 -- vim.opt.pumblend = 0 -- Set to 0 if using transparency causes rendering issues
-vim.opt.pumblend = 0
+vim.opt.pumblend = 80
 -- vim.api.nvim_set_hl(0, "PmenuSel", { blend = 0 })
 -- vim.api.nvim_set_hl(0, "Pmenu", { blend = 0 })
 
@@ -102,14 +102,9 @@ vim.o.clipboard = "unnamedplus"
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
-    local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
-    copy_to_unnamedplus(vim.v.event.regcontents)
-    local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
-    copy_to_unnamed(vim.v.event.regcontents)
+    -- local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
+    -- copy_to_unnamedplus(vim.v.event.regcontents)
+    -- local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
+    -- copy_to_unnamed(vim.v.event.regcontents)
   end,
 })
-
--- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
--- vim.opt.tagfunc = vim.lsp.tagfunc
--- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
--- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
