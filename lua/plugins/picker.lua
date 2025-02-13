@@ -6,10 +6,10 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      picker = {
-        -- win = {
-        --   width = 0,
-        -- },
+      explorer = {
+        -- your explorer picker configuration comes here
+        -- or leave it empty to use the default settings
+        -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
         sources = {
           explorer = {
             -- your explorer picker configuration comes here
