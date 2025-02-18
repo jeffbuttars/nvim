@@ -6,10 +6,14 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      explorer = {
+        -- your explorer picker configuration comes here
+        -- or leave it empty to use the default settings
+        -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+        -- jump = { close = true },
+        -- auto_close = true,
+      },
       picker = {
-        -- win = {
-        --   width = 0,
-        -- },
         sources = {
           explorer = {
             -- your explorer picker configuration comes here
@@ -21,15 +25,16 @@ return {
             -- layout = { preset = "sidebar", preview = "main", width = 0 },
             -- layout = { preset = "dropdown", preview = "main", width = 0 },
             -- layout = { preset = "vertical", preview = "main", width = 0 },
+            preset = "sidebar",
             layout = {
-              preset = "sidebar",
-              preview = "main",
-              layout = { width = vim.o.columns / 4 },
+              width = vim.o.columns / 4,
+              preview = "main", -- show preview in main window
             },
           },
         },
       },
     },
+  },
 
  -- stylua: ignore
   keys = {
@@ -46,8 +51,6 @@ return {
       desc = "Find in Git repo or CWD",
       mode = {"n", "i"},
     },
-  }
-,
   },
   {
     "stevearc/oil.nvim",

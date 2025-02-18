@@ -19,6 +19,9 @@ return {
         --   fps = 60, -- frames per second. Global setting for all animations
         -- }
       },
+      image = {
+        enabled = true,
+      },
     },
   },
 }
