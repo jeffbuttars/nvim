@@ -108,3 +108,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     -- copy_to_unnamed(vim.v.event.regcontents)
   end,
 })
+
+-- -- disable pasting with OSC52 and workaround some pasting issues
+-- using this func
+-- function no_paste(reg)
+--   return function(lines)
+--     -- Do nothing! We can't paste with OSC52
+--   end
+-- end
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  -- paste = {
+  --   ["+"] = no_paste("+"), -- Pasting disabled
+  --   ["*"] = no_paste("*"), -- Pasting disabled
+  -- },
+  paste = nil,
+}
