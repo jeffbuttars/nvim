@@ -95,7 +95,7 @@ vim.opt.timeoutlen = 500
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
 
-vim.o.clipboard = "unnamedplus"
+vim.g.clipboard = "unnamedplus"
 
 -- Cross host clipboard yank/past
 -- https://marceloborges.dev/posts/3/
@@ -117,15 +117,41 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --   end
 -- end
 
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  -- paste = {
-  --   ["+"] = no_paste("+"), -- Pasting disabled
-  --   ["*"] = no_paste("*"), -- Pasting disabled
-  -- },
-  paste = nil,
-}
+-- vim.g.clipboard = {
+--   name = "OSC 52",
+--   copy = {
+--     ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--   },
+--   -- paste = {
+--   --   ["+"] = no_paste("+"), -- Pasting disabled
+--   --   ["*"] = no_paste("*"), -- Pasting disabled
+--   -- },
+--   paste = nil,
+-- }
+
+vim.api.nvim_create_user_command("Clipper", function()
+  if vim.g.clipboard == "unnamedplus" then
+    vim.g.clipboard = {
+      name = "OSC 52",
+      copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+      },
+      paste = {
+        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+      },
+      -- paste = {
+      --   ["+"] = no_paste("+"), -- Pasting disabled
+      --   ["*"] = no_paste("*"), -- Pasting disabled
+      -- },
+      -- paste = nil,
+    }
+
+    vim.print("Clipboard is now OSC 52", vim.g.clipboard)
+  else
+    vim.g.clipboard = "unnamedplus"
+    vim.print("Clipboard is now:", vim.g.clipboard)
+  end
+end, { nargs = 0, desc = "Toggle OSC52 clipboard usage" })
