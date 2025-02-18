@@ -3,10 +3,10 @@
     "type": "chat",
     "opts": {
       "title": "Commit Message from diff file",
-      "template": "Create a commit message that has a one line summary followed by a list of details about the commit from the following diff.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
+      "template": "Write a short git commit message.\n- The first line should be a short summary of the changes\n- Remember to mention the files that were changed, and what was changed\n- Explain the 'why' behind changes\n- Use bullet points for multiple changes\n- If there are no changes, or the input is blank - then return a blank string\n\nThink carefully before you write your commit message.\n\nThe output format should be:\n\nSummary of changes\n- changes\n- changes\n\nUse the following diff patch to create the message.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
       "strategy": "append",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o-mini-2024-07-18",
         "stop": [
           "```"
         ]
@@ -17,10 +17,10 @@
     "type": "chat",
     "opts": {
       "title": "PR Summary from diff file",
-      "template": "Create a pull request that has a one line summary followed by an itemized list of changes from the following diff.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
+      "template": "Write a pull request for github.\n- The first line should be a short, one sentence, summary of the pull request\n- Remember to mention the files that were changed, and what was changed\n- Explain the 'why' behind changes\n- Use bullet points for multiple changes\n- If there are no changes, or the input is blank - then return a blank string\n\nThink carefully before you write your pull request.\n\nThe output format should be:\n\nSummary of changes\n\nExplanation of changes\n- changes\n- changes\n\nUse the following diff patch to create the message.\n\ndiff:\n```{{filetype}}\n{{input}}\n\n```",
       "strategy": "append",
       "params": {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4o-mini-2024-07-18",
         "stop": [
           "```"
         ]
