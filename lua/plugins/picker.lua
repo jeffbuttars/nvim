@@ -34,22 +34,21 @@ return {
         },
       },
     },
-  },
+    -- stylua: ignore
+    keys = {
+      {
+        "<leader><space>",
+        function()
+          if Snacks.git.get_root() then
+            Snacks.picker.git_files({untracked = true})
+            return
+          end
 
- -- stylua: ignore
-  keys = {
-    {
-      "<leader><space>",
-      function()
-        if Snacks.git.get_root() then
-          Snacks.picker.git_files({untracked = true})
-          return
-        end
-
-        Snacks.picker.files({cwd = true})
-      end,
-      desc = "Find in Git repo or CWD",
-      mode = {"n", "i"},
+          Snacks.picker.files({cwd = true})
+        end,
+        desc = "Find in Git repo or CWD",
+        mode = {"n", "i"},
+      },
     },
   },
   {
