@@ -95,19 +95,8 @@ vim.opt.timeoutlen = 500
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
 
-vim.g.clipboard = "unnamedplus"
-
--- Cross host clipboard yank/past
--- https://marceloborges.dev/posts/3/
--- vim.api.nvim_create_autocmd("TextYankPost", {
---   callback = function()
---     vim.highlight.on_yank()
---     -- local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
---     -- copy_to_unnamedplus(vim.v.event.regcontents)
---     -- local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
---     -- copy_to_unnamed(vim.v.event.regcontents)
---   end,
--- })
+-- vim.g.clipboard = "unnamedplus,unnamed,+,*"
+-- vim.g.clipboard += "unnamedplus"
 
 -- -- disable pasting with OSC52 and workaround some pasting issues
 -- using this func
@@ -130,28 +119,26 @@ vim.g.clipboard = "unnamedplus"
 --   paste = nil,
 -- }
 
-vim.api.nvim_create_user_command("Clipper", function()
-  if vim.g.clipboard == "unnamedplus" then
-    vim.g.clipboard = {
-      name = "OSC 52",
-      copy = {
-        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-      },
-      paste = {
-        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-      },
-      -- paste = {
-      --   ["+"] = no_paste("+"), -- Pasting disabled
-      --   ["*"] = no_paste("*"), -- Pasting disabled
-      -- },
-      -- paste = nil,
-    }
-
-    vim.print("Clipboard is now OSC 52", vim.g.clipboard)
-  else
-    vim.g.clipboard = "unnamedplus"
-    vim.print("Clipboard is now:", vim.g.clipboard)
-  end
-end, { nargs = 0, desc = "Toggle OSC52 clipboard usage" })
+-- vim.api.nvim_create_user_command("Clipper", function()
+--   if vim.g.clipboard == "unnamedplus" then
+--     vim.g.clipboard = {
+--       name = "OSC 52 Manual",
+--       copy = {
+--         ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--       },
+--       paste = {
+--         ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+--       },
+--       -- paste = {
+--       --   ["+"] = no_paste("+"), -- Pasting disabled
+--       --   ["*"] = no_paste("*"), -- Pasting disabled
+--       -- },
+--       -- paste = nil,
+--     }
+--   else
+--     vim.g.clipboard = "unnamedplus"
+--   end
+--   vim.print("Clipboard is now:", vim.g.clipboard)
+-- end, { nargs = 0, desc = "Toggle OSC52 clipboard usage" })
