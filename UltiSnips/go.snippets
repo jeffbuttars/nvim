@@ -121,6 +121,13 @@ if err != nil {
 ${0}
 endsnippet
 
+snippet ifel "if error, log" !
+if err != nil {
+	${1:obj.}${2:logger}.Error("${3}", "error", err)
+}
+${0}
+endsnippet
+
 snippet ee "err :=" !b
 err := ${1}
 endsnippet

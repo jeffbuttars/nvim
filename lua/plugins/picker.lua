@@ -47,7 +47,7 @@ return {
           Snacks.picker.files({cwd = true})
         end,
         desc = "Find in Git repo or CWD",
-        mode = {"n", "i"},
+        mode = {"n"},
       },
     },
   },
