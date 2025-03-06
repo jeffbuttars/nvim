@@ -2,6 +2,9 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     opts = function(_, opts)
+      vim.g.mkdp_auto_close = 0
+      vim.g.mkdp_open_to_the_world = 1
+      vim.g.mkdp_echo_preview_url = 1
       vim.g.mkdp_preview_options = {
         mkit = {},
         katex = {},
