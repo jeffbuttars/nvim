@@ -94,7 +94,6 @@ return {
           -- If the window is open, but a selection has been made, accept the completion
           if blink_cmp.is_visible() then
             local menu = require("blink.cmp.completion.windows.menu")
-            vim.print("selected idx:", menu.selected_item_idx)
             if menu.selected_item_idx ~= nil then
               cmp.accept()
               return true
