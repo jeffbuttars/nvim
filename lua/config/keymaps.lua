@@ -43,6 +43,13 @@ vim.api.nvim_set_keymap("v", '""', '<ESC>`<i"<ESC>`><right>a"<ESC>', { noremap =
 vim.api.nvim_set_keymap("v", "''", "<ESC>`<i'<ESC>`><right>a'<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "``", "<ESC>`<i`<ESC>`><right>a`<ESC>", { noremap = true })
 
+-- Explicitly copy to system clipboard
+vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>y", '"+yy', { noremap = true })
+
+-- Explicitly paste from system clipboard
+vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true })
+
 -- Terminal Normal Mode
 -- Add CTRL-K/J for up/down movement. This is mostly for UI selectors that use a terminal mode selector
 vim.api.nvim_set_keymap("t", "<C-k>", "<C-p>", { noremap = true })

@@ -1,5 +1,3 @@
-local util = require("conform.util")
-
 return {
   {
     "stevearc/conform.nvim",
@@ -16,27 +14,25 @@ return {
         },
       },
       formatters_by_ft = {
-        ["python"] = { "ruff_fix", "black" },
+        python = { "ruff_fix", "black", "isort" },
         -- ["htmldjango"] = { "djlint" },
         html = { "htmlbeautifier" },
         -- For some reason this version creates an empty file
         -- python = { "ruff_fix", "fuff_format", "black" },
         -- Use a sub-list to run only the first available formatter
-        javascript = { "standardjs" },
-        -- javascript = { "standardjs", { "prettierd", "prettier" } },
+        javascript = { "standardjs", "prettierd", "prettier", stop_after_first = true },
         css = { "stylelint" },
-        bash = { { "shfmt", "beautysh" } },
-        sh = { { "shfmt", "beautysh" } },
+        bash = { "shfmt", "beautysh" },
+        sh = { "shfmt", "beautysh" },
         json = { "jq" },
         yaml = { "yamlfix" },
         c = { "clang_format" },
-        go = { { "golines", "gofmt" }, "goimports", "gofumpt" },
+        go = { "golines", "gofumpt", "goimports", "gofmt" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        -- ["*"] = { "trim_whitespace", "typos", "codespell" },
         ["*"] = { "trim_whitespace", "codespell" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
-        ["_"] = { "trim_whitespace" },
+        _ = { "trim_whitespace", "typos"},
       },
     },
   },

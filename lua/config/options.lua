@@ -3,11 +3,17 @@
 -- Add any additional options here
 --
 
--- If my preferred Python venv is available, use it.
-local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
-if vim.fn.filereadable(py_venv_exec) then
-  -- Explicitly set the python3 executable
-  vim.g.python3_host_prog = py_venv_exec
+-- uv python find
+-- If uv is installed, ask it
+if vim.fn.executable("uv") == 1 then
+  vim.g.python3_host_prog = string.gsub(vim.fn.system("uv python find"), "\n", "")
+else
+  -- If my preferred Python venv is available, use it.
+  local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
+  if vim.fn.filereadable(py_venv_exec) then
+    -- Explicitly set the python3 executable
+    vim.g.python3_host_prog = py_venv_exec
+  end
 end
 
 vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
@@ -17,7 +23,7 @@ vim.opt.updatetime = 1000 -- Save swap file and trigger CursorHold
 -- opt.pumheight = 10 -- Maximum number of entries in a popup
 -- vim.opt.pumheight = 15 -- Maximum number of entries in a popup
 -- vim.opt.pumblend = 0 -- Set to 0 if using transparency causes rendering issues
-vim.opt.pumblend = 0
+vim.opt.pumblend = 20
 -- vim.api.nvim_set_hl(0, "PmenuSel", { blend = 0 })
 -- vim.api.nvim_set_hl(0, "Pmenu", { blend = 0 })
 
@@ -62,6 +68,7 @@ vim.opt.diffopt = {
   "hiddenoff",
   "indent-heuristic",
   "algorithm:histogram",
+  "linematch:60",
 }
 
 -- Line wrapping
@@ -88,26 +95,50 @@ vim.opt.timeoutlen = 500
 -- Enable treesitter in Octo buffers/windows
 vim.treesitter.language.register("markdown", "octo")
 
--- Setup tagfunc to work with lsp for ctags style tag based navigation with goto definition
--- set tagfunc=v:lua.vim.lsp.tagfunc
--- vim.o.tagfunc = "v:lua.vim.lsp.tagfunc"
--- vim.cmd("set tagfunc=v:lua.vim.lsp.tagfunc")
+-- vim.g.clipboard = "unnamedplus,unnamed,+,*"
+-- vim.g.clipboard += "unnamedplus"
 
--- Fix for wezterm over ssh, not sure how it effects everything else
--- if vim.env.SSH_TTY ~= "" then
---   vim.g.clipboard = false
+-- -- disable pasting with OSC52 and workaround some pasting issues
+-- using this func
+-- function no_paste(reg)
+--   return function(lines)
+--     -- Do nothing! We can't paste with OSC52
+--   end
 -- end
--- if vim.env.SSH_TTY ~= "" then
---   vim.print("Detected SSH_TTY, forcing osc52")
---   vim.g.clipboard = {
---     name = "OSC 52",
---     copy = {
---       ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
---       ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
---     },
---     paste = {
---       ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
---       ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
---     },
---   }
--- end
+
+-- vim.g.clipboard = {
+--   name = "OSC 52",
+--   copy = {
+--     ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--   },
+--   -- paste = {
+--   --   ["+"] = no_paste("+"), -- Pasting disabled
+--   --   ["*"] = no_paste("*"), -- Pasting disabled
+--   -- },
+--   paste = nil,
+-- }
+
+-- vim.api.nvim_create_user_command("Clipper", function()
+--   if vim.g.clipboard == "unnamedplus" then
+--     vim.g.clipboard = {
+--       name = "OSC 52 Manual",
+--       copy = {
+--         ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--       },
+--       paste = {
+--         ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+--         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+--       },
+--       -- paste = {
+--       --   ["+"] = no_paste("+"), -- Pasting disabled
+--       --   ["*"] = no_paste("*"), -- Pasting disabled
+--       -- },
+--       -- paste = nil,
+--     }
+--   else
+--     vim.g.clipboard = "unnamedplus"
+--   end
+--   vim.print("Clipboard is now:", vim.g.clipboard)
+-- end, { nargs = 0, desc = "Toggle OSC52 clipboard usage" })

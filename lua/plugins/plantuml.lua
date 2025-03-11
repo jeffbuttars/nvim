@@ -10,4 +10,11 @@ return {
       vim.g["plantuml_previewer#plantuml_jar_path"] = "/usr/share/java/plantuml/plantuml.jar"
     end,
   },
+
+  -- Optional for puml syntax highlighting:
+  {
+    "aklt/plantuml-syntax",
+    lazy = true,
+    ft = "plantuml",
+  },
 }

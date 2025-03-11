@@ -29,11 +29,12 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     { import = "lazyvim.plugins.extras.util.dot" },
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     -- import/override with your plugins
     { import = "plugins" },
   },
 
-  defaults = {
+  default = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
@@ -42,7 +43,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax", "catppuccin", "solarized" } },
+  install = { colorscheme = { "catppuccin", "tokyonight", "habamax", "solarized" } },
   checker = {
     enabled = true,
     frequency = 3600 * 24 * 7, -- Once a week
