@@ -10,7 +10,7 @@ if vim.fn.executable("uv") == 1 then
 else
   -- If my preferred Python venv is available, use it.
   local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
-  if vim.fn.filereadable(py_venv_exec) then
+  if vim.fn.filereadable(py_venv_exec) == 1 then
     -- Explicitly set the python3 executable
     vim.g.python3_host_prog = py_venv_exec
   end
