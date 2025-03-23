@@ -115,6 +115,8 @@ return {
           desc = "Actions",
         },
       })
+
+      require("plugins.codecompanion.fidget-spinner"):init()
     end,
   },
   -- {

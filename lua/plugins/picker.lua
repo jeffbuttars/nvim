@@ -6,13 +6,13 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      explorer = {
-        -- your explorer picker configuration comes here
-        -- or leave it empty to use the default settings
-        -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
-        -- jump = { close = true },
-        -- auto_close = true,
-      },
+      -- explorer = {
+      -- your explorer picker configuration comes here
+      -- or leave it empty to use the default settings
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+      -- jump = { close = true },
+      -- auto_close = true,
+      -- },
       picker = {
         sources = {
           explorer = {
@@ -25,9 +25,9 @@ return {
             -- layout = { preset = "sidebar", preview = "main", width = 0 },
             -- layout = { preset = "dropdown", preview = "main", width = 0 },
             -- layout = { preset = "vertical", preview = "main", width = 0 },
-            preset = "sidebar",
             layout = {
-              width = vim.o.columns / 4,
+              -- preset = "sidebar",
+              width = vim.o.columns / 3,
               preview = "main", -- show preview in main window
             },
           },
