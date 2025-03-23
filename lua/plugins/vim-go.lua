@@ -1,8 +1,7 @@
 return {
   {
     "fatih/vim-go",
-    lazy = true,
-    event = { "BufEnter *.go", "BufEnter *.mod" },
+    ft = { "go" },
     -- tag = "v1.28",
   },
 }
