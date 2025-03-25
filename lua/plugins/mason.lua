@@ -9,6 +9,7 @@ return {
       "cuelsp",
       "golines",
       "gomodifytags",
+      "golangci-lint",
       "htmlbeautifier",
       "htmlhint",
       "html-lsp",

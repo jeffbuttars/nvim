@@ -60,9 +60,9 @@ return {
       },
       prompt_library = {
 
-        ["Generate a PR Message"] = {
+        ["Generate a pull request message"] = {
           strategy = "chat",
-          description = "Generate a pr message",
+          description = "Generate a pull request message",
           opts = {
             index = 11,
             is_default = true,
@@ -75,12 +75,14 @@ return {
               role = constants.USER_ROLE,
               content = function()
                 return fmt(
-                  [[You are an expert at following the Conventional pull request specification. Given the git diff listed below, please generate a pull request message for me:
+                  [[You are an expert at following the Conventional pull request specification. Given the git diff listed below, please generate a pull request message for me that fixes issue #%s:
 
   ```diff
   %s
   ```
   ]],
+
+                  vim.fn.system("git rev-parse --abbrev-ref HEAD | grep -Po '^\\d+'"),
                   vim.fn.system("git diff --no-ext-diff $(git mainormaster)")
                 )
               end,
