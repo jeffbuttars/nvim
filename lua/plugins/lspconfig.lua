@@ -8,6 +8,18 @@ return {
     -- init = function()
     --   require'lspconfig'.gopls.setup{}
     -- end,
+    -- keys = {
+    --   {
+    --     "K",
+    --     function()
+    --       res = vim.lsp.buf.hover()
+    --       vim.print("HOMVER RES:", res)
+    --       return res
+    --     end,
+    --     desc = "Hover",
+    --     mode = {"n"},
+    --   },
+    -- },
 
     opts = function(_, opts)
       -- local servers = { "pyright", "basedpyright", "ruff", "ruff_lsp", ruff, lsp }

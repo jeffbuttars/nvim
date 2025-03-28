@@ -33,10 +33,23 @@ return {
       -- "Davidyz/VectorCode",
     },
     opts = {
+      adapters = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            schema = {
+              model = {
+                default = "gemini-2.5-pro-exp-03-25",
+              },
+            },
+          })
+        end,
+      },
       -- https://codecompanion.olimorris.dev/configuration/introduction.html
       strategies = {
         chat = {
-          adapter = "openai",
+          -- adapter = "openai",
+          adapter = "gemini",
+          -- model = "gemini-2.5-pro-exp-03-25",
           -- tools = {
           --   vectorcode = {
           --     -- https://github.com/olimorris/dotfiles/blob/ac72e83757564a41fd36809dd72ac1b62031c5db/.config/nvim/lua/plugins/coding.lua#L256
@@ -52,10 +65,12 @@ return {
           -- },
         },
         inline = {
-          adapter = "openai",
+          -- adapter = "openai",
+          adapter = "gemini",
         },
         cmd = {
-          adapter = "openai",
+          -- adapter = "openai",
+          adapter = "gemini",
         },
       },
       prompt_library = {
