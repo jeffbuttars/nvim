@@ -136,46 +136,4 @@ return {
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
   },
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   opts = {
-  --     --     enable_cmp_source = true,
-  --     --     virtual_text = {
-  --     --       enabled = true,
-  --     --       manual = true,
-  --     --     },
-  --     enable_chat = true,
-  --   },
-  --   -- init = function()
-  --   --   -- Setup up some keymaps
-  --   --   require("which-key").add({
-  --   --     { "<leader>a", group = "AI" },
-  --   --     {
-  --   --       mode = { "n", "v" },
-  --   --       {
-  --   --         "<leader>ac",
-  --   --         "<cmd>Codeium Chat<CR>",
-  --   --         desc = "Codeium Chat",
-  --   --         icon = "",
-  --   --       },
-  --   --     },
-  --   --   })
-  --   --
-  --   --   -- require("which-key").add({
-  --   --   --   mode = { "n", "i" },
-  --   --   --   {
-  --   --   --     "\\
-  --   --   --     "\\av",
-  --   --   --     function()
-  --   --   --       if vim.fn.pumvisible() == 1 then
-  --   --   --         vim.api.nvim_input("<C-e>")
-  --   --   --       end
-  --   --   --       require("codeium.virtual_text").cycle_or_complete()
-  --   --   --     end,
-  --   --   --     desc = "Codeium Virtual Text",
-  --   --   --     icon = "",
-  --   --   --   },
-  --   --   -- })
-  --   -- end,
-  -- },
 }
