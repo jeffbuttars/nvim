@@ -90,7 +90,7 @@ return {
               role = constants.USER_ROLE,
               content = function()
                 return fmt(
-                  [[You are an expert at following the Conventional pull request specification. Given the git diff listed below, please generate a pull request message for me that fixes issue #%s:
+                  [[You are an expert at following the conventional pull request specification for GitHub. Given the git diff listed below, please generate a pull request message for me that fixes issue #%s:
 
   ```diff
   %s
