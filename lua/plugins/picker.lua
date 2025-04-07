@@ -21,14 +21,15 @@ return {
             -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
             jump = { close = true },
             auto_close = true,
-            -- layout = { preset = "vscode", preview = "main", width = 0 },
-            -- layout = { preset = "sidebar", preview = "main", width = 0 },
-            -- layout = { preset = "dropdown", preview = "main", width = 0 },
-            -- layout = { preset = "vertical", preview = "main", width = 0 },
+            -- layout = { preset = "vscode"},
+            -- layout = { preset = "dropdown"},
+            -- layout = { preset = "vertical"},
             layout = {
-              -- preset = "sidebar",
-              width = vim.o.columns / 3,
-              preview = "main", -- show preview in main window
+              preset = "sidebar",
+              preview = { enabled = false, main = true }, -- show preview in main window
+              layout = {
+                width = vim.o.columns / 4,
+              },
             },
           },
         },
