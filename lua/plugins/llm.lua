@@ -34,6 +34,15 @@ return {
     },
     opts = {
       adapters = {
+        anthropic = function()
+          return require("codecompanion.adapters").extend("anthropic", {
+            schema = {
+              model = {
+                default = "claude-3-7-sonnet-latest",
+              },
+            },
+          })
+        end,
         gemini = function()
           return require("codecompanion.adapters").extend("gemini", {
             schema = {
@@ -48,7 +57,8 @@ return {
       strategies = {
         chat = {
           -- adapter = "openai",
-          adapter = "gemini",
+          -- adapter = "gemini",
+          adapter = "anthropic",
           -- model = "gemini-2.5-pro-exp-03-25",
           -- tools = {
           --   vectorcode = {
@@ -66,11 +76,13 @@ return {
         },
         inline = {
           -- adapter = "openai",
-          adapter = "gemini",
+          -- adapter = "gemini",
+          adapter = "anthropic",
         },
         cmd = {
           -- adapter = "openai",
-          adapter = "gemini",
+          -- adapter = "gemini",
+          adapter = "antrhopic",
         },
       },
       prompt_library = {
