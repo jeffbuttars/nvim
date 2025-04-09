@@ -82,7 +82,7 @@ return {
         cmd = {
           -- adapter = "openai",
           -- adapter = "gemini",
-          adapter = "antrhopic",
+          adapter = "anthropic",
         },
       },
       prompt_library = {
