@@ -148,4 +148,10 @@ return {
       require("plugins.codecompanion.fidget-spinner"):init()
     end,
   },
+  {
+    "augmentcode/augment.vim",
+    init = function()
+      vim.g.augment_workspace_folders = { "~/Dev/AwareView/main", "~/.config/nvim" }
+    end,
+  },
 }

@@ -22,6 +22,9 @@ return {
       image = {
         enabled = true,
       },
+      zen = {
+        width = 120,
+      },
     },
   },
 }
