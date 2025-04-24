@@ -29,7 +29,7 @@ return {
         c = { "clang_format" },
         go = { "golines", "gofumpt", "goimports", "gofmt" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "trim_whitespace", "codespell" },
+        ["*"] = { "trim_whitespace" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         _ = { "trim_whitespace", "typos"},
