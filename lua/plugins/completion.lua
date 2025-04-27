@@ -121,55 +121,56 @@ return {
         end,
         "fallback",
       },
-      -- ["<S-Tab>"] = {
-      --   "select_prev",
-      --   "fallback",
-      -- },
-      -- ["<Tab>"] = {
-      --   -- function(cmp)
-      --   -- {
-      --   --   accept = <function 1>,
-      --   --   cancel = <function 2>,
-      --   --   get_lsp_capabilities = <function 3>,
-      --   --   hide = <function 4>,
-      --   --   hide_documentation = <function 5>,
-      --   --   reload = <function 6>,
-      --   --   scroll_documentation_down = <function 7>,
-      --   --   scroll_documentation_up = <function 8>,
-      --   --   select_and_accept = <function 9>,
-      --   --   select_next = <function 10>,
-      --   --   select_prev = <function 11>,
-      --   --   setup = <function 12>,
-      --   --   show = <function 13>,
-      --   --   show_documentation = <function 14>,
-      --   --   snippet_active = <function 15>,
-      --   --   snippet_backward = <function 16>,
-      --   --   snippet_forward = <function 17>
-      --   -- }
-      --   -- vim.print("TABBBBB cmp", cmp)
-      --   -- vim.print("TABBBBB blink_cmp", blink_cmp)
-      --   -- return cmp.select_next()
-      --   -- if cmp.snippet_active() then
-      --   --   return cmp.accept()
-      --   -- end
-      --
-      --   -- return
-      --
-      --   -- if blink_cmp.is_visible() then
-      --   --   return cmp.select_next()
-      --   -- else
-      --   --   return cmp.fallback()
-      --   -- end
-      --   -- end,
-      --   "select_next",
-      --   "fallback",
-      -- },
+      ["<S-Tab>"] = {
+        "select_prev",
+        "fallback",
+      },
+      ["<Tab>"] = {
+        --   -- function(cmp)
+        --   -- {
+        --   --   accept = <function 1>,
+        --   --   cancel = <function 2>,
+        --   --   get_lsp_capabilities = <function 3>,
+        --   --   hide = <function 4>,
+        --   --   hide_documentation = <function 5>,
+        --   --   reload = <function 6>,
+        --   --   scroll_documentation_down = <function 7>,
+        --   --   scroll_documentation_up = <function 8>,
+        --   --   select_and_accept = <function 9>,
+        --   --   select_next = <function 10>,
+        --   --   select_prev = <function 11>,
+        --   --   setup = <function 12>,
+        --   --   show = <function 13>,
+        --   --   show_documentation = <function 14>,
+        --   --   snippet_active = <function 15>,
+        --   --   snippet_backward = <function 16>,
+        --   --   snippet_forward = <function 17>
+        --   -- }
+        --   -- vim.print("TABBBBB cmp", cmp)
+        --   -- vim.print("TABBBBB blink_cmp", blink_cmp)
+        --   -- return cmp.select_next()
+        --   -- if cmp.snippet_active() then
+        --   --   return cmp.accept()
+        --   -- end
+        --
+        --   -- return
+        --
+        --   -- if blink_cmp.is_visible() then
+        --   --   return cmp.select_next()
+        --   -- else
+        --   --   return cmp.fallback()
+        --   -- end
+        --   -- end,
+        "select_next",
+        "fallback",
+      },
     },
     --
     completion = {
-      -- ghost_text = {
-      --   enabled = true,
-      -- },
+      ghost_text = {
+        enabled = true,
+        show_with_menu = false,
+      },
       list = {
         selection = { preselect = false, auto_insert = false },
       },

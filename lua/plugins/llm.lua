@@ -152,6 +152,7 @@ return {
     "augmentcode/augment.vim",
     init = function()
       vim.g.augment_workspace_folders = { "~/Dev/AwareView/main", "~/.config/nvim" }
+      -- vim.g.augment_disable_tab_mapping = true
     end,
   },
 }
