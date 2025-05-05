@@ -18,7 +18,7 @@ return {
       local dm = require("debugmaster")
       -- https://github.com/miroshQa/debugmaster.nvim
       -- make sure you don't have any other keymaps that starts with "<leader>d" to avoid delay
-      vim.keymap.set({ "n", "v" }, "<leader>d", dm.mode.toggle, { nowait = true })
+      vim.keymap.set({ "n", "v" }, "<leader>dm", dm.mode.toggle, { nowait = true, desc = "Debug Master" })
       -- vim.keymap.set("t", "<C-/>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
     end,
   },
