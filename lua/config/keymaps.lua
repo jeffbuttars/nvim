@@ -131,37 +131,40 @@ vim.keymap.set("n", "<leader><esc>", function()
   -- vim.diagnostic.reset()
 end, { noremap = true, desc = "Escape and clear hlsearch" })
 
+-- Augment code --
 -- Except Augment suggestion
-map("i", "<C-a>", function()
-  vim.api.nvim_call_function("augment#Accept", { "\n" })
-end, { desc = "Except Augment suggestion", noremap = true })
+-- map("i", "<C-a>", function()
+--   vim.api.nvim_call_function("augment#Accept", { "\n" })
+-- end, { desc = "Except Augment suggestion", noremap = true })
+--
+-- -- Toggle Augment chat window (normal mode only)
+-- vim.keymap.set("n", "<leader>aut", function()
+--   vim.cmd("Augment chat-toggle")
+--   require("trouble").close()
+-- end, { noremap = true, desc = "Augment chat toggle" })
+--
+-- -- Open Augment chat at cursor position (works in normal and visual modes)
+-- vim.keymap.set({ "n", "v" }, "<leader>auc", function()
+--   vim.cmd("Augment chat")
+--   require("trouble").close()
+-- end, { noremap = true, desc = "Augment chat" })
+--
+-- -- Start a new Augment chat session (normal mode only)
+-- vim.keymap.set("n", "<leader>aun", function()
+--   vim.cmd("Augment chat-new")
+--   require("trouble").close()
+-- end, { noremap = true, desc = "Augment " })
+--
+-- -- Show Augment log window (normal mode only)
+-- vim.keymap.set("n", "<leader>aul", function()
+--   vim.cmd("Augment log")
+--   require("trouble").close()
+-- end, { noremap = true, desc = "Escape and clear hlsearch" })
+--
+-- -- Show Augment status
+-- vim.keymap.set("n", "<leader>aus", function()
+--   vim.cmd("Augment status")
+--   require("trouble").close()
+-- end, { noremap = true, desc = "Escape and clear hlsearch" })
 
--- Toggle Augment chat window (normal mode only)
-vim.keymap.set("n", "<leader>aut", function()
-  vim.cmd("Augment chat-toggle")
-  require("trouble").close()
-end, { noremap = true, desc = "Augment chat toggle" })
-
--- Open Augment chat at cursor position (works in normal and visual modes)
-vim.keymap.set({ "n", "v" }, "<leader>auc", function()
-  vim.cmd("Augment chat")
-  require("trouble").close()
-end, { noremap = true, desc = "Augment chat" })
-
--- Start a new Augment chat session (normal mode only)
-vim.keymap.set("n", "<leader>aun", function()
-  vim.cmd("Augment chat-new")
-  require("trouble").close()
-end, { noremap = true, desc = "Augment " })
-
--- Show Augment log window (normal mode only)
-vim.keymap.set("n", "<leader>aul", function()
-  vim.cmd("Augment log")
-  require("trouble").close()
-end, { noremap = true, desc = "Escape and clear hlsearch" })
-
--- Show Augment status
-vim.keymap.set("n", "<leader>aus", function()
-  vim.cmd("Augment status")
-  require("trouble").close()
-end, { noremap = true, desc = "Escape and clear hlsearch" })
+-- END Augment code --
