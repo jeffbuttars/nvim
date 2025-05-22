@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 -- Whichkey goodness maps
-local wk = require("which-key")
 local map = vim.keymap.set
 
 local blink_cmp = require("blink.cmp")
