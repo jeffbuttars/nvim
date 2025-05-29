@@ -16,6 +16,14 @@ return {
       picker = {
         sources = {
           explorer = {
+            win = {
+              list = {
+                wo = {
+                  number = true,
+                  relativenumber = true,
+                },
+              },
+            },
             -- your explorer picker configuration comes here
             -- or leave it empty to use the default settings
             -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
