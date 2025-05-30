@@ -1,3 +1,4 @@
+return {}
 local gen_loader = require("mini.snippets").gen_loader
 
 -- # Highlight groups ~
@@ -10,6 +11,10 @@ local gen_loader = require("mini.snippets").gen_loader
 -- vim.cmd([["hi clear MiniSnippetsUnvisited"]])
 vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
 vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
+
+vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
+vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
+vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
 
 return {
   "echasnovski/mini.snippets",
