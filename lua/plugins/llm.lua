@@ -7,6 +7,38 @@
 -- }
 
 return {
+  {
+    "coder/claudecode.nvim",
+    config = true,
+    keys = {
+      { "<leader>a", nil, desc = "AI/Claude Code" },
+      { "<leader>aa", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file to AI Ctx",
+        ft = { "NvimTree", "neo-tree" },
+      },
+      { "<leader>ao", "<cmd>ClaudeCodeOpen<cr>", desc = "Open Claude" },
+      { "<leader>ax", "<cmd>ClaudeCodeClose<cr>", desc = "Close Claude" },
+    },
+    opts = {
+      -- Terminal options
+      terminal = {
+        split_side = "right",
+        split_width_percentage = 0.5,
+        provider = "snacks", -- or "native"
+      },
+      -- Diff options
+      diff_opts = {
+        auto_close_on_accept = true,
+        vertical_split = true,
+      },
+    },
+  },
+
   -- {
   --   "greggh/claude-code.nvim",
   --   dependencies = {

@@ -1,4 +1,3 @@
-return {}
 local gen_loader = require("mini.snippets").gen_loader
 
 -- # Highlight groups ~
@@ -9,10 +8,11 @@ local gen_loader = require("mini.snippets").gen_loader
 -- * `MiniSnippetsUnvisited` - not yet visited tabstop(s).
 -- * `MiniSnippetsVisited` - visited tabstop(s).
 -- vim.cmd([["hi clear MiniSnippetsUnvisited"]])
-vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
-vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
 
-vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
+-- vim.api.nvim_set_hl(0, "MiniSnippetsUnvisited", {})
+vim.api.nvim_set_hl(0, "MiniSnippetsVisited", {})
+
+-- vim.api.nvim_set_hl(0, "MiniSnippetsFinal", {})
 vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
 vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
 
