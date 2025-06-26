@@ -8,6 +8,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      -- indent = {
+      --   enabled = false,
+      -- },
       animate = {
         enabled = true,
         -- ---@class snacks.animate.Config

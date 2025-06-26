@@ -28,4 +28,32 @@ return {
       gen_loader.from_lang(),
     },
   },
+  init = function()
+    local MiniSnippets = require("mini.snippets")
+
+    -- # Stop session immediately after jumping to final tabstop ~
+    --- Utilize a dedicated |MiniSnippets-events|: >lua
+    local fin_stop = function(args)
+      if args.data.tabstop_to == "0" then
+        MiniSnippets.session.stop()
+      end
+    end
+    local au_opts = { pattern = "MiniSnippetsSessionJump", callback = fin_stop }
+    vim.api.nvim_create_autocmd("User", au_opts)
+
+    --- # Stop all sessions on Normal mode exit ~
+    --- Use |ModeChanged| and |MiniSnippets-events| events: >lua
+    ---
+    local make_stop = function()
+      local sau_opts = { pattern = "*:n", once = true }
+      sau_opts.callback = function()
+        while MiniSnippets.session.get() do
+          MiniSnippets.session.stop()
+        end
+      end
+      vim.api.nvim_create_autocmd("ModeChanged", sau_opts)
+    end
+    local opts = { pattern = "MiniSnippetsSessionStart", callback = make_stop }
+    vim.api.nvim_create_autocmd("User", opts)
+  end,
 }

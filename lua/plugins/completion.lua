@@ -169,7 +169,7 @@ return {
     completion = {
       ghost_text = {
         enabled = true,
-        show_with_menu = false,
+        -- show_with_menu = false,
       },
       list = {
         selection = { preselect = false, auto_insert = false },
@@ -179,12 +179,14 @@ return {
         -- border = "rounded",
         --   -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
         --   winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
-        --   draw = {
-        --     columns = {
-        --       { "kind_icon", "kind" },
-        --       { "label", "label_description", gap = 1 },
-        --     },
-        --   },
+        draw = {
+          treesitter = { "lsp" },
+          columns = {
+            { "label", "label_description" },
+            { "kind_icon", "kind" },
+            -- { "source_name" },
+          },
+        },
       },
       documentation = {
         auto_show = true,

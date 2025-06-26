@@ -12,9 +12,12 @@ return {
     config = true,
     keys = {
       { "<leader>a", nil, desc = "AI/Claude Code" },
-      { "<leader>aa", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
       { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
       { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+
       {
         "<leader>as",
         "<cmd>ClaudeCodeTreeAdd<cr>",
@@ -23,6 +26,10 @@ return {
       },
       { "<leader>ao", "<cmd>ClaudeCodeOpen<cr>", desc = "Open Claude" },
       { "<leader>ax", "<cmd>ClaudeCodeClose<cr>", desc = "Close Claude" },
+
+      -- diff management
+      { "<leader>aa", "<cmd>claudecodediffaccept<cr>", desc = "accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
     opts = {
       -- Terminal options
@@ -35,6 +42,7 @@ return {
       diff_opts = {
         auto_close_on_accept = true,
         vertical_split = true,
+        open_in_current_tab = false,
       },
     },
   },
