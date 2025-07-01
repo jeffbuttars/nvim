@@ -15,10 +15,10 @@ return {
   --   "stevearc/dressing.nvim",
   --   enabled = false,
   -- },
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   enabled = false,
+  -- },
   -- {
   --   "folke/noice.nvim",
   --   enabled = false,
@@ -51,10 +51,10 @@ return {
     "echasnovski/mini.bufremove",
     enabled = false,
   },
-  {
-    "akinsho/bufferline.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   enabled = false,
+  -- },
   -- {
   --   "nvim-treesitter/nvim-treesitter-textobjects",
   --   enabled = false,
