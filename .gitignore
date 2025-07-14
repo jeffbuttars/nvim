@@ -3,3 +3,5 @@ undodir
 spell
 tmp
 lazy-lock.json.orig
+
+.claude
