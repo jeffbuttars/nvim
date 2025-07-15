@@ -20,7 +20,6 @@ return {
       "stylua",
       "templ",
       "typos",
-      -- "djlint",
       "markdown-toc",
       "markdownlint-cli2",
       "prettier",
