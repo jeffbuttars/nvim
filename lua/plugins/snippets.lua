@@ -27,6 +27,12 @@ return {
       -- "snippets/" subdirectories from 'runtimepath' directories.
       gen_loader.from_lang(),
     },
+
+    expand = {
+      insert = function(snippet, _)
+        vim.snippet.expand(snippet.body)
+      end,
+    },
   },
   init = function()
     local MiniSnippets = require("mini.snippets")
@@ -38,6 +44,7 @@ return {
         MiniSnippets.session.stop()
       end
     end
+
     local au_opts = { pattern = "MiniSnippetsSessionJump", callback = fin_stop }
     vim.api.nvim_create_autocmd("User", au_opts)
 
@@ -53,7 +60,23 @@ return {
       end
       vim.api.nvim_create_autocmd("ModeChanged", sau_opts)
     end
+
     local opts = { pattern = "MiniSnippetsSessionStart", callback = make_stop }
     vim.api.nvim_create_autocmd("User", opts)
+
+    -- Make jump mappings or skip to use built-in <Tab>/<S-Tab> in Neovim>=0.11
+    local jump_next = function()
+      if vim.snippet.active({ direction = 1 }) then
+        return vim.snippet.jump(1)
+      end
+    end
+    local jump_prev = function()
+      if vim.snippet.active({ direction = -1 }) then
+        vim.snippet.jump(-1)
+      end
+    end
+
+    vim.keymap.set({ "i", "s" }, "<C-l>", jump_next)
+    vim.keymap.set({ "i", "s" }, "<C-h>", jump_prev)
   end,
 }
