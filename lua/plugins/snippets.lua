@@ -65,18 +65,18 @@ return {
     vim.api.nvim_create_autocmd("User", opts)
 
     -- Make jump mappings or skip to use built-in <Tab>/<S-Tab> in Neovim>=0.11
-    local jump_next = function()
-      if vim.snippet.active({ direction = 1 }) then
-        return vim.snippet.jump(1)
-      end
-    end
-    local jump_prev = function()
-      if vim.snippet.active({ direction = -1 }) then
-        vim.snippet.jump(-1)
-      end
-    end
-
-    vim.keymap.set({ "i", "s" }, "<C-l>", jump_next)
-    vim.keymap.set({ "i", "s" }, "<C-h>", jump_prev)
+    -- local jump_next = function()
+    --   if vim.snippet.active({ direction = 1 }) then
+    --     return vim.snippet.jump(1)
+    --   end
+    -- end
+    -- local jump_prev = function()
+    --   if vim.snippet.active({ direction = -1 }) then
+    --     vim.snippet.jump(-1)
+    --   end
+    -- end
+    --
+    -- vim.keymap.set({ "i", "s" }, "<C-l>", jump_next)
+    -- vim.keymap.set({ "i", "s" }, "<C-h>", jump_prev)
   end,
 }
