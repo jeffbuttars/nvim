@@ -28,11 +28,12 @@ return {
       gen_loader.from_lang(),
     },
 
-    expand = {
-      insert = function(snippet, _)
-        vim.snippet.expand(snippet.body)
-      end,
-    },
+    -- Use the native snippet expansion
+    -- expand = {
+    --   insert = function(snippet, _)
+    --     vim.snippet.expand(snippet.body)
+    --   end,
+    -- },
   },
   init = function()
     local MiniSnippets = require("mini.snippets")

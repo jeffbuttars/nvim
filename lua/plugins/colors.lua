@@ -9,6 +9,21 @@ return {
   { "folke/lsp-colors.nvim" },
 
   { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  { "rebelot/kanagawa.nvim" },
+  { "EdenEast/nightfox.nvim" },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  { 'shaunsingh/nord.nvim'},
 
   {
     "LazyVim/LazyVim",

@@ -15,6 +15,9 @@ return {
       -- auto_close = true,
       -- },
       picker = {
+        -- matcher = {
+        --   file_pos = true,
+        -- },
         sources = {
           explorer = {
             win = {
