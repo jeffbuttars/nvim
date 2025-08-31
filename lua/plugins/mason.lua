@@ -19,7 +19,6 @@ return {
       "gopls",
       "gomodifytags",
       "gomodifytags",
-      "htmlbeautifier",
       "htmlhint",
       "html-lsp",
       "jedi-language-server",
