@@ -5,6 +5,11 @@ return {
     desc = "Copyright Jeff Buttars",
   },
   {
+    prefix = "crb)",
+    body = "Copyright © $CURRENT_YEAR Pew Buyers Club$0",
+    desc = "Copyright Pew Buyers Club",
+  },
+  {
     prefix = "crpv)",
     body = "Copyright © $CURRENT_YEAR PerceptView$0",
     desc = "Copyright PerceptView",
