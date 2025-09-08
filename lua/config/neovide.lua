@@ -6,7 +6,7 @@
 -- let g:neovide_cursor_vfx_mode = "sonicboom"
 -- let g:neovide_cursor_vfx_mode = "ripple"
 -- let g:neovide_cursor_vfx_mode = "wireframe"
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
+-- vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_opacity = 200.0
 vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
 vim.g.neovide_cursor_vfx_particle_density = 7.0

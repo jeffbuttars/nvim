@@ -14,9 +14,8 @@ return {
         },
       },
       formatters_by_ft = {
-        python = { "ruff_fix", "black", "isort" },
+        -- python = { "ruff_fix", "black", "isort" },
         -- ["htmldjango"] = { "djlint" },
-        html = { "htmlbeautifier" },
         -- For some reason this version creates an empty file
         -- python = { "ruff_fix", "fuff_format", "black" },
         -- Use a sub-list to run only the first available formatter
@@ -27,12 +26,12 @@ return {
         json = { "jq" },
         yaml = { "yamlfix" },
         c = { "clang_format" },
-        go = { "golines", "gofumpt", "goimports", "gofmt" },
+        go = { "golines", "goimports", "gofumpt", "gofmt" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "trim_whitespace", "codespell" },
+        ["*"] = { "trim_whitespace" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
-        _ = { "trim_whitespace", "typos"},
+        _ = { "trim_whitespace", "typos" },
       },
     },
   },

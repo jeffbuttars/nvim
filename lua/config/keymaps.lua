@@ -3,19 +3,9 @@
 -- Add any additional keymaps here
 
 -- Whichkey goodness maps
-local wk = require("which-key")
-local map = LazyVim.safe_keymap_set
+local map = vim.keymap.set
 
 local blink_cmp = require("blink.cmp")
-
--- diagnostics jump to next/prev
-wk.add({
-  mode = { "n" },
-  { "<leader>xn", vim.diagnostic.goto_next, desc = "diagnostic next" },
-  { "<leader>xp", vim.diagnostic.goto_prev, desc = "diagnostic prev" },
-})
--- vim.keymap.set("n", "<leader>xn", vim.diagnostic.goto_next)
--- vim.keymap.set("n", "<leader>xp", vim.diagnostic.goto_prev)
 
 -- Search and replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -139,10 +129,3 @@ vim.keymap.set("n", "<leader><esc>", function()
   -- vim.diagnostic.hide()
   -- vim.diagnostic.reset()
 end, { noremap = true, desc = "Escape and clear hlsearch" })
-
--- ZenMode toggle
-wk.add({
-  "<leader>wz",
-  ":ZenMode<cr>",
-  desc = "ZenMode",
-})

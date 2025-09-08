@@ -10,7 +10,7 @@ if vim.fn.executable("uv") == 1 then
 else
   -- If my preferred Python venv is available, use it.
   local py_venv_exec = os.getenv("HOME") .. "/.venv/bin/python"
-  if vim.fn.filereadable(py_venv_exec) then
+  if vim.fn.filereadable(py_venv_exec) == 1 then
     -- Explicitly set the python3 executable
     vim.g.python3_host_prog = py_venv_exec
   end
@@ -86,14 +86,15 @@ vim.opt.undodir = "~/tmp/.vim/undo,/tmp//"
 
 vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
-vim.g.lazyvim_python_lsp = "basedpyright"
-vim.g.lazyvim_python_ruff = "ruff"
+-- vim.g.lazyvim_python_lsp = "basedpyright"
+-- vim.g.lazyvim_python_ruff = "ruff"
+vim.g.lazyvim_picker = "snacks"
 
 -- vim.opt.timeoutlen = 300  -- default
 vim.opt.timeoutlen = 500
 
 -- Enable treesitter in Octo buffers/windows
-vim.treesitter.language.register("markdown", "octo")
+-- vim.treesitter.language.register("markdown", "octo")
 
 -- vim.g.clipboard = "unnamedplus,unnamed,+,*"
 -- vim.g.clipboard += "unnamedplus"

@@ -4,20 +4,6 @@
 
 local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
 
--- show diagnostics popup when we're chillin in normal mode
--- Show a diagnostic popup on cursor hold
--- vim.api.nvim_create_autocmd({ "CursorHold" }, {
---   pattern = "*",
---   callback = function()
---     vim.diagnostic.open_float({
---       focusable = false,
---       scope = "line",
---       source = true,
---     })
---   end,
---   group = ButtarsACmds,
--- })
-
 local function AutoSave(args)
   -- Restart LSP servers every 30 minutes, keep em fresh
   local now = vim.fn.reltimefloat(vim.fn.reltime())
@@ -125,22 +111,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   end,
   group = ButtarsACmds,
 })
-
---  NOTE: (jeff) Currently using sessions in place of the following.
---  When editing a file, always jump to the last known cursor position.
---  Don't do it when the position is invalid or when inside an event handler
---  (happens when dropping a file on gvim).
---  Also don't do it when the mark is in the first line, that is the default
---  position when opening a file.
---
---  Commented out, because LazyVim has it's own version for this
--- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
---   pattern = "*",
---   callback = function()
---     if vim.fn.line("'\"") and vim.fn.line("'\"") <= vim.fn.line("$") then
---       -- vim.api.nvim_cmd("normal! g`\"")
---       vim.api.nvim_cmd({ cmd = "normal", args = { 'g`"' }, bang = true }, {})
---     end
---   end,
---   group = ButtarsACmds
--- })

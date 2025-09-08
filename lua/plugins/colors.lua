@@ -6,37 +6,24 @@ vim.g.color_dark = "catppuccin-mocha"
 return {
   { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true, enabled = false },
 
-  {
-    "folke/lsp-colors.nvim",
-    -- local colors = require("catppuccin.palettes").get_palette()
-    -- local colors = require("catppuccin.palettes").get_palette(vim.o.background)
-    -- require("lsp-colors").setup({ mode = "virtual", colors = colors })
-  },
+  { "folke/lsp-colors.nvim" },
 
-  -- theme stuff
-  -- {
-  --   "f-person/auto-dark-mode.nvim",
-  --   opts = {
-  --     set_dark_mode = function()
-  --       vim.api.nvim_set_option_value("background", "dark", {})
-  --       vim.cmd("colorscheme " .. vim.g.color_dark)
-  --       vim.api.nvim_set_option_value("colorscheme", vim.g.color_dark, {})
-  --     end,
-  --     set_light_mode = function()
-  --       vim.api.nvim_set_option_value("background", "light", {})
-  --       vim.cmd("colorscheme " .. vim.g.color_light)
-  --     end,
-  --   },
-  -- },
+  { "rose-pine/neovim", name = "rose-pine" },
   {
-    "xero/evangelion.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    -- config = function()
-    --   vim.cmd("colorscheme evangelion")
-    -- end,
+    opts = {},
   },
-  { "rose-pine/neovim", name = "rose-pine" },
+
+  { "rebelot/kanagawa.nvim" },
+  { "EdenEast/nightfox.nvim" },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  { 'shaunsingh/nord.nvim'},
 
   {
     "LazyVim/LazyVim",
@@ -46,30 +33,11 @@ return {
       -- colorscheme = "evangelion",
     },
   },
-  -- {
-  --   "brenoprata10/nvim-highlight-colors",
-  --   opts = function(_, opts)
-  --     -- require("nvim-highlight-colors").setup()
-  --     opts.render = "virtual"
-  --     opts.enable_tailwind = true
-  --   end,
-  -- },
-  -- {
-  --   "rasulomaroff/reactive.nvim",
-  --   opts = {
-  --     load = { "catppuccin-latte-cursor", "latte" },
-  --     builtin = {
-  --       cursorline = true,
-  --       cursor = true,
-  --       modemsg = true,
-  --     },
-  --   },
-  -- },
-  -- {
-  --   "nvim-zh/colorful-winsep.nvim",
-  --   config = true,
-  --   event = { "WinNew" },
-  -- },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
   {
     "alexxGmZ/e-ink.nvim",
     -- priority = 1000,
@@ -91,8 +59,8 @@ return {
     "sainnhe/everforest",
     config = function()
       vim.g.everforest_background = "hard"
-      vim.g.everforest_background = "soft"
-      vim.g.everforest_background = "medium"
+      -- vim.g.everforest_background = "soft"
+      -- vim.g.everforest_background = "medium"
 
       -- choose light mode or dark mode
       -- -- vim.opt.background = "dark"

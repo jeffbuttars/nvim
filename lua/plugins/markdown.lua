@@ -1,10 +1,7 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
-    init = function()
-      -- set to 1, the nvim will auto close current preview window when changing
-      -- from Markdown buffer to another buffer
-      -- default: 1
+    opts = function(_, _)
       vim.g.mkdp_auto_close = 0
 
       -- set to 1, the preview server is available to others in your network.
@@ -47,20 +44,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   lazy = false, -- Recommended
-  --   -- ft = "markdown" -- If you decide to lazy-load anyway
-  --
-  --   dependencies = {
-  --     -- You will not need this if you installed the
-  --     -- parsers manually
-  --     -- Or if the parsers are in your $RUNTIMEPATH
-  --     "nvim-treesitter/nvim-treesitter",
-  --
-  --     "nvim-tree/nvim-web-devicons",
-  --   },
-  -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
@@ -72,7 +55,7 @@ return {
       heading = {
         enabled = true,
         sign = true,
-        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+        -- icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
       },
     },
   },

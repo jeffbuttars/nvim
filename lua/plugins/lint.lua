@@ -1,23 +1,35 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    init = function()
-      -- vim.print("LINTING")
-      local golangcilint = require("lint").linters.golangcilint
-      -- vim.print("LINTING", golangcilint.args)
-      -- table.insert(golangcilint.args, #golangcilint.args, "--disable=govet.fieldalignment")
-      table.insert(golangcilint.args, #golangcilint.args, "--config ~/.golangci.yml")
-      -- vim.print("LINTING INIT:", golangcilint.args)
-    end,
-
-    -- opts = function(_, opts)
-    --   opts.linters_by_ft = {
-    --     sh = { "shellcheck" },
-    --     python = { "ruff" },
-    --     javascript = { "standardjs" },
-    --     -- go = { "golangcilint" },
-    --     ["*"] = { "typos", "codespell" },
-    --   }
-    -- end,
+    opts = {
+      linters = {
+        golangcilint = {
+          cmd = "golangci-lint",
+          append_fname = false,
+          stream = "stdout",
+          args = {
+            "run",
+            "--enable=revive",
+            "--output.json.path=stdout",
+            -- Overwrite values possibly set in .golangci.yml
+            "--output.text.path=",
+            "--output.tab.path=",
+            "--output.html.path=",
+            "--output.checkstyle.path=",
+            "--output.code-climate.path=",
+            "--output.junit-xml.path=",
+            "--output.teamcity.path=",
+            "--output.sarif.path=",
+            "--issues-exit-code=0",
+            "--show-stats=false",
+            -- Get absolute path of the linted file
+            "--path-mode=abs",
+            function()
+              return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+            end,
+          },
+        },
+      },
+    },
   },
 }
