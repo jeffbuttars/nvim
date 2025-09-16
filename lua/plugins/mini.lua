@@ -1,6 +1,6 @@
 return {
   -- {
-  --   "echasnovski/mini.indentscope",
+  --   "nvim-mini/mini.indentscope",
   --   version = false,
   --
   --   -- MiniIndentscopeSymbol xxx guifg=#4c4f69
