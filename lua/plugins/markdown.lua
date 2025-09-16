@@ -1,7 +1,7 @@
 return {
   {
     "iamcco/markdown-preview.nvim",
-    opts = function(_, _)
+    config = function(_, _)
       vim.g.mkdp_auto_close = 0
 
       -- set to 1, the preview server is available to others in your network.

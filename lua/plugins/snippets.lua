@@ -1,4 +1,4 @@
-local gen_loader = require("mini.snippets").gen_loader
+-- local gen_loader = require("mini.snippets").gen_loader
 
 -- # Highlight groups ~
 --
@@ -17,16 +17,29 @@ vim.api.nvim_set_hl(0, "MiniSnippetsCurrent", {})
 vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
 
 return {
-  "echasnovski/mini.snippets",
-  opts = {
-    snippets = {
+  "nvim-mini/mini.snippets",
+  opts = function(_, opts)
+    local gen_loader = require("mini.snippets").gen_loader
+
+    opts.snippets = opts.snippets or {}
+
+    vim.list_extend(opts.snippets or {}, {
       -- Load custom file with global snippets first (adjust for Windows)
       gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
 
       -- Load snippets based on current language by reading files from
       -- "snippets/" subdirectories from 'runtimepath' directories.
       gen_loader.from_lang(),
-    },
+    })
+
+    -- opts.snippets = {
+    --   -- Load custom file with global snippets first (adjust for Windows)
+    --   gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
+    --
+    --   -- Load snippets based on current language by reading files from
+    --   -- "snippets/" subdirectories from 'runtimepath' directories.
+    --   gen_loader.from_lang(),
+    -- },
 
     -- Use the native snippet expansion
     -- expand = {
@@ -34,7 +47,7 @@ return {
     --     vim.snippet.expand(snippet.body)
     --   end,
     -- },
-  },
+  end,
   init = function()
     local MiniSnippets = require("mini.snippets")
 
