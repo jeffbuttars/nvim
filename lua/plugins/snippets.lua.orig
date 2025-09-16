@@ -18,6 +18,15 @@ vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
 
 return {
   "nvim-mini/mini.snippets",
+<<<<<<< HEAD
+  config = function(opts)
+    local gen_loader = require("mini.snippets").gen_loader
+
+    opts = {
+      snippets = {
+        -- Load custom file with global snippets first (adjust for Windows)
+        gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
+=======
   opts = function(_, opts)
     local gen_loader = require("mini.snippets").gen_loader
 
@@ -40,6 +49,7 @@ return {
     --   -- "snippets/" subdirectories from 'runtimepath' directories.
     --   gen_loader.from_lang(),
     -- },
+>>>>>>> ad98ce03407a0f5a3c27e93725cf1e69031eba1e
 
         -- Load snippets based on current language by reading files from
         -- "snippets/" subdirectories from 'runtimepath' directories.
@@ -55,6 +65,10 @@ return {
     --   end,
     -- },
   end,
+<<<<<<< HEAD
+
+=======
+>>>>>>> ad98ce03407a0f5a3c27e93725cf1e69031eba1e
   init = function()
     local MiniSnippets = require("mini.snippets")
 
