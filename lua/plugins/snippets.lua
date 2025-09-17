@@ -18,19 +18,46 @@ vim.api.nvim_set_hl(0, "MiniSnippetsCurrentReplace", {})
 
 return {
   "nvim-mini/mini.snippets",
-  opts = function(_, opts)
-    local gen_loader = require("mini.snippets").gen_loader
+  event = "InsertEnter", -- don't depend on other plugins to load...
+  dependencies = "rafamadriz/friendly-snippets",
 
-    opts.snippets = opts.snippets or {}
+  -- opts = {
+  --   snippets = {
+  --     -- Load custom file with global snippets first (adjust for Windows)
+  --     gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
+  --
+  --     -- Load snippets based on current language by reading files from
+  --     -- "snippets/" subdirectories from 'runtimepath' directories.
+  --     gen_loader.from_lang(),
+  --   },
+  --
+  --   -- Use the native snippet expansion
+  --   -- expand = {
+  --   --   insert = function(snippet, _)
+  --   --     vim.snippet.expand(snippet.body)
+  --   --   end,
+  --   -- },
+  -- },
+  opts = function()
+    ---@diagnostic disable-next-line: duplicate-set-field
+    LazyVim.cmp.actions.snippet_stop = function() end -- by design, <esc> should not stop the session!
+    ---@diagnostic disable-next-line: duplicate-set-field
+    LazyVim.cmp.actions.snippet_forward = function()
+      return jump("next")
+    end
 
-    vim.list_extend(opts.snippets or {}, {
-      -- Load custom file with global snippets first (adjust for Windows)
-      gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
+    local mini_snippets = require("mini.snippets")
+    return {
+      snippets = { mini_snippets.gen_loader.from_lang(),
+        mini_snippets.gen_loader.from_file("~/.config/nvim/snippets/global.lua"),
+        mini_snippets.gen_loader.from_lang(),
+      },
 
-      -- Load snippets based on current language by reading files from
-      -- "snippets/" subdirectories from 'runtimepath' directories.
-      gen_loader.from_lang(),
-    })
+      -- Following the behavior of vim.snippets,
+      -- the intended usage of <esc> is to be able to temporarily exit into normal mode for quick edits.
+      --
+      -- If you'd rather stop the snippet on <esc>, activate the line below in your own config:
+      -- mappings = { stop = "<esc>" }, -- <c-c> by default, see :h MiniSnippets-session
 
     -- opts.snippets = {
     --   -- Load custom file with global snippets first (adjust for Windows)
@@ -46,7 +73,17 @@ return {
     --     vim.snippet.expand(snippet.body)
     --   end,
     -- },
+
+      -- expand = {
+      --   select = function(snippets, insert)
+      --     -- Close completion window on snippet select - vim.ui.select
+      --     -- Needed to remove virtual text for fzf-lua and telescope, but not for mini.pick...
+      --     local select = expand_select_override or MiniSnippets.default_select
+      --     select(snippets, insert)
+      --   end,
+      -- },
   end,
+
   init = function()
     local MiniSnippets = require("mini.snippets")
 

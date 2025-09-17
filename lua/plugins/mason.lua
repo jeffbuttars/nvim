@@ -1,5 +1,5 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
 
   opts_extend = { "ensure_installed" },
   opts = {
@@ -31,6 +31,7 @@ return {
       "standardjs",
       "stylua",
       "templ",
+      "tree-sitter-cli",
       "typos",
     },
   },
