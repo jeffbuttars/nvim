@@ -11,9 +11,6 @@ return {
         },
       },
 
-      documentation = {
-        auto_show = true,
-      },
       -- experimental signature help support
       signature = { enabled = true },
 
