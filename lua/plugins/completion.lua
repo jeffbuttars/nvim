@@ -1,5 +1,220 @@
 local blink_cmp = require("blink.cmp")
 
+return {
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        list = {
+          -- Don't select by default and only use an explicitly selected choice
+          selection = { preselect = false, auto_insert = false },
+        },
+      },
+
+      documentation = {
+        auto_show = true,
+      },
+      -- experimental signature help support
+      signature = { enabled = true },
+
+      keymap = {
+
+        ["<S-Tab>"] = {
+          "select_prev",
+          "fallback",
+        },
+        ["<Tab>"] = {
+          "select_next",
+          "fallback",
+        },
+        ["<enter>"] = {
+          function(cmp)
+            -- If the window is open, but nothing has been selected, do nothing
+            -- If the window is open, but a selection has been made, accept the completion
+            if blink_cmp.is_visible() then
+              local menu = require("blink.cmp.completion.windows.menu")
+              if menu.selected_item_idx ~= nil then
+                cmp.accept()
+                return true
+              end
+            end
+          end,
+          "fallback",
+        },
+      },
+    },
+  },
+}
+
+-- opts = {
+--   keymap = {
+--       preset = "default",
+--       ["<enter>"] = {
+--         function(cmp)
+--           -- If the window is open, but nothing has been selected, do nothing
+--           -- If the window is open, but a selection has been made, accept the completion
+--           if blink_cmp.is_visible() then
+--             local menu = require("blink.cmp.completion.windows.menu")
+--             if menu.selected_item_idx ~= nil then
+--               cmp.accept()
+--               return true
+--             end
+--           end
+--         end,
+--         "fallback",
+--       },
+--
+--       -- ["<C-j>"] = {
+--       --   function(cmp)
+--       --     -- vim.print("C-J")
+--       --     -- vim.print("C-J", cmp)
+--       --     -- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+--       --     local expanded = us_mappings.expand_or_jump_forwards()
+--       --
+--       --     -- vim.print("c-j expanded", expanded)
+--       --
+--       --     if expanded then
+--       --       -- vim.print("C-J cancel")
+--       --       cmp.cancel()
+--       --     end
+--       --
+--       --     return expanded
+--       --   end,
+--       --   "fallback",
+--       -- },
+-- ["<S-Tab>"] = {
+--   "select_prev",
+--   "fallback",
+-- },
+-- ["<Tab>"] = {
+--   "select_next",
+--   "fallback",
+--   -- function(cmp)
+--   -- {
+--   --   accept = <function 1>,
+--   --   cancel = <function 2>,
+--   --   get_lsp_capabilities = <function 3>,
+--   --   hide = <function 4>,
+--   --   hide_documentation = <function 5>,
+--   --   reload = <function 6>,
+--   --   scroll_documentation_down = <function 7>,
+--   --   scroll_documentation_up = <function 8>,
+--   --   select_and_accept = <function 9>,
+--   --   select_next = <function 10>,
+--   --   select_prev = <function 11>,
+--   --   setup = <function 12>,
+--   --   show = <function 13>,
+--   --   show_documentation = <function 14>,
+--   --   snippet_active = <function 15>,
+--   --   snippet_backward = <function 16>,
+--   --   snippet_forward = <function 17>
+--   -- }
+--   -- vim.print("TABBBBB cmp", cmp)
+--   -- vim.print("TABBBBB blink_cmp", blink_cmp)
+--   -- return cmp.select_next()
+--   -- if cmp.snippet_active() then
+--   --   return cmp.accept()
+--   -- end
+--
+--   -- return
+--
+--   -- if blink_cmp.is_visible() then
+--   --   return cmp.select_next()
+--   -- else
+--   --   return cmp.fallback()
+--   -- end
+--   -- end,
+--   },
+-- },
+--     --
+--     completion = {
+--       ghost_text = {
+--         enabled = true,
+--         -- show_with_menu = false,
+--       },
+--       list = {
+--         selection = { preselect = false, auto_insert = false },
+--       },
+--       --       -- auto_complete_delay = 50,
+--       menu = {
+--         -- border = "rounded",
+--         --   -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+--         --   winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
+--         draw = {
+--           treesitter = { "lsp" },
+--           columns = {
+--             { "label", "label_description" },
+--             { "kind_icon", "kind" },
+--             -- { "source_name" },
+--           },
+--         },
+--       },
+--       documentation = {
+--         auto_show = true,
+--         window = {
+--           -- border = "rounded",
+--           --     -- winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+--           --     winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+--           --     winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
+--         },
+--       },
+--     },
+--     signature = {
+--       enabled = true,
+--       window = {
+--         -- border = "rounded",
+--         --     -- winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+--         --     -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpSignatureHelpBorder",
+--       },
+--     },
+--
+--     -- sources = {
+--     --   compat = { "ultisnips" },
+--     --   providers = {
+--     --     ultisnips = {
+--     --       kind = "Snippet",
+--     --       name = "ultisnips",
+--     --       module = "blink.compat.source",
+--     --       score_offset = 101,
+--     --     },
+--     --   },
+--     -- },
+--   },
+--   -- dependencies = {
+--   --   {
+--   --     "quangnguyen30192/cmp-nvim-ultisnips",
+--   --     dependencies = { "SirVer/ultisnips" },
+--   --     requires = { "nvim-treesitter/nvim-treesitter" },
+--   --   },
+--   --   {
+--   --     "SirVer/ultisnips",
+--   --     dependencies = { "Saghen/blink.compat" },
+--   --     lazy = false,
+--   --     priority = 1000,
+--   --     init = function()
+--   --       -- UltiSnips
+--   --       -- This must be loaded at startup and not in after
+--   --
+--   --       -- us_mappingsake sure it picks up our snippet file first, so our overwrites take effect.
+--   --       vim.g.UltiSnipsDontReverseSearchPath = true
+--   --
+--   --       -- vim.api.nvim_exec([[let g:UltiSnipsExpandTrigger = '<C-j>']], true)
+--   --       -- vim.api.nvim_exec([[let g:UltiSnipsJumpForwardTrigger = '<C-j>']], true)
+--   --
+--   --       vim.g.UltiSnipsExpandTrigger = "<c-j>"
+--   --       vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
+--   --       vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+--   --       -- vim.g.UltiSnipsListSnippets = '<c-q>'
+--   --       -- vim.g.UltiSnipsListSnippets                <c-tab>
+--   --
+--   --       -- vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
+--   --     end,
+--   --   },
+--   --   { "honza/vim-snippets" },
+--   },
+-- },
+-- }
+
 -- local function t(keys)
 --   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), "m", true)
 -- end
@@ -82,172 +297,3 @@ local blink_cmp = require("blink.cmp")
 -- function us_mappings.jump_backwards(fallback)
 --   return us_mappings.compose({ "jump_backwards", "select_prev_item" })(fallback)
 -- end
-
-return {
-  "saghen/blink.cmp",
-  opts = {
-    keymap = {
-      preset = "default",
-      ["<enter>"] = {
-        function(cmp)
-          -- If the window is open, but nothing has been selected, do nothing
-          -- If the window is open, but a selection has been made, accept the completion
-          if blink_cmp.is_visible() then
-            local menu = require("blink.cmp.completion.windows.menu")
-            if menu.selected_item_idx ~= nil then
-              cmp.accept()
-              return true
-            end
-          end
-        end,
-        "fallback",
-      },
-
-      -- ["<C-j>"] = {
-      --   function(cmp)
-      --     -- vim.print("C-J")
-      --     -- vim.print("C-J", cmp)
-      --     -- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-      --     local expanded = us_mappings.expand_or_jump_forwards()
-      --
-      --     -- vim.print("c-j expanded", expanded)
-      --
-      --     if expanded then
-      --       -- vim.print("C-J cancel")
-      --       cmp.cancel()
-      --     end
-      --
-      --     return expanded
-      --   end,
-      --   "fallback",
-      -- },
-      ["<S-Tab>"] = {
-        "select_prev",
-        "fallback",
-      },
-      ["<Tab>"] = {
-        --   -- function(cmp)
-        --   -- {
-        --   --   accept = <function 1>,
-        --   --   cancel = <function 2>,
-        --   --   get_lsp_capabilities = <function 3>,
-        --   --   hide = <function 4>,
-        --   --   hide_documentation = <function 5>,
-        --   --   reload = <function 6>,
-        --   --   scroll_documentation_down = <function 7>,
-        --   --   scroll_documentation_up = <function 8>,
-        --   --   select_and_accept = <function 9>,
-        --   --   select_next = <function 10>,
-        --   --   select_prev = <function 11>,
-        --   --   setup = <function 12>,
-        --   --   show = <function 13>,
-        --   --   show_documentation = <function 14>,
-        --   --   snippet_active = <function 15>,
-        --   --   snippet_backward = <function 16>,
-        --   --   snippet_forward = <function 17>
-        --   -- }
-        --   -- vim.print("TABBBBB cmp", cmp)
-        --   -- vim.print("TABBBBB blink_cmp", blink_cmp)
-        --   -- return cmp.select_next()
-        --   -- if cmp.snippet_active() then
-        --   --   return cmp.accept()
-        --   -- end
-        --
-        --   -- return
-        --
-        --   -- if blink_cmp.is_visible() then
-        --   --   return cmp.select_next()
-        --   -- else
-        --   --   return cmp.fallback()
-        --   -- end
-        --   -- end,
-        "select_next",
-        "fallback",
-      },
-    },
-    --
-    completion = {
-      ghost_text = {
-        enabled = true,
-        -- show_with_menu = false,
-      },
-      list = {
-        selection = { preselect = false, auto_insert = false },
-      },
-      --       -- auto_complete_delay = 50,
-      menu = {
-        -- border = "rounded",
-        --   -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-        --   winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
-        draw = {
-          treesitter = { "lsp" },
-          columns = {
-            { "label", "label_description" },
-            { "kind_icon", "kind" },
-            -- { "source_name" },
-          },
-        },
-      },
-      documentation = {
-        auto_show = true,
-        window = {
-          -- border = "rounded",
-          --     -- winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
-          --     winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-          --     winhighlight = "CursorLine:BlinkCmpMenuSelection,Search:None",
-        },
-      },
-    },
-    signature = {
-      enabled = true,
-      window = {
-        -- border = "rounded",
-        --     -- winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
-        --     -- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpSignatureHelpBorder",
-      },
-    },
-
-    -- sources = {
-    --   compat = { "ultisnips" },
-    --   providers = {
-    --     ultisnips = {
-    --       kind = "Snippet",
-    --       name = "ultisnips",
-    --       module = "blink.compat.source",
-    --       score_offset = 101,
-    --     },
-    --   },
-    -- },
-  },
-  -- dependencies = {
-  --   {
-  --     "quangnguyen30192/cmp-nvim-ultisnips",
-  --     dependencies = { "SirVer/ultisnips" },
-  --     requires = { "nvim-treesitter/nvim-treesitter" },
-  --   },
-  --   {
-  --     "SirVer/ultisnips",
-  --     dependencies = { "Saghen/blink.compat" },
-  --     lazy = false,
-  --     priority = 1000,
-  --     init = function()
-  --       -- UltiSnips
-  --       -- This must be loaded at startup and not in after
-  --
-  --       -- us_mappingsake sure it picks up our snippet file first, so our overwrites take effect.
-  --       vim.g.UltiSnipsDontReverseSearchPath = true
-  --
-  --       -- vim.api.nvim_exec([[let g:UltiSnipsExpandTrigger = '<C-j>']], true)
-  --       -- vim.api.nvim_exec([[let g:UltiSnipsJumpForwardTrigger = '<C-j>']], true)
-  --
-  --       vim.g.UltiSnipsExpandTrigger = "<c-j>"
-  --       vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
-  --       vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
-  --       -- vim.g.UltiSnipsListSnippets = '<c-q>'
-  --       -- vim.g.UltiSnipsListSnippets                <c-tab>
-  --
-  --       -- vim.g.UltiSnipsSnippetDirectories = { "~/.config/nvim/UltiSnips" }
-  --     end,
-  --   },
-  --   { "honza/vim-snippets" },
-}
