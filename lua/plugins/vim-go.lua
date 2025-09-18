@@ -124,7 +124,7 @@ return {
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 
     opts = {
-      textobjects = false, -- disable to work around treesitter.config errors
+      -- textobjects = false, -- disable to work around treesitter.config errors
       lsp_inlay_hints = { enable = false },
       -- lsp_keymaps = false,
       -- other options
@@ -132,7 +132,6 @@ return {
       -- tag_options = "",
     },
     init = function()
-
       -- local gonvim = require("go.nvim")
       -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
       -- vim.api.nvim_create_autocmd("BufWritePre", {
