@@ -72,46 +72,7 @@ local function get_quoted_string_under_cursor()
   return {}
 end
 
--- -- Usage example
--- local content = get_quoted_string_under_cursor()
--- if content then
---   print("Quoted string content: " .. content)
--- else
---   print("No quoted string found under cursor")
--- end
-
 return {
-  -- {
-  --   "olexsmir/gopher.nvim",
-  --   ft = "go",
-  --   -- branch = "develop"
-  --   -- (optional) will update plugin's deps on every update
-  --   build = function()
-  --     vim.cmd.GoInstallDeps()
-  --   end,
-  --   ---@type gopher.Config
-  --   opts = {},
-  -- },
-  -- {
-  --   "fatih/vim-go",
-  --   ft = { "go" },
-  --   -- tag = "v1.28",
-  --   init = function()
-  --     vim.keymap.set({ "v", "n" }, "<leader>G", "", { noremap = true, desc = "Go" })
-  --     vim.keymap.set(
-  --       { "v", "n" },
-  --       "<leader>Gt",
-  --       "<cmd>GoAddTags<cr>",
-  --       { noremap = true, desc = "GoAddTags" }
-  --     )
-  --     vim.keymap.set(
-  --       { "v", "n" },
-  --       "<leader>Gb",
-  --       "<cmd>GoBuild<cr>",
-  --       { noremap = true, desc = "Go Build" }
-  --     )
-  --   end,
-  -- },
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
@@ -119,12 +80,10 @@ return {
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    -- event = { "CmdlineEnter" },
-    ft = { "go", "gomod", "gowork", "gotmpl" },
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-
     opts = {
-      -- textobjects = false, -- disable to work around treesitter.config errors
       lsp_inlay_hints = { enable = false },
       -- lsp_keymaps = false,
       -- other options
@@ -132,15 +91,6 @@ return {
       -- tag_options = "",
     },
     init = function()
-      -- local gonvim = require("go.nvim")
-      -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-      -- vim.api.nvim_create_autocmd("BufWritePre", {
-      --   pattern = "*.go",
-      --   callback = function()
-      --     require("go.format").goimports()
-      --   end,
-      --   group = format_sync_grp,
-      -- })
       vim.keymap.set({ "v", "n" }, "<leader>G", "", { noremap = true, desc = "Go" })
       vim.keymap.set(
         { "v", "n" },
