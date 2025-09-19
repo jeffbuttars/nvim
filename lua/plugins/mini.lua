@@ -16,92 +16,92 @@ return {
   --   end,
   -- },
 
-  {
-    "nvim-mini/mini.diff",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>go",
-        function()
-          require("mini.diff").toggle_overlay(0)
-        end,
-        desc = "Toggle mini.diff overlay",
-      },
-    },
-    opts = {
-      view = {
-        style = "sign",
-        signs = {
-          add = "▎",
-          change = "▎",
-          delete = "",
-        },
-      },
-    },
-  },
-  {
-    "mini.diff",
-    opts = function()
-      Snacks.toggle({
-        name = "Mini Diff Signs",
-        get = function()
-          return vim.g.minidiff_disable ~= true
-        end,
-        set = function(state)
-          vim.g.minidiff_disable = not state
-          if state then
-            require("mini.diff").enable(0)
-          else
-            require("mini.diff").disable(0)
-          end
-          -- HACK: redraw to update the signs
-          vim.defer_fn(function()
-            vim.cmd([[redraw!]])
-          end, 200)
-        end,
-      }):map("<leader>uG")
-    end,
-  },
+  -- {
+  --   "nvim-mini/mini.diff",
+  --   event = "VeryLazy",
+  --   keys = {
+  --     {
+  --       "<leader>go",
+  --       function()
+  --         require("mini.diff").toggle_overlay(0)
+  --       end,
+  --       desc = "Toggle mini.diff overlay",
+  --     },
+  --   },
+  --   opts = {
+  --     view = {
+  --       style = "sign",
+  --       signs = {
+  --         add = "▎",
+  --         change = "▎",
+  --         delete = "",
+  --       },
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "mini.diff",
+  --   opts = function()
+  --     Snacks.toggle({
+  --       name = "Mini Diff Signs",
+  --       get = function()
+  --         return vim.g.minidiff_disable ~= true
+  --       end,
+  --       set = function(state)
+  --         vim.g.minidiff_disable = not state
+  --         if state then
+  --           require("mini.diff").enable(0)
+  --         else
+  --           require("mini.diff").disable(0)
+  --         end
+  --         -- HACK: redraw to update the signs
+  --         vim.defer_fn(function()
+  --           vim.cmd([[redraw!]])
+  --         end, 200)
+  --       end,
+  --     }):map("<leader>uG")
+  --   end,
+  -- },
 
-  {
-    "nvim-mini/mini.indentscope",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = "LazyFile",
-    opts = {
-      -- symbol = "▏",
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "Trouble",
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "mason",
-          "neo-tree",
-          "notify",
-          "snacks_dashboard",
-          "snacks_notif",
-          "snacks_terminal",
-          "snacks_win",
-          "toggleterm",
-          "trouble",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "SnacksDashboardOpened",
-        callback = function(data)
-          vim.b[data.buf].miniindentscope_disable = true
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "nvim-mini/mini.indentscope",
+  --   version = false, -- wait till new 0.7.0 release to put it back on semver
+  --   event = "LazyFile",
+  --   opts = {
+  --     -- symbol = "▏",
+  --     symbol = "│",
+  --     options = { try_as_border = true },
+  --   },
+  --   init = function()
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = {
+  --         "Trouble",
+  --         "alpha",
+  --         "dashboard",
+  --         "fzf",
+  --         "help",
+  --         "lazy",
+  --         "mason",
+  --         "neo-tree",
+  --         "notify",
+  --         "snacks_dashboard",
+  --         "snacks_notif",
+  --         "snacks_terminal",
+  --         "snacks_win",
+  --         "toggleterm",
+  --         "trouble",
+  --       },
+  --       callback = function()
+  --         vim.b.miniindentscope_disable = true
+  --       end,
+  --     })
+  --
+  --     vim.api.nvim_create_autocmd("User", {
+  --       pattern = "SnacksDashboardOpened",
+  --       callback = function(data)
+  --         vim.b[data.buf].miniindentscope_disable = true
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
