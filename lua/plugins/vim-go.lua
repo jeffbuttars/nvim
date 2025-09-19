@@ -11,7 +11,8 @@ local function focus_preview_window()
       -- Additional checks for preview windows
       local buf = vim.api.nvim_win_get_buf(win)
       local buf_name = vim.api.nvim_buf_get_name(buf)
-      local buf_type = vim.api.nvim_buf_get_option(buf, "buftype")
+      -- local buf_type = vim.api.nvim_buf_get_option(buf, "buftype")
+      local buf_type = vim.api.nvim_buf_get_var(buf, "buftype")
 
       -- Common characteristics of preview windows
       if buf_type == "nofile" or buf_name:match("preview") then
