@@ -20,15 +20,15 @@ return {
         -- python = { "ruff_fix", "fuff_format", "black" },
         -- Use a sub-list to run only the first available formatter
         javascript = { "standardjs", "prettierd", "prettier", stop_after_first = true },
-        css = { "stylelint" },
-        bash = { "shfmt", "beautysh" },
-        sh = { "shfmt", "beautysh" },
-        json = { "jq" },
-        yaml = { "yamlfix" },
-        c = { "clang_format" },
+        -- css = { "stylelint" },
+        -- bash = { "shfmt", "beautysh" },
+        -- sh = { "shfmt", "beautysh" },
+        -- json = { "jq" },
+        -- yaml = { "yamlfix" },
+        -- c = { "clang_format" },
         go = { "golines", "goimports", "gofumpt", "gofmt" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "trim_whitespace" },
+        ["*"] = { "trim_whitespace", "typos" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
         _ = { "trim_whitespace", "typos" },
