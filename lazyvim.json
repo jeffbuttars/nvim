@@ -1,7 +1,6 @@
 {
   "extras": [
     "lazyvim.plugins.extras.ai.codeium",
-    "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.ai.supermaven",
     "lazyvim.plugins.extras.coding.luasnip",
     "lazyvim.plugins.extras.coding.mini-snippets",
@@ -39,3 +38,4 @@
   },
   "version": 8
 }
+
