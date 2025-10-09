@@ -56,4 +56,20 @@ return {
   --   --   },
   --   -- },
   -- },
+  {
+    {
+      "folke/sidekick.nvim",
+      opts = {
+        -- add any options here
+        cli = {
+          win = {
+            layout = "right",
+            split = {
+              width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
+            },
+          },
+        },
+      },
+    },
+  },
 }
