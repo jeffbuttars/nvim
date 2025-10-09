@@ -57,16 +57,17 @@ return {
   --   -- },
   -- },
   {
-    "folke/sidekick.nvim",
-    opts = {
-      cli = {
-        mux = {
-          create = "window",
-          enabled = true,
-          -- split = {
-          --   horizontal = true,
-          --   size = 1.0,
-          -- },
+    {
+      "folke/sidekick.nvim",
+      opts = {
+        -- add any options here
+        cli = {
+          win = {
+            layout = "right",
+            split = {
+              width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
+            },
+          },
         },
       },
     },
