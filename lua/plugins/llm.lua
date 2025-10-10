@@ -1,4 +1,42 @@
 return {
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      -- add any options here
+      cli = {
+        win = {
+          layout = "right",
+          split = {
+            -- width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
+            width = math.floor(
+              tonumber(vim.api.nvim_exec2("echo &columns", { output = true }).output or 0) * 0.5
+            ),
+          },
+        },
+      },
+    },
+    keys = {
+      {
+        "<leader>an",
+        function()
+          require("sidekick.nes").update()
+          if require("sidekick.nes").have() then
+            require("sidekick.nes").jump()
+          end
+        end,
+        mode = { "n" },
+        expr = true,
+        desc = "Sidekick NES Check",
+      },
+      {
+        "<leader>aa",
+        function()
+          require("sidekick.cli").toggle({ filter = { installed = true } })
+        end,
+        desc = "Sidekick Toggle CLI",
+      },
+    },
+  },
   -- {
   --   "zbirenbaum/copilot.lua",
   --   opts = {
@@ -56,20 +94,4 @@ return {
   --   --   },
   --   -- },
   -- },
-  {
-    {
-      "folke/sidekick.nvim",
-      opts = {
-        -- add any options here
-        cli = {
-          win = {
-            layout = "right",
-            split = {
-              width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
-            },
-          },
-        },
-      },
-    },
-  },
 }
