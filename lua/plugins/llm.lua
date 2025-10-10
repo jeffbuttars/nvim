@@ -1,74 +1,40 @@
 return {
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   opts = {
-  --     panel = {
-  --       enabled = true,
-  --     },
-  --     -- suggestion = {
-  --     --   enabled = not vim.g.ai_cmp,
-  --     --   auto_trigger = true,
-  --     --   hide_during_completion = vim.g.ai_cmp,
-  --     --   keymap = {
-  --     --     accept = false, -- handled by nvim-cmp / blink.cmp
-  --     --     next = "<M-]>",
-  --     --     prev = "<M-[>",
-  --     --   },
-  --     -- },
-  --   },
-  -- },
-  -- {
-  --   "coder/claudecode.nvim",
-  --   config = true,
-  --   keys = {
-  --     { "<leader>a", nil, desc = "AI/Claude Code" },
-  --     { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-  --     { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
-  --     { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-  --     { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-  --     { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-  --
-  --     {
-  --       "<leader>as",
-  --       "<cmd>ClaudeCodeTreeAdd<cr>",
-  --       desc = "Add file to AI Ctx",
-  --       ft = { "NvimTree", "neo-tree" },
-  --     },
-  --     { "<leader>ao", "<cmd>ClaudeCodeOpen<cr>", desc = "Open Claude" },
-  --     { "<leader>ax", "<cmd>ClaudeCodeClose<cr>", desc = "Close Claude" },
-  --
-  --     -- diff management
-  --     { "<leader>aa", "<cmd>claudecodediffaccept<cr>", desc = "accept diff" },
-  --     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
-  --   },
-  --   -- opts = {
-  --   --   -- Terminal options
-  --   --   terminal = {
-  --   --     split_side = "right",
-  --   --     split_width_percentage = 0.5,
-  --   --     -- provider = "snacks", -- or "native"
-  --   --   },
-  --   --   -- Diff options
-  --   --   diff_opts = {
-  --   --     auto_close_on_accept = true,
-  --   --     vertical_split = true,
-  --   --     open_in_current_tab = false,
-  --   --   },
-  --   -- },
-  -- },
   {
-    {
-      "folke/sidekick.nvim",
-      opts = {
-        -- add any options here
-        cli = {
-          win = {
-            layout = "right",
-            split = {
-              width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
-            },
+    "folke/sidekick.nvim",
+
+    opts = {
+      -- add any options here
+      cli = {
+        win = {
+          layout = "right",
+          split = {
+            -- width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
+            width = math.floor(
+              tonumber(vim.api.nvim_exec2("echo &columns", { output = true }).output or 0) * 0.5
+            ),
           },
         },
+      },
+    },
+    keys = {
+      {
+        "<leader>an",
+        function()
+          require("sidekick.nes").update()
+          if require("sidekick.nes").have() then
+            require("sidekick.nes").jump()
+          end
+        end,
+        mode = { "n" },
+        expr = true,
+        desc = "Sidekick NES Check",
+      },
+      {
+        "<leader>aa",
+        function()
+          require("sidekick.cli").toggle({ filter = { installed = true } })
+        end,
+        desc = "Sidekick Toggle CLI",
       },
     },
   },
