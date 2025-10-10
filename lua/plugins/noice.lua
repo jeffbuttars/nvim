@@ -5,6 +5,9 @@ return {
     "folke/noice.nvim",
     --   enabled = true,
     opts = {
+      messages = {
+        enabled = true,
+      },
       --     -- cmdline = {
       --     --   opts = {
       --     --     -- Position command line into center of screen
@@ -17,66 +20,29 @@ return {
       --       -- long_message_to_split = true,
       --       -- inc_rename = true,
       --     },
-      --     messages = {
-      --       enabled = false,
-      --     },
       routes = {
+        -- https://github.com/folke/noice.nvim/blob/main/lua/noice/config/routes.lua
         {
           filter = {
-            event = "notify",
-            find = "No information available",
-            kind = {"error"},
+            error = true,
           },
-          opts = { skip = true },
-        },
-        {
           view = "mini",
-          filter = {
-            event = "msg_show",
-            kind = { "", "echo", "echomsg" },
-          },
+          -- opts = { skip = true },
         },
-        {
-          view = "mini",
-          filter = {
-            event = "notify",
-          },
-        },
+        -- {
+        --   view = "mini",
+        --   filter = {
+        --     event = "msg_show",
+        --     kind = { "", "echo", "echomsg" },
+        --   },
+        -- },
+        -- {
+        --   view = "mini",
+        --   filter = {
+        --     event = "notify",
+        --   },
+        -- },
       },
-      --
-      --     -- views = {
-      --     --   cmdline_popup = {
-      --     --     position = {
-      --     --       row = "50%",
-      --     --       col = "50%",
-      --     --     },
-      --     --     --   --   size = {
-      --     --     --   --     width = 60,
-      --     --     --   --     height = "auto",
-      --     --     --   --   },
-      --     --   },
-      --     --   popupmenu = {
-      --     --     relative = "editor",
-      --     --     position = {
-      --     --       row = "50%",
-      --     --       col = "50%",
-      --     --       --       "55%",
-      --     --       --       -- row = 8,
-      --     --       --       -- col = "50%",
-      --     --     },
-      --     --     --     -- size = {
-      --     --     --     --   width = 60,
-      --     --     --     --   height = 10,
-      --     --     --     -- },
-      --     --     --     -- border = {
-      --     --     --     --   style = "rounded",
-      --     --     --     --   padding = { 0, 1 },
-      --     --     --     -- },
-      --     --     --     -- win_options = {
-      --     --     --     --   winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-      --     --     --     -- },
-      --     --   },
-      -- },
     },
   },
 }
