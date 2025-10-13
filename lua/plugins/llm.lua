@@ -38,4 +38,17 @@ return {
       },
     },
   },
+  -- {
+  --   -- disable the auto complete in favor of Supermaven
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   build = ":Copilot auth",
+  --   event = "BufReadPost",
+  --   opts = {
+  --     suggestion = {
+  --       enabled = false,
+  --       auto_trigger = false,
+  --     },
+  --   },
+  -- },
 }
