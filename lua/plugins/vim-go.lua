@@ -143,17 +143,17 @@ return {
         "<cmd>GoGenReturn<cr>",
         { noremap = true, desc = "Generate return" }
       )
-      vim.keymap.set({ "n" }, "<leader>Gl", "<cmd>GoLint<cr>", { noremap = true, desc = "Lint" })
-      vim.keymap.set({ "n" }, "<leader>Gd", function()
-        local pkg = get_quoted_string_under_cursor()
-        if #pkg == 0 then
-          vim.lsp.buf.hover({ focus = true, focusable = true })
-          vim.defer_fn(vim.lsp.buf.hover, 100)
-        else
-          require("go.godoc").run(pkg)
-          vim.defer_fn(focus_preview_window, 500)
-        end
-      end, { noremap = true, desc = "Show go doc for api in neovim floating window" })
+      -- vim.keymap.set({ "n" }, "<leader>Gl", "<cmd>GoLint<cr>", { noremap = true, desc = "Lint" })
+      -- vim.keymap.set({ "n" }, "<leader>Gd", function()
+      --   local pkg = get_quoted_string_under_cursor()
+      --   if #pkg == 0 then
+      --     vim.lsp.buf.hover({ focus = true, focusable = true })
+      --     vim.defer_fn(vim.lsp.buf.hover, 100)
+      --   else
+      --     require("go.godoc").run(pkg)
+      --     vim.defer_fn(focus_preview_window, 500)
+      --   end
+      -- end, { noremap = true, desc = "Show go doc for api in neovim floating window" })
     end,
   },
 }

@@ -49,24 +49,11 @@ vim.keymap.set("n", "c-]", function()
   vim.lsp.buf.definition()
 end, { noremap = true })
 
--- vim.keymap.set("n", "c-i", function()
---   vim.lsp.buf.implementation()
--- end, { noremap = true })
-
---  DELETED Keymaps --
--- Remove some keymaps that I don't find are any better than the default Vim key maps
--- vim.keymap.del("n", "<leader>ww")
--- vim.keymap.del("n", "<leader>wd")
--- vim.keymap.del("n", "<leader>w-")
--- vim.keymap.del("n", "<leader>w|")
--- vim.keymap.del("n", "<leader>-")
--- vim.keymap.del("n", "<leader>|")
-
 -- buffers
-vim.keymap.del("n", "[b")
-vim.keymap.del("n", "]b")
+-- vim.keymap.del("n", "[b")
+-- vim.keymap.del("n", "]b")
 
--- Move Lines
+-- Move Lines, remove these
 vim.keymap.del("n", "<A-j>")
 vim.keymap.del("n", "<A-k>")
 vim.keymap.del("i", "<A-j>")
@@ -114,14 +101,6 @@ map("v", "<C-k>", function()
     )
   end
 end, { desc = "Move Visual up" })
-
--- Clear search with <esc>
-vim.keymap.set(
-  { "n" },
-  "<leader><esc>",
-  "<cmd>noh<cr><esc>",
-  { desc = "Escape and clear hlsearch" }
-)
 
 vim.keymap.set("n", "<leader><esc>", function()
   vim.cmd("noh")

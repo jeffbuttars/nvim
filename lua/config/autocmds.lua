@@ -5,29 +5,12 @@
 local ButtarsACmds = vim.api.nvim_create_augroup("ButtarsCustomAutocmds", { clear = true })
 
 local function AutoSave(args)
-  -- Restart LSP servers every 30 minutes, keep em fresh
-  local now = vim.fn.reltimefloat(vim.fn.reltime())
-
-  -- NOTE: (jeff), If there is a mis-behaving lsp, the restart interval can help
-  -- if vim.g.lsp_restart_interval then
-  --   if not vim.g.lsp_restart_last then
-  --     vim.g.lsp_restart_last = now
-  --   end
-  --
-  --   if (now - vim.g.lsp_restart_last) > vim.g.lsp_restart_interval then
-  --     require("notify")("Restarting LSP Servers...")
-  --     -- vim.print("Restarting LSP Servers: " .. (now - vim.g.lsp_restart_last) .. " : " .. now .. " : " .. vim.g.lsp_restart_last)
-  --     vim.api.nvim_cmd({ cmd = "LspRestart" }, {})
-  --     vim.g.lsp_restart_last = now
-  --   end
-  -- end
-
   -- close the preview window if it's visible
   -- and the pop up menu is not visible, but not if
   -- we're in a preview window.
-  if vim.fn.pumvisible() == 0 and vim.opt.buftype:get() == "" then
-    vim.api.nvim_command("pclose")
-  end
+  -- if vim.fn.pumvisible() == 0 and vim.opt.buftype:get() == "" then
+  --   vim.api.nvim_command("pclose")
+  -- end
 
   -- Ignore hidden or unlisted buffers and other types of buffers
   if
@@ -42,13 +25,12 @@ local function AutoSave(args)
 
   if vim.fn.expand("%") ~= "" then
     if not vim.api.nvim_buf_get_option(args.buf, "modified") then
-      -- print("Not Saved " .. vim.fn.expand("%") .. " Unmodified")
       return
     end
 
     vim.api.nvim_buf_call(args.buf, function()
       vim.api.nvim_cmd({ cmd = "write", args = {}, bang = true, mods = { silent = true } }, {})
-      print("Saved " .. vim.fn.expand("%"))
+      -- print("Saved " .. vim.fn.expand("%"))
     end)
   end
 end
