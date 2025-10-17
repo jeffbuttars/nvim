@@ -19,7 +19,7 @@ return {
     --
     -- OPTIONAL: Daily tip mode (default: 1)
     -- 0 = off, 1 = once per day, 2 = every startup
-    daily_tip = 2,
+    daily_tip = 1,
 
     -- OPTIONAL: Bookmark symbol (default: "🌟 ")
     -- bookmark_symbol = "🌟 ",
