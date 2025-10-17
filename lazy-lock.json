@@ -46,6 +46,7 @@
   "neotest-golang": { "branch": "main", "commit": "9766560c15d42978c8aaa7dadb04f3d5025bb995" },
   "neotest-python": { "branch": "master", "commit": "b0d3a861bd85689d8ed73f0590c47963a7eb1bf9" },
   "neotest-zig": { "branch": "main", "commit": "de63f3b9a182d374d2e71cf44385326682ec90e7" },
+  "neovim-tips": { "branch": "master", "commit": "623ae551da5f92cb94c2f45a22e9e56e32b64fe9" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "noice.nvim": { "branch": "main", "commit": "38c702be0d8fea81527ee6a73e1e834e72481193" },
   "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
