@@ -3,12 +3,16 @@
 -- vim.opt.tagfunc = Snacks.picker.lsp_definitions
 
 return {
-  -- {
-  --   "folke/snacks.nvim",
-    -- opts = {
-    --   explorer = {
-    --     jump = { close = true },
-    --   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      lazygit = {
+        configure = true,
+        theme_path = vim.fs.normalize("~/.config/lazygit/catpuccin/themes/macchiato/rosewater.yml"),
+      },
+      --   explorer = {
+      --     jump = { close = true },
+      --   },
       --     animate = {
       --       enabled = true,
       --       -- ---@class snacks.animate.Config
@@ -26,6 +30,6 @@ return {
       --     zen = {
       --       width = 120,
       --     },
-  --   },
-  -- },
+    },
+  },
 }
