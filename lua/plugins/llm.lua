@@ -13,6 +13,10 @@ return {
               tonumber(vim.api.nvim_exec2("echo &columns", { output = true }).output or 0) * 0.5
             ),
           },
+          float = {
+            width = 0.9,
+            height = 0.9,
+          },
         },
       },
     },
@@ -43,6 +47,13 @@ return {
         end,
         desc = "Sidekick Toggle Claude",
       },
+      -- {
+      --   "<leader>aw",
+      --   function()
+      --     require("sidekick.cli").toggle({ name = "claude", focus = true, layout = "float" })
+      --   end,
+      --   desc = "Sidekick Toggle Floating",
+      -- },
       {
         "<leader>ao",
         function()
