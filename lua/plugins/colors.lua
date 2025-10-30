@@ -21,7 +21,7 @@ return {
     lazy = false,
     priority = 1000,
   },
-  { 'shaunsingh/nord.nvim'},
+  { "shaunsingh/nord.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -48,5 +48,8 @@ return {
       -- -- vim.opt.background = "dark"
       -- -- vim.opt.background = "light"
     end,
+  },
+  {
+    "vertexE/synth.nvim",
   },
 }
