@@ -74,6 +74,27 @@ return {
       },
     },
   },
+
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      {
+        "bydlw98/blink-cmp-sshconfig",
+        build = "make",
+      },
+    },
+    opts = {
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer", "sshconfig" },
+        providers = {
+          sshconfig = {
+            name = "SshConfig",
+            module = "blink-cmp-sshconfig",
+          },
+        },
+      },
+    },
+  },
 }
 
 -- opts = {

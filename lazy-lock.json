@@ -1,6 +1,7 @@
 {
   "LazyVim": { "branch": "main", "commit": "d72127eb936f7f05d88d4fc316bc7e89080d69d8" },
   "SchemaStore.nvim": { "branch": "main", "commit": "3b0d7d781589ce98ce577202d25d07741ffcf479" },
+  "blink-cmp-sshconfig": { "branch": "main", "commit": "91bf9bd80d53d2b6521cffb01da138ef6403d625" },
   "blink-emoji.nvim": { "branch": "master", "commit": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
   "blink.compat": { "branch": "main", "commit": "2ed6d9a28b07fa6f3bface818470605f8896408c" },
