@@ -120,4 +120,7 @@ return {
     ---@type FzfNerdFontOpts
     opts = {},
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+  },
 }
