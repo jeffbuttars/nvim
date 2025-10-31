@@ -1,4 +1,4 @@
--- local Snacks = require("snacks")
+local Snacks = require("snacks")
 -- local wk = require("which-key")
 
 -- wk.add({ mode = "n", { "<leader>fo", "<cmd>Oil --float<cr><esc>", desc = "Oil" } })
@@ -107,8 +107,46 @@ return {
   -- },
   {
     "nvim-neo-tree/neo-tree.nvim",
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
+    -- keys = {
+    --   {
+    --     "<leader><space>",
+    --     function()
+    --       if Snacks.git.get_root() then
+    --         -- Snacks.picker.git_files({untracked = true})
+    --         vim.cmd("<CMD>Neotree git_status<CR>")
+    --         return
+    --       end
+    --
+    --       vim.cmd("<CMD>Neotree filesystem<CR>")
+    --       -- Snacks.picker.files({cwd = true})
+    --     end,
+    --     desc = "Git repo or CWD",
+    --     mode = { "n" },
+    --     remap = true,
+    --   },
+    -- },
+    opts = {
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function(_)
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
+      -- buffers = {
+      --
+      --   follow_current_file = {
+      --     enabled = true,
+      --     leave_dirs_open = false,
+      --   },
+      -- },
+      -- filesystem = {
+      --   follow_current_file = {
+      --     enabled = true,
+      --     leave_dirs_open = false,
+      --   },
+      -- },
+    },
   },
 }
