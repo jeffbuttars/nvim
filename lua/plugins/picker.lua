@@ -1,70 +1,71 @@
-local Snacks = require("snacks")
+-- local Snacks = require("snacks")
 -- local wk = require("which-key")
 
 -- wk.add({ mode = "n", { "<leader>fo", "<cmd>Oil --float<cr><esc>", desc = "Oil" } })
 
 return {
-  -- {
-  --   "folke/snacks.nvim",
-  --   opts = {
-  --     explorer = {
-  --       -- your explorer picker configuration comes here
-  --       -- or leave it empty to use the default settings
-  --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
-  --       jump = { close = true },
-  --       auto_close = true,
-  --       layout = { preset = "sidebar", preview = true },
-  --     },
-  --     -- picker = {
-  --     --   -- matcher = {
-  --     --   --   file_pos = true,
-  --     --   -- },
-  --     --   sources = {
-  --     --     explorer = {
-  --     --       win = {
-  --     --         list = {
-  --     --           wo = {
-  --     --             number = true,
-  --     --             relativenumber = true,
-  --     --           },
-  --     --         },
-  --     --       },
-  --     --       -- your explorer picker configuration comes here
-  --     --       -- or leave it empty to use the default settings
-  --     --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
-  --     --       jump = { close = true },
-  --     --       auto_close = true,
-  --     --       -- layout = { preset = "vscode"},
-  --     --       -- layout = { preset = "dropdown"},
-  --     --       -- layout = { preset = "vertical"},
-  --     --       layout = {
-  --     --         preset = "sidebar",
-  --     --         preview = { enabled = true, main = true }, -- show preview in main window
-  --     --         layout = {
-  --     --           width = vim.o.columns / 4,
-  --     --         },
-  --     --       },
-  --     --     },
-  --     --   },
-  --     -- },
-  --   },
-  --   -- stylua: ignore
-  --   keys = {
-  --     {
-  --       "<leader><space>",
-  --       function()
-  --         if Snacks.git.get_root() then
-  --           Snacks.picker.git_files({untracked = true})
-  --           return
-  --         end
-  --
-  --         Snacks.picker.files({cwd = true})
-  --       end,
-  --       desc = "Find in Git repo or CWD",
-  --       mode = {"n"},
-  --     },
-  --   },
-  -- },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = {
+        --       -- your explorer picker configuration comes here
+        --       -- or leave it empty to use the default settings
+        --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+        -- jump = { close = true },
+        -- auto_close = true,
+        -- layout = { preset = "sidebar", preview = true },
+        trash = true,
+      },
+      picker = {
+        --     --   -- matcher = {
+        --     --   --   file_pos = true,
+        --     --   -- },
+        sources = {
+          explorer = {
+            jump = { close = true },
+            auto_close = true,
+            --       -- your explorer picker configuration comes here
+            --       -- or leave it empty to use the default settings
+            --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+            --       -- layout = { preset = "vscode"},
+            --       -- layout = { preset = "dropdown"},
+            --       -- layout = { preset = "vertical"},
+            layout = {
+              preset = "sidebar",
+              preview = { enabled = true, main = true }, -- show preview in main window
+              layout = {
+                width = vim.o.columns / 4,
+              },
+            },
+
+            --       win = {
+            --         list = {
+            --           wo = {
+            --             number = true,
+            --             relativenumber = true,
+            --           },
+            --         },
+            --       },
+          },
+        },
+        --   -- stylua: ignore
+        --   keys = {
+        --     {
+        --       "<leader><space>",
+        --       function()
+        --         if Snacks.git.get_root() then
+        --           Snacks.picker.git_files({untracked = true})
+        --           return
+        --         end
+        --
+        --         Snacks.picker.files({cwd = true})
+        --       end,
+        --       desc = "Find in Git repo or CWD",
+        --       mode = {"n"},
+        --     },
+      },
+    },
+  },
   -- {
   --   "stevearc/oil.nvim",
   --   ---@module 'oil'
@@ -105,48 +106,48 @@ return {
   --   ---@type FzfNerdFontOpts
   --   opts = {},
   -- },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    -- keys = {
-    --   {
-    --     "<leader><space>",
-    --     function()
-    --       if Snacks.git.get_root() then
-    --         -- Snacks.picker.git_files({untracked = true})
-    --         vim.cmd("<CMD>Neotree git_status<CR>")
-    --         return
-    --       end
-    --
-    --       vim.cmd("<CMD>Neotree filesystem<CR>")
-    --       -- Snacks.picker.files({cwd = true})
-    --     end,
-    --     desc = "Git repo or CWD",
-    --     mode = { "n" },
-    --     remap = true,
-    --   },
-    -- },
-    opts = {
-      event_handlers = {
-        {
-          event = "file_opened",
-          handler = function(_)
-            require("neo-tree.command").execute({ action = "close" })
-          end,
-        },
-      },
-      -- buffers = {
-      --
-      --   follow_current_file = {
-      --     enabled = true,
-      --     leave_dirs_open = false,
-      --   },
-      -- },
-      -- filesystem = {
-      --   follow_current_file = {
-      --     enabled = true,
-      --     leave_dirs_open = false,
-      --   },
-      -- },
-    },
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   -- keys = {
+  --   --   {
+  --   --     "<leader><space>",
+  --   --     function()
+  --   --       if Snacks.git.get_root() then
+  --   --         -- Snacks.picker.git_files({untracked = true})
+  --   --         vim.cmd("<CMD>Neotree git_status<CR>")
+  --   --         return
+  --   --       end
+  --   --
+  --   --       vim.cmd("<CMD>Neotree filesystem<CR>")
+  --   --       -- Snacks.picker.files({cwd = true})
+  --   --     end,
+  --   --     desc = "Git repo or CWD",
+  --   --     mode = { "n" },
+  --   --     remap = true,
+  --   --   },
+  --   -- },
+  --   opts = {
+  --     event_handlers = {
+  --       {
+  --         event = "file_opened",
+  --         handler = function(_)
+  --           require("neo-tree.command").execute({ action = "close" })
+  --         end,
+  --       },
+  --     },
+  --     -- buffers = {
+  --     --
+  --     --   follow_current_file = {
+  --     --     enabled = true,
+  --     --     leave_dirs_open = false,
+  --     --   },
+  --     -- },
+  --     -- filesystem = {
+  --     --   follow_current_file = {
+  --     --     enabled = true,
+  --     --     leave_dirs_open = false,
+  --     --   },
+  --     -- },
+  --   },
+  -- },
 }
