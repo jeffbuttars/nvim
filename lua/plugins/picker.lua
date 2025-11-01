@@ -15,7 +15,7 @@ return {
 
           Snacks.picker.files({cwd = true})
         end,
-        desc = "Explore Git repo or CWD",
+        desc = "Pick from Git or CWD",
         mode = {"n"},
       },
     },
