@@ -1,35 +1,39 @@
--- local Snacks = require("snacks")
--- local wk = require("which-key")
-
--- wk.add({ mode = "n", { "<leader>fo", "<cmd>Oil --float<cr><esc>", desc = "Oil" } })
-
 return {
   {
     "folke/snacks.nvim",
+
+    -- stylua: ignore
+    keys = {
+      {
+        "<leader><space>",
+        function()
+          local Snacks = require("snacks")
+          if Snacks.git.get_root() then
+            Snacks.picker.git_files({untracked = false, submodules = true})
+            return
+          end
+
+          Snacks.picker.files({cwd = true})
+        end,
+        desc = "Explore Git repo or CWD",
+        mode = {"n"},
+      },
+    },
     opts = {
       explorer = {
-        --       -- your explorer picker configuration comes here
-        --       -- or leave it empty to use the default settings
-        --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
-        -- jump = { close = true },
-        -- auto_close = true,
-        -- layout = { preset = "sidebar", preview = true },
+        -- your explorer picker configuration comes here
+        -- or leave it empty to use the default settings
+        -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
         trash = true,
       },
       picker = {
-        --     --   -- matcher = {
-        --     --   --   file_pos = true,
-        --     --   -- },
         sources = {
           explorer = {
             jump = { close = true },
             auto_close = true,
-            --       -- your explorer picker configuration comes here
-            --       -- or leave it empty to use the default settings
-            --       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
-            --       -- layout = { preset = "vscode"},
-            --       -- layout = { preset = "dropdown"},
-            --       -- layout = { preset = "vertical"},
+            -- your explorer picker configuration comes here
+            -- or leave it empty to use the default settings
+            -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
             layout = {
               preset = "sidebar",
               preview = { enabled = true, main = true }, -- show preview in main window
@@ -38,94 +42,21 @@ return {
               },
             },
 
-            --       win = {
-            --         list = {
-            --           wo = {
-            --             number = true,
-            --             relativenumber = true,
-            --           },
-            --         },
-            --       },
+            win = {
+              list = {
+                wo = {
+                  number = true,
+                  relativenumber = true,
+                },
+              },
+            },
           },
         },
-        --   -- stylua: ignore
-        --   keys = {
-        --     {
-        --       "<leader><space>",
-        --       function()
-        --         if Snacks.git.get_root() then
-        --           Snacks.picker.git_files({untracked = true})
-        --           return
-        --         end
-        --
-        --         Snacks.picker.files({cwd = true})
-        --       end,
-        --       desc = "Find in Git repo or CWD",
-        --       mode = {"n"},
-        --     },
       },
     },
   },
   -- {
-  --   "stevearc/oil.nvim",
-  --   ---@module 'oil'
-  --   ---@type oil.SetupOpts
-  --   opts = {
-  --     default_file_explorer = false,
-  --     columns = {
-  --       "icon",
-  --       "permissions",
-  --       "size",
-  --       -- "mtime",
-  --     },
-  --     -- -- Window-local options to use for oil buffers
-  --     win_options = {
-  --       --   wrap = false,
-  --       -- signcolumn = "yes",
-  --       cursorcolumn = true,
-  --       --   foldcolumn = "0",
-  --       --   spell = false,
-  --       --   list = false,
-  --       --   conceallevel = 3,
-  --       --   concealcursor = "nvic",
-  --     },
-  --   },
-  --   -- Optional dependencies
-  --   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-  -- },
-  -- {
-  --   "stephansama/fzf-nerdfont.nvim",
-  --   lazy = true,
-  --   build = ":FzfNerdfont generate",
-  --   dependencies = { "ibhagwan/fzf-lua" },
-  --   cmd = "FzfNerdfont",
-  --   keys = {
-  --     { "<leader>fi", "<CMD>FzfNerdfont<CR>", desc = "Open fzf nerd font picker" },
-  --   },
-  --   ---@module 'fzf-nerdfont'
-  --   ---@type FzfNerdFontOpts
-  --   opts = {},
-  -- },
-  -- {
   --   "nvim-neo-tree/neo-tree.nvim",
-  --   -- keys = {
-  --   --   {
-  --   --     "<leader><space>",
-  --   --     function()
-  --   --       if Snacks.git.get_root() then
-  --   --         -- Snacks.picker.git_files({untracked = true})
-  --   --         vim.cmd("<CMD>Neotree git_status<CR>")
-  --   --         return
-  --   --       end
-  --   --
-  --   --       vim.cmd("<CMD>Neotree filesystem<CR>")
-  --   --       -- Snacks.picker.files({cwd = true})
-  --   --     end,
-  --   --     desc = "Git repo or CWD",
-  --   --     mode = { "n" },
-  --   --     remap = true,
-  --   --   },
-  --   -- },
   --   opts = {
   --     event_handlers = {
   --       {
