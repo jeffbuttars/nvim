@@ -62,10 +62,21 @@ return {
           --   indent = 2,
           --   padding = 1,
           -- },
+
           {
-            pane = 2,
             icon = " ",
             title = "Git Status",
+            pane = 2,
+            height = 7,
+            section = "terminal",
+            cmd = "echo ''",
+            indent = 3,
+            enabled = true,
+          },
+          {
+            pane = 2,
+            -- icon = " ",
+            -- title = "Git Status",
             section = "terminal",
             enabled = function()
               return Snacks.git.get_root() ~= nil
@@ -73,7 +84,7 @@ return {
             cmd = "git config --get remote.origin.url; git branch --list --color --sort=refname --sort=-committerdate | head -n 3; echo ''; git status --short --branch --renames",
             padding = 1,
             ttl = 5 * 60,
-            indent = 3,
+            indent = 1,
           },
           { section = "startup" },
         },
