@@ -64,8 +64,8 @@ return {
           -- },
 
           {
-            icon = " ",
-            title = "Git Status",
+            -- icon = " ",
+            -- title = "Git Status",
             pane = 2,
             height = 7,
             section = "terminal",
@@ -75,13 +75,13 @@ return {
           },
           {
             pane = 2,
-            -- icon = " ",
-            -- title = "Git Status",
+            -- icon = "  ",
+            title = "",
             section = "terminal",
             enabled = function()
               return Snacks.git.get_root() ~= nil
             end,
-            cmd = "git config --get remote.origin.url; git branch --list --color --sort=refname --sort=-committerdate | head -n 3; echo ''; git status --short --branch --renames",
+            cmd = "echo -n ' '; git config --get remote.origin.url; git branch --list --color --sort=refname --sort=-committerdate | head -n 3; echo ''; git status --short --branch --renames",
             padding = 1,
             ttl = 5 * 60,
             indent = 1,
