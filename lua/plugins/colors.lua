@@ -58,4 +58,15 @@ return {
   {
     "vertexE/synth.nvim",
   },
+  {
+
+    "nvim-mini/mini.hipatterns",
+    opts = {
+      -- Table with highlighters (see |MiniHipatterns.config| for more details).
+      -- Nothing is defined by default. Add manually for visible effect.
+      highlighters = {
+        hypr = { pattern = "rgba*%(%x%x%x%x*%)", group = "MiniHipatternsHypr" },
+      },
+    },
+  },
 }
