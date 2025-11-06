@@ -1,6 +1,6 @@
 {
   "LazyVim": { "branch": "main", "commit": "28db03f958d58dfff3c647ce28fdc1cb88ac158d" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "e5ca2c40986f415398dd5711625f0099b80b28b0" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "03f162c06514111326d07d6d297275642f390f28" },
   "blink-cmp-sshconfig": { "branch": "main", "commit": "91bf9bd80d53d2b6521cffb01da138ef6403d625" },
   "blink-emoji.nvim": { "branch": "master", "commit": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
@@ -34,6 +34,7 @@
   "mini.ai": { "branch": "main", "commit": "0d3c9cf22e37b86b7a0dfbe7ef129ee7a5f4f93c" },
   "mini.comment": { "branch": "main", "commit": "a0c721115faff8d05505c0a12dab410084d9e536" },
   "mini.diff": { "branch": "main", "commit": "fbb93ea1728e7c9d0944df8bd022a68402bd2e7e" },
+  "mini.hipatterns": { "branch": "main", "commit": "45fde19f5af77ec2e04c7fe7e84572db16e552ac" },
   "mini.icons": { "branch": "main", "commit": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428" },
   "mini.pairs": { "branch": "main", "commit": "b316e68f2d242d5bd010deaab645daa27ed86297" },
   "mini.snippets": { "branch": "main", "commit": "66c041fb00ec007b7a7044751c7d3792d0e028a8" },

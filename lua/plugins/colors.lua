@@ -58,4 +58,24 @@ return {
   {
     "vertexE/synth.nvim",
   },
+  {
+
+    "nvim-mini/mini.hipatterns",
+    opts = {
+      -- Table with highlighters (see |MiniHipatterns.config| for more details).
+      -- Nothing is defined by default. Add manually for visible effect.
+      highlighters = {
+        hyprcolorhex = {
+          pattern = "()rgba?%(%x%x%x%x%x%x%x?%x?%)()",
+          group = function(_, _, data)
+            local match = data.full_match
+            -- Extract the first 6 hex values, ignore any beyond that (alpha channel)
+            local hex = match:match(".*%((%x%x%x%x%x%x).*%)")
+
+            return require("mini.hipatterns").compute_hex_color_group("#" .. hex)
+          end,
+        },
+      },
+    },
+  },
 }
