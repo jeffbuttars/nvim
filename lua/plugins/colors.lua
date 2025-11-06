@@ -65,8 +65,8 @@ return {
       -- Table with highlighters (see |MiniHipatterns.config| for more details).
       -- Nothing is defined by default. Add manually for visible effect.
       highlighters = {
-        hyprcolor = {
-          pattern = "rgba?%(()%x%x%x%x%x%x().*%)",
+        hyprcolorhex = {
+          pattern = "()rgba?%(%x%x%x%x%x%x%x?%x?%)()",
           group = function(_, _, data)
             local match = data.full_match
             -- Extract the first 6 hex values, ignore any beyond that (alpha channel)
