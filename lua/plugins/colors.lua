@@ -1,5 +1,6 @@
 vim.g.color_light = "catppuccin-latte"
-vim.g.color_dark = "catppuccin-mocha"
+-- vim.g.color_dark = "catppuccin-mocha"
+vim.g.color_dark = "thorn"
 
 return {
   { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true, enabled = false },
