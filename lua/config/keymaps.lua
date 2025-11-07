@@ -33,6 +33,26 @@ vim.api.nvim_set_keymap("v", '""', '<ESC>`<i"<ESC>`><right>a"<ESC>', { noremap =
 vim.api.nvim_set_keymap("v", "''", "<ESC>`<i'<ESC>`><right>a'<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("v", "``", "<ESC>`<i`<ESC>`><right>a`<ESC>", { noremap = true })
 
+vim.keymap.set("n", ";;", function()
+  local line = vim.api.nvim_get_current_line()
+  local trimmed = line:gsub("%s+$", "")
+  if string.sub(trimmed, -1) ~= ";" then
+    trimmed = trimmed .. ";"
+  end
+
+  vim.api.nvim_set_current_line(trimmed)
+end, { noremap = true })
+
+vim.keymap.set("n", ",,", function()
+  local line = vim.api.nvim_get_current_line()
+  local trimmed = line:gsub("%s+$", "")
+  if string.sub(trimmed, -1) ~= "," then
+    trimmed = trimmed .. ","
+  end
+
+  vim.api.nvim_set_current_line(trimmed)
+end, { noremap = true })
+
 -- Explicitly copy to system clipboard
 vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>y", '"+yy', { noremap = true })
