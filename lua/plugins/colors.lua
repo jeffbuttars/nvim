@@ -11,7 +11,14 @@ return {
     "jpwol/thorn.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      -- background = "warm",
+      background = "cold",
+
+      -- 'light' or 'dark' - theme defaults to vim.o.background if unset
+      -- theme = "dark"
+      -- theme = "light"
+    },
   },
   {
     "folke/tokyonight.nvim",
