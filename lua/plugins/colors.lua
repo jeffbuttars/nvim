@@ -1,5 +1,6 @@
 vim.g.color_light = "catppuccin-latte"
-vim.g.color_dark = "catppuccin-mocha"
+-- vim.g.color_dark = "catppuccin-mocha"
+vim.g.color_dark = "thorn"
 
 return {
   { "roobert/tailwindcss-colorizer-cmp.nvim", config = true, lazy = true, enabled = false },
@@ -7,6 +8,19 @@ return {
   { "folke/lsp-colors.nvim" },
 
   { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "jpwol/thorn.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      -- background = "warm",
+      background = "cold",
+
+      -- 'light' or 'dark' - theme defaults to vim.o.background if unset
+      -- theme = "dark"
+      -- theme = "light"
+    },
+  },
   {
     "folke/tokyonight.nvim",
     -- lazy = false,
