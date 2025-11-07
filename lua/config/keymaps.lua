@@ -36,7 +36,7 @@ vim.api.nvim_set_keymap("v", "``", "<ESC>`<i`<ESC>`><right>a`<ESC>", { noremap =
 vim.keymap.set("n", ";;", function()
   local line = vim.api.nvim_get_current_line()
   local trimmed = line:gsub("%s+$", "")
-  if string.sub(trimmed, -1) ~= ";" then
+  if trimmed:len() > 0 and string.sub(trimmed, -1) ~= ";" then
     trimmed = trimmed .. ";"
   end
 
@@ -46,7 +46,7 @@ end, { noremap = true })
 vim.keymap.set("n", ",,", function()
   local line = vim.api.nvim_get_current_line()
   local trimmed = line:gsub("%s+$", "")
-  if string.sub(trimmed, -1) ~= "," then
+  if trimmed:len() > 0 and string.sub(trimmed, -1) ~= "," then
     trimmed = trimmed .. ","
   end
 
