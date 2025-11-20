@@ -4,6 +4,12 @@ return {
 
     opts = {
       -- add any options here
+      nes = {
+        diff = {
+          inline = "chars",
+        },
+        -- debounce = 200,
+      },
       cli = {
         win = {
           layout = "right",
