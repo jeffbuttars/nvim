@@ -8,7 +8,7 @@ local map = vim.keymap.set
 local blink_cmp = require("blink.cmp")
 
 -- Search and replace current word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- vim.keymap.set("n", "<leader>sW", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make current file executable
 vim.keymap.set(

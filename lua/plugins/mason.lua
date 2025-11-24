@@ -26,6 +26,7 @@ return {
       "markdown-toc",
       "mypy",
       "prettier",
+      "revive",
       "ruff",
       "shfmt",
       "standardjs",
