@@ -45,6 +45,10 @@ return {
     end,
   },
   {
+    "yousefhadder/markdown-plus.nvim",
+    ft = "markdown",
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
 

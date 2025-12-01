@@ -8,7 +8,7 @@ return {
         diff = {
           inline = "chars",
         },
-        -- debounce = 200,
+        debounce = 500,
       },
       cli = {
         win = {
