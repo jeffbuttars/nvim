@@ -22,9 +22,21 @@ return {
       --     image = {
       --       enabled = true,
       --     },
-      --     zen = {
-      --       width = 120,
-      --     },
+      zen = {
+        width = 140,
+        toggles = {
+          -- dim = false,
+          git_signs = true,
+          mini_diff_signs = true,
+          dim = {
+            scope = {
+              min_size = 10,
+              max_size = 50,
+              siblings = true,
+            },
+          },
+        },
+      },
       dashboard = {
         preset = {
           header = [[
