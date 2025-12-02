@@ -8,7 +8,7 @@ return {
         diff = {
           inline = "chars",
         },
-        debounce = 500,
+        debounce = 200,
       },
       cli = {
         win = {
@@ -31,13 +31,20 @@ return {
         "<leader>an",
         function()
           require("sidekick.nes").update()
-          if require("sidekick.nes").have() then
-            require("sidekick.nes").jump()
-          end
+          require("sidekick.nes").enable()
         end,
         mode = { "n" },
         expr = true,
-        desc = "Sidekick NES Check",
+        desc = "NES Enable & Check",
+      },
+      {
+        "<leader>aN",
+        function()
+          require("sidekick.nes").disable()
+        end,
+        mode = { "n" },
+        expr = true,
+        desc = "NES Disable",
       },
       {
         "<leader>aa",
