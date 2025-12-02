@@ -23,7 +23,9 @@ return {
       --       enabled = true,
       --     },
       zen = {
-        width = 140,
+        win = {
+          width = 140,
+        },
         toggles = {
           -- dim = false,
           git_signs = true,
