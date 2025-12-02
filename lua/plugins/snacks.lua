@@ -32,7 +32,7 @@ return {
             scope = {
               min_size = 10,
               max_size = 50,
-              siblings = true,
+              siblings = false,
             },
           },
         },
