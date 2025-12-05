@@ -20,7 +20,7 @@ return {
     desc = "Copyright Ammo Enterprises LLC",
   },
   {
-    prefix = "crae)",
+    prefix = "crsd)",
     body = "Copyright © $CURRENT_YEAR Sable Dynamics LC$0",
     desc = "Copyright Sable Dynamics LC",
   },
