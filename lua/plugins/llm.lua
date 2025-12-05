@@ -6,7 +6,7 @@ return {
       -- add any options here
       nes = {
         diff = {
-          inline = "chars",
+          inline = "words",
         },
         debounce = 300,
       },
