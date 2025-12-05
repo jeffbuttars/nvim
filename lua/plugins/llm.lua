@@ -30,8 +30,11 @@ return {
       {
         "<leader>an",
         function()
+          require("sidekick.nes").toggle()
           require("sidekick.nes").update()
-          require("sidekick.nes").enable()
+
+          local enabled = require("sidekick.nes").enabled
+          vim.print("Sidekick NES " .. (enabled and "Enabled" or "Disabled"))
         end,
         mode = { "n" },
         expr = true,
