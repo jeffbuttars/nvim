@@ -38,12 +38,23 @@ return {
         end,
         mode = { "n" },
         expr = true,
-        desc = "NES Enable & Check",
+        desc = "NES toggle",
+      },
+      {
+        "<leader>au",
+        function()
+          require("sidekick.nes").enable()
+          require("sidekick.nes").update()
+        end,
+        mode = { "n" },
+        expr = true,
+        desc = "NES Update",
       },
       {
         "<leader>aN",
         function()
           require("sidekick.nes").disable()
+          vim.print("Sidekick NES Disabled")
         end,
         mode = { "n" },
         expr = true,
