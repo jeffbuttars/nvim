@@ -43,8 +43,15 @@ return {
       {
         "<leader>au",
         function()
-          require("sidekick.nes").enable()
-          require("sidekick.nes").update()
+          local nes = require("sidekick.nes")
+          local disabled = nes.disable()
+
+          nes.enable()
+          nes.update()
+
+          if disabled then
+            nes.disable()
+          end
         end,
         mode = { "n" },
         expr = true,
