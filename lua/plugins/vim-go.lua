@@ -1,77 +1,77 @@
-local function focus_preview_window()
-  -- Get all windows
-  local windows = vim.api.nvim_list_wins()
+-- local function focus_preview_window()
+--   -- Get all windows
+--   local windows = vim.api.nvim_list_wins()
+--
+--   for _, win in ipairs(windows) do
+--     -- Check if it's a preview window
+--     local win_config = vim.api.nvim_win_get_config(win)
+--
+--     -- Preview windows are usually floating windows
+--     if win_config.relative ~= "" then
+--       -- Additional checks for preview windows
+--       local buf = vim.api.nvim_win_get_buf(win)
+--       local buf_name = vim.api.nvim_buf_get_name(buf)
+--       -- local buf_type = vim.api.nvim_buf_get_option(buf, "buftype")
+--       local buf_type = vim.api.nvim_buf_get_var(buf, "buftype")
+--
+--       -- Common characteristics of preview windows
+--       if buf_type == "nofile" or buf_name:match("preview") then
+--         vim.api.nvim_set_current_win(win)
+--         -- vim.print("Setting win focus for", win)
+--         return true
+--       end
+--     end
+--   end
+--   return false
+-- end
 
-  for _, win in ipairs(windows) do
-    -- Check if it's a preview window
-    local win_config = vim.api.nvim_win_get_config(win)
-
-    -- Preview windows are usually floating windows
-    if win_config.relative ~= "" then
-      -- Additional checks for preview windows
-      local buf = vim.api.nvim_win_get_buf(win)
-      local buf_name = vim.api.nvim_buf_get_name(buf)
-      -- local buf_type = vim.api.nvim_buf_get_option(buf, "buftype")
-      local buf_type = vim.api.nvim_buf_get_var(buf, "buftype")
-
-      -- Common characteristics of preview windows
-      if buf_type == "nofile" or buf_name:match("preview") then
-        vim.api.nvim_set_current_win(win)
-        -- vim.print("Setting win focus for", win)
-        return true
-      end
-    end
-  end
-  return false
-end
-
-local function get_quoted_string_under_cursor()
-  -- Get current cursor position
-  local cursor = vim.api.nvim_win_get_cursor(0)
-  local row = cursor[1] - 1 -- Convert to 0-indexed
-  local col = cursor[2]
-
-  -- Get the current line
-  local line = vim.api.nvim_buf_get_lines(0, row, row + 1, false)[1]
-
-  if not line then
-    return {}
-  end
-
-  -- Find quote characters to look for
-  local quotes = { '"', "'", "`" }
-
-  for _, quote in ipairs(quotes) do
-    -- Find the start of the quoted string (search backwards)
-    local start_pos = nil
-    for i = col, 1, -1 do
-      if line:sub(i, i) == quote then
-        start_pos = i
-        break
-      end
-    end
-
-    -- Find the end of the quoted string (search forwards)
-    local end_pos = nil
-    if start_pos then
-      for i = col + 1, #line do
-        if line:sub(i, i) == quote then
-          end_pos = i
-          break
-        end
-      end
-    end
-
-    -- If we found both start and end, extract the content
-    if start_pos and end_pos and start_pos < end_pos then
-      local content = line:sub(start_pos + 1, end_pos - 1)
-      -- return content, start_pos, end_pos
-      return { content }
-    end
-  end
-
-  return {}
-end
+-- local function get_quoted_string_under_cursor()
+--   -- Get current cursor position
+--   local cursor = vim.api.nvim_win_get_cursor(0)
+--   local row = cursor[1] - 1 -- Convert to 0-indexed
+--   local col = cursor[2]
+--
+--   -- Get the current line
+--   local line = vim.api.nvim_buf_get_lines(0, row, row + 1, false)[1]
+--
+--   if not line then
+--     return {}
+--   end
+--
+--   -- Find quote characters to look for
+--   local quotes = { '"', "'", "`" }
+--
+--   for _, quote in ipairs(quotes) do
+--     -- Find the start of the quoted string (search backwards)
+--     local start_pos = nil
+--     for i = col, 1, -1 do
+--       if line:sub(i, i) == quote then
+--         start_pos = i
+--         break
+--       end
+--     end
+--
+--     -- Find the end of the quoted string (search forwards)
+--     local end_pos = nil
+--     if start_pos then
+--       for i = col + 1, #line do
+--         if line:sub(i, i) == quote then
+--           end_pos = i
+--           break
+--         end
+--       end
+--     end
+--
+--     -- If we found both start and end, extract the content
+--     if start_pos and end_pos and start_pos < end_pos then
+--       local content = line:sub(start_pos + 1, end_pos - 1)
+--       -- return content, start_pos, end_pos
+--       return { content }
+--     end
+--   end
+--
+--   return {}
+-- end
 
 return {
   {
@@ -157,4 +157,16 @@ return {
       -- end, { noremap = true, desc = "Show go doc for api in neovim floating window" })
     end,
   },
+  -- {
+  --   "olexsmir/gopher.nvim",
+  --   ft = "go",
+  --   -- branch = "develop"
+  --   -- (optional) updates the plugin's dependencies on each update
+  --   build = function()
+  --     vim.cmd.GoInstallDeps()
+  --   end,
+  --   ---@module "gopher"
+  --   ---@type gopher.Config
+  --   opts = {},
+  -- },
 }
