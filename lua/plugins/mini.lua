@@ -4,6 +4,10 @@ return {
     -- https://nvim-mini.org/mini.nvim/readmes/mini-cmdline.html#default-config
     version = false,
 
-    opts = {},
+    opts = {
+      -- autopeek = {
+      --   enable = false,
+      -- },
+    },
   },
 }
