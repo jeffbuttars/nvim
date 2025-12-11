@@ -3,10 +3,10 @@ return {
     --   -- Disable the floating command line input,
     --   -- Use the bottom line
     "folke/noice.nvim",
-    --   enabled = true,
+    -- enabled = false,
     opts = {
       messages = {
-        enabled = true,
+        enabled = false,
       },
       cmdline = {
         enabled = false,
