@@ -6,14 +6,16 @@ return {
     -- enabled = false,
     opts = {
       messages = {
-        enabled = false,
+        -- enabled = false,
       },
       cmdline = {
-        enabled = false,
-        opts = {
-          -- Position command line into center of screen
-          position = "50%",
-        },
+        -- enabled = false,
+        -- opts = {
+        --   -- Position command line into center of screen
+        --   position = "50%",
+        -- },
+        -- view = "cmdline_popup",
+        view = "cmdline",
       },
       --     presets = {
       --       bottom_search = false,
