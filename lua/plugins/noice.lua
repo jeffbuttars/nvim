@@ -8,12 +8,13 @@ return {
       messages = {
         enabled = true,
       },
-      --     -- cmdline = {
-      --     --   opts = {
-      --     --     -- Position command line into center of screen
-      --     --     position = "50%",
-      --     --   },
-      --     -- },
+      cmdline = {
+        enabled = false,
+        opts = {
+          -- Position command line into center of screen
+          position = "50%",
+        },
+      },
       --     presets = {
       --       bottom_search = false,
       --       -- command_palette = true,
