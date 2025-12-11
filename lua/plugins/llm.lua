@@ -1,3 +1,13 @@
+local nes = require("sidekick.nes")
+
+local nes_toggle_maybe_update = function()
+  nes.toggle()
+
+  if nes.enabled then
+    nes.update()
+  end
+end
+
 return {
   {
     "folke/sidekick.nvim",
@@ -30,11 +40,8 @@ return {
       {
         "<leader>an",
         function()
-          require("sidekick.nes").toggle()
-          require("sidekick.nes").update()
-
-          local enabled = require("sidekick.nes").enabled
-          vim.print("Sidekick NES " .. (enabled and "Enabled" or "Disabled"))
+          nes_toggle_maybe_update()
+          vim.print("Sidekick NES " .. (nes.enabled and "Enabled" or "Disabled"))
         end,
         mode = { "n" },
         expr = true,
@@ -43,13 +50,10 @@ return {
       {
         "<leader>au",
         function()
-          local nes = require("sidekick.nes")
-          local disabled = nes.disable()
+          local enabled = nes.enabled
+          nes_toggle_maybe_update()
 
-          nes.enable()
-          nes.update()
-
-          if disabled then
+          if ~enabled then
             nes.disable()
           end
         end,
@@ -57,16 +61,16 @@ return {
         expr = true,
         desc = "NES Update",
       },
-      {
-        "<leader>aN",
-        function()
-          require("sidekick.nes").disable()
-          vim.print("Sidekick NES Disabled")
-        end,
-        mode = { "n" },
-        expr = true,
-        desc = "NES Disable",
-      },
+      -- {
+      --   "<leader>aN",
+      --   function()
+      --     require("sidekick.nes").disable()
+      --     vim.print("Sidekick NES Disabled")
+      --   end,
+      --   mode = { "n" },
+      --   expr = true,
+      --   desc = "NES Disable",
+      -- },
       {
         "<leader>aa",
         function()
