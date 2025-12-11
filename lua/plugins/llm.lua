@@ -47,20 +47,24 @@ return {
         expr = true,
         desc = "NES toggle",
       },
-      {
-        "<leader>au",
-        function()
-          local enabled = nes.enabled
-          nes_toggle_maybe_update()
-
-          if ~enabled then
-            nes.disable()
-          end
-        end,
-        mode = { "n" },
-        expr = true,
-        desc = "NES Update",
-      },
+      -- {
+      --   "<leader>au",
+      --   function()
+      --     local enabled = nes.enabled
+      --
+      --     nes.enable()
+      --     nes.update()
+      --     nes.t
+      --     -- nes.t
+      --
+      --     if enabled ~= true then
+      --       nes.disable()
+      --     end
+      --   end,
+      --   mode = { "n" },
+      --   expr = true,
+      --   desc = "NES Update",
+      -- },
       -- {
       --   "<leader>aN",
       --   function()
