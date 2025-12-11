@@ -3,17 +3,18 @@ return {
     --   -- Disable the floating command line input,
     --   -- Use the bottom line
     "folke/noice.nvim",
-    --   enabled = true,
+    -- enabled = false,
     opts = {
       messages = {
-        enabled = true,
+        enabled = false,
       },
-      --     -- cmdline = {
-      --     --   opts = {
-      --     --     -- Position command line into center of screen
-      --     --     position = "50%",
-      --     --   },
-      --     -- },
+      cmdline = {
+        enabled = false,
+        opts = {
+          -- Position command line into center of screen
+          position = "50%",
+        },
+      },
       --     presets = {
       --       bottom_search = false,
       --       -- command_palette = true,
