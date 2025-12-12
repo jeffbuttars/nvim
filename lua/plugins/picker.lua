@@ -35,10 +35,14 @@ return {
             -- or leave it empty to use the default settings
             -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
             layout = {
+              -- preset = "vertical",
+              -- preset = "vscode",
               preset = "sidebar",
               preview = { enabled = true, main = true }, -- show preview in main window
               layout = {
-                width = vim.o.columns / 4,
+                width = (vim.o.columns / 4) > 50 and (vim.o.columns / 4) or 50,
+                -- width = vim.o.columns / 4,
+                -- height = vim.o.lines - 4,
               },
             },
 
