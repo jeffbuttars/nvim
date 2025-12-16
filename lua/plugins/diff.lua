@@ -23,18 +23,20 @@ return {
       { "<leader>Dt", "<cmd>DiffviewToggleFiles<cr>", mode = "n", desc = "Diffview Toggle Files" },
     },
   },
-  {
-    "esmuellert/vscode-diff.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    keys = {
-      { "<leader>DD", "<cmd>CodeDiff<cr>", mode = { "n" }, desc = "CodeDiff" },
-      { "<leader>DM", "<cmd>CodeDiff main<cr>", mode = { "n" }, desc = "CodeDiff main" },
-      {
-        "<leader>DU",
-        "<cmd>CodeDiff upstream/main<cr>",
-        mode = { "n" },
-        desc = "CodeDiff upstream/main",
-      },
-    },
-  },
+  -- {
+  --   "esmuellert/vscode-diff.nvim",
+  --   lazy = false,
+  --   branch = "next",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   keys = {
+  --     { "<leader>DD", "<cmd>CodeDiff<cr>", mode = { "n" }, desc = "CodeDiff" },
+  --     { "<leader>DM", "<cmd>CodeDiff main<cr>", mode = { "n" }, desc = "CodeDiff main" },
+  --     {
+  --       "<leader>DU",
+  --       "<cmd>CodeDiff upstream/main<cr>",
+  --       mode = { "n" },
+  --       desc = "CodeDiff upstream/main",
+  --     },
+  --   },
+  -- },
 }
