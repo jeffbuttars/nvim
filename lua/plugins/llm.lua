@@ -51,14 +51,21 @@ return {
       --   "<leader>au",
       --   function()
       --     local enabled = nes.enabled
+      --     local timer = vim.loop.new_timer()
       --
-      --     nes.enable()
+      --     nes.enable(true)
+      --     nes.setup()
       --     nes.update()
-      --     nes.t
-      --     -- nes.t
       --
-      --     if enabled ~= true then
-      --       nes.disable()
+      --     if not enabled then
+      --       timer:start(
+      --         5000,
+      --         0,
+      --         vim.schedule_wrap(function()
+      --           vim.print("Sidekick NES Disabling")
+      --           nes.disable()
+      --         end)
+      --       )
       --     end
       --   end,
       --   mode = { "n" },
