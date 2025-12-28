@@ -18,7 +18,7 @@ return {
         diff = {
           inline = "words",
         },
-        debounce = 300,
+        debounce = 10,
       },
       cli = {
         win = {
@@ -112,6 +112,7 @@ return {
       },
     },
   },
+
   -- {
   --   -- disable the auto complete in favor of Supermaven
   --   "zbirenbaum/copilot.lua",
@@ -120,8 +121,8 @@ return {
   --   event = "BufReadPost",
   --   opts = {
   --     suggestion = {
-  --       enabled = false,
-  --       auto_trigger = false,
+  --       enabled = true,
+  --       auto_trigger = true,
   --     },
   --   },
   -- },
