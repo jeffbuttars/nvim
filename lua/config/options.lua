@@ -128,3 +128,5 @@ vim.opt.timeoutlen = 500
 --
 --   vim.o.clipboard = "unnamedplus"
 -- end
+
+vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
