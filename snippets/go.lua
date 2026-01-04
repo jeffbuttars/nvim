@@ -1,11 +1,11 @@
 return {
   {
     prefix = "fer",
-    body = 'fmt.Errorf("$1: ${2:%w}", $3${4:err})$0',
+    body = 'fmt.Errorf("$1", ${2:,})$0',
     desc = "fmt.Errorf()",
   },
   {
-    prefix = "ifef",
+    prefix = "ifw",
     body = {
       "if err != nil {",
       '  return fmt.Errorf("$1: ${2:%w}", $3${4:err})',
@@ -41,7 +41,7 @@ return {
   },
   {
     prefix = "logc",
-    body = '${1:inst.}logger.${2|DebugContext,InfoContext,WarnContext,CrticalContext|}(ctx, "$3"$4)$0',
+    body = '${1:inst.}logger.${2|DebugContext,InfoContext,WarnContext,CriticalContext|}(ctx, "$3"$4)$0',
     desc = "<isnt>.logger.<facility>Context(ctx)",
   },
   {
@@ -51,7 +51,7 @@ return {
   },
   {
     prefix = "slgc",
-    body = 'slog.${1|DebugContext,InfoContext,WarnContext,CrticalContext|}(ctx, "$2"$3)$0',
+    body = 'slog.${1|DebugContext,InfoContext,WarnContext,CriticalContext|}(ctx, "$2"$3)$0',
     desc = "slog.FacilityContext(ctx)",
   },
   {
