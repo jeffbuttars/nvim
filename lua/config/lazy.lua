@@ -8,7 +8,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 -- This will enable ghost text in blink completions
--- vim.g.ai_cmp = true
+vim.g.ai_cmp = true
 
 require("lazy").setup({
   spec = {
