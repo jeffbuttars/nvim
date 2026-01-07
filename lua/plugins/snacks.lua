@@ -4,10 +4,10 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      lazygit = {
-        configure = true,
-        theme_path = vim.fs.normalize("~/.config/lazygit/catpuccin/themes/macchiato/rosewater.yml"),
-      },
+      -- lazygit = {
+      --   configure = true,
+      --   theme_path = vim.fs.normalize("~/.config/lazygit/catpuccin/themes/macchiato/rosewater.yml"),
+      -- },
       --     animate = {
       --       enabled = true,
       --       -- ---@class snacks.animate.Config
