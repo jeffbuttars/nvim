@@ -15,6 +15,7 @@ return {
     opts = {
       -- add any options here
       nes = {
+        enabled = false,
         diff = {
           inline = "words",
         },
