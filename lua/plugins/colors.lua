@@ -36,6 +36,8 @@ return {
 
   { "rebelot/kanagawa.nvim" },
   { "EdenEast/nightfox.nvim" },
+  { "marko-cerovac/material.nvim" },
+  { "craftzdog/solarized-osaka.nvim" },
   {
     "scottmckendry/cyberdream.nvim",
     lazy = false,
@@ -71,6 +73,12 @@ return {
   },
   {
     "vertexE/synth.nvim",
+  },
+  {
+    "navarasu/onedark.nvim",
+  },
+  {
+    "projekt0n/github-nvim-theme",
   },
   {
 
