@@ -16,7 +16,6 @@ return {
       -- add any options here
       nes = {
         enabled = false,
-        enable = false,
         diff = {
           inline = "words",
         },
