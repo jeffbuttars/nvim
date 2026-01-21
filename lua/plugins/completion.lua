@@ -34,6 +34,8 @@ return {
             --   )
             -- end,
           },
+
+          codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
         },
       },
 
