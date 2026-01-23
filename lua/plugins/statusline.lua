@@ -1,4 +1,3 @@
-local lualine_require = require("lualine_require")
 local icons = LazyVim.config.icons
 
 return {
@@ -24,12 +23,9 @@ return {
 
     table.insert(opts.sections.lualine_x, 1, {
       function()
-        -- return require("sidekick.nes").enabled and "NES" or "!NES"
-        return "NES"
+        return require("sidekick.nes").enabled and "NES" or ""
       end,
       color = function()
-        -- return require("sidekick.nes").enabled and "Title" or "WarningMsg"
-        -- return require("sidekick.nes").enabled and { fg = "green" } or { fg = "orange" }
         return require("sidekick.nes").enabled and "Title"
           or { cterm = "strikethrough", gui = "strikethrough" }
       end,

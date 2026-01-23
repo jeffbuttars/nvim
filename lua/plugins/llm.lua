@@ -118,10 +118,22 @@ return {
     "Exafunction/windsurf.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
     },
     config = function()
-      require("codeium").setup({})
+      require("codeium").setup({
+        -- enable_cmp_source = true,
+        virtual_text = {
+          enabled = false,
+          -- idle_delay = 5000,
+          -- "", '󰘦',
+          -- key_bindings = {
+          --   accept = "<ctrl-y>",
+          --   next = "<Tab>",
+          --   prev = "<S-Tab>",
+          --   clear = "<esc>",
+          -- },
+        },
+      })
     end,
   },
 
