@@ -113,7 +113,6 @@ return {
       },
     },
   },
-
   {
     "Exafunction/windsurf.nvim",
     dependencies = {
@@ -136,7 +135,6 @@ return {
       })
     end,
   },
-
   -- {
   --   -- disable the auto complete in favor of Supermaven
   --   "zbirenbaum/copilot.lua",
