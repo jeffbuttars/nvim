@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave",
   desc = "AutoSave current buffer",
 })
 
--- Put the results of a good old grep into the cwindow to easily naviagate the results
+-- Put the results of a good old grep into the cwindow to easily navigate the results
 vim.api.nvim_create_autocmd(
   { "QuickFixCmdPost" },
   { pattern = "*grep*", command = "cwindow", group = ButtarsACmds }
@@ -57,6 +57,10 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   pattern = "*",
   callback = function()
+    if vim.api.nvim_get_option_value("filetype", {}) == "codediff-explorer" then
+      return
+    end
+
     vim.opt.cursorline = true
     vim.opt.cursorcolumn = true
     vim.opt.relativenumber = true
@@ -67,6 +71,10 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   pattern = "*",
   callback = function()
+    if vim.api.nvim_get_option_value("filetype", {}) == "codediff-explorer" then
+      return
+    end
+
     -- vim.opt.cursorline = false
     vim.opt.cursorcolumn = false
     vim.opt.relativenumber = false
@@ -77,6 +85,10 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
   pattern = "*",
   callback = function()
+    if vim.api.nvim_get_option_value("filetype", {}) == "codediff-explorer" then
+      return
+    end
+
     vim.opt.cursorcolumn = false
     vim.opt.cursorline = false
     vim.opt.relativenumber = false
@@ -87,6 +99,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "WinLeave" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   pattern = "*",
   callback = function()
+    if vim.api.nvim_get_option_value("filetype", {}) == "codediff-explorer" then
+      return
+    end
+
     vim.opt.relativenumber = true
     vim.opt.cursorline = true
     vim.opt.cursorcolumn = true
