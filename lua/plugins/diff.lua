@@ -1,3 +1,29 @@
+M = {}
+
+function M.find_window_by_filetype(filetype)
+  for i = 1, vim.fn.winnr("$") do
+    local winid = vim.fn.win_getid(i)
+    local bufnr = vim.api.nvim_win_get_buf(winid)
+    if vim.bo[bufnr].filetype == filetype then
+      return winid, bufnr
+    end
+  end
+  return nil, nil
+end
+
+function M.focus_window(winid)
+  if winid and vim.api.nvim_win_is_valid(winid) then
+    vim.api.nvim_set_current_win(winid)
+    return true
+  end
+  return false
+end
+
+function M.focus_explorer()
+  local winid = M.find_window_by_filetype("codediff-explorer")
+  return M.focus_window(winid)
+end
+
 return {
   -- {
   --   "sindrets/diffview.nvim",
@@ -16,7 +42,7 @@ return {
   --     { "<leader>Dc", "<cmd>DiffviewClose<cr>", mode = "n", desc = "Diffview Close" },
   --     { "<leader>Df", "<cmd>DiffviewFocusFiles<cr>", mode = "n", desc = "Diffview Focus Files" },
   --     { "<leader>Dh", "<cmd>DiffviewFileHistory<cr>", mode = "n", desc = "Diffview File History" },
-  --     { "<leader>Dl", "<cmd>DiffviewLog<cr>", mode = "n", desc = "Diffview Log" },
+
   --     { "<leader>Dm", "<cmd>DiffviewOpen main<cr>", mode = "n", desc = "Diffview Open <main>" },
   --     { "<leader>Do", "<cmd>DiffviewOpen<cr>", mode = "n", desc = "Diffview Open" },
   --     { "<leader>Dr", "<cmd>DiffviewRefresh<cr>", mode = "n", desc = "Diffview Refresh" },
@@ -29,8 +55,10 @@ return {
     cmd = "CodeDiff",
     keys = {
       { "<leader>D", desc = "diff" },
+      { "<leader>De", M.focus_explorer, mode = { "n" }, desc = "Diff Explorer focus" },
       { "<leader>DD", "<cmd>CodeDiff<cr>", mode = { "n" }, desc = "CodeDiff Explorer" },
       { "<leader>Df", "<cmd>CodeDiff file HEAD<cr>", mode = { "n" }, desc = "Diff file to HEAD" },
+      { "<leader>Dh", "<cmd>CodeDiff history<cr>", mode = { "n" }, desc = "History of Diffs" },
       {
         "<leader>Dm",
         "<cmd>CodeDiff main<cr>",

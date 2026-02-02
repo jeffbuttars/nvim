@@ -100,4 +100,27 @@ return {
       },
     },
   },
+  {
+    "oskarnurm/koda.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- config = function()
+    --   require("koda").setup({
+    --     transparent = true,
+    --     cache = false,
+    --     on_highlights = function(hl, c)
+    --       hl.CursorColumn = { bg = c.line }
+    --     end,
+    --   })
+    --   vim.cmd("colorscheme koda")
+    -- end,
+    opts = {
+      transparent = true, -- enable for transparent backgrounds
+      cache = false,
+
+      on_highlights = function(hl, c)
+        hl.CursorColumn = { bg = c.line }
+      end,
+    },
+  },
 }
