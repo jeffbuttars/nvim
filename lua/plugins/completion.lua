@@ -11,6 +11,9 @@ return {
       "Exafunction/windsurf.nvim",
     },
     opts = {
+      fuzzy = {
+        implementation = "prefer_rust", -- "prefer_lua" or "prefer_rust" or "lua"
+      },
       sources = {
         default = { "lsp", "codeium", "path", "snippets", "buffer", "sshconfig", "emoji" },
         providers = {
