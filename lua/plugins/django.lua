@@ -1,7 +1,7 @@
 return {
   -- "tweekmonster/django-plus.vim",
-  {
-    "jeffbuttars/django-plus.vim",
-    ft = { "htmldjango", "python", "html", "django" },
-  },
+  -- {
+  --   "jeffbuttars/django-plus.vim",
+  --   ft = { "htmldjango", "python", "html", "django" },
+  -- },
 }
