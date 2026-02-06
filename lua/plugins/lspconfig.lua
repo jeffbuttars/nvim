@@ -17,6 +17,13 @@ return {
       -- },
       -- },
       inlay_hints = { enabled = false },
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
     },
 
     -- init = function()
