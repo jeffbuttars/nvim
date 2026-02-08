@@ -44,10 +44,10 @@ vim.api.nvim_create_autocmd({ "CursorHold", "BufLeave", "FocusLost", "WinLeave",
 })
 
 -- Put the results of a good old grep into the cwindow to easily navigate the results
-vim.api.nvim_create_autocmd(
-  { "QuickFixCmdPost" },
-  { pattern = "*grep*", command = "cwindow", group = ButtarsACmds }
-)
+-- vim.api.nvim_create_autocmd(
+--   { "QuickFixCmdPost" },
+--   { pattern = "*grep*", command = "cwindow", group = ButtarsACmds }
+-- )
 
 -- Only use cursorline/cursorcolumn in normal mode
 -- set linenumbers on by default
