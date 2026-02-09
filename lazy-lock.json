@@ -1,5 +1,4 @@
 {
-  "DoubleTap": { "branch": "master", "commit": "7d0e521f437ed7f71677962853ca239ca7c45520" },
   "LazyVim": { "branch": "main", "commit": "28db03f958d58dfff3c647ce28fdc1cb88ac158d" },
   "SchemaStore.nvim": { "branch": "main", "commit": "ce1234aa4df6d5678bc7d4b9fd5340862519372d" },
   "abolish": { "branch": "master", "commit": "dcbfe065297d31823561ba787f51056c147aa682" },
@@ -80,6 +79,7 @@
   "vim-cue": { "branch": "master", "commit": "ca1a62cc94f329ab0687d01b599dadaee674c3b2" },
   "vim-dadbod": { "branch": "master", "commit": "6d1d41da4873a445c5605f2005ad2c68c99d8770" },
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
+  "vim-just": { "branch": "main", "commit": "11b0f3177e2854cafa0c4baef5329e7d0f0dccbd" },
   "vlog.nvim": { "branch": "master", "commit": "300e43f1628935aa9fec0560f3c7c483b3d38db2" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "windsurf.nvim": { "branch": "main", "commit": "821b570b526dbb05b57aa4ded578b709a704a38a" }

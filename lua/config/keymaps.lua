@@ -7,7 +7,6 @@ local map = vim.keymap.set
 
 local blink_cmp = require("blink.cmp")
 
-
 -- vim.keymap.set("n", "<leader>sW", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make current file executable
@@ -20,38 +19,38 @@ vim.keymap.set(
 
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
-vim.keymap.set("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>`<", { noremap = true })
-vim.keymap.set("v", "))", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
-
-vim.api.nvim_set_keymap("v", "{{", "<ESC>`<i{<ESC>`><right>a}<ESC>`<", { noremap = true })
-vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
-
-vim.api.nvim_set_keymap("v", "[[", "<ESC>`<i[<ESC>`><right>a]<ESC>`<", { noremap = true })
-vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
-
-vim.api.nvim_set_keymap("v", '""', '<ESC>`<i"<ESC>`><right>a"<ESC>', { noremap = true })
-vim.api.nvim_set_keymap("v", "''", "<ESC>`<i'<ESC>`><right>a'<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("v", "``", "<ESC>`<i`<ESC>`><right>a`<ESC>", { noremap = true })
-
-vim.keymap.set("n", ";;", function()
-  local line = vim.api.nvim_get_current_line()
-  local trimmed = line:gsub("%s+$", "")
-  if trimmed:len() > 0 and string.sub(trimmed, -1) ~= ";" then
-    trimmed = trimmed .. ";"
-  end
-
-  vim.api.nvim_set_current_line(trimmed)
-end, { noremap = true })
-
-vim.keymap.set("n", ",,", function()
-  local line = vim.api.nvim_get_current_line()
-  local trimmed = line:gsub("%s+$", "")
-  if trimmed:len() > 0 and string.sub(trimmed, -1) ~= "," then
-    trimmed = trimmed .. ","
-  end
-
-  vim.api.nvim_set_current_line(trimmed)
-end, { noremap = true })
+-- vim.keymap.set("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>`<", { noremap = true })
+-- vim.keymap.set("v", "))", "<ESC>`<i(<ESC>`><right>a)<ESC>", { noremap = true })
+--
+-- vim.api.nvim_set_keymap("v", "{{", "<ESC>`<i{<ESC>`><right>a}<ESC>`<", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "}}", "<ESC>`<i{<ESC>`><right>a}<ESC>", { noremap = true })
+--
+-- vim.api.nvim_set_keymap("v", "[[", "<ESC>`<i[<ESC>`><right>a]<ESC>`<", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "]]", "<ESC>`<i[<ESC>`><right>a]<ESC>", { noremap = true })
+--
+-- vim.api.nvim_set_keymap("v", '""', '<ESC>`<i"<ESC>`><right>a"<ESC>', { noremap = true })
+-- vim.api.nvim_set_keymap("v", "''", "<ESC>`<i'<ESC>`><right>a'<ESC>", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "``", "<ESC>`<i`<ESC>`><right>a`<ESC>", { noremap = true })
+--
+-- vim.keymap.set("n", ";;", function()
+--   local line = vim.api.nvim_get_current_line()
+--   local trimmed = line:gsub("%s+$", "")
+--   if trimmed:len() > 0 and string.sub(trimmed, -1) ~= ";" then
+--     trimmed = trimmed .. ";"
+--   end
+--
+--   vim.api.nvim_set_current_line(trimmed)
+-- end, { noremap = true })
+--
+-- vim.keymap.set("n", ",,", function()
+--   local line = vim.api.nvim_get_current_line()
+--   local trimmed = line:gsub("%s+$", "")
+--   if trimmed:len() > 0 and string.sub(trimmed, -1) ~= "," then
+--     trimmed = trimmed .. ","
+--   end
+--
+--   vim.api.nvim_set_current_line(trimmed)
+-- end, { noremap = true })
 
 -- Explicitly copy to system clipboard
 vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true })

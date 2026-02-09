@@ -101,6 +101,13 @@ return {
       --   conflict_sign_accepted = nil, -- Accepted: GitSignsAdd -> DiagnosticSignOk -> #3fb950
       --   conflict_sign_rejected = nil, -- Rejected: GitSignsDelete -> DiagnosticSignError -> #f85149
       -- },
+      -- highlights = {
+      --   line_insert = "CodeDiffLineInsert", -- Line-level insertions
+      --   line_delete = "CodeDiffLineDelete", -- Line-level deletions
+      --   char_insert = "CodeDiffCharInsert",
+      --   char_delete = "CodeDiffCharDelete",
+      --   diff_filler = "CodeDiffFiller",
+      -- }
     },
   },
 }
