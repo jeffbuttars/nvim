@@ -26,7 +26,7 @@ return {
         -- json = { "jq" },
         -- yaml = { "yamlfix" },
         -- c = { "clang_format" },
-        go = { "golines", "goimports", "gofumpt", "gofmt" },
+        go = { "golines", "goimports", "gofumpt", "gofmt", "pruner" },
         -- Use the "*" filetype to run formatters on all filetypes.
         ["*"] = { "trim_whitespace", "typos" },
         -- Use the "_" filetype to run formatters on filetypes that don't

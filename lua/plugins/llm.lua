@@ -18,17 +18,16 @@ return {
         enabled = true,
         diff = {
           inline = "words",
+          -- inline = "chars",
         },
         debounce = 10,
       },
       cli = {
         win = {
+          -- layout = "float",
           layout = "right",
           split = {
-            -- width = math.floor(vim.api.nvim_win_get_width(0) * 0.5),
-            width = math.floor(
-              tonumber(vim.api.nvim_exec2("echo &columns", { output = true }).output or 0) * 0.5
-            ),
+            width = 0.5,
           },
           float = {
             width = 0.9,
@@ -112,28 +111,6 @@ return {
         desc = "Sidekick Toggle OpenCode",
       },
     },
-  },
-  {
-    "Exafunction/windsurf.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("codeium").setup({
-        -- enable_cmp_source = true,
-        virtual_text = {
-          enabled = false,
-          -- idle_delay = 5000,
-          -- "", '󰘦',
-          -- key_bindings = {
-          --   accept = "<ctrl-y>",
-          --   next = "<Tab>",
-          --   prev = "<S-Tab>",
-          --   clear = "<esc>",
-          -- },
-        },
-      })
-    end,
   },
   -- {
   --   -- disable the auto complete in favor of Supermaven

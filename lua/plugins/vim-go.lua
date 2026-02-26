@@ -89,8 +89,8 @@ return {
       lsp_inlay_hints = { enable = false },
       -- lsp_keymaps = false,
       -- other options
-      tag_options = "json=omitempty",
-      -- tag_options = "",
+      -- tag_options = "json=omitempty",
+      tag_options = "",
     },
     init = function()
       vim.keymap.set({ "v", "n" }, "<leader>G", "", { noremap = true, desc = "Go" })
