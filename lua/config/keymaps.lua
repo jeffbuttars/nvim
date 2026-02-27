@@ -7,6 +7,12 @@ local map = vim.keymap.set
 
 local blink_cmp = require("blink.cmp")
 
+local function is_quickfix_open()
+  return vim.iter(vim.fn.getwininfo()):any(function(wininf)
+    return wininf.quickfix == 1 and wininf.loclist == 0
+  end)
+end
+
 -- vim.keymap.set("n", "<leader>sW", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make current file executable
@@ -16,6 +22,17 @@ vim.keymap.set(
   "<cmd>!chmod +x %<CR>",
   { silent = true, desc = "Make current file executable" }
 )
+
+vim.keymap.set("n", "<leader>qt", function()
+  if is_quickfix_open() then
+    vim.cmd("cclose")
+  else
+    vim.cmd("copen")
+  end
+end, { desc = "Toggle Quickfix list" })
+
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "Quickfix open" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "Quickfix close" })
 
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
