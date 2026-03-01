@@ -27,18 +27,18 @@ return {
       {
         "<leader>JJ",
         function()
-          require("just").run_task_name("default")
+          require("just").run_task_select()
         end,
         mode = { "n" },
-        desc = "Just",
+        desc = "choose a task",
       },
       {
         "<leader>Jt",
         function()
-          require("just").run_task_select()
+          require("just").run_task_name("test")
         end,
         mode = { "n" },
-        desc = "selected a task",
+        desc = "test",
       },
       {
         "<leader>Jb",
@@ -51,7 +51,7 @@ return {
       {
         "<leader>Jd",
         function()
-          require("just").run_task_name("devserve")
+          require("just").run_task_name("default")
         end,
         mode = { "n" },
         desc = "devserve",
