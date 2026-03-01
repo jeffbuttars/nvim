@@ -56,38 +56,20 @@ return {
 
       -- experimental signature help support
       signature = { enabled = true },
+      -- keymap = {
+      --   preset = "super-tab",
+      -- },
 
       keymap = {
-
         ["<S-Tab>"] = {
           "select_prev",
           "fallback",
         },
         ["<Tab>"] = {
-          "snippet_forward",
-          function() -- sidekick next edit suggestion
-            return require("sidekick").nes_jump_or_apply()
-          end,
-          function() -- if you are using Neovim's native inline completions
-            return vim.lsp.inline_completion.get()
-          end,
+          LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
           "select_next",
           "fallback",
         },
-        -- ["<enter>"] = {
-        --   function(cmp)
-        --     -- If the window is open, but nothing has been selected, do nothing
-        --     -- If the window is open, but a selection has been made, accept the completion
-        --     if require("blink.cmp").is_visible() then
-        --       local menu = require("blink.cmp.completion.windows.menu")
-        --       if menu.selected_item_idx ~= nil then
-        --         cmp.accept()
-        --         return true
-        --       end
-        --     end
-        --   end,
-        --   "fallback",
-        -- },
       },
     },
   },
