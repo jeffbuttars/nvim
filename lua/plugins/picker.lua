@@ -59,30 +59,17 @@ return {
       },
     },
   },
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   opts = {
-  --     event_handlers = {
-  --       {
-  --         event = "file_opened",
-  --         handler = function(_)
-  --           require("neo-tree.command").execute({ action = "close" })
-  --         end,
-  --       },
-  --     },
-  --     -- buffers = {
-  --     --
-  --     --   follow_current_file = {
-  --     --     enabled = true,
-  --     --     leave_dirs_open = false,
-  --     --   },
-  --     -- },
-  --     -- filesystem = {
-  --     --   follow_current_file = {
-  --     --     enabled = true,
-  --     --     leave_dirs_open = false,
-  --     --   },
-  --     -- },
-  --   },
-  -- },
+  {
+    "dtormoen/neural-open.nvim",
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    -- NeuralOpen implements lazy loading internally. It needs to be loaded for recency tracking to work.
+    lazy = false,
+    keys = {
+      { "<leader><leader>", "<Plug>(NeuralOpen)", desc = "Neural Open Files" },
+    },
+    -- opts are optional. NeuralOpen will automatically use the defaults below.
+    opts = {},
+  },
 }
