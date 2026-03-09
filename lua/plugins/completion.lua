@@ -66,7 +66,8 @@ return {
           "fallback",
         },
         ["<Tab>"] = {
-          LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
+          -- LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
+          LazyVim.cmp.map({ "snippet_forward", "ai_nes" }),
           "select_next",
           "fallback",
         },

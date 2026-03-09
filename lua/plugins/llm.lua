@@ -82,6 +82,13 @@ return {
       --   expr = true,
       --   desc = "NES Disable",
       -- },
+      -- {
+      --   "<c-tab>",
+      --   function()
+      --     require("sidekick.cli").nes_jump_or_apply()
+      --   end,
+      --   desc = "NES Jump or apply",
+      -- },
       {
         "<leader>aa",
         function()
@@ -202,8 +209,12 @@ return {
   --       _99.visual()
   --     end, { desc = "99 visual" })
   --
+  --     vim.keymap.set("n", "<leader>9s", function()
+  --       _99.search()
+  --     end, { desc = "99 Search" })
+  --
   --     --- if you have a request you dont want to make any changes, just cancel it
-  --     vim.keymap.set("v", "<leader>9s", function()
+  --     vim.keymap.set("n", "<leader>9x", function()
   --       _99.stop_all_requests()
   --     end, { desc = "99 STOP!" })
   --
@@ -215,9 +226,5 @@ return {
   --     --   _99.fill_in_function()
   --     -- end)
   --   end,
-  --
-  --   function()
-  --   -- implement a random function
-  --   end
   -- },
 }
