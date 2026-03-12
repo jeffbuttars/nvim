@@ -8,16 +8,17 @@ return {
         build = "make",
       },
 
-      "Exafunction/windsurf.nvim",
+      -- "Exafunction/windsurf.nvim",
     },
     opts = {
       fuzzy = {
         implementation = "prefer_rust", -- "prefer_lua" or "prefer_rust" or "lua"
       },
       sources = {
-        default = { "lsp", "codeium", "path", "snippets", "buffer", "sshconfig", "emoji" },
+        default = { "lsp", "path", "snippets", "buffer", "sshconfig", "emoji" },
+        -- default = { "lsp", "codeium", "path", "snippets", "buffer", "sshconfig", "emoji" },
         providers = {
-          codeium = { name = "Codeium", module = "codeium.blink", async = true },
+          -- codeium = { name = "Codeium", module = "codeium.blink", async = true },
 
           sshconfig = {
             name = "SshConfig",
