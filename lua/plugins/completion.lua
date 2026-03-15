@@ -58,10 +58,11 @@ return {
       -- experimental signature help support
       signature = { enabled = true },
       -- keymap = {
-      --   preset = "super-tab",
+      --   preset = "enter",
       -- },
 
       keymap = {
+        preset = "enter",
         ["<S-Tab>"] = {
           "select_prev",
           "fallback",
