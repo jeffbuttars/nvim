@@ -62,7 +62,6 @@ return {
       -- },
 
       keymap = {
-        preset = "enter",
         ["<S-Tab>"] = {
           "select_prev",
           "fallback",
