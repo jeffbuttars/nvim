@@ -4,8 +4,8 @@ return {
     dependencies = {
       "moyiz/blink-emoji.nvim",
       {
-        "bydlw98/blink-cmp-sshconfig",
-        build = "make",
+        -- build = "make",
+        build = "cargo build --release",
       },
 
       -- "Exafunction/windsurf.nvim",
@@ -15,15 +15,10 @@ return {
         implementation = "prefer_rust", -- "prefer_lua" or "prefer_rust" or "lua"
       },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "sshconfig", "emoji" },
+        default = { "lsp", "path", "snippets", "buffer", "emoji" },
         -- default = { "lsp", "codeium", "path", "snippets", "buffer", "sshconfig", "emoji" },
         providers = {
           -- codeium = { name = "Codeium", module = "codeium.blink", async = true },
-
-          sshconfig = {
-            name = "SshConfig",
-            module = "blink-cmp-sshconfig",
-          },
 
           emoji = {
             module = "blink-emoji",
