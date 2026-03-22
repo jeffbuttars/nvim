@@ -130,3 +130,10 @@ vim.opt.timeoutlen = 500
 -- end
 
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
+
+-- Set to `false` to prevent "non-lsp snippets"" from appearing inside completion windows
+-- Motivation: Less clutter in completion windows and a more direct usage of snippets
+vim.g.lazyvim_mini_snippets_in_completion = true
+-- NOTE: Please also read:
+-- https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-snippets.md#expand
+-- :h MiniSnippets-session
