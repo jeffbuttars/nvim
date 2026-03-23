@@ -178,7 +178,7 @@ return {
   --
   --         --- What autocomplete do you use.  We currently only
   --         --- support cmp right now
-  --         source = "cmp",
+  --         -- source = "cmp",
   --       },
   --
   --       --- WARNING: if you change cwd then this is likely broken
@@ -191,6 +191,7 @@ return {
   --       --- /foo/AGENT.md
   --       --- assuming that /foo is project root (based on cwd)
   --       md_files = {
+  --         "AGENTS.md",
   --         "AGENT.md",
   --         "CLAUDE.md",
   --       },
