@@ -14,14 +14,14 @@ return {
 
     opts = {
       -- add any options here
-      nes = {
-        enabled = true,
-        diff = {
-          inline = "words",
-          -- inline = "chars",
-        },
-        debounce = 10,
-      },
+      -- nes = {
+      --   enabled = true,
+      --   diff = {
+      --     inline = "words",
+      --     -- inline = "chars",
+      --   },
+      --   debounce = 10,
+      -- },
       cli = {
         win = {
           -- layout = "float",
@@ -47,31 +47,33 @@ return {
         expr = true,
         desc = "NES toggle",
       },
-      -- {
-      --   "<leader>au",
-      --   function()
-      --     local enabled = nes.enabled
-      --     local timer = vim.loop.new_timer()
-      --
-      --     nes.enable(true)
-      --     nes.setup()
-      --     nes.update()
-      --
-      --     if not enabled then
-      --       timer:start(
-      --         5000,
-      --         0,
-      --         vim.schedule_wrap(function()
-      --           vim.print("Sidekick NES Disabling")
-      --           nes.disable()
-      --         end)
-      --       )
-      --     end
-      --   end,
-      --   mode = { "n" },
-      --   expr = true,
-      --   desc = "NES Update",
-      -- },
+      {
+        "<leader>au",
+        function()
+          nes.update()
+          --     local enabled = nes.enabled
+          --     local timer = vim.loop.new_timer()
+          --
+          --     nes.enable(true)
+          --     nes.setup()
+          --     nes.update()
+          --
+          --     if not enabled then
+          --       timer:start(
+          --         5000,
+          --         0,
+          --         vim.schedule_wrap(function()
+          --           vim.print("Sidekick NES Disabling")
+          --           nes.disable()
+          --         end)
+          --       )
+          --     end
+        end,
+        mode = { "n" },
+        expr = true,
+        desc = "NES Update",
+      },
+
       -- {
       --   "<leader>aN",
       --   function()
