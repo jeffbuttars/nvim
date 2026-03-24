@@ -29,6 +29,7 @@
   "go.nvim": { "branch": "treesitter-main", "commit": "1f388d5da285a8009a1947e33ecc3285f0f54dbf" },
   "grug-far.nvim": { "branch": "main", "commit": "dc4684e163971bb1f5bfb93fbd4bb3e892bf9b15" },
   "guihua.lua": { "branch": "master", "commit": "fdca486468a5d94676477917872767b5e67a2b4c" },
+  "inc-rename.nvim": { "branch": "main", "commit": "0074b551a17338ccdcd299bd86687cc651bcb33d" },
   "just.nvim": { "branch": "master", "commit": "587cc281734c85c8765e475fb12b328d335b442b" },
   "kanagawa.nvim": { "branch": "master", "commit": "aef7f5cec0a40dbe7f3304214850c472e2264b10" },
   "kitty-scrollback.nvim": { "branch": "main", "commit": "9342a0e0e5556ce0b7f9dc41c4bdd39ae9dc85dd" },
