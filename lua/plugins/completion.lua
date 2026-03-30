@@ -3,11 +3,6 @@ return {
     "saghen/blink.cmp",
     dependencies = {
       "moyiz/blink-emoji.nvim",
-      -- {
-      -- build = "make",
-      -- build = "cargo build --release",
-      -- },
-
       -- "Exafunction/windsurf.nvim",
     },
     opts = {
