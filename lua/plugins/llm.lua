@@ -11,31 +11,31 @@ end
 return {
   {
     "folke/sidekick.nvim",
-
-    opts = {
-      -- add any options here
-      -- nes = {
-      --   enabled = true,
-      --   diff = {
-      --     inline = "words",
-      --     -- inline = "chars",
-      --   },
-      --   debounce = 10,
-      -- },
-      cli = {
-        win = {
-          -- layout = "float",
-          layout = "right",
-          split = {
-            width = 0.5,
-          },
-          float = {
-            width = 0.9,
-            height = 0.9,
-          },
-        },
-      },
-    },
+    --   -- opts = {
+    --   --   -- add any options here
+    --   --   nes = {
+    --   --     --   enabled = true,
+    --   --     diff = {
+    --   --       -- inline = "words",
+    --   --       show = "always",
+    --   --       inline = "chars",
+    --   --     },
+    --   --     -- debounce = 10,
+    --   --   },
+    --   --   -- cli = {
+    --   --   --   win = {
+    --   --   --     -- layout = "float",
+    --   --   --     layout = "right",
+    --   --   --     split = {
+    --   --   --       width = 0.5,
+    --   --   --     },
+    --   --   --     float = {
+    --   --   --       width = 0.9,
+    --   --   --       height = 0.9,
+    --   --   --     },
+    --   --   --   },
+    --   --   -- },
+    --   -- },
     keys = {
       {
         "<leader>an",
@@ -73,31 +73,31 @@ return {
         expr = true,
         desc = "NES Update",
       },
-
-      -- {
-      --   "<leader>aN",
-      --   function()
-      --     require("sidekick.nes").disable()
-      --     vim.print("Sidekick NES Disabled")
-      --   end,
-      --   mode = { "n" },
-      --   expr = true,
-      --   desc = "NES Disable",
-      -- },
-      -- {
-      --   "<c-tab>",
-      --   function()
-      --     require("sidekick.cli").nes_jump_or_apply()
-      --   end,
-      --   desc = "NES Jump or apply",
-      -- },
-      {
-        "<leader>aa",
-        function()
-          require("sidekick.cli").toggle({ filter = { installed = true } })
-        end,
-        desc = "Sidekick Toggle CLI",
-      },
+      --
+      --     -- {
+      --     --   "<leader>aN",
+      --     --   function()
+      --     --     require("sidekick.nes").disable()
+      --     --     vim.print("Sidekick NES Disabled")
+      --     --   end,
+      --     --   mode = { "n" },
+      --     --   expr = true,
+      --     --   desc = "NES Disable",
+      --     -- },
+      --     -- {
+      --     --   "<c-tab>",
+      --     --   function()
+      --     --     require("sidekick.cli").nes_jump_or_apply()
+      --     --   end,
+      --     --   desc = "NES Jump or apply",
+      --     -- },
+      --     -- {
+      --     --   "<leader>aa",
+      --     --   function()
+      --     --     require("sidekick.cli").toggle({ filter = { installed = true } })
+      --     --   end,
+      --     --   desc = "Sidekick Toggle CLI",
+      --     -- },
       {
         "<leader>ac",
         function()
@@ -105,20 +105,20 @@ return {
         end,
         desc = "Sidekick Toggle Claude",
       },
-      -- {
-      --   "<leader>aw",
-      --   function()
-      --     require("sidekick.cli").toggle({ name = "claude", focus = true, layout = "float" })
-      --   end,
-      --   desc = "Sidekick Toggle Floating",
-      -- },
-      {
-        "<leader>ao",
-        function()
-          require("sidekick.cli").toggle({ name = "opencode", focus = true })
-        end,
-        desc = "Sidekick Toggle OpenCode",
-      },
+      --     -- {
+      --     --   "<leader>aw",
+      --     --   function()
+      --     --     require("sidekick.cli").toggle({ name = "claude", focus = true, layout = "float" })
+      --     --   end,
+      --     --   desc = "Sidekick Toggle Floating",
+      --     -- },
+      --     {
+      --       "<leader>ao",
+      --       function()
+      --         require("sidekick.cli").toggle({ name = "opencode", focus = true })
+      --       end,
+      --       desc = "Sidekick Toggle OpenCode",
+      --     },
     },
   },
   -- {
@@ -129,8 +129,11 @@ return {
   --   event = "BufReadPost",
   --   opts = {
   --     suggestion = {
-  --       enabled = true,
+  --       enabled = false,
   --       auto_trigger = true,
+  --     },
+  --     panel = {
+  --       enabled = true,
   --     },
   --   },
   -- },
