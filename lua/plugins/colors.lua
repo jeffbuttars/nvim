@@ -82,6 +82,9 @@ return {
     "projekt0n/github-nvim-theme",
   },
   {
+    "RRethy/base16-nvim",
+  },
+  {
 
     "nvim-mini/mini.hipatterns",
     opts = {
