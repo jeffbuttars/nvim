@@ -233,4 +233,25 @@ return {
   --     -- end)
   --   end,
   -- },
+  {
+    "polacekpavel/prompt-yank.nvim",
+    cmd = { "PromptYank" },
+    keys = {
+      { "<Leader>ayp", mode = { "n", "v" }, desc = "PromptYank: file/selection" },
+      { "<Leader>aym", mode = "n", desc = "PromptYank: multi-file" },
+      { "<Leader>ayd", mode = { "n", "v" }, desc = "PromptYank: diff" },
+      { "<Leader>ayb", mode = { "n", "v" }, desc = "PromptYank: blame" },
+      { "<Leader>aye", mode = "v", desc = "PromptYank: diagnostics" },
+      { "<Leader>ayt", mode = { "n", "v" }, desc = "PromptYank: tree" },
+      { "<Leader>ayr", mode = { "n", "v" }, desc = "PromptYank: remote URL" },
+      { "<Leader>ayf", mode = "n", desc = "PromptYank: function" },
+      { "<Leader>ayl", mode = "v", desc = "PromptYank: selection + definitions" },
+      { "<Leader>ayL", mode = "v", desc = "PromptYank: selection + deep definitions" },
+      { "<Leader>ayR", mode = "n", desc = "PromptYank: related files" },
+    },
+    opts = {},
+    config = function(_, opts)
+      require("prompt-yank").setup(opts)
+    end,
+  },
 }
