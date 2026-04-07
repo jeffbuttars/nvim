@@ -11,31 +11,31 @@ end
 return {
   {
     "folke/sidekick.nvim",
-    --   -- opts = {
-    --   --   -- add any options here
-    --   --   nes = {
-    --   --     --   enabled = true,
-    --   --     diff = {
-    --   --       -- inline = "words",
-    --   --       show = "always",
-    --   --       inline = "chars",
-    --   --     },
-    --   --     -- debounce = 10,
-    --   --   },
-    --   --   -- cli = {
-    --   --   --   win = {
-    --   --   --     -- layout = "float",
-    --   --   --     layout = "right",
-    --   --   --     split = {
-    --   --   --       width = 0.5,
-    --   --   --     },
-    --   --   --     float = {
-    --   --   --       width = 0.9,
-    --   --   --       height = 0.9,
-    --   --   --     },
-    --   --   --   },
-    --   --   -- },
-    --   -- },
+    opts = {
+          -- add any options here
+          nes = {
+            enabled = true,
+            diff = {
+              -- inline = "words",
+              show = "always",
+              inline = "chars",
+            },
+            -- debounce = 10,
+          },
+      cli = {
+        win = {
+          -- layout = "float",
+          layout = "right",
+          split = {
+            width = 0.5,
+          },
+          float = {
+            width = 0.9,
+            height = 0.9,
+          },
+        },
+      },
+    },
     keys = {
       {
         "<leader>an",

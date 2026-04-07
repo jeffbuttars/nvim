@@ -7,9 +7,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
--- This will enable ghost text in blink completions
-vim.g.ai_cmp = true
-
 require("lazy").setup({
   spec = {
     -- -- add LazyVim and import its plugins
@@ -59,5 +56,3 @@ require("lazy").setup({
   --   fallback = false, -- Fallback to git when local plugin doesn't exist
   -- },
 })
-
-vim.o.winborder = "rounded"

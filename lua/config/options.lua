@@ -137,3 +137,11 @@ vim.g.lazyvim_mini_snippets_in_completion = true
 -- NOTE: Please also read:
 -- https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-snippets.md#expand
 -- :h MiniSnippets-session
+
+-- vim.o.winborder = "rounded"
+
+if vim.version().major >= 12 then
+  require("vim._core.ui2").enable()
+  -- vim.o.autocomplete = true
+  -- vim.o.pumborder = "rounded"
+end
