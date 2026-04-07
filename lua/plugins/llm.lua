@@ -12,16 +12,16 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
-          -- add any options here
-          nes = {
-            enabled = true,
-            diff = {
-              -- inline = "words",
-              show = "always",
-              inline = "chars",
-            },
-            -- debounce = 10,
-          },
+      -- add any options here
+      nes = {
+        enabled = true,
+        diff = {
+          -- inline = "words",
+          show = "always",
+          inline = "chars",
+        },
+        -- debounce = 10,
+      },
       cli = {
         win = {
           -- layout = "float",

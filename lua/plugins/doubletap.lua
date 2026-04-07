@@ -6,13 +6,8 @@ return {
     dir = "~/Dev/DoubleTap/",
 
     opts = {
-<<<<<<< HEAD
-      walkout = false,
-      --   debug = true,
-=======
       --   debug = true,
       walkout = true,
->>>>>>> de1a1f9f56c744f9b1cf3cf3daa600a5e8666cb3
     },
   },
 }
