@@ -5,8 +5,6 @@
 -- Whichkey goodness maps
 local map = vim.keymap.set
 
-local blink_cmp = require("blink.cmp")
-
 local function is_quickfix_open()
   return vim.iter(vim.fn.getwininfo()):any(function(wininf)
     return wininf.quickfix == 1 and wininf.loclist == 0
@@ -114,6 +112,8 @@ vim.keymap.del("v", "<A-k>")
 -- vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- map("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 -- map("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+local blink_cmp = require("blink.cmp")
 map("v", "<C-j>", function()
   if blink_cmp.is_visible() then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-j>", true, true, true), "m", true)
@@ -144,3 +144,17 @@ vim.keymap.set("n", "<leader><esc>", function()
   -- vim.diagnostic.hide()
   -- vim.diagnostic.reset()
 end, { noremap = true, desc = "Escape and clear hlsearch" })
+
+vim.keymap.set(
+  "n",
+  "<leader>qr",
+  "<cmd>restart lua require('persistence').load(); vim.notify('Restarted session', 'warn')<CR>",
+  { noremap = true, desc = "Restart and load session" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>qR",
+  "<cmd>restart lua vim.notify('Restarted', 'warn')<CR>",
+  { noremap = true, desc = "Restart" }
+)
