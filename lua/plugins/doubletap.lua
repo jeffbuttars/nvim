@@ -5,8 +5,9 @@ return {
     -- name = "DoubleTap",
     -- dir = "~/Dev/DoubleTap/",
 
-    -- opts = {
-    --   debug = true,
-    -- },
+    opts = {
+      --   debug = true,
+      walkout = false,
+    },
   },
 }
