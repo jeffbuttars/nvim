@@ -7,7 +7,7 @@ return {
 
     opts = {
       --   debug = true,
-      walkout = true,
+      walkout = false,
     },
   },
 }

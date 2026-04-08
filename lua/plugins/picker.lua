@@ -1,3 +1,5 @@
+local Snacks = require("snacks")
+
 return {
   {
     "folke/snacks.nvim",
@@ -7,7 +9,6 @@ return {
       {
         "<leader><space>",
         function()
-          local Snacks = require("snacks")
           if Snacks.git.get_root() then
             Snacks.picker.git_files({untracked = false, submodules = true})
             return
@@ -18,6 +19,20 @@ return {
         desc = "Pick from Git or CWD",
         mode = {"n"},
       },
+      {
+        "<leader>e",
+        Snacks.picker.explorer,
+        desc = "Sidebar Explorer",
+        mode = {"n"},
+      },
+      {
+        "<leader>E",
+        function()
+          Snacks.picker.explorer({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Sidebar Explorer @ file's directory",
+        mode = {"n"},
+      }
     },
     opts = {
       explorer = {
@@ -29,6 +44,7 @@ return {
       picker = {
         sources = {
           explorer = {
+            enabled = true,
             jump = { close = true },
             auto_close = true,
             -- your explorer picker configuration comes here

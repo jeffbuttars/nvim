@@ -88,7 +88,7 @@ vim.g.lsp_restart_interval = 60 * 30 -- 30 minutes
 vim.g.lsp_restart_last = vim.fn.reltimefloat(vim.fn.reltime())
 -- vim.g.lazyvim_python_lsp = "basedpyright"
 -- vim.g.lazyvim_python_ruff = "ruff"
-vim.g.lazyvim_picker = "snacks"
+-- vim.g.lazyvim_picker = "snacks"
 
 -- vim.opt.timeoutlen = 300  -- default
 vim.opt.timeoutlen = 500
