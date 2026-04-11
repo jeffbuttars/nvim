@@ -10,39 +10,12 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
-<<<<<<< HEAD
-    -- Enable LLM-based inline completion
-    vim.lsp.inline_completion.enable(false)
-
-    -- vim.keymap.set({ "i" }, "<Tab>", function()
-    --   if not vim.lsp.inline_completion.get() then
-    --     return "<Tab>"
-    --   end
-    -- end, {
-    --   desc = "Get the current inline completion",
-    -- })
-    --
-=======
-    -- vim.keymap.set({ "i" }, "<Tab>", function()
-    --   if not vim.lsp.inline_completion.get() then
-    --     return "<Tab>"
-    --   end
-    -- end, {
-    --   desc = "Get the current inline completion",
-    -- })
-
->>>>>>> 9e44a09dff294b816641b9e041a26d7085e215cc
     -- vim.keymap.set("i", "<c-j>", function()
     --   if not vim.lsp.inline_completion.get() then
     --     return "<c-j>"
     --   end
     -- end, { expr = true, desc = "Accept the current inline completion" })
     --
-<<<<<<< HEAD
-    -- vim.keymap.set("i", "<C-]>", function()
-    --   vim.lsp.inline_completion.select()
-    -- end, { expr = true, desc = "Select the current inline completion" })
-=======
     vim.keymap.set("i", "<C-n>", function()
       vim.lsp.inline_completion.select({ count = 1 })
     end, { expr = true, desc = "Next Suggestion" })
@@ -50,7 +23,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("i", "<C-p>", function()
       vim.lsp.inline_completion.select({ count = -1 })
     end, { expr = true, desc = "Previous Suggestion" })
->>>>>>> 9e44a09dff294b816641b9e041a26d7085e215cc
   end,
 })
 
