@@ -148,7 +148,7 @@ end, { noremap = true, desc = "Escape and clear hlsearch" })
 vim.keymap.set(
   "n",
   "<leader>qr",
-  "<cmd>restart lua require('persistence').load(); vim.notify('Restarted session', 'warn')<CR>",
+  [[<cmd>restart lua vim.notify('Restarted session', 'info'); require('persistence').load({last = true}); vim.cmd('edit %')<CR>]],
   { noremap = true, desc = "Restart and load session" }
 )
 
