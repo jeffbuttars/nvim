@@ -43,12 +43,12 @@ return {
           -- Don't select by default and only use an explicitly selected choice
           selection = { preselect = false, auto_insert = false },
         },
-        menu = {
-          auto_show = function()
-            -- Only show the completion menu when there are no inline suggestions to avoid confusion
-            return not vim.lsp.inline_completion.get()
-          end,
-        },
+        -- menu = {
+        --   auto_show = function()
+        --     -- Only show the completion menu when there are no inline suggestions to avoid confusion
+        --     return not vim.lsp.inline_completion.get()
+        --   end,
+        -- },
       },
 
       -- experimental signature help support
@@ -64,8 +64,8 @@ return {
           "fallback",
         },
         ["<Tab>"] = {
-          -- LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
-          LazyVim.cmp.map({ "snippet_forward", "ai_nes" }),
+          -- LazyVim.cmp.map({ "snippet_forward", "ai_nes" }),
+          LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
           "select_next",
           "fallback",
         },
