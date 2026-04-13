@@ -10,14 +10,6 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
-    -- vim.keymap.set({ "i" }, "<Tab>", function()
-    --   if not vim.lsp.inline_completion.get() then
-    --     return "<Tab>"
-    --   end
-    -- end, {
-    --   desc = "Get the current inline completion",
-    -- })
-
     -- vim.keymap.set("i", "<c-j>", function()
     --   if not vim.lsp.inline_completion.get() then
     --     return "<c-j>"
