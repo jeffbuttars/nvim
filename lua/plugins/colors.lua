@@ -8,6 +8,15 @@ return {
 
   { "folke/lsp-colors.nvim" },
 
+  {
+    "kungfusheep/mfd.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme mfd-stealth")
+    end,
+  },
+
   { "rose-pine/neovim", name = "rose-pine" },
   {
     "jpwol/thorn.nvim",
