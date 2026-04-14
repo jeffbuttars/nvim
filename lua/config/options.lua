@@ -140,8 +140,7 @@ vim.g.lazyvim_mini_snippets_in_completion = true
 
 -- vim.o.winborder = "rounded"
 
-if vim.version().major >= 12 then
+if vim.version().minor >= 12 then
   require("vim._core.ui2").enable()
-  -- vim.o.autocomplete = true
-  -- vim.o.pumborder = "rounded"
+  vim.cmd("packadd nvim.difftool")
 end
