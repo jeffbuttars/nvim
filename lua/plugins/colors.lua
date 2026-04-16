@@ -12,9 +12,9 @@ return {
     "kungfusheep/mfd.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd("colorscheme mfd-stealth")
-    end,
+    -- config = function()
+    --   vim.cmd("colorscheme mfd-nerv")
+    -- end,
   },
 
   { "rose-pine/neovim", name = "rose-pine" },
