@@ -17,10 +17,13 @@ return {
       -- },
       -- },
       inlay_hints = { enabled = false },
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
+      servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { "vim" } },
+              workspace = { checkThirdParty = false },
+            },
           },
         },
       },

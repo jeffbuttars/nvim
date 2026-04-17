@@ -57,6 +57,7 @@ return {
       { "<leader>D", desc = "diff" },
       { "<leader>De", M.focus_explorer, mode = { "n" }, desc = "Diff Explorer focus" },
       { "<leader>DD", "<cmd>CodeDiff<cr>", mode = { "n" }, desc = "CodeDiff Explorer" },
+      { "<leader>Dd", ":CodeDiff ", mode = { "n" }, desc = "Diff with ..." },
       { "<leader>Df", "<cmd>CodeDiff file HEAD<cr>", mode = { "n" }, desc = "Diff file to HEAD" },
       { "<leader>Dh", "<cmd>CodeDiff history<cr>", mode = { "n" }, desc = "History of Diffs" },
       {
@@ -70,6 +71,21 @@ return {
         "<cmd>CodeDiff upstream/main<cr>",
         mode = { "n" },
         desc = "CodeDiff Explorer to upstream/main",
+      },
+      {
+        "<leader>Db",
+        function()
+          require("snacks").picker.git_branches({
+            confirm = function(picker, item)
+              picker:close()
+              if item and item.branch then
+                vim.cmd("CodeDiff " .. item.branch)
+              end
+            end,
+          })
+        end,
+        mode = { "n" },
+        desc = "CodeDiff branch picker",
       },
     },
 
