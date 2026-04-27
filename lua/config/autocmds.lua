@@ -109,3 +109,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
   end,
   group = ButtarsACmds,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "snacks_dashboard",
+--   callback = function(args)
+--     vim.print("BIBADF", args)
+--     -- require("milli.runtime").play(args.buf, { splash = "vibecat", loop = true })
+--   end,
+--   group = ButtarsACmds,
+-- })

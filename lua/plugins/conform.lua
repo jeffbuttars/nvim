@@ -15,18 +15,10 @@ return {
       },
       formatters_by_ft = {
         -- ["htmldjango"] = { "djlint" },
-        -- Use a sub-list to run only the first available formatter
-        -- javascript = { "standardjs", "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettier" },
         typescript = { "prettier" },
         svelte = { "prettier" },
-        -- css = { "stylelint", stop_after_first = true },
-        -- bash = { "shfmt", "beautysh" },
-        -- sh = { "shfmt", "beautysh" },
-        -- json = { "jq", "prettier", stop_after_first = true},
-        -- yaml = { "yamlfix", stop_after_first = true },
-        -- c = { "clang_format" },
-        go = { "golines", "gofumpt", "gofmt", "pruner", "goimports" },
+        -- go = { "golangci-lint", "golines", "gofumpt" },
         -- Use the "*" filetype to run formatters on all filetypes.
         ["*"] = { "trim_whitespace", "typos" },
         -- Use the "_" filetype to run formatters on filetypes that don't
