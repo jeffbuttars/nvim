@@ -1,6 +1,7 @@
 vim.g.color_light = "catppuccin-latte"
 -- vim.g.color_dark = "catppuccin-mocha"
 -- vim.g.color_dark = "thorn"
+-- vim.cmd.colorscheme("kintsugi-dark") -- or "kintsugi-flared"
 vim.g.color_dark = "catppuccin-nvim"
 
 return {
@@ -135,5 +136,20 @@ return {
         hl.CursorColumn = { bg = c.line }
       end,
     },
+  },
+  {
+    "metalelf0/kintsugi-nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kintsugi").setup({
+        variant = "dark", -- "dark" | "flared"
+        transparent = false,
+        terminal_colors = true,
+        bold_keywords = true,
+        italic_comments = false,
+      })
+      -- vim.cmd.colorscheme("kintsugi-dark") -- or "kintsugi-flared"
+    end,
   },
 }

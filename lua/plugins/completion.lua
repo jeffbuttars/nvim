@@ -1,3 +1,36 @@
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    -- Enable inline completion if the client supports it
+    if
+      client
+      and client:supports_method("textDocument/inlineCompletion")
+      and vim.lsp.inline_completion.is_enabled()
+    then
+      local bufnr = args.buf
+      -- vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+
+      -- Map to apply the current suggestion
+      vim.keymap.set("i", "<C-I>", function()
+        if not vim.lsp.inline_completion.get() then
+          return "<C-I>"
+        end
+      end, { expr = true, buffer = bufnr, desc = "Accept inline completion" })
+
+      -- -- Map to cycle to the next suggestion
+      -- vim.keymap.set("i", "<S-Tab>", function()
+      --   vim.lsp.inline_completion.select({ count = 1 })
+      -- end, { buffer = bufnr, desc = "Next inline completion" })
+      --
+      -- -- Map to cycle to the previous suggestion
+      -- vim.keymap.set("i", "<C-Tab>", function()
+      --   vim.lsp.inline_completion.select({ count = -1 })
+      -- end, { buffer = bufnr, desc = "Previous inline completion" })
+    end
+  end,
+})
+
 return {
   {
     "saghen/blink.cmp",
@@ -65,7 +98,8 @@ return {
         },
         ["<Tab>"] = {
           -- LazyVim.cmp.map({ "snippet_forward", "ai_nes" }),
-          LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
+          -- LazyVim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }),
+          LazyVim.cmp.map({ "snippet_forward" }),
           "select_next",
           "fallback",
         },
