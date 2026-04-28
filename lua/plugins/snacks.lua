@@ -1,9 +1,42 @@
+local Snacks = require("snacks")
+
 return {
   {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
     dependencies = { "amansingh-afk/milli.nvim" },
+
+    keys = {
+      {
+        "<leader><space>",
+        function()
+          if Snacks.git.get_root() then
+            Snacks.picker.git_files({ untracked = false, submodules = true })
+            return
+          end
+
+          Snacks.picker.files({ cwd = true })
+        end,
+        desc = "Pick from Git or CWD",
+        mode = { "n" },
+      },
+      {
+        "<leader>e",
+        Snacks.picker.explorer,
+        desc = "Sidebar Explorer",
+        mode = { "n" },
+      },
+      {
+        "<leader>E",
+        function()
+          Snacks.picker.explorer({ cwd = vim.fn.expand("%:p:h") })
+        end,
+        desc = "Sidebar Explorer @ file's directory",
+        mode = { "n" },
+      },
+    },
+
     opts = function()
       local splash = require("milli").load({ splash = "vibecat" })
 
@@ -30,11 +63,51 @@ return {
             dim = false,
           },
         },
+
+        picker = {
+          sources = {
+            explorer = {
+              enabled = true,
+              jump = { close = true },
+              auto_close = true,
+              -- your explorer picker configuration comes here
+              -- or leave it empty to use the default settings
+              -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+              layout = {
+                -- preset = "vertical",
+                -- preset = "vscode",
+                preset = "sidebar",
+                preview = { enabled = true, main = true }, -- show preview in main window
+                layout = {
+                  width = (vim.o.columns / 4) > 50 and (vim.o.columns / 4) or 50,
+                  -- width = vim.o.columns / 4,
+                  -- height = vim.o.lines - 4,
+                },
+              },
+
+              win = {
+                list = {
+                  wo = {
+                    number = true,
+                    relativenumber = true,
+                  },
+                },
+              },
+            },
+          },
+        },
+
+        explorer = {
+          -- your explorer picker configuration comes here
+          -- or leave it empty to use the default settings
+          -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#explorer
+          trash = true,
+        },
       }
     end,
     config = function(_, opts)
       require("milli").snacks({ splash = "vibecat", loop = true })
-      require("snacks").setup(opts)
+      Snacks.setup(opts)
     end,
     -- dashboard = {
     --   preset = {
