@@ -1,4 +1,5 @@
 local Snacks = require("snacks")
+local selectedSplash
 
 return {
   {
@@ -38,7 +39,10 @@ return {
     },
 
     opts = function()
-      local splash = require("milli").load({ splash = "vibecat" })
+      local splashes = require("milli").list()
+      math.randomseed(os.time())
+      selectedSplash = splashes[math.random(#splashes)]
+      local splash = require("milli").load({ splash = selectedSplash })
 
       return {
         dashboard = {
@@ -106,7 +110,7 @@ return {
       }
     end,
     config = function(_, opts)
-      require("milli").snacks({ splash = "vibecat", loop = true })
+      require("milli").snacks({ splash = selectedSplash, loop = true })
       Snacks.setup(opts)
     end,
     -- dashboard = {
