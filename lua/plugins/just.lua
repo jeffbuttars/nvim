@@ -66,6 +66,7 @@ local function register_dynamic_just_keys(buf)
     if not used_keys[key] then
       used_keys[key] = true
       vim.keymap.set("n", "<leader>J" .. key, function()
+        require("just").stop_current_task()
         require("just").run_task_name(target)
       end, {
         buffer = buf,
@@ -126,6 +127,7 @@ return {
       {
         "<leader>Jt",
         function()
+          require("just").stop_current_task()
           require("just").run_task_name("test")
         end,
         mode = { "n" },
@@ -134,6 +136,7 @@ return {
       {
         "<leader>Jb",
         function()
+          require("just").stop_current_task()
           require("just").run_task_name("build")
         end,
         mode = { "n" },
@@ -142,6 +145,7 @@ return {
       {
         "<leader>Js",
         function()
+          require("just").stop_current_task()
           require("just").run_task_name("serve")
         end,
         mode = { "n" },
