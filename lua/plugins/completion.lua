@@ -92,6 +92,8 @@ return {
 
       keymap = {
         ["<C-space>"] = { "hide", "show", "show_documentation" },
+        -- CTRL-I should fall through and used for accepting inline completions, vim.lsp.inline_completion.get()
+        ["<C-I>"] = { "fallback" },
         ["<S-Tab>"] = {
           "select_prev",
           "fallback",
