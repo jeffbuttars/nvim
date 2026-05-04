@@ -32,6 +32,15 @@ end, { desc = "Toggle Quickfix list" })
 vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "Quickfix open" })
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "Quickfix close" })
 
+vim.keymap.set("v", "<leader>S", function()
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+  vim.cmd(string.format("%d,%dsort", start_line, end_line))
+end, { noremap = true, desc = "Sort selected lines" })
+
 -- -- Enclosing/Surrounding character mappings, visually select then double tap the
 -- -- character to enclose the selections
 -- vim.keymap.set("v", "((", "<ESC>`<i(<ESC>`><right>a)<ESC>`<", { noremap = true })
