@@ -87,6 +87,55 @@ return {
         mode = { "n" },
         desc = "CodeDiff branch picker",
       },
+      {
+        "<leader>Dt",
+        function()
+          local picker = require("snacks").picker
+          -- AIDEV-NOTE: explorer for tree nav (h/l/<BS>); <C-y> commits highlighted dir to callback.
+          local function pick_dir(title, on_pick)
+            picker.explorer({
+              title = title,
+              auto_close = false,
+              actions = {
+                pick_dir = function(self)
+                  local dir = self:dir()
+                  self:close()
+                  if dir then
+                    on_pick(dir)
+                  end
+                end,
+              },
+              win = { list = { keys = { ["<C-y>"] = "pick_dir" } } },
+            })
+          end
+
+          pick_dir("From directory (<C-y> to select)", function(fromDir)
+            pick_dir("To directory (<C-y> to select)", function(toDir)
+              -- AIDEV-NOTE: relocate next qf to a left panel; once=true so it
+              -- self-cleans after DiffTool's qf opens (sync or async).
+              vim.api.nvim_create_autocmd("FileType", {
+                pattern = "qf",
+                once = true,
+                callback = function()
+                  vim.cmd("wincmd H")
+                  -- AIDEV-NOTE: winfixwidth locks qf so `wincmd =` only
+                  -- equalizes the diff panes, leaving qf at 70 cols.
+                  local qf_win = vim.api.nvim_get_current_win()
+                  vim.api.nvim_win_set_width(qf_win, 70)
+                  vim.wo[qf_win].winfixwidth = true
+                  vim.cmd("wincmd =")
+                end,
+              })
+
+              vim.cmd(
+                "DiffTool " .. vim.fn.fnameescape(fromDir) .. " " .. vim.fn.fnameescape(toDir)
+              )
+            end)
+          end)
+        end,
+        mode = { "n" },
+        desc = "DiffTool diff dirs",
+      },
     },
 
     opts = {
