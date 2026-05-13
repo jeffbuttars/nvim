@@ -84,7 +84,7 @@ return {
               end
               return { marker, { item.branch, "SnacksPickerGitBranch" } }
             end,
-            -- AIDEV-NOTE: custom previewer; header (full ref + upstream) then git log.
+            -- AIDEV-NOTE: custom previewer; header + syntax-highlighted git log via Snacks renderer.
             preview = function(ctx)
               local item = ctx.item
               if not item then
@@ -100,14 +100,23 @@ return {
               local upstream = item.branch
                   and git({ "for-each-ref", "--format=%(upstream:short)", "refs/heads/" .. ref })
                 or ""
-              local header = {
-                "Branch:   " .. ref,
-                "Ref:      " .. (full_ref ~= "" and full_ref or "-"),
-                "Upstream: " .. (upstream ~= "" and upstream or "-"),
-                "Commit:   " .. (item.commit or "-") .. "  " .. (item.msg or ""),
-                string.rep("─", 60),
-                "",
+
+              local label_hl = "SnacksPickerDir"
+              local branch_hl = item.current and "SnacksPickerGitBranchCurrent" or "SnacksPickerGitBranch"
+              local lines = {
+                { { "Branch:   ", label_hl }, { ref, branch_hl } },
+                { { "Ref:      ", label_hl }, { full_ref ~= "" and full_ref or "-", "SnacksPickerComment" } },
+                { { "Upstream: ", label_hl }, { upstream ~= "" and upstream or "-", "SnacksPickerGitBranch" } },
+                {
+                  { "Commit:   ", label_hl },
+                  { item.commit or "-", "SnacksPickerGitCommit" },
+                  { "  " },
+                  { item.msg or "", "SnacksPickerGitMsg" },
+                },
+                { { string.rep("─", 60), "SnacksPickerComment" } },
+                { { "" } },
               }
+
               local log = vim
                 .system({
                   "git",
@@ -124,10 +133,29 @@ return {
                   item.commit,
                 }, { text = true })
                 :wait()
-              local lines = vim.list_extend(header, vim.split(log.stdout or "", "\n", { plain = true }))
+
+              for _, text in ipairs(vim.split(log.stdout or "", "\n", { plain = true })) do
+                local commit, msg, date, author = text:match("^(%S+) (.*) %((.*)%) <(.*)>$")
+                if commit then
+                  lines[#lines + 1] = Snacks.picker.format.git_log({
+                    idx = 1,
+                    score = 0,
+                    text = "",
+                    commit = commit,
+                    msg = msg,
+                    date = date,
+                    author = author,
+                  }, ctx.picker)
+                elseif text ~= "" then
+                  lines[#lines + 1] = { { text } }
+                end
+              end
+
+              local buf = ctx.preview:scratch()
               ctx.preview:set_title(ref)
-              ctx.preview:set_lines(lines)
-              ctx.preview:highlight({ ft = "git" })
+              local ns = vim.api.nvim_create_namespace("snacks_branch_preview")
+              Snacks.picker.highlight.render(buf, ns, lines)
+              Snacks.util.wo(ctx.win, { breakindent = true, wrap = true, linebreak = true })
             end,
             confirm = function(picker, item)
               picker:close()
