@@ -76,6 +76,59 @@ return {
         "<leader>Db",
         function()
           require("snacks").picker.git_branches({
+            -- AIDEV-NOTE: custom format strips commit/log suffix; shows current-marker + branch only.
+            format = function(item)
+              local marker = item.current and { " ", "SnacksPickerGitBranchCurrent" } or { "  " }
+              if item.detached then
+                return { marker, { "(detached HEAD)", "SnacksPickerGitDetached" } }
+              end
+              return { marker, { item.branch, "SnacksPickerGitBranch" } }
+            end,
+            -- AIDEV-NOTE: custom previewer; header (full ref + upstream) then git log.
+            preview = function(ctx)
+              local item = ctx.item
+              if not item then
+                return
+              end
+              local ref = item.branch or "(detached HEAD)"
+              local cwd = item.cwd or vim.uv.cwd()
+              local function git(args)
+                local out = vim.system({ "git", "-C", cwd, unpack(args) }):wait()
+                return (out.stdout or ""):gsub("%s+$", "")
+              end
+              local full_ref = item.branch and git({ "rev-parse", "--symbolic-full-name", ref }) or ""
+              local upstream = item.branch
+                  and git({ "for-each-ref", "--format=%(upstream:short)", "refs/heads/" .. ref })
+                or ""
+              local header = {
+                "Branch:   " .. ref,
+                "Ref:      " .. (full_ref ~= "" and full_ref or "-"),
+                "Upstream: " .. (upstream ~= "" and upstream or "-"),
+                "Commit:   " .. (item.commit or "-") .. "  " .. (item.msg or ""),
+                string.rep("─", 60),
+                "",
+              }
+              local log = vim
+                .system({
+                  "git",
+                  "-C",
+                  cwd,
+                  "--no-pager",
+                  "log",
+                  "--pretty=format:%h %s (%cr) <%an>",
+                  "--abbrev-commit",
+                  "--decorate",
+                  "--color=never",
+                  "-n",
+                  "50",
+                  item.commit,
+                }, { text = true })
+                :wait()
+              local lines = vim.list_extend(header, vim.split(log.stdout or "", "\n", { plain = true }))
+              ctx.preview:set_title(ref)
+              ctx.preview:set_lines(lines)
+              ctx.preview:highlight({ ft = "git" })
+            end,
             confirm = function(picker, item)
               picker:close()
               if item and item.branch then
