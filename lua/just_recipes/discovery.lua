@@ -65,4 +65,57 @@ function M.find_justfiles(root, opts)
   return results
 end
 
+-- Run `just --list` against a specific justfile from its own directory.
+-- Returns a list of recipe names (possibly empty). On failure, warns once
+-- naming the file and returns {} — never silently swallowed.
+function M.list_recipes(path, dir_abs)
+  local cmd = {
+    "just",
+    "--justfile",
+    path,
+    "--working-directory",
+    dir_abs,
+    "--list",
+    "--unsorted",
+  }
+  local output = vim.fn.system(cmd)
+  if vim.v.shell_error ~= 0 then
+    vim.notify("just_recipes: failed to list recipes in " .. path, vim.log.levels.WARN)
+    return {}
+  end
+  return M.parse_list(output)
+end
+
+M._cache = nil
+
+-- Discover subdir justfiles under cwd and their recipes. Cached by cwd until
+-- invalidate() is called. Returns a sorted list of
+-- { dir = <relpath>, path = <abspath>, recipes = { <name>, ... } }.
+function M.discover()
+  local cwd = vim.fn.getcwd()
+  if M._cache and M._cache.cwd == cwd then
+    return M._cache.entries
+  end
+
+  local entries = {}
+  for _, jf in ipairs(M.find_justfiles(cwd)) do
+    local dir_abs = vim.fn.fnamemodify(jf.path, ":h")
+    local recipes = M.list_recipes(jf.path, dir_abs)
+    if #recipes > 0 then
+      table.insert(entries, { dir = jf.dir, path = jf.path, recipes = recipes })
+    end
+  end
+
+  table.sort(entries, function(a, b)
+    return a.dir < b.dir
+  end)
+
+  M._cache = { cwd = cwd, entries = entries }
+  return entries
+end
+
+function M.invalidate()
+  M._cache = nil
+end
+
 return M
