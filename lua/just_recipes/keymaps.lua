@@ -34,4 +34,24 @@ function M.allocate_letters(names, reserved)
   return assigned
 end
 
+-- Build a flat list of selectable items for the picker. Local recipes come
+-- first as "./<recipe>", then each subdir entry's recipes as "<dir>/<recipe>".
+-- Each item: { label = <string>, dir = <"." or relpath>, recipe = <name> }.
+function M.build_flat_list(local_recipes, entries)
+  local items = {}
+  for _, recipe in ipairs(local_recipes or {}) do
+    table.insert(items, { label = "./" .. recipe, dir = ".", recipe = recipe })
+  end
+  for _, entry in ipairs(entries or {}) do
+    for _, recipe in ipairs(entry.recipes) do
+      table.insert(items, {
+        label = entry.dir .. "/" .. recipe,
+        dir = entry.dir,
+        recipe = recipe,
+      })
+    end
+  end
+  return items
+end
+
 return M

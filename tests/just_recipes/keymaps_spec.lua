@@ -25,3 +25,31 @@ describe("keymaps.allocate_letters", function()
     assert.are.same(a, b)
   end)
 end)
+
+describe("keymaps.build_flat_list", function()
+  it("prefixes local recipes with ./ and subdir recipes with dir/", function()
+    local local_recipes = { "build", "test" }
+    local entries = {
+      { dir = "frontend", recipes = { "build", "dev" } },
+      { dir = "backend", recipes = { "test" } },
+    }
+    local items = keymaps.build_flat_list(local_recipes, entries)
+    local labels = {}
+    for _, it in ipairs(items) do
+      table.insert(labels, it.label)
+    end
+    assert.are.same({
+      "./build",
+      "./test",
+      "frontend/build",
+      "frontend/dev",
+      "backend/test",
+    }, labels)
+  end)
+
+  it("tags each item with its dir and recipe for dispatch", function()
+    local items = keymaps.build_flat_list({ "build" }, {})
+    assert.are.same(".", items[1].dir)
+    assert.are.same("build", items[1].recipe)
+  end)
+end)
