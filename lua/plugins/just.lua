@@ -14,6 +14,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
     if args.event == "BufWritePost" and name:match("[Jj]ustfile$") then
       discovery.invalidate()
     end
+    -- Only normal file buffers get subdir keys; skip terminals, qf, prompts, etc.
+    if vim.bo[buf].buftype ~= "" then
+      return
+    end
     vim.schedule(function()
       keymaps.register_submenus(buf)
     end)

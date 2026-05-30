@@ -17,6 +17,7 @@ function M.run_recipe(dir, recipe)
   local original = vim.fn.getcwd()
   local target = vim.fn.fnamemodify(original .. "/" .. dir, ":p")
   vim.cmd.lcd(vim.fn.fnameescape(target))
+  -- pcall so an unexpected throw never strands the window in the subdir cwd.
   local ok, err = pcall(just.run_task_name, recipe)
   vim.cmd.lcd(vim.fn.fnameescape(original))
   if not ok then

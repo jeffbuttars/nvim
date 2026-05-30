@@ -37,7 +37,7 @@ end
 -- Build a flat list of selectable items for the picker. Local recipes come
 -- first as "./<recipe>", then each subdir entry's recipes as "<dir>/<recipe>".
 -- Each item: { label = <string>, dir = <"." or relpath>, recipe = <name> }.
--- AIDEV-NOTE: just.nvim run_task_name fails on recipe names with "_" or capitals; such recipes bind a key but won't run.
+-- AIDEV-NOTE: just.nvim can't run "_"/capitalized recipes; keys bind but error (notified) when run.
 function M.build_flat_list(local_recipes, entries)
   local items = {}
   for _, recipe in ipairs(local_recipes or {}) do
