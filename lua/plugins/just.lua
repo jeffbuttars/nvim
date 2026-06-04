@@ -1,81 +1,8 @@
-local existing_just_keys = { ["J"] = true, ["t"] = true, ["b"] = true, ["s"] = true, ["k"] = true }
-local dynamic_ns = "➡️ "
+local keymaps = require("just_recipes.keymaps")
+local discovery = require("just_recipes.discovery")
 
-local function get_just_targets()
-  local handle = io.popen("just --list --unsorted 2>/dev/null")
-  if not handle then
-    return {}
-  end
-  local output = handle:read("*a")
-  handle:close()
-
-  if not output or output == "" then
-    return {}
-  end
-
-  local targets = {}
-  for line in output:gmatch("[^\r\n]+") do
-    local target = line:match("^%s+(%S+)")
-    if target then
-      table.insert(targets, target)
-    end
-  end
-
-  return targets
-end
-
-local function register_dynamic_just_keys(buf)
-  if not vim.api.nvim_buf_is_valid(buf) then
-    return
-  end
-
-  -- Remove existing dynamic Just keys for this buffer
-  for _, map in ipairs(vim.api.nvim_get_keymap("n")) do
-    if map.lhs:match("^<leader>J.") then
-      if map.desc and map.desc:match("^" .. dynamic_ns) then
-        vim.keymap.del("n", map.lhs, { buffer = buf })
-      end
-    end
-  end
-
-  local targets = get_just_targets()
-  if #targets == 0 then
-    -- nothing to add
-    return
-  end
-
-  local used_keys = vim.deepcopy(existing_just_keys)
-
-  -- mark existing dynamic keys as used to avoid conflicts
-  for _, existing in ipairs(vim.api.nvim_get_keymap("n")) do
-    if existing.lhs:match("^<leader>J.") then
-      local k = existing.lhs:match("^<leader>J(.+)$")
-      if k then
-        used_keys[k] = true
-      end
-    end
-  end
-
-  for _, target in ipairs(targets) do
-    local key = target:sub(1, 1)
-    if used_keys[key] then
-      -- If the first letter is already used, try uppercase
-      key = key:upper()
-    end
-
-    if not used_keys[key] then
-      used_keys[key] = true
-      vim.keymap.set("n", "<leader>J" .. key, function()
-        require("just").stop_current_task()
-        require("just").run_task_name(target)
-      end, {
-        buffer = buf,
-        desc = dynamic_ns .. target,
-      })
-    end
-  end
-end
-
+-- Re-register subdir submenus on buffer enter; invalidate the discovery cache
+-- when any justfile is written so new/removed recipes are picked up.
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
   group = vim.api.nvim_create_augroup("JustDynamicKeys", { clear = true }),
   callback = function(args)
@@ -83,15 +10,22 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
     if not vim.api.nvim_buf_is_valid(buf) then
       return
     end
-
+    local name = vim.api.nvim_buf_get_name(buf)
+    if args.event == "BufWritePost" and name:match("[Jj]ustfile$") then
+      discovery.invalidate()
+    end
+    -- Only normal file buffers get subdir keys; skip terminals, qf, prompts, etc.
+    if vim.bo[buf].buftype ~= "" then
+      return
+    end
     vim.schedule(function()
-      register_dynamic_just_keys(buf)
+      keymaps.register_submenus(buf)
     end)
   end,
 })
 
 return {
-  { "NoahTheDuke/vim-just" },
+  -- { "NoahTheDuke/vim-just" },
   {
     "al1-ce/just.nvim",
     dependencies = {
@@ -123,6 +57,14 @@ return {
         end,
         mode = { "n" },
         desc = "choose a task",
+      },
+      {
+        "<leader>Jp",
+        function()
+          require("just_recipes.keymaps").open_picker()
+        end,
+        mode = { "n" },
+        desc = "pick any recipe (local + subdirs)",
       },
       {
         "<leader>Jt",
