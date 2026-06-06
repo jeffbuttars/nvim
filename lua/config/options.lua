@@ -148,6 +148,9 @@ vim.g.lazyvim_mini_snippets_in_completion = true
 
 -- vim.o.winborder = "rounded"
 
+-- see lua/difftool.lua for the difftool module's dispatcher, which picks between the bundled copy and a vendored copy with a nil-relpath guard. Set this global to flip between them.
+vim.g.difftool_use_bundled = true
+
 if vim.version().minor >= 12 then
   require("vim._core.ui2").enable()
   vim.cmd("packadd nvim.difftool")
