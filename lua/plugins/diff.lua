@@ -24,6 +24,36 @@ function M.focus_explorer()
   return M.focus_window(winid)
 end
 
+-- AIDEV-NOTE: "put/get ALL hunks one direction" == make target buffer identical to
+-- source. Whole-buffer copy beats looping the plugin's private per-hunk diff_get/put.
+-- direction "put" = current->other, "get" = other->current.
+function M.diff_all(direction)
+  local accessors = require("codediff.ui.lifecycle.accessors")
+  local tabpage = vim.api.nvim_get_current_tabpage()
+  local orig_buf, mod_buf = accessors.get_buffers(tabpage)
+  if not orig_buf then
+    vim.notify("Not in a CodeDiff view", vim.log.levels.WARN)
+    return
+  end
+  local cur = vim.api.nvim_get_current_buf()
+  if cur ~= orig_buf and cur ~= mod_buf then
+    vim.notify("Cursor not in a diff buffer", vim.log.levels.WARN)
+    return
+  end
+  local other = cur == orig_buf and mod_buf or orig_buf
+  local source, target = cur, other
+  if direction == "get" then
+    source, target = other, cur
+  end
+  if not vim.bo[target].modifiable then
+    vim.notify("Target buffer is not modifiable", vim.log.levels.WARN)
+    return
+  end
+  local lines = vim.api.nvim_buf_get_lines(source, 0, -1, false)
+  vim.api.nvim_buf_set_lines(target, 0, -1, false, lines)
+  require("codediff.ui.auto_refresh").trigger(target)
+end
+
 return {
   -- {
   --   "sindrets/diffview.nvim",
@@ -61,6 +91,22 @@ return {
       { "<leader>Df", "<cmd>CodeDiff file HEAD<cr>", mode = { "n" }, desc = "Diff file to HEAD" },
       { "<leader>Dh", "<cmd>CodeDiff history<cr>", mode = { "n" }, desc = "History of Diffs" },
       {
+        "<leader>DP",
+        function()
+          M.diff_all("put")
+        end,
+        mode = { "n" },
+        desc = "CodeDiff put ALL (current → other)",
+      },
+      {
+        "<leader>DG",
+        function()
+          M.diff_all("get")
+        end,
+        mode = { "n" },
+        desc = "CodeDiff get ALL (other → current)",
+      },
+      {
         "<leader>Dm",
         "<cmd>CodeDiff main<cr>",
         mode = { "n" },
@@ -96,17 +142,25 @@ return {
                 local out = vim.system({ "git", "-C", cwd, unpack(args) }):wait()
                 return (out.stdout or ""):gsub("%s+$", "")
               end
-              local full_ref = item.branch and git({ "rev-parse", "--symbolic-full-name", ref }) or ""
+              local full_ref = item.branch and git({ "rev-parse", "--symbolic-full-name", ref })
+                or ""
               local upstream = item.branch
                   and git({ "for-each-ref", "--format=%(upstream:short)", "refs/heads/" .. ref })
                 or ""
 
               local label_hl = "SnacksPickerDir"
-              local branch_hl = item.current and "SnacksPickerGitBranchCurrent" or "SnacksPickerGitBranch"
+              local branch_hl = item.current and "SnacksPickerGitBranchCurrent"
+                or "SnacksPickerGitBranch"
               local lines = {
                 { { "Branch:   ", label_hl }, { ref, branch_hl } },
-                { { "Ref:      ", label_hl }, { full_ref ~= "" and full_ref or "-", "SnacksPickerComment" } },
-                { { "Upstream: ", label_hl }, { upstream ~= "" and upstream or "-", "SnacksPickerGitBranch" } },
+                {
+                  { "Ref:      ", label_hl },
+                  { full_ref ~= "" and full_ref or "-", "SnacksPickerComment" },
+                },
+                {
+                  { "Upstream: ", label_hl },
+                  { upstream ~= "" and upstream or "-", "SnacksPickerGitBranch" },
+                },
                 {
                   { "Commit:   ", label_hl },
                   { item.commit or "-", "SnacksPickerGitCommit" },
@@ -208,9 +262,24 @@ return {
                 end,
               })
 
-              vim.cmd(
-                "DiffTool " .. vim.fn.fnameescape(fromDir) .. " " .. vim.fn.fnameescape(toDir)
-              )
+              -- AIDEV-NOTE: call the Lua API (not :DiffTool) so we can pass `ignore`; the command
+              -- doesn't forward opts. diffr engine maps these to `diff -x GLOB` (basename globs,
+              -- NOT regex). Respects the difftool.lua vendored/bundled toggle.
+              require("difftool").open(fromDir, toDir, {
+                ignore = {
+                  ".git",
+                  "node_modules",
+                  ".venv",
+                  "__pycache__",
+                  ".ruff_cache",
+                  ".mypy_cache",
+                  ".pytest_cache",
+                  "dist",
+                  "build",
+                  "*~",
+                  "*.log",
+                },
+              })
             end)
           end)
         end,
