@@ -123,6 +123,20 @@ return {
         end,
         desc = "Sidekick Toggle Claude",
       },
+      {
+        "<leader>aR",
+        function()
+          require("sidekick.cli").send({ name = "claude", msg = "/pr-review-diff" })
+        end,
+        desc = "Sidekick PR Review",
+      },
+      {
+        "<leader>aS",
+        function()
+          require("sidekick.cli").send({ name = "claude", msg = "/pr-sum-desc" })
+        end,
+        desc = "Sidekick PR Summary",
+      },
       --     -- {
       --     --   "<leader>aw",
       --     --   function()

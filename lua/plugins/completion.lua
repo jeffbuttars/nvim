@@ -12,9 +12,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       -- vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
       -- Map to apply the current suggestion
-      vim.keymap.set("i", "<C-I>", function()
+      vim.keymap.set("i", "<C-i>", function()
         if not vim.lsp.inline_completion.get() then
-          return "<C-I>"
+          return "<C-i>"
         end
       end, { expr = true, buffer = bufnr, desc = "Accept inline completion" })
 
@@ -38,6 +38,9 @@ return {
       "moyiz/blink-emoji.nvim",
       -- "Exafunction/windsurf.nvim",
     },
+    build = function()
+      require("blink.pairs").download():pwait(60000)
+    end,
     opts = {
       fuzzy = {
         implementation = "prefer_rust", -- "prefer_lua" or "prefer_rust" or "lua"
