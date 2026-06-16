@@ -10,11 +10,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
       -- Map to apply the current suggestion.
-      -- AIDEV-NOTE: bound to <C-l> not <C-i>: in a terminal <C-i> == <Tab>, which blink.cmp
-      -- owns, so a <C-i> accept map never fires. Falls through to <C-l> when no suggestion.
-      vim.keymap.set("i", "<C-l>", function()
+      vim.keymap.set("i", "<C-i>", function()
         if not vim.lsp.inline_completion.get() then
-          return "<C-l>"
+          return "<C-i>"
         end
       end, { expr = true, buffer = bufnr, desc = "Accept inline completion" })
 
