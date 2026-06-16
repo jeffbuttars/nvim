@@ -3,18 +3,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
     -- Enable inline completion if the client supports it
-    if
-      client
-      and client:supports_method("textDocument/inlineCompletion")
-      and vim.lsp.inline_completion.is_enabled()
-    then
+    -- AIDEV-NOTE: do NOT gate on is_enabled() here — it defaults to false and nothing
+    -- enables it globally, so that made this whole block dead code (never ran).
+    if client and client:supports_method("textDocument/inlineCompletion") then
       local bufnr = args.buf
-      -- vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+      vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
-      -- Map to apply the current suggestion
-      vim.keymap.set("i", "<C-i>", function()
+      -- Map to apply the current suggestion.
+      -- AIDEV-NOTE: bound to <C-l> not <C-i>: in a terminal <C-i> == <Tab>, which blink.cmp
+      -- owns, so a <C-i> accept map never fires. Falls through to <C-l> when no suggestion.
+      vim.keymap.set("i", "<C-l>", function()
         if not vim.lsp.inline_completion.get() then
-          return "<C-i>"
+          return "<C-l>"
         end
       end, { expr = true, buffer = bufnr, desc = "Accept inline completion" })
 
