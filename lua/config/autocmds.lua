@@ -111,15 +111,24 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "WinEnter" }, {
 })
 
 -- Match LSP inline completion ghost text (ComplHint) to the theme's green (String).
-vim.api.nvim_create_autocmd("ColorScheme", {
-  group = ButtarsACmds,
-  callback = function()
+-- AIDEV-NOTE: scheduled so it runs AFTER the theme finishes applying its highlights;
+-- nil-guard avoids setting ComplHint with no fg (which falls back to Normal white).
+local function sync_complhint()
+  vim.schedule(function()
     local string_hl = vim.api.nvim_get_hl(0, { name = "String", link = false })
+    if not string_hl.fg then
+      return
+    end
     local bg = vim.o.background == "light" and "#ffffff" or "#000000"
     vim.api.nvim_set_hl(0, "ComplHint", { fg = string_hl.fg, bg = bg, italic = true })
-  end,
+  end)
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = ButtarsACmds,
+  callback = sync_complhint,
 })
-vim.cmd.doautocmd("ColorScheme")
+sync_complhint()
 
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "snacks_dashboard",
