@@ -16,7 +16,7 @@ vim.g.neovide_cursor_vfx_particle_curl = 1.5 -- railgun only
 
 -- https://neovide.dev/faq.html
 -- Adjust the font size while running
-vim.g.gui_font_default_size = 14
+vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "FiraCode Nerd Font Mono,Hack Nerd Font Mono,Monospace"
 
@@ -59,11 +59,11 @@ vim.g.neovide_refresh_rate_idle = 6
 vim.g.neovide_opacity = 0.7
 -- vim.g.neovide_floating_opacity = 0.9
 vim.g.neovide_window_blurred = true
-vim.o.pumblend = 20
+vim.o.pumblend = 25
 
 -- Setting g:neovide_floating_blur_amount_x and g:neovide_floating_blur_amount_y controls the blur radius on the respective axis for floating windows.
-vim.g.neovide_floating_blur_amount_x = 2.0
-vim.g.neovide_floating_blur_amount_y = 2.0
+vim.g.neovide_floating_blur_amount_x = 3.0
+vim.g.neovide_floating_blur_amount_y = 3.0
 vim.g.neovide_hide_mouse_when_typing = true
 
 vim.g.neovide_floating_shadow = true
