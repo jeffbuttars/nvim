@@ -3,6 +3,11 @@ return {
   version = "*", -- (recommended) only required with prebuilt binaries
   -- download prebuilt binaries from github releases
   dependencies = "saghen/blink.download",
+  -- AIDEV-NOTE: v0.6+ resolves a native lib by name+commit; lazy must (re)fetch it on
+  -- install/update or setup() fails with "Error in UIEnter Autocommands".
+  build = function()
+    require("blink.pairs").download():pwait(60000)
+  end,
   -- OR build from source, requires nightly:
   -- https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
   -- build = 'cargo build --release',

@@ -37,8 +37,9 @@ return {
       -- "Exafunction/windsurf.nvim",
     },
     build = function()
-      require("blink.pairs").download():pwait(60000)
+      require("blink.pairs").build():pwait(60000)
     end,
+
     opts = {
       fuzzy = {
         implementation = "prefer_rust", -- "prefer_lua" or "prefer_rust" or "lua"

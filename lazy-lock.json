@@ -46,6 +46,7 @@
   "mason.nvim": { "branch": "main", "commit": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d" },
   "material.nvim": { "branch": "main", "commit": "92f7366a9315cd386bc4fa4d716fde375dda210f" },
   "mfd.nvim": { "branch": "master", "commit": "72ae627792960a7e490cb5242a78c570d02ba775" },
+  "milli.nvim": { "branch": "main", "commit": "00274623b76a66356e31e1861360b269987a7f64" },
   "mini.ai": { "branch": "main", "commit": "d73c36349aa7b0bab5f77ad71701a1d42211a1df" },
   "mini.diff": { "branch": "main", "commit": "0743d26bd858ebe32efcf5c86a91a422a000f273" },
   "mini.hipatterns": { "branch": "main", "commit": "607d604e650cdf21d71f863d040c496a1d0cb320" },
