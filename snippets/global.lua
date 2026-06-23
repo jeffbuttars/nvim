@@ -11,7 +11,7 @@ return {
   },
   {
     prefix = "crpv)",
-    body = "Copyright © $CURRENT_YEAR PerceptView$0",
+    body = "Copyright © $CURRENT_YEAR PerceptView, All rights reserved$0",
     desc = "Copyright PerceptView",
   },
   {
