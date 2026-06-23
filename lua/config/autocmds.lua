@@ -15,7 +15,7 @@ local function AutoSave(args)
   -- Ignore hidden or unlisted buffers and other types of buffers
   if
     (not vim.opt.modified:get())
-    or (not vim.api.nvim_buf_get_option(0, "modifiable"))
+    or (not vim.api.nvim_get_option_value("modifiable", { buf = 0 }))
     or vim.opt.readonly:get()
     or vim.opt.buflisted:get() == false
     or vim.opt.bufhidden:get() == "hide"
@@ -24,7 +24,7 @@ local function AutoSave(args)
   end
 
   if vim.fn.expand("%") ~= "" then
-    if not vim.api.nvim_buf_get_option(args.buf, "modified") then
+    if not vim.api.nvim_get_option_value("modified", { buf = args.buf }) then
       return
     end
 
