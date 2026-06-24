@@ -90,3 +90,19 @@ end, opts)
 vim.keymap.set({ "n" }, "<C-->", function()
   change_scale_factor(1 / 1.1)
 end, opts)
+
+-- Neovide-only: <C-z> toggles a full-size floating terminal
+local function toggle_float_term()
+  require("snacks").terminal.toggle(nil, {
+    win = {
+      position = "float",
+      width = 0.99,
+      height = 0.99,
+      border = "rounded",
+    },
+  })
+end
+
+vim.keymap.set({ "n", "t" }, "<C-z>", toggle_float_term, {
+  desc = "Toggle fullscreen floating terminal (neovide)",
+})

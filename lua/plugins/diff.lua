@@ -54,6 +54,76 @@ function M.diff_all(direction)
   require("codediff.ui.auto_refresh").trigger(target)
 end
 
+-- AIDEV-NOTE: branch-vs-working diff has no built-in "create file missing in working tree".
+-- Source side is a read-only codediff:// buffer; restore_entry only does unstaged/HEAD.
+-- This writes the source-revision content of the explorer's selected file to disk.
+function M.create_from_source()
+  local accessors = require("codediff.ui.lifecycle.accessors")
+  local git = require("codediff.core.git")
+  local refresh = require("codediff.ui.explorer.refresh")
+
+  local tabpage = vim.api.nvim_get_current_tabpage()
+  local explorer = accessors.get_explorer(tabpage)
+  if not explorer or not explorer.git_root then
+    vim.notify("Not in a CodeDiff explorer", vim.log.levels.WARN)
+    return
+  end
+
+  -- Only meaningful when the target side is the working tree (writable on disk).
+  if explorer.target_revision and explorer.target_revision ~= "WORKING" then
+    vim.notify(
+      "Create-on-disk needs one side to be the working tree (use CodeDiff <branch>)",
+      vim.log.levels.WARN
+    )
+    return
+  end
+
+  local source_rev = explorer.base_revision
+  if not source_rev then
+    vim.notify("No source revision in this session", vim.log.levels.WARN)
+    return
+  end
+
+  local node = explorer.tree:get_node()
+  if not node or not node.data or not node.data.path then
+    vim.notify("No file selected in explorer", vim.log.levels.WARN)
+    return
+  end
+  local rel = node.data.path
+  local abs = explorer.git_root .. "/" .. rel
+
+  if (vim.uv or vim.loop).fs_stat(abs) then
+    vim.notify("File already exists: " .. rel, vim.log.levels.WARN)
+    return
+  end
+
+  git.get_file_content(source_rev, explorer.git_root, rel, function(err, lines)
+    vim.schedule(function()
+      if err then
+        vim.notify(err, vim.log.levels.ERROR)
+        return
+      end
+      vim.fn.mkdir(vim.fn.fnamemodify(abs, ":h"), "p")
+      vim.fn.writefile(lines, abs)
+      vim.notify("Created " .. rel .. " from " .. source_rev:sub(1, 8), vim.log.levels.INFO)
+      refresh.refresh(explorer)
+    end)
+  end)
+end
+
+-- AIDEV-NOTE: buffer-local map in codediff explorer; <leader>Dc creates the selected
+-- missing file on disk from the source revision (see M.create_from_source).
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "codediff-explorer",
+  callback = function(args)
+    vim.keymap.set("n", "<leader>Dc", M.create_from_source, {
+      buffer = args.buf,
+      silent = true,
+      desc = "CodeDiff create file from source",
+    })
+  end,
+})
+
 return {
   -- {
   --   "sindrets/diffview.nvim",
