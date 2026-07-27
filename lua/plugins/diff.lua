@@ -24,36 +24,6 @@ function M.focus_explorer()
   return M.focus_window(winid)
 end
 
--- AIDEV-NOTE: "put/get ALL hunks one direction" == make target buffer identical to
--- source. Whole-buffer copy beats looping the plugin's private per-hunk diff_get/put.
--- direction "put" = current->other, "get" = other->current.
-function M.diff_all(direction)
-  local accessors = require("codediff.ui.lifecycle.accessors")
-  local tabpage = vim.api.nvim_get_current_tabpage()
-  local orig_buf, mod_buf = accessors.get_buffers(tabpage)
-  if not orig_buf then
-    vim.notify("Not in a CodeDiff view", vim.log.levels.WARN)
-    return
-  end
-  local cur = vim.api.nvim_get_current_buf()
-  if cur ~= orig_buf and cur ~= mod_buf then
-    vim.notify("Cursor not in a diff buffer", vim.log.levels.WARN)
-    return
-  end
-  local other = cur == orig_buf and mod_buf or orig_buf
-  local source, target = cur, other
-  if direction == "get" then
-    source, target = other, cur
-  end
-  if not vim.bo[target].modifiable then
-    vim.notify("Target buffer is not modifiable", vim.log.levels.WARN)
-    return
-  end
-  local lines = vim.api.nvim_buf_get_lines(source, 0, -1, false)
-  vim.api.nvim_buf_set_lines(target, 0, -1, false, lines)
-  require("codediff.ui.auto_refresh").trigger(target)
-end
-
 -- AIDEV-NOTE: branch-vs-working diff has no built-in "create file missing in working tree".
 -- Source side is a read-only codediff:// buffer; restore_entry only does unstaged/HEAD.
 -- This writes the source-revision content of the explorer's selected file to disk.
@@ -160,22 +130,6 @@ return {
       { "<leader>Dd", ":CodeDiff ", mode = { "n" }, desc = "Diff with ..." },
       { "<leader>Df", "<cmd>CodeDiff file HEAD<cr>", mode = { "n" }, desc = "Diff file to HEAD" },
       { "<leader>Dh", "<cmd>CodeDiff history<cr>", mode = { "n" }, desc = "History of Diffs" },
-      {
-        "<leader>DP",
-        function()
-          M.diff_all("put")
-        end,
-        mode = { "n" },
-        desc = "CodeDiff put ALL (current → other)",
-      },
-      {
-        "<leader>DG",
-        function()
-          M.diff_all("get")
-        end,
-        mode = { "n" },
-        desc = "CodeDiff get ALL (other → current)",
-      },
       {
         "<leader>Dm",
         "<cmd>CodeDiff main<cr>",

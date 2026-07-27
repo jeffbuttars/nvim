@@ -15,15 +15,15 @@ return {
       },
       formatters_by_ft = {
         -- ["htmldjango"] = { "djlint" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        svelte = { "prettier" },
+        javascript = { "prettier", "trim_whitespace" },
+        typescript = { "prettier", "trim_whitespace" },
+        svelte = { "prettier", "trim_whitespace" },
         -- go = { "golangci-lint", "golines", "gofumpt" },
         -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "trim_whitespace", "typos" },
+        ["*"] = { "typos" },
         -- Use the "_" filetype to run formatters on filetypes that don't
         -- have other formatters configured.
-        _ = { "trim_whitespace", "typos" },
+        _ = { "typos" },
       },
     },
   },

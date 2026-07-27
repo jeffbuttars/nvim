@@ -147,6 +147,17 @@ map("v", "<C-k>", function()
   end
 end, { desc = "Move Visual up" })
 
+-- Resolve every diff hunk in one direction. Works in a CodeDiff view and in plain diff mode
+-- (git difftool/mergetool, :diffsplit). See lua/diff_all.lua.
+-- AIDEV-NOTE: mapped here, not on codediff.nvim's `keys`, so a difftool session never loads it.
+vim.keymap.set("n", "<leader>DP", function()
+  require("diff_all").all("put")
+end, { desc = "Diff put ALL (current → other)" })
+
+vim.keymap.set("n", "<leader>DG", function()
+  require("diff_all").all("get")
+end, { desc = "Diff get ALL (other → current)" })
+
 vim.keymap.set("n", "<leader><esc>", function()
   vim.cmd("noh")
   require("trouble").close()
