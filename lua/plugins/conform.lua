@@ -19,11 +19,8 @@ return {
         typescript = { "prettier", "trim_whitespace" },
         svelte = { "prettier", "trim_whitespace" },
         -- go = { "golangci-lint", "golines", "gofumpt" },
-        -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "typos" },
-        -- Use the "_" filetype to run formatters on filetypes that don't
-        -- have other formatters configured.
-        _ = { "typos" },
+        -- AIDEV-NOTE: typos moved to nvim-lint (report-only); as a conform formatter it rewrote
+        -- identifiers/strings file-locally, silently breaking cross-file references.
       },
     },
   },
