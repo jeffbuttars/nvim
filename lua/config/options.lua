@@ -145,16 +145,6 @@ vim.g.clipboard = {
 
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
 
--- To use the newer, much faster `tsgo` LSP server, either:
--- * enable the `tsgo` extra, or
--- * set `vim.g.lazyvim_ts_lsp = "tsgo"` in your `options.lua`
---
--- LSP Server to use for TypeScript.
----@type "vtsls" | "tsgo"
--- vim.g.lazyvim_ts_lsp = "tsgo"
-
--- vim.g.ai_cmp = false
-
 -- Set to `false` to prevent "non-lsp snippets"" from appearing inside completion windows
 -- Motivation: Less clutter in completion windows and a more direct usage of snippets
 vim.g.lazyvim_mini_snippets_in_completion = true

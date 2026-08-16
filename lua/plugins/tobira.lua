@@ -1,5 +1,7 @@
 return {
   "kamegoro/tobira.nvim",
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    debug = false,
+  },
 }
