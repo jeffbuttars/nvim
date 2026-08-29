@@ -373,14 +373,14 @@ return {
           -- and the runtime Panel.current() setters override per-session
           position = "left", -- "bottom" | "top" | "left" | "right"
           height = 9, -- top/bottom
-          width = 35, -- left/right
+          width = 50, -- left/right
           listing = "tree", -- "tree" | "name"
           progress = true, -- "file K/N" position meter in the panel winbar
         },
         history = { -- log/history sidebar default placement/size
           position = "bottom",
           height = 10, -- top/bottom
-          width = 40, -- left/right
+          width = 50, -- left/right
         },
         merge = { -- merge tool pane layout; no per-invocation override
           layout = "default", -- "default" (ours | theirs) | "diff4" (adds base)
