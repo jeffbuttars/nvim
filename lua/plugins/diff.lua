@@ -28,12 +28,12 @@ end
 -- Source side is a read-only codediff:// buffer; restore_entry only does unstaged/HEAD.
 -- This writes the source-revision content of the explorer's selected file to disk.
 function M.create_from_source()
-  local accessors = require("codediff.ui.lifecycle.accessors")
+  local lifecycle = require("codediff.ui.lifecycle")
   local git = require("codediff.core.git")
   local refresh = require("codediff.ui.explorer.refresh")
 
   local tabpage = vim.api.nvim_get_current_tabpage()
-  local explorer = accessors.get_explorer(tabpage)
+  local explorer = lifecycle.get_panel_view(tabpage)
   if not explorer or not explorer.git_root then
     vim.notify("Not in a CodeDiff explorer", vim.log.levels.WARN)
     return
