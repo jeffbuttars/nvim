@@ -1,5 +1,7 @@
 return {
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+  { "noisesfromspace/touchup.nvim", opts = {} },
+  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
   -- {
   --   "iamcco/markdown-preview.nvim",
   --   config = function()
