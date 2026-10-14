@@ -4,3 +4,21 @@
 -- vim.opt_local.shiftwidth = 2
 --
 -- vim.opt_local.makeprg = "mage"
+-- local dap = require("dap")
+--
+-- dap.adapters.delve_remote = {
+--   type = "server",
+--   host = "127.0.0.1",
+--   port = 40000,
+-- }
+--
+-- dap.configurations.go = dap.configurations.go or {}
+-- table.insert(dap.configurations.go, {
+--   type = "delve_remote",
+--   name = "Attach go-ware (docker)",
+--   request = "attach",
+--   mode = "remote",
+--   substitutePath = {
+--     { from = "${workspaceFolder}/packages/go-ware", to = "/app" },
+--   },
+-- })
