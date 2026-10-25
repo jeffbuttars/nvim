@@ -131,29 +131,39 @@ vim.opt.timeoutlen = 500
 --
 
 vim.o.clipboard = "unnamedplus"
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-  },
-}
+if vim.env.SSH_TTY then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+elseif vim.env.HERDR_ENV then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = function()
+        return vim.split(vim.fn.getreg('"'), "\n")
+      end,
+      ["*"] = function()
+        return vim.split(vim.fn.getreg('"'), "\n")
+      end,
+      -- ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      -- ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+end
 
 vim.g.root_spec = { { ".git", "lua" }, "lsp", "cwd" }
-
--- To use the newer, much faster `tsgo` LSP server, either:
--- * enable the `tsgo` extra, or
--- * set `vim.g.lazyvim_ts_lsp = "tsgo"` in your `options.lua`
---
--- LSP Server to use for TypeScript.
----@type "vtsls" | "tsgo"
--- vim.g.lazyvim_ts_lsp = "tsgo"
-
--- vim.g.ai_cmp = false
 
 -- Set to `false` to prevent "non-lsp snippets"" from appearing inside completion windows
 -- Motivation: Less clutter in completion windows and a more direct usage of snippets

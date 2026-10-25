@@ -28,8 +28,9 @@ end
 -- Source side is a read-only codediff:// buffer; restore_entry only does unstaged/HEAD.
 -- This writes the source-revision content of the explorer's selected file to disk.
 function M.create_from_source()
-  local accessors = require("codediff.ui.lifecycle.accessors")
+  local lifecycle = require("codediff.ui.lifecycle")
   local git = require("codediff.core.git")
+  local refresh = require("codediff.ui.refresh")
 
   local tabpage = vim.api.nvim_get_current_tabpage()
   local explorer = accessors.get_panel_name(tabpage) == "explorer"
@@ -77,6 +78,7 @@ function M.create_from_source()
       vim.fn.mkdir(vim.fn.fnamemodify(abs, ":h"), "p")
       vim.fn.writefile(lines, abs)
       vim.notify("Created " .. rel .. " from " .. source_rev:sub(1, 8), vim.log.levels.INFO)
+      refresh.request(tabpage, { full = true })
     end)
   end)
 end
@@ -379,14 +381,14 @@ return {
           -- and the runtime Panel.current() setters override per-session
           position = "left", -- "bottom" | "top" | "left" | "right"
           height = 9, -- top/bottom
-          width = 35, -- left/right
+          width = 50, -- left/right
           listing = "tree", -- "tree" | "name"
           progress = true, -- "file K/N" position meter in the panel winbar
         },
         history = { -- log/history sidebar default placement/size
           position = "bottom",
           height = 10, -- top/bottom
-          width = 40, -- left/right
+          width = 50, -- left/right
         },
         merge = { -- merge tool pane layout; no per-invocation override
           layout = "default", -- "default" (ours | theirs) | "diff4" (adds base)
