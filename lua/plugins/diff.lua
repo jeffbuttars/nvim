@@ -30,17 +30,18 @@ end
 function M.create_from_source()
   local accessors = require("codediff.ui.lifecycle.accessors")
   local git = require("codediff.core.git")
-  local refresh = require("codediff.ui.explorer.refresh")
 
   local tabpage = vim.api.nvim_get_current_tabpage()
-  local explorer = accessors.get_explorer(tabpage)
-  if not explorer or not explorer.git_root then
+  local explorer = accessors.get_panel_name(tabpage) == "explorer"
+    and accessors.get_panel_view(tabpage)
+  if not explorer or not explorer.data.git_root then
     vim.notify("Not in a CodeDiff explorer", vim.log.levels.WARN)
     return
   end
 
   -- Only meaningful when the target side is the working tree (writable on disk).
-  if explorer.target_revision and explorer.target_revision ~= "WORKING" then
+  local data = explorer.data
+  if data.target_revision and data.target_revision ~= "WORKING" then
     vim.notify(
       "Create-on-disk needs one side to be the working tree (use CodeDiff <branch>)",
       vim.log.levels.WARN
@@ -48,7 +49,7 @@ function M.create_from_source()
     return
   end
 
-  local source_rev = explorer.base_revision
+  local source_rev = data.base_revision
   if not source_rev then
     vim.notify("No source revision in this session", vim.log.levels.WARN)
     return
@@ -60,14 +61,14 @@ function M.create_from_source()
     return
   end
   local rel = node.data.path
-  local abs = explorer.git_root .. "/" .. rel
+  local abs = data.git_root .. "/" .. rel
 
   if (vim.uv or vim.loop).fs_stat(abs) then
     vim.notify("File already exists: " .. rel, vim.log.levels.WARN)
     return
   end
 
-  git.get_file_content(source_rev, explorer.git_root, rel, function(err, lines)
+  git.get_file_content(source_rev, data.git_root, rel, function(err, lines)
     vim.schedule(function()
       if err then
         vim.notify(err, vim.log.levels.ERROR)
@@ -76,7 +77,6 @@ function M.create_from_source()
       vim.fn.mkdir(vim.fn.fnamemodify(abs, ":h"), "p")
       vim.fn.writefile(lines, abs)
       vim.notify("Created " .. rel .. " from " .. source_rev:sub(1, 8), vim.log.levels.INFO)
-      refresh.refresh(explorer)
     end)
   end)
 end
@@ -91,6 +91,12 @@ vim.api.nvim_create_autocmd("FileType", {
       silent = true,
       desc = "CodeDiff create file from source",
     })
+    vim.schedule(function()
+      for _, winid in ipairs(vim.fn.win_findbuf(args.buf)) do
+        vim.wo[winid].number = true
+        vim.wo[winid].relativenumber = true
+      end
+    end)
   end,
 })
 
