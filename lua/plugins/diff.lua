@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 function M.find_window_by_filetype(filetype)
   for i = 1, vim.fn.winnr("$") do
@@ -33,8 +33,8 @@ function M.create_from_source()
   local refresh = require("codediff.ui.refresh")
 
   local tabpage = vim.api.nvim_get_current_tabpage()
-  local explorer = accessors.get_panel_name(tabpage) == "explorer"
-    and accessors.get_panel_view(tabpage)
+  local explorer = lifecycle.get_panel_name(tabpage) == "explorer"
+    and lifecycle.get_panel_view(tabpage)
   if not explorer or not explorer.data.git_root then
     vim.notify("Not in a CodeDiff explorer", vim.log.levels.WARN)
     return
@@ -76,7 +76,10 @@ function M.create_from_source()
         return
       end
       vim.fn.mkdir(vim.fn.fnamemodify(abs, ":h"), "p")
-      vim.fn.writefile(lines, abs)
+      if vim.fn.writefile(lines, abs) == -1 then
+        vim.notify("Failed to write " .. rel, vim.log.levels.ERROR)
+        return
+      end
       vim.notify("Created " .. rel .. " from " .. source_rev:sub(1, 8), vim.log.levels.INFO)
       refresh.request(tabpage, { full = true })
     end)

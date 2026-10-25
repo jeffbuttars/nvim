@@ -66,7 +66,7 @@ function M.all(direction)
   local lines = vim.api.nvim_buf_get_lines(source, 0, -1, false)
   vim.api.nvim_buf_set_lines(target, 0, -1, false, lines)
   if pair.codediff then
-    require("codediff.ui.auto_refresh").trigger(target)
+    require("codediff.ui.refresh").buffer_changed(target)
   end
 end
 
